@@ -215,13 +215,13 @@ let package = Package(
         .library(name: .w3cCSS, targets: [.w3cCSS]),
     ],
     dependencies: [
-        .package(url: "https://github.com/swift-standards/swift-cssom.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-primitives/swift-formatting-primitives.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-primitives/swift-geometry-primitives.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-ieee-754.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-iec-61966.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-foundations/swift-ascii.git", from: "0.0.1"),
-        .package(url: "https://github.com/swift-standards/swift-rfc-4648.git", from: "0.0.1"),
+        .package(path: "../swift-cssom"),
+        .package(path: "../../swift-primitives/swift-formatting-primitives"),
+        .package(path: "../../swift-primitives/swift-geometry-primitives"),
+        .package(path: "../swift-ieee-754"),
+        .package(path: "../swift-iec-61966"),
+        .package(path: "../../swift-foundations/swift-ascii"),
+        .package(path: "../swift-rfc-4648"),
     ],
     targets: [
         // MARK: - Core Modules
