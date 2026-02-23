@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `margin-block-start` property defines the logical block start margin of an element.
 ///

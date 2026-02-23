@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `transform-origin` property sets the origin for an element's transformations.
 ///

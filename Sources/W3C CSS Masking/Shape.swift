@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents a legacy CSS shape value for use with the deprecated `clip` property.
 ///

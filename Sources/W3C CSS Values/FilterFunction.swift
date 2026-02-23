@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// Represents a CSS filter function for applying graphical effects to elements.
 ///

@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-style` property sets whether a font should be styled with a normal, italic,
 /// or oblique face from its font family.

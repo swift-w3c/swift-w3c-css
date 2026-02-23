@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The line-clamp CSS property allows limiting of the contents of a block to the specified number of lines.
 ///

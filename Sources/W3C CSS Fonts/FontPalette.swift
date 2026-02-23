@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-palette` property allows specifying one of the many palettes contained in a color font.
 /// Users can also override the values in a palette or create a new palette by using the @font-palette-values at-rule.

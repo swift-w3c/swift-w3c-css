@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `color-interpolation` property specifies which color space to use for color interpolation
 /// in SVG elements like `<linearGradient>` and `<radialGradient>`.

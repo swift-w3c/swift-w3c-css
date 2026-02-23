@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents the CSS `mask-border-repeat` property, which defines how the mask border image is repeated
 /// or stretched to fill the border area.

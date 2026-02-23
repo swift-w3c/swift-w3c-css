@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `transition` property is a shorthand property for setting the four transition properties
 /// in a single declaration: `transition-property`, `transition-duration`, `transition-timing-function`,

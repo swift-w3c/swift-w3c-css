@@ -1,8 +1,8 @@
 //
 // ScrollPaddingInline.swift
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `scroll-padding-inline` CSS property is a shorthand property that sets the scroll padding of an element
 /// in the inline dimension. This allows the author to exclude regions of the scrollport that are obscured

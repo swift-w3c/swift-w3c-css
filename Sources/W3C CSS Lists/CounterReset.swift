@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `counter-reset` CSS property creates named CSS counters and initializes them to specific values.
 ///

@@ -1,4 +1,4 @@
-import W3C_CSS_Syntax
+public import W3C_CSS_Syntax
 
 /// Represents a CSS @font-feature-values at-rule.
 ///

@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `contain-intrinsic-height` CSS property defines the height of an element that a browser can use for
 /// layout when the element is subject to size containment.

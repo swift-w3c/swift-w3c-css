@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `float` property places an element on the left or right side of its container,
 /// allowing text and inline elements to wrap around it.

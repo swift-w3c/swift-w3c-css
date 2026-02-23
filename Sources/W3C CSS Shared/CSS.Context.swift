@@ -5,9 +5,9 @@
 //  Context wrappers that convert geometry types to CSS value strings.
 //
 
-import Foundation
-import Formatting_Primitives
-import Geometry_Primitives
+public import Foundation
+public import Formatting_Primitives
+public import Geometry_Primitives
 
 /// Helper for formatting numbers in CSS output.
 private func formatNumber(_ value: Double) -> String {

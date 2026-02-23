@@ -1,5 +1,5 @@
-import IEEE_754
-import RFC_4648
+public import IEEE_754
+public import RFC_4648
 
 /// Represents a CSS hexadecimal color notation.
 ///

@@ -1,7 +1,7 @@
 //
 // StrokeMiterlimit.swift
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `stroke-miterlimit` CSS property defines a limit on the ratio of the miter length to the stroke-width
 /// when the shape to be used at the corners of an SVG element's stroked path is a mitered join. If the limit

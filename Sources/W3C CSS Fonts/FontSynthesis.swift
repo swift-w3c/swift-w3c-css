@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-synthesis` shorthand property lets you specify whether or not the browser may synthesize
 /// the bold, italic, small-caps, and/or subscript and superscript typefaces when they are missing

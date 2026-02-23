@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `marker-end` CSS property points to a marker that will be drawn on the last vertex of the element's path.
 ///

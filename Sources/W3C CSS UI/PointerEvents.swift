@@ -5,8 +5,8 @@
 //  Created by Claude on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `pointer-events` CSS property sets under what circumstances (if any)
 /// a particular graphic element can become the target of pointer events.

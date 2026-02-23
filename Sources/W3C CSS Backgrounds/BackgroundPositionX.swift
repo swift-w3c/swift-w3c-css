@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents the CSS `background-position-x` property, which sets the initial horizontal position for background images.
 ///

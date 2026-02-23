@@ -1,4 +1,4 @@
-import W3C_CSS_Values
+public import W3C_CSS_Values
 
 //
 //  File.swift

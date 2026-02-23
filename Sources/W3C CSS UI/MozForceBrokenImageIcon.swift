@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The non-standard CSS `-moz-force-broken-image-icon` property can be used to force the broken
 /// image icon to be shown even when a broken image has an alt attribute.

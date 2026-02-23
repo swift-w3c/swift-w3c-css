@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 29/08/2024.
 //
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// Represents size-related CSS properties, primarily for `width`, `height`, and `object-fit` values.
 ///

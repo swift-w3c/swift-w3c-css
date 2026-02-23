@@ -1,6 +1,6 @@
-import W3C_CSS_Color
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `caret-color` property sets the color of the insertion caret, the visible marker where the next
 /// character typed will be inserted. This is sometimes referred to as the text input cursor.

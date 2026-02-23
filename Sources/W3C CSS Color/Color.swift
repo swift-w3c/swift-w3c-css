@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `color` property sets the foreground color value of an element's text and text decorations,
 /// and sets the `currentcolor` value. `currentcolor` may be used as an indirect value on other

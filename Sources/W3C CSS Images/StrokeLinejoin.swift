@@ -1,7 +1,7 @@
 //
 // StrokeLinejoin.swift
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `stroke-linejoin` CSS property defines the shape to be used at the corners of an SVG element's stroked paths.
 /// If present, it overrides the element's stroke-linejoin attribute.

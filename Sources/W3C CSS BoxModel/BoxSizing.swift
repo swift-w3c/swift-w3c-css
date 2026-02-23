@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `box-sizing` property sets how the total width and height of an element is calculated.
 ///

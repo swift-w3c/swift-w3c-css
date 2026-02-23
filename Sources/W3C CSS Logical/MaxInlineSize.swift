@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `max-inline-size` property defines the maximum size of an element in the inline direction.
 /// When writing mode is horizontal, this refers to the element's maximum width. When writing mode

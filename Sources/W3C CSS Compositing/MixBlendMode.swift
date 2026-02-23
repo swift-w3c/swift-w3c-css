@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `mix-blend-mode` property sets how an element's content should blend with the content
 /// of the element's parent and the element's background.

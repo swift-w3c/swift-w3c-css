@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents the CSS `border-inline-end-width` property, which defines the width of the logical
 /// inline-end border of an element.

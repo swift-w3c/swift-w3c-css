@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `inset-inline-end` property defines the logical inline end offset of an element,
 /// which maps to a physical inset depending on the element's writing mode, directionality,

@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `hyphenate-limit-chars` property specifies the minimum word length to allow hyphenation of words
 /// as well as the minimum number of characters before and after the hyphen.

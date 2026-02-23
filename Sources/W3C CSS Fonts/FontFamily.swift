@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-family` property specifies a prioritized list of font family names and/or generic family names.
 ///

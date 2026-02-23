@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 public enum TextDecorationLine: Property {
     public static let property: String = "text-decoration-line"

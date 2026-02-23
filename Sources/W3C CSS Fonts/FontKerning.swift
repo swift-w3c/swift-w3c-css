@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-kerning` property sets whether the browser should use kerning information
 /// stored in a font.

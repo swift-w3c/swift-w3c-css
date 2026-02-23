@@ -1,4 +1,4 @@
-import W3C_CSS_Syntax
+public import W3C_CSS_Syntax
 
 /// Type-safe extensions for Import to work with Media queries
 extension Import {

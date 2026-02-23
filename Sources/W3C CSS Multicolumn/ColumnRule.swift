@@ -5,10 +5,10 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Backgrounds
-import W3C_CSS_Color
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Backgrounds
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `column-rule` shorthand property sets the width, style, and color of the
 /// line drawn between columns in a multi-column layout.

@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `column-width` property sets the ideal column width in a multi-column layout.
 /// The container will have as many columns as can fit without any of them having a width less than the column-width value.

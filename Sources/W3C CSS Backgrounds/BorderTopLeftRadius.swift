@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents the CSS `border-top-left-radius` property, which rounds the top-left corner of an element.
 ///

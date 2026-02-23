@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS animation-direction property sets whether an animation should play
 /// forward, backward, or alternate back and forth between playing the sequence forward and backward.

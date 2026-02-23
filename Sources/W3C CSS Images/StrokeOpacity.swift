@@ -1,8 +1,8 @@
 //
 // StrokeOpacity.swift
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `stroke-opacity` CSS property defines the opacity of an SVG shape's stroke. The effect is identical to that
 /// of `opacity`, except it is applied only to the stroke, not to the entire element.

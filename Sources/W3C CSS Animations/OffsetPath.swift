@@ -1,6 +1,6 @@
-import W3C_CSS_Masking
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Masking
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `offset-path` property specifies a path for an element to follow and
 /// determines the element's positioning within the parent container or SVG coordinate system.

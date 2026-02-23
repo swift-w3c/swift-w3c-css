@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `fill-opacity` CSS property defines the opacity of the fill applied to SVG shapes
 /// and text content elements.

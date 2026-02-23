@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents the CSS `mask-border-slice` property, which divides a mask border image into regions
 /// that form the components of an element's mask border.

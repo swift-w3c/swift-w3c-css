@@ -1,7 +1,7 @@
-import W3C_CSS_Color
-import W3C_CSS_Images
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Color
+public import W3C_CSS_Images
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// Represents the CSS `background` shorthand property, which sets all background style properties at once.
 ///

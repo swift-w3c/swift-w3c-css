@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `grid-template-areas` property specifies named grid areas, establishing the cells in the grid and assigning them names.
 ///

@@ -5,10 +5,10 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Backgrounds
-import W3C_CSS_Color
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Backgrounds
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The non-standard `-webkit-border-before` CSS property is a shorthand property for setting
 /// border properties for the logical block-start edge of an element.

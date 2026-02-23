@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS animation-range-end property is used to set the end of an animation's attachment range
 /// along its timeline, i.e. where along the timeline an animation will end.

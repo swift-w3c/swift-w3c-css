@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-variation-settings` property provides low-level control over variable font characteristics
 /// by specifying the four-letter axis names of the characteristics you want to vary along with their values.

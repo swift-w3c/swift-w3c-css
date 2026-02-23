@@ -5,7 +5,7 @@
 //  Created by Claude on 28/03/2025.
 //
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `scale` CSS property allows you to specify scale transforms individually and independently
 /// of the transform property.

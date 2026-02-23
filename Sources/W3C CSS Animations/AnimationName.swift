@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS animation-name property specifies the names of one or more @keyframes at-rules
 /// describing the animation or animations to apply to the element.

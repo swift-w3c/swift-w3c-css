@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `text-shadow` property adds shadows to text. It accepts a comma-separated list of shadows
 /// to be applied to the text and any of its decorations. Each shadow is described by some combination

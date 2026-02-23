@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `flex-grow` property defines how much a flex item will grow relative to the rest of the flex items in the container.
 ///

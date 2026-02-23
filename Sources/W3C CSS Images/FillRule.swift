@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `fill-rule` CSS property defines the algorithm used to determine which parts of an SVG shape
 /// are considered "inside" and should be filled.

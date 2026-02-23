@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-variant-ligatures` property controls which ligatures and contextual forms
 /// are used in the textual content of the elements it applies to.

@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS align-self property overrides a grid or flex item's align-items value.
 ///

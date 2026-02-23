@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `clip` property defines a visible portion of an element.
 /// The clip property applies only to absolutely positioned elements

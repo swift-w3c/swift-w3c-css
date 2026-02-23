@@ -5,8 +5,8 @@
 //  Created by Claude on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `scroll-margin-block` shorthand property sets the scroll margins of an element
 /// in the block dimension.

@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `columns` shorthand property sets the number of columns to use when drawing an element's contents,
 /// as well as those columns' widths.

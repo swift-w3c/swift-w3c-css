@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `opacity` property sets the opacity of an element. Opacity is the degree to
 /// which content behind an element is hidden, and is the opposite of transparency.

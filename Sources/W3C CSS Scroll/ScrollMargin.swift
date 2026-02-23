@@ -5,8 +5,8 @@
 //  Created by Claude on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `scroll-margin` shorthand property sets all of the scroll margins of an element at once,
 /// assigning values much like the margin property does for margins of an element.

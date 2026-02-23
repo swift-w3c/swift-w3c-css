@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS place-content shorthand property allows you to align content along both the block
 /// and inline directions at once (i.e. the align-content and justify-content properties).

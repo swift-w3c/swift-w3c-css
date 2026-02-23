@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS justify-items property defines the default justify-self for all direct children as a group.
 ///

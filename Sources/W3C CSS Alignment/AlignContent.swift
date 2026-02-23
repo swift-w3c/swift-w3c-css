@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS align-content property sets the distribution of space between and around content items
 /// along a flexbox's cross axis, or a grid or block-level element's block axis.

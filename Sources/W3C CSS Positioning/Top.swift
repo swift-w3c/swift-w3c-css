@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `top` property sets the vertical position of a positioned element.
 /// This inset property has no effect on non-positioned elements.

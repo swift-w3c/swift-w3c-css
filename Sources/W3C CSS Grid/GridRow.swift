@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `grid-row` shorthand property specifies a grid item's size and location within
 /// a grid by contributing a line, a span, or nothing (automatic) to its grid placement,

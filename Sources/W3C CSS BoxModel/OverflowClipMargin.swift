@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `overflow-clip-margin` CSS property determines how far outside its bounds an element with
 /// `overflow: clip` may be painted before being clipped. The bound defined by this property is called

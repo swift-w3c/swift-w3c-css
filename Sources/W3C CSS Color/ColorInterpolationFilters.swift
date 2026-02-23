@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `color-interpolation-filters` property specifies the color space for imaging operations
 /// performed via SVG filter effects.

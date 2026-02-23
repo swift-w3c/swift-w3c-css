@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `flex-flow` property is a shorthand for the `flex-direction` and `flex-wrap` properties.
 ///

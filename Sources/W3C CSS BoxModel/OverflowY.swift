@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `overflow-y` CSS property sets what shows when content overflows a block-level element's
 /// top and bottom edges. This may be nothing, a scroll bar, or the overflow content.

@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `contain` CSS property indicates that an element and its contents are, as much as possible,
 /// independent from the rest of the document tree.

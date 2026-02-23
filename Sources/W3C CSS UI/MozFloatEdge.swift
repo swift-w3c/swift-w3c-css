@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The non-standard CSS `-moz-float-edge` property specifies whether the height and width
 /// properties of the element include the margin, border, or padding thickness.

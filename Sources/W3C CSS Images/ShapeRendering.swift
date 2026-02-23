@@ -1,7 +1,7 @@
 //
 // ShapeRendering.swift
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `shape-rendering` CSS property provides hints to the renderer about what tradeoffs to make when rendering
 /// shapes like paths, circles, or rectangles. It only has an effect on the SVG elements like `<circle>`, `<ellipse>`,

@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS animation-range shorthand property is used to set the start and end of an animation's
 /// attachment range along its timeline, i.e. where along the timeline an animation will start and end.

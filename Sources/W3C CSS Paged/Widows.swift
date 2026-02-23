@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `widows` property sets the minimum number of lines in a block container that must be shown
 /// at the top of a page, region, or column.

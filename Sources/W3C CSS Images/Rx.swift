@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `rx` property defines the x-axis (horizontal) radius of an SVG ellipse
 /// and the horizontal curve of the corners of an SVG rectangle.

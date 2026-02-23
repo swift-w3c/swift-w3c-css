@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `hanging-punctuation` property specifies whether a punctuation mark should hang
 /// at the start or end of a line of text.

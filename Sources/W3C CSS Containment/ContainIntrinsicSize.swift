@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `contain-intrinsic-size` CSS shorthand property sets the size of an element that a browser will use for layout when
 /// the element is subject to size containment.

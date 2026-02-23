@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS place-self shorthand property allows you to align an individual item in both
 /// the block and inline directions at once (i.e. the align-self and justify-self properties).

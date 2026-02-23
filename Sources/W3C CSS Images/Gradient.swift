@@ -1,4 +1,4 @@
-import W3C_CSS_Values
+public import W3C_CSS_Values
 
 /// Represents a CSS gradient, a special type of image that consists of a progressive transition between colors.
 ///

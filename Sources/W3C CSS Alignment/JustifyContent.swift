@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS justify-content property defines how the browser distributes space between and around
 /// content items along the main axis of a flex container and the inline axis of grid and multicol containers.

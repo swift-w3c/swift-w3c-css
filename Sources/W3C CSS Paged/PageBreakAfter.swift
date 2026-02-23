@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `page-break-after` property adjusts page breaks after the current element.
 ///

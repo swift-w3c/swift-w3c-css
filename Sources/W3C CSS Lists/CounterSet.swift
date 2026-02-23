@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `counter-set` CSS property sets CSS counters to given values.
 ///

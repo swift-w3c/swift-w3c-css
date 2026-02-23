@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `dominant-baseline` CSS property specifies the baseline used to align a box's text
 /// and inline-level content.

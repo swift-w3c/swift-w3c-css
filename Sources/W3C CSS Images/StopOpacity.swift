@@ -1,8 +1,8 @@
 //
 // StopOpacity.swift
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `stop-opacity` CSS property defines the opacity of a given color gradient stop in the SVG `<stop>` element
 /// within an SVG gradient. If present, it overrides the element's stop-opacity attribute.

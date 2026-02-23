@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `inset-inline` property is a shorthand that defines the logical inline start and end
 /// offsets of an element, which map to physical offsets depending on the element's writing mode,

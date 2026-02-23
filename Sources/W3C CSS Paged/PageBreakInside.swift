@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `page-break-inside` property adjusts page breaks inside the current element.
 ///

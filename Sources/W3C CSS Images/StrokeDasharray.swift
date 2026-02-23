@@ -5,8 +5,8 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `stroke-dasharray` property defines a pattern of dashes and gaps used in the painting
 /// of an SVG shape's stroke. If present, it overrides the element's stroke-dasharray attribute.

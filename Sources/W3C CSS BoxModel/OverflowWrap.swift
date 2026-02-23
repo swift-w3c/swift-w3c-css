@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `overflow-wrap` property applies to text, setting whether the browser should insert
 /// line breaks within an otherwise unbreakable string to prevent text from overflowing its line box.

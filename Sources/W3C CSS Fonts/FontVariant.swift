@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-variant` shorthand property allows you to set all the font variants for a font.
 ///

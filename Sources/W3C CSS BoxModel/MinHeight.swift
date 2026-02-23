@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `min-height` property sets the minimum height of an element. It prevents
 /// the used value of the height property from becoming smaller than the value specified for min-height.

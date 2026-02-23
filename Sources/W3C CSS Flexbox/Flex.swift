@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `flex` property is a shorthand property that sets how a flex item will grow or shrink to fit the available space in its flex container.
 ///

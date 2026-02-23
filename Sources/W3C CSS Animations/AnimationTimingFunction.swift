@@ -1,6 +1,6 @@
-import W3C_CSS_Easing
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Easing
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS animation-timing-function property sets how an animation progresses through the duration of each cycle.
 ///

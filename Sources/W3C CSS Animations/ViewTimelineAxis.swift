@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS view-timeline-axis property specifies the scrollbar direction that provides the timeline
 /// for a named view progress timeline animation, which is progressed based on the visibility of a subject

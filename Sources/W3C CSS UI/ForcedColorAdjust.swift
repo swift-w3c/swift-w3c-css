@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `forced-color-adjust` property allows authors to opt certain elements out of
 /// forced colors mode, which is an accessibility feature that limits the color palette.

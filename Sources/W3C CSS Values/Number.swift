@@ -1,5 +1,5 @@
-import Foundation
-import IEEE_754
+public import Foundation
+public import IEEE_754
 
 /// Represents a CSS number value.
 ///

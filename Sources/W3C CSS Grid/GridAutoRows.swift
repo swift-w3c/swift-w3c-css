@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `grid-auto-rows` property specifies the size of an implicitly-created grid row track or pattern of tracks.
 ///

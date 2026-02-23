@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `clip-path` property creates a clipping region that sets what part of an element should be shown.
 /// Parts that are inside the region are shown, while those outside are hidden.

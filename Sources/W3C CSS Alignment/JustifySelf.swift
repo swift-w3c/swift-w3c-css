@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS justify-self property sets the way a box is justified inside its alignment container along the inline axis.
 ///

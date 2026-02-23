@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `list-style-type` CSS property sets the marker (such as a disc, character, or custom
 /// counter style) of a list item element.

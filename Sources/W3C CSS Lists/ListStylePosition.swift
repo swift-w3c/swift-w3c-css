@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `list-style-position` property sets the position of the marker relative to the list item.
 ///

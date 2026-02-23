@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `flood-color` property defines the color used in filter effects for the
 /// `<feFlood>` and `<feDropShadow>` SVG filter elements.

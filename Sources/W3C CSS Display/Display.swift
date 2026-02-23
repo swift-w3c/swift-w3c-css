@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `display` CSS property sets how an element is treated in the layout flow
 /// and how its children are laid out.

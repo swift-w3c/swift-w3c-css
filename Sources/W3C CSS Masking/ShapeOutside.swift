@@ -1,8 +1,8 @@
 //
 // ShapeOutside.swift
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `shape-outside` CSS property defines a shape—which may be non-rectangular—around which adjacent
 /// inline content should wrap. By default, inline content wraps around its margin box; shape-outside provides

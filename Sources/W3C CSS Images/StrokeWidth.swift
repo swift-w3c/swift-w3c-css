@@ -1,8 +1,8 @@
 //
 // StrokeWidth.swift
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `stroke-width` CSS property defines the width of a stroke applied to SVG shapes.
 /// If present, it overrides the element's stroke-width attribute.

@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `overflow-block` CSS property sets what shows when content overflows the block start
 /// and block end edges of a box. This may be nothing, a scroll bar, or the overflow content.

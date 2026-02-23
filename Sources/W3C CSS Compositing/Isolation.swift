@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The isolation CSS property determines whether an element must create a new stacking context.
 ///

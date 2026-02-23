@@ -1,8 +1,8 @@
 //
 // ShapeMargin.swift
 
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `shape-margin` CSS property sets a margin for a CSS shape created using `shape-outside`.
 /// The margin lets you adjust the distance between the edges of the shape (the float element)

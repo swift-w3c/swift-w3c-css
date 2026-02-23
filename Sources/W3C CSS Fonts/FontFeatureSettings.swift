@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-feature-settings` property controls advanced typographic features in OpenType fonts.
 ///

@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The `overflow-inline` CSS property sets what shows when content overflows the inline start
 /// and end edges of a box. This may be nothing, a scroll bar, or the overflow content.

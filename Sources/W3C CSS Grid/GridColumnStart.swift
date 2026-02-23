@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `grid-column-start` property specifies a grid item's start position within the
 /// grid column by contributing a line, a span, or nothing (automatic) to its grid placement.

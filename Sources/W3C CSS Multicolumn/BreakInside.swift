@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `break-inside` property sets how page, column, or region breaks should behave inside a generated box.
 /// If there is no generated box, the property is ignored.

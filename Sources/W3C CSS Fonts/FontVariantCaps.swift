@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-variant-caps` property controls the use of alternate glyphs for capital letters.
 ///

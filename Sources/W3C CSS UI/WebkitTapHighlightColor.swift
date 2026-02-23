@@ -5,9 +5,9 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Color
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The non-standard CSS `-webkit-tap-highlight-color` property sets the color of the highlight
 /// that appears over a link or interactive element while it's being tapped on mobile devices.

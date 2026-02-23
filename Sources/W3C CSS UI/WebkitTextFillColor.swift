@@ -5,9 +5,9 @@
 //  Created by Coen ten Thije Boonkkamp on 28/03/2025.
 //
 
-import W3C_CSS_Color
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `-webkit-text-fill-color` property specifies the fill color of characters of text.
 /// If this property is not set, the value of the `color` property is used.

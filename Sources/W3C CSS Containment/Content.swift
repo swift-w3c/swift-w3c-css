@@ -1,6 +1,6 @@
-import W3C_CSS_Lists
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Lists
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The `content` CSS property replaces an element's content with generated content.
 ///

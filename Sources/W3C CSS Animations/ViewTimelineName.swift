@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS view-timeline-name property defines the name of a named view progress timeline, which
 /// is progressed through based on the change in visibility of an element (subject) inside a scrollable

@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `letter-spacing-east-asian` property controls the spacing behavior specifically
 /// for East Asian text (Chinese, Japanese, Korean).

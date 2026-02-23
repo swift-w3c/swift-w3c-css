@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `paint-order` property lets you control the order in which the fill and stroke
 /// (and painting markers) of text content and shapes are drawn.

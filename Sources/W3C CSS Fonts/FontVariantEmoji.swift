@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 
 /// The CSS `font-variant-emoji` property specifies the default presentation style for displaying emojis.
 ///

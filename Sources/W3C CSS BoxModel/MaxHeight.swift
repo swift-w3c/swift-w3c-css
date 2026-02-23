@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `max-height` property sets the maximum height of an element. It prevents
 /// the used value of the height property from becoming larger than the value specified for max-height.

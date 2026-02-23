@@ -1,5 +1,5 @@
-import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
 
 /// The CSS `padding-inline` shorthand property defines the logical inline start and end padding of an element,
 /// which maps to physical padding properties depending on the element's writing mode, directionality, and text orientation.
