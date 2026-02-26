@@ -527,7 +527,235 @@ let package = Package(
                 .w3cCSSCounterStyles,
                 .w3cCSSPaged
             ]
-        )
+        ),
+        .testTarget(
+            name: "W3C CSS Alignment Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Animations Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Backgrounds Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS BoxModel Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Cascade Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Color Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Compositing Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Conditional Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Containment Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS CounterStyles Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Display Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Easing Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Filters Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Flexbox Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Fonts Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Grid Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Images Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Lists Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Logical Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Masking Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS MediaQueries Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Multicolumn Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Paged Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Positioning Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS PseudoClasses Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS PseudoElements Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Scroll Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Selectors Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Shared Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Syntax Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Text Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS TextDecoration Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Transforms Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Transitions Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS UI Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Values Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS Variables Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
+        .testTarget(
+            name: "W3C CSS WritingModes Tests",
+            dependencies: [
+                "W3C CSS Shared",
+            ]
+        ),
     ],
     swiftLanguageModes: [.v6]
 )
@@ -538,6 +766,7 @@ for target in package.targets where ![.system, .binary, .plugin, .macro].contain
         .enableUpcomingFeature("ExistentialAny"),
         .enableUpcomingFeature("InternalImportsByDefault"),
         .enableUpcomingFeature("MemberImportVisibility"),
+        .enableUpcomingFeature("NonisolatedNonsendingByDefault"),
         .enableExperimentalFeature("Lifetimes"),
         .enableExperimentalFeature("SuppressedAssociatedTypes"),
         .enableExperimentalFeature("SuppressedAssociatedTypesWithDefaults"),
