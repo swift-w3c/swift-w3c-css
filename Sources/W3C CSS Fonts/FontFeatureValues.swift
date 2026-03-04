@@ -56,8 +56,18 @@ public struct FontFeatureValues: AtRule {
             }
 
             // Split by comma and trim each family name
-            self.families = familiesString.split(separator: ",").map { family in
-                var trimmed = String(family)
+            let famBytes = Array(familiesString.utf8)
+            var famResults: [String] = []
+            var famStart = 0
+            for idx in 0..<famBytes.count {
+                if famBytes[idx] == 0x2C {  // ','
+                    famResults.append(String(decoding: famBytes[famStart..<idx], as: UTF8.self))
+                    famStart = idx &+ 1
+                }
+            }
+            famResults.append(String(decoding: famBytes[famStart..<famBytes.count], as: UTF8.self))
+            self.families = famResults.map { family in
+                var trimmed = family
                 while trimmed.first?.isWhitespace == true {
                     trimmed = String(trimmed.dropFirst())
                 }
