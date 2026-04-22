@@ -1,0 +1,19 @@
+name: Swift Format
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+concurrency:
+  group: swift-format-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  # swift-format + auto-commit — see
+  # swift-institute/.github/.github/workflows/swift-format.yml
+  format:
+    uses: swift-institute/.github/.github/workflows/swift-format.yml@v1
+    secrets:
+      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
