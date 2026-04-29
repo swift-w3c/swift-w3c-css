@@ -17,5 +17,3 @@ jobs:
     permissions:
       contents: write
     uses: swift-institute/.github/.github/workflows/swift-format.yml@v1
-    secrets:
-      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}

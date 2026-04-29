@@ -18,5 +18,3 @@ jobs:
   # swift-institute/.github/.github/workflows/swiftlint.yml
   lint:
     uses: swift-institute/.github/.github/workflows/swiftlint.yml@v1
-    secrets:
-      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
