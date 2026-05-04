@@ -16,4 +16,4 @@ jobs:
   format:
     permissions:
       contents: write
-    uses: swift-institute/.github/.github/workflows/swift-format.yml@v1
+    uses: swift-institute/.github/.github/workflows/swift-format.yml@main

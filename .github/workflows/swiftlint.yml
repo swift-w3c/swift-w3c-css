@@ -17,4 +17,4 @@ jobs:
   # SwiftLint strict — see
   # swift-institute/.github/.github/workflows/swiftlint.yml
   lint:
-    uses: swift-institute/.github/.github/workflows/swiftlint.yml@v1
+    uses: swift-institute/.github/.github/workflows/swiftlint.yml@main
