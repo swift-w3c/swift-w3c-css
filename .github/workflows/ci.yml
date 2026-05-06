@@ -14,25 +14,13 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  # Build + test matrix — see swift-institute/.github/.github/workflows/swift-ci.yml
+  # Build + test matrix — see swift-standards/.github/.github/workflows/swift-ci.yml (layer wrapper)
   ci:
-    uses: swift-institute/.github/.github/workflows/swift-ci.yml@main
-    with:
-      cache-key-prefix: swift63-spm-v1
-      enable-private-repos: true
-    secrets:
-      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+    uses: swift-standards/.github/.github/workflows/swift-ci.yml@main
+    secrets: inherit
 
   # DocC umbrella-catalog pipeline per [DOC-019a] — see
   # swift-institute/.github/.github/workflows/swift-docs.yml
   docs:
     uses: swift-institute/.github/.github/workflows/swift-docs.yml@main
-    with:
-      umbrella-module: W3C_CSS
-      umbrella-display-name: "W3C CSS"
-      umbrella-bundle-id: "swift-w3c-css.W3C-CSS"
-      umbrella-docc-path: "Sources/W3C CSS/W3C CSS.docc"
-      exclude-modules: ""
-      enable-private-repos: true
-    secrets:
-      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+    secrets: inherit
