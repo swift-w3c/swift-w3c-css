@@ -8,11 +8,6 @@
 public import Format_Primitives
 public import Geometry_Primitives
 
-/// Helper for formatting numbers in CSS output.
-private func formatNumber(_ value: Double) -> String {
-    value.formatted(.number)
-}
-
 // MARK: - Circle Context
 
 extension Geometry.Ball where N == 2, Scalar == Double, Space == W3C_CSS.Space {
@@ -33,8 +28,8 @@ extension Geometry.Ball where N == 2, Scalar == Double, Space == W3C_CSS.Space {
         ///
         /// Example output: `"circle(50px at 100px 100px)"`
         public var clipPath: String? {
-            guard circle.radius.rawValue >= 0 else { return nil }
-            return "circle(\(formatNumber(circle.radius.rawValue))px at \(formatNumber(circle.center.x.rawValue))px \(formatNumber(circle.center.y.rawValue))px)"
+            guard circle.radius.underlying >= 0 else { return nil }
+            return "circle(\(circle.radius.formatted(.number))px at \(circle.center.x.formatted(.number))px \(circle.center.y.formatted(.number))px)"
         }
     }
 }
@@ -60,14 +55,14 @@ extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Sp
         /// Note: CSS inset() uses distances from edges, not coordinates.
         /// This assumes a reference box and computes insets accordingly.
         public func inset(referenceWidth: Double, referenceHeight: Double) -> String? {
-            guard rectangle.width.rawValue >= 0, rectangle.height.rawValue >= 0 else { return nil }
+            guard rectangle.width.underlying >= 0, rectangle.height.underlying >= 0 else { return nil }
 
-            let top = rectangle.lly.rawValue
-            let left = rectangle.llx.rawValue
-            let bottom = referenceHeight - (rectangle.lly.rawValue + rectangle.height.rawValue)
-            let right = referenceWidth - (rectangle.llx.rawValue + rectangle.width.rawValue)
+            let top = rectangle.lly.underlying
+            let left = rectangle.llx.underlying
+            let bottom = referenceHeight - (rectangle.lly.underlying + rectangle.height.underlying)
+            let right = referenceWidth - (rectangle.llx.underlying + rectangle.width.underlying)
 
-            return "inset(\(formatNumber(top))px \(formatNumber(right))px \(formatNumber(bottom))px \(formatNumber(left))px)"
+            return "inset(\(top.formatted(.number))px \(right.formatted(.number))px \(bottom.formatted(.number))px \(left.formatted(.number))px)"
         }
 
         /// Convert to a CSS clip-path xywh value string.
@@ -76,8 +71,8 @@ extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Sp
         ///
         /// Example output: `"xywh(10px 20px 200px 100px)"`
         public var xywh: String? {
-            guard rectangle.width.rawValue >= 0, rectangle.height.rawValue >= 0 else { return nil }
-            return "xywh(\(formatNumber(rectangle.llx.rawValue))px \(formatNumber(rectangle.lly.rawValue))px \(formatNumber(rectangle.width.rawValue))px \(formatNumber(rectangle.height.rawValue))px)"
+            guard rectangle.width.underlying >= 0, rectangle.height.underlying >= 0 else { return nil }
+            return "xywh(\(rectangle.llx.formatted(.number))px \(rectangle.lly.formatted(.number))px \(rectangle.width.formatted(.number))px \(rectangle.height.formatted(.number))px)"
         }
     }
 }
@@ -102,8 +97,8 @@ extension Geometry.Ellipse where Scalar == Double, Space == W3C_CSS.Space {
         ///
         /// Example output: `"ellipse(100px 50px at 200px 150px)"`
         public var clipPath: String? {
-            guard ellipse.semiMajor.rawValue >= 0, ellipse.semiMinor.rawValue >= 0 else { return nil }
-            return "ellipse(\(formatNumber(ellipse.semiMajor.rawValue))px \(formatNumber(ellipse.semiMinor.rawValue))px at \(formatNumber(ellipse.center.x.rawValue))px \(formatNumber(ellipse.center.y.rawValue))px)"
+            guard ellipse.semiMajor.underlying >= 0, ellipse.semiMinor.underlying >= 0 else { return nil }
+            return "ellipse(\(ellipse.semiMajor.formatted(.number))px \(ellipse.semiMinor.formatted(.number))px at \(ellipse.center.x.formatted(.number))px \(ellipse.center.y.formatted(.number))px)"
         }
     }
 }
@@ -127,7 +122,7 @@ extension Geometry.Polygon where Scalar == Double, Space == W3C_CSS.Space {
         /// Example output: `"polygon(0px 0px, 100px 0px, 100px 100px, 0px 100px)"`
         public var clipPath: String {
             let pointsStr = polygon.vertices.map { vertex in
-                "\(formatNumber(vertex.x.rawValue))px \(formatNumber(vertex.y.rawValue))px"
+                "\(vertex.x.formatted(.number))px \(vertex.y.formatted(.number))px"
             }.joined(separator: ", ")
             return "polygon(\(pointsStr))"
         }
@@ -162,42 +157,42 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                 } else {
                     d += " M"
                 }
-                d += " \(formatNumber(subpath.startPoint.x.rawValue)) \(formatNumber(subpath.startPoint.y.rawValue))"
+                d += " \(subpath.startPoint.x.formatted(.number)) \(subpath.startPoint.y.formatted(.number))"
 
                 // Add segments
                 for segment in subpath.segments {
                     switch segment {
                     case .line(let seg):
-                        d += " L \(formatNumber(seg.end.x.rawValue)) \(formatNumber(seg.end.y.rawValue))"
+                        d += " L \(seg.end.x.formatted(.number)) \(seg.end.y.formatted(.number))"
 
                     case .bezier(let bez):
                         // Convert bezier to path commands based on degree
                         switch bez.controlPoints.count {
                         case 2: // Linear (should use line instead, but handle it)
                             if let end = bez.controlPoints.last {
-                                d += " L \(formatNumber(end.x.rawValue)) \(formatNumber(end.y.rawValue))"
+                                d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
                         case 3: // Quadratic
                             if bez.controlPoints.count >= 3 {
                                 let cp = bez.controlPoints[1]
                                 let end = bez.controlPoints[2]
-                                d += " Q \(formatNumber(cp.x.rawValue)) \(formatNumber(cp.y.rawValue))"
-                                d += " \(formatNumber(end.x.rawValue)) \(formatNumber(end.y.rawValue))"
+                                d += " Q \(cp.x.formatted(.number)) \(cp.y.formatted(.number))"
+                                d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
                         case 4: // Cubic
                             if bez.controlPoints.count >= 4 {
                                 let cp1 = bez.controlPoints[1]
                                 let cp2 = bez.controlPoints[2]
                                 let end = bez.controlPoints[3]
-                                d += " C \(formatNumber(cp1.x.rawValue)) \(formatNumber(cp1.y.rawValue))"
-                                d += " \(formatNumber(cp2.x.rawValue)) \(formatNumber(cp2.y.rawValue))"
-                                d += " \(formatNumber(end.x.rawValue)) \(formatNumber(end.y.rawValue))"
+                                d += " C \(cp1.x.formatted(.number)) \(cp1.y.formatted(.number))"
+                                d += " \(cp2.x.formatted(.number)) \(cp2.y.formatted(.number))"
+                                d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
                         default:
                             // Higher-degree beziers: approximate with cubic segments
                             // For now, just draw to end point
                             if let end = bez.controlPoints.last {
-                                d += " L \(formatNumber(end.x.rawValue)) \(formatNumber(end.y.rawValue))"
+                                d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
                         }
 
@@ -205,12 +200,12 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                         // Approximate arc with line to endpoint for simplicity
                         // (Full arc support would require SVG arc command conversion)
                         let end = arc.endPoint
-                        d += " L \(formatNumber(end.x.rawValue)) \(formatNumber(end.y.rawValue))"
+                        d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
 
                     case .ellipticalArc(let arc):
                         // Approximate with line to endpoint
                         let end = arc.endPoint
-                        d += " L \(formatNumber(end.x.rawValue)) \(formatNumber(end.y.rawValue))"
+                        d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                     }
                 }
 
