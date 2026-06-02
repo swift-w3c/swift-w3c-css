@@ -217,13 +217,13 @@ let package = Package(
         .library(name: "W3C CSS", targets: ["W3C CSS"])
     ],
     dependencies: [
-        .package(path: "../swift-w3c-cssom"),
-        .package(path: "../../swift-primitives/swift-format-primitives"),
-        .package(path: "../../swift-primitives/swift-geometry-primitives"),
-        .package(path: "../../swift-ieee/swift-ieee-754"),
-        .package(path: "../../swift-iec/swift-iec-61966"),
-        .package(path: "../../swift-primitives/swift-ascii-primitives"),
-        .package(path: "../../swift-ietf/swift-rfc-4648")
+        .package(url: "https://github.com/swift-w3c/swift-w3c-cssom.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-format-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-geometry-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-ieee/swift-ieee-754.git", branch: "main"),
+        .package(url: "https://github.com/swift-iec/swift-iec-61966.git", branch: "main"),
+        .package(url: "https://github.com/swift-primitives/swift-ascii-primitives.git", branch: "main"),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main")
     ],
     targets: [
         // MARK: - Core Modules
