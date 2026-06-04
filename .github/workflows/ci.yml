@@ -17,10 +17,18 @@ jobs:
   # Build + test matrix — see swift-standards/.github/.github/workflows/swift-ci.yml (layer wrapper)
   ci:
     uses: swift-standards/.github/.github/workflows/swift-ci.yml@main
-    secrets: inherit
+    secrets:
+      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+      SWIFT_INSTITUTE_BOT_APP_CLIENT_ID: ${{ secrets.SWIFT_INSTITUTE_BOT_APP_CLIENT_ID }}
+      SWIFT_INSTITUTE_BOT_APP_ID: ${{ secrets.SWIFT_INSTITUTE_BOT_APP_ID }}
+      SWIFT_INSTITUTE_BOT_APP_PRIVATE_KEY: ${{ secrets.SWIFT_INSTITUTE_BOT_APP_PRIVATE_KEY }}
 
   # DocC umbrella-catalog pipeline per [DOC-019a] — see
-  # swift-institute/.github/.github/workflows/swift-docs.yml
+  # swift-standards/.github/.github/workflows/swift-docs.yml
   docs:
-    uses: swift-institute/.github/.github/workflows/swift-docs.yml@main
-    secrets: inherit
+    uses: swift-standards/.github/.github/workflows/swift-docs.yml@main
+    secrets:
+      PRIVATE_REPO_TOKEN: ${{ secrets.PRIVATE_REPO_TOKEN }}
+      SWIFT_INSTITUTE_BOT_APP_CLIENT_ID: ${{ secrets.SWIFT_INSTITUTE_BOT_APP_CLIENT_ID }}
+      SWIFT_INSTITUTE_BOT_APP_ID: ${{ secrets.SWIFT_INSTITUTE_BOT_APP_ID }}
+      SWIFT_INSTITUTE_BOT_APP_PRIVATE_KEY: ${{ secrets.SWIFT_INSTITUTE_BOT_APP_PRIVATE_KEY }}
