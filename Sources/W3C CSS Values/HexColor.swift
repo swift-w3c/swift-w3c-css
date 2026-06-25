@@ -42,12 +42,12 @@ public struct HexColor: Sendable, Hashable {
     ///   - blue: The blue component (0-255)
     /// - Returns: A HexColor in 6-digit format (#RRGGBB)
     public static func rgb(_ red: Int, _ green: Int, _ blue: Int) -> HexColor {
-        let bytes: [UInt8] = [
-            UInt8(min(max(0, red), 255)),
-            UInt8(min(max(0, green), 255)),
-            UInt8(min(max(0, blue), 255)),
+        let bytes: [Byte] = [
+            Byte(UInt8(min(max(0, red), 255))),
+            Byte(UInt8(min(max(0, green), 255))),
+            Byte(UInt8(min(max(0, blue), 255))),
         ]
-        let hexBytes: [UInt8] = RFC_4648.Base16.encode(bytes, uppercase: true)
+        let hexBytes: [ASCII.Code] = RFC_4648.Base16.encode(bytes, uppercase: true)
         let hexString = "#" + String(decoding: hexBytes, as: UTF8.self)
         return HexColor(hexString)
     }
@@ -66,13 +66,13 @@ public struct HexColor: Sendable, Hashable {
             (min(max(0.0, alpha), 1.0) * 255).rounded()
         )
 
-        let bytes: [UInt8] = [
-            UInt8(min(max(0, red), 255)),
-            UInt8(min(max(0, green), 255)),
-            UInt8(min(max(0, blue), 255)),
-            UInt8(alphaInt),
+        let bytes: [Byte] = [
+            Byte(UInt8(min(max(0, red), 255))),
+            Byte(UInt8(min(max(0, green), 255))),
+            Byte(UInt8(min(max(0, blue), 255))),
+            Byte(UInt8(alphaInt)),
         ]
-        let hexBytes: [UInt8] = RFC_4648.Base16.encode(bytes, uppercase: true)
+        let hexBytes: [ASCII.Code] = RFC_4648.Base16.encode(bytes, uppercase: true)
         let hexString = "#" + String(decoding: hexBytes, as: UTF8.self)
         return HexColor(hexString)
     }
