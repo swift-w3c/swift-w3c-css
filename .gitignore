@@ -28,6 +28,7 @@ Thumbs.db
 !/Skills/
 !/.github/
 !/Package.swift
+!/Lint.swift
 !/LICENSE.md
 !/README.md
 
