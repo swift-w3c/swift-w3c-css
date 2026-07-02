@@ -1,6 +1,6 @@
 # .github/metadata.yaml
 # Triaged by AI-assisted bulk pass (2026-04-29).
-description: "Swift implementation of W3C CSS."
+description: "Modular implementations of 40+ W3C CSS module specifications — Cascade, Selectors, Color, Flexbox, Grid, Animations, Transforms, and more — for Swift."
 topics:
   - standards
   - w3c
