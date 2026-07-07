@@ -28,13 +28,13 @@ public enum ScrollMargin: Property, LengthConvertible, ExpressibleByIntegerLiter
     case all(Length)
 
     /// Two length values for vertical and horizontal sides (top/bottom, left/right)
-    case vertical_horizontal(Length, Length)
+    case verticalHorizontal(Length, Length)
 
     /// Three length values for top, horizontal sides (left/right), and bottom
-    case top_horizontal_bottom(Length, Length, Length)
+    case topHorizontalBottom(Length, Length, Length)
 
     /// Four length values for top, right, bottom, and left sides
-    case top_right_bottom_left(Length, Length, Length, Length)
+    case topRightBottomLeft(Length, Length, Length, Length)
 
     /// Global CSS value
     case global(Global)
@@ -43,11 +43,11 @@ public enum ScrollMargin: Property, LengthConvertible, ExpressibleByIntegerLiter
         switch self {
         case .all(let value):
             return value.description
-        case .vertical_horizontal(let vertical, let horizontal):
+        case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
-        case .top_horizontal_bottom(let top, let horizontal, let bottom):
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
-        case .top_right_bottom_left(let top, let right, let bottom, let left):
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         case .global(let global):

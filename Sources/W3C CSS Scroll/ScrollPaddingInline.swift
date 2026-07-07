@@ -25,7 +25,7 @@ public enum ScrollPaddingInline: Property, LengthPercentageConvertible, CustomSt
     case lengthPercentage(LengthPercentage)
 
     /// Two values for start and end inline paddings
-    case start_end(start: LengthPercentage, end: LengthPercentage)
+    case startEnd(start: LengthPercentage, end: LengthPercentage)
 
     /// Global CSS value
     case global(Global)
@@ -36,7 +36,7 @@ public enum ScrollPaddingInline: Property, LengthPercentageConvertible, CustomSt
             return "auto"
         case .lengthPercentage(let value):
             return value.description
-        case .start_end(let start, let end):
+        case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
         case .global(let global):
             return global.description

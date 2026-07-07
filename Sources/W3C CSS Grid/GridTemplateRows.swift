@@ -46,7 +46,7 @@ public enum GridTemplateRows: Property {
     /// Subgrid: Adopts the row definition from parent grid
     case subgrid
 
-    /// Global values (inherit, initial, etc.)
+    /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
 
     /// Represents a grid track with optional line names before and after

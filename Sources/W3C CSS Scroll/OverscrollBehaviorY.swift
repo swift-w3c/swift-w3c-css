@@ -24,7 +24,7 @@ public enum OverscrollBehaviorY: Property {
     /// The default scroll overflow behavior occurs as normal
     case auto
 
-    /// Default scroll overflow behavior (e.g., "bounce" effects) is observed inside the element
+    /// Default scroll overflow behavior (for example, "bounce" effects) is observed inside the element
     /// where this value is set. However, no scroll chaining occurs on neighboring scrolling areas;
     /// the underlying elements will not scroll.
     case contain

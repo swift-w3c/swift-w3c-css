@@ -27,13 +27,13 @@ public enum ScrollPadding: Property, LengthPercentageConvertible, CustomStringCo
     case all(LengthPercentage)
 
     /// Two values: top/bottom and right/left
-    case vertical_horizontal(LengthPercentage, LengthPercentage)
+    case verticalHorizontal(LengthPercentage, LengthPercentage)
 
     /// Three values: top, right/left, bottom
-    case top_horizontal_bottom(LengthPercentage, LengthPercentage, LengthPercentage)
+    case topHorizontalBottom(LengthPercentage, LengthPercentage, LengthPercentage)
 
     /// Four values: top, right, bottom, left
-    case top_right_bottom_left(
+    case topRightBottomLeft(
         LengthPercentage,
         LengthPercentage,
         LengthPercentage,
@@ -49,11 +49,11 @@ public enum ScrollPadding: Property, LengthPercentageConvertible, CustomStringCo
             return "auto"
         case .all(let value):
             return value.description
-        case .vertical_horizontal(let vertical, let horizontal):
+        case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
-        case .top_horizontal_bottom(let top, let horizontal, let bottom):
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
-        case .top_right_bottom_left(let top, let right, let bottom, let left):
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         case .global(let global):
@@ -67,13 +67,13 @@ public enum ScrollPadding: Property, LengthPercentageConvertible, CustomStringCo
 
     /// Creates a ScrollPadding with vertical and horizontal percentage values
     public static func percent(vertical: Percentage, horizontal: Percentage) -> Self {
-        .vertical_horizontal(.percentage(vertical), .percentage(horizontal))
+        .verticalHorizontal(.percentage(vertical), .percentage(horizontal))
     }
 
     /// Creates a ScrollPadding with top, horizontal, and bottom percentage values
     public static func percent(top: Percentage, horizontal: Percentage, bottom: Percentage) -> Self
     {
-        .top_horizontal_bottom(.percentage(top), .percentage(horizontal), .percentage(bottom))
+        .topHorizontalBottom(.percentage(top), .percentage(horizontal), .percentage(bottom))
     }
 
     /// Creates a ScrollPadding with top, right, bottom, and left percentage values
@@ -83,7 +83,7 @@ public enum ScrollPadding: Property, LengthPercentageConvertible, CustomStringCo
         bottom: Percentage,
         left: Percentage
     ) -> Self {
-        .top_right_bottom_left(
+        .topRightBottomLeft(
             .percentage(top),
             .percentage(right),
             .percentage(bottom),

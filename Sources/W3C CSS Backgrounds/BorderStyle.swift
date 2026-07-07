@@ -62,13 +62,13 @@ public enum BorderStyle: Property {
     case all(LineStyle)
 
     /// Different styles for vertical (top/bottom) and horizontal (left/right) sides
-    case vertical_horizontal(LineStyle, LineStyle)
+    case verticalHorizontal(LineStyle, LineStyle)
 
     /// Different styles for top, horizontal (left/right), and bottom sides
-    case top_horizontal_bottom(LineStyle, LineStyle, LineStyle)
+    case topHorizontalBottom(LineStyle, LineStyle, LineStyle)
 
     /// Different styles for each side in clockwise order: top, right, bottom, left
-    case top_right_bottom_left(LineStyle, LineStyle, LineStyle, LineStyle)
+    case topRightBottomLeft(LineStyle, LineStyle, LineStyle, LineStyle)
 
     /// Global CSS values
     case global(Global)
@@ -86,7 +86,7 @@ public enum BorderStyle: Property {
     ///   - vertical: The style for top and bottom borders
     ///   - horizontal: The style for left and right borders
     public init(_ vertical: LineStyle, _ horizontal: LineStyle) {
-        self = .vertical_horizontal(vertical, horizontal)
+        self = .verticalHorizontal(vertical, horizontal)
     }
 
     /// Creates a border style with three values (top, horizontal, bottom)
@@ -96,7 +96,7 @@ public enum BorderStyle: Property {
     ///   - horizontal: The style for left and right borders
     ///   - bottom: The style for the bottom border
     public init(_ top: LineStyle, _ horizontal: LineStyle, _ bottom: LineStyle) {
-        self = .top_horizontal_bottom(top, horizontal, bottom)
+        self = .topHorizontalBottom(top, horizontal, bottom)
     }
 
     /// Creates a border style with four values (one for each side)
@@ -107,7 +107,7 @@ public enum BorderStyle: Property {
     ///   - bottom: The style for the bottom border
     ///   - left: The style for the left border
     public init(_ top: LineStyle, _ right: LineStyle, _ bottom: LineStyle, _ left: LineStyle) {
-        self = .top_right_bottom_left(top, right, bottom, left)
+        self = .topRightBottomLeft(top, right, bottom, left)
     }
 }
 
@@ -126,11 +126,11 @@ extension BorderStyle: CustomStringConvertible {
         switch self {
         case .all(let style):
             return style.description
-        case .vertical_horizontal(let vertical, let horizontal):
+        case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
-        case .top_horizontal_bottom(let top, let horizontal, let bottom):
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
-        case .top_right_bottom_left(let top, let right, let bottom, let left):
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         case .global(let global):

@@ -30,7 +30,7 @@ public enum Overflow: Property {
     case single(Value)
 
     /// Different values for horizontal and vertical overflow
-    case horizontal_vertical(Value, Value)
+    case horizontalVertical(Value, Value)
 
     /// Global CSS values
     case global(Global)
@@ -66,7 +66,7 @@ public enum Overflow: Property {
     ///   - x: The horizontal overflow value
     ///   - y: The vertical overflow value
     public init(_ x: Value, _ y: Value) {
-        self = .horizontal_vertical(x, y)
+        self = .horizontalVertical(x, y)
     }
 
     /// Content is not clipped and may overflow the padding box (both directions)
@@ -89,7 +89,7 @@ public enum Overflow: Property {
         switch self {
         case .single(let value):
             return value.rawValue
-        case .horizontal_vertical(let x, let y):
+        case .horizontalVertical(let x, let y):
             return "\(x.rawValue) \(y.rawValue)"
         case .global(let global):
             return global.description

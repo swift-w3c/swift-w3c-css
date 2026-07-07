@@ -152,28 +152,28 @@ extension Property {
         case gradient = "<gradient>"
 
         // Composite types with multipliers
-        /// One or more of the specified type (e.g., "<length>+")
+        /// One or more of the specified type, for example "<length>+"
         public static func oneOrMore(_ type: SyntaxType) -> String {
             "\(type.rawValue)+"
         }
 
-        /// Zero or more of the specified type (e.g., "<length>*")
+        /// Zero or more of the specified type, for example "<length>*"
         public static func zeroOrMore(_ type: SyntaxType) -> String {
             "\(type.rawValue)*"
         }
 
-        /// A list of the specified type (e.g., "<length>#")
+        /// A list of the specified type, for example "<length>#"
         public static func list(_ type: SyntaxType) -> String {
             "\(type.rawValue)#"
         }
 
         // Composite types with combinators
-        /// Either of the specified types (e.g., "<length> | <percentage>")
+        /// Either of the specified types, for example "<length> | <percentage>"
         public static func either(_ type1: SyntaxType, _ type2: SyntaxType) -> String {
             "\(type1.rawValue) | \(type2.rawValue)"
         }
 
-        /// Any number of the specified types (e.g., "[ <length> | <percentage> ]+")
+        /// Any number of the specified types, for example "[ <length> | <percentage> ]+"
         public static func any(_ types: SyntaxType...) -> String {
             let typeList = types.map { $0.rawValue }.joined(separator: " | ")
             return "[ \(typeList) ]+"

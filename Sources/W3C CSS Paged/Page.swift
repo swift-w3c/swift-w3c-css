@@ -147,19 +147,19 @@ extension Page {
     /// Predefined page sizes for printing
     public enum PageSize: Hashable, Sendable {
         // Standard paper sizes
-        case a3 /*= "A3"*/
-        case a4 /*= "A4"*/
-        case a5 /*= "A5"*/
-        case b4 /*= "B4"*/
-        case b5 /*= "B5"*/
+        case a3  // = "A3"
+        case a4  // = "A4"
+        case a5  // = "A5"
+        case b4  // = "B4"
+        case b5  // = "B5"
 
         // US paper sizes
-        case letter /*= "letter"*/
-        case legal /*= "legal"*/
-        case ledger /*= "ledger"*/
+        case letter  // = "letter"
+        case legal  // = "legal"
+        case ledger  // = "ledger"
 
         // Special sizes
-        case auto /*= "auto"*/
+        case auto  // = "auto"
 
         // Custom size using length values directly
         case custom(width: LengthPercentage, height: LengthPercentage)

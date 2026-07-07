@@ -218,7 +218,7 @@ extension CounterStyle {
         /// An alphabetic counter system interprets the symbols as alphabetic digits.
         case alphabetic
 
-        /// A symbolic counter system cycles through the provided symbols, doubling, tripling, etc. them at predefined intervals.
+        /// A symbolic counter system cycles through the provided symbols, doubling and tripling them at predefined intervals.
         case symbolic
 
         /// An additive counter system uses a combination of its symbols, with the numeric weight of each symbol adding up to the final value.
@@ -260,10 +260,10 @@ extension CounterStyle {
 
     /// Represents the speech synthesis style for a counter style.
     public enum SpeakAs: String, Hashable, Sendable {
-        /// Speak as spelled out numbers (e.g., "one, two, three").
+        /// Speak as spelled out numbers, for example "one, two, three".
         case numbers
 
-        /// Speak as individual words (e.g., "a, b, c").
+        /// Speak as individual words, for example "a, b, c".
         case words
 
         /// Speak as a specific counter style.

@@ -24,7 +24,7 @@ public indirect enum Image: Sendable, Hashable {
     /// Represents an image from a URL
     case url(Url)
 
-    /// Represents a CSS gradient (linear-gradient, radial-gradient, etc.)
+    /// Represents a CSS gradient (linear-gradient, radial-gradient, and similar functions)
     /// Note: This is a placeholder for a more comprehensive gradient implementation
     case gradient(Gradient)
 

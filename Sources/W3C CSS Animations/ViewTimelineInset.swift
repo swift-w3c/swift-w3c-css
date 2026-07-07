@@ -40,7 +40,7 @@ public enum ViewTimelineInsetValue: Sendable, Hashable {
     /// Uses scroll-padding for edge of scrollport
     case auto
 
-    /// A length value (in pixels, em, etc.)
+    /// A length value (in pixels, em, and similar units)
     case length(Length)
 
     /// A percentage value

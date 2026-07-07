@@ -21,9 +21,9 @@ public typealias GeometryTypeAlias = Geometry
 public enum W3C_CSS {
     /// CSS coordinate space marker.
     public enum Space {}
-    
+
     public typealias Geometry = GeometryTypeAlias<Double, W3C_CSS.Space>
-    
+
 }
 
 // MARK: - Shape Type Aliases

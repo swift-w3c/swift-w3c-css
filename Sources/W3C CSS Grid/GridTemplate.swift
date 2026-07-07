@@ -52,7 +52,7 @@ public enum GridTemplate: Property {
     /// and grid-template-columns to the track listing specified (or none, if not specified)
     case namedAreas([AreaRow], columns: [GridTrackSize]? = nil)
 
-    /// Global values (inherit, initial, etc.)
+    /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
 
     /// Represents a single row in a grid template area definition

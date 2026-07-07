@@ -48,7 +48,7 @@ public enum BorderSpacing: Property {
     case all(Length)
 
     /// Different spacing for horizontal and vertical
-    case horizontal_vertical(Length, Length)
+    case horizontalVertical(Length, Length)
 
     /// Global CSS values
     case global(Global)
@@ -66,7 +66,7 @@ public enum BorderSpacing: Property {
     ///   - horizontal: The horizontal spacing value
     ///   - vertical: The vertical spacing value
     public init(_ horizontal: Length, _ vertical: Length) {
-        self = .horizontal_vertical(horizontal, vertical)
+        self = .horizontalVertical(horizontal, vertical)
     }
 }
 extension BorderSpacing: LengthConvertible {
@@ -89,7 +89,7 @@ extension BorderSpacing {
         switch self {
         case .all(let length):
             return length.description
-        case .horizontal_vertical(let horizontal, let vertical):
+        case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal.description) \(vertical.description)"
         case .global(let global):
             return global.description

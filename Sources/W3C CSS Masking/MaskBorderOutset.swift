@@ -50,13 +50,13 @@ public enum MaskBorderOutset: Property, LengthConvertible {
     case all(OutsetValue)
 
     /// Top and bottom sides have the same value, and left and right sides have the same value
-    case vertical_horizontal(OutsetValue, OutsetValue)
+    case verticalHorizontal(OutsetValue, OutsetValue)
 
     /// Top, horizontal sides (left and right), and bottom have different values
-    case top_horizontal_bottom(OutsetValue, OutsetValue, OutsetValue)
+    case topHorizontalBottom(OutsetValue, OutsetValue, OutsetValue)
 
     /// Each side (top, right, bottom, left) has a different value
-    case top_right_bottom_left(OutsetValue, OutsetValue, OutsetValue, OutsetValue)
+    case topRightBottomLeft(OutsetValue, OutsetValue, OutsetValue, OutsetValue)
 
     /// Global CSS values
     case global(Global)
@@ -97,7 +97,7 @@ public enum MaskBorderOutset: Property, LengthConvertible {
     ///   - vertical: The outset value for top and bottom sides
     ///   - horizontal: The outset value for left and right sides
     public init(_ vertical: OutsetValue, _ horizontal: OutsetValue) {
-        self = .vertical_horizontal(vertical, horizontal)
+        self = .verticalHorizontal(vertical, horizontal)
     }
 
     /// Creates a mask-border-outset with different values for top, horizontal sides, and bottom
@@ -107,7 +107,7 @@ public enum MaskBorderOutset: Property, LengthConvertible {
     ///   - horizontal: The outset value for the left and right sides
     ///   - bottom: The outset value for the bottom side
     public init(_ top: OutsetValue, _ horizontal: OutsetValue, _ bottom: OutsetValue) {
-        self = .top_horizontal_bottom(top, horizontal, bottom)
+        self = .topHorizontalBottom(top, horizontal, bottom)
     }
 
     /// Creates a mask-border-outset with different values for each side
@@ -123,7 +123,7 @@ public enum MaskBorderOutset: Property, LengthConvertible {
         _ bottom: OutsetValue,
         _ left: OutsetValue
     ) {
-        self = .top_right_bottom_left(top, right, bottom, left)
+        self = .topRightBottomLeft(top, right, bottom, left)
     }
 
     /// Creates a mask-border-outset with a number value for all sides
@@ -154,11 +154,11 @@ extension MaskBorderOutset: CustomStringConvertible {
         switch self {
         case .all(let value):
             return value.description
-        case .vertical_horizontal(let vertical, let horizontal):
+        case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
-        case .top_horizontal_bottom(let top, let horizontal, let bottom):
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
-        case .top_right_bottom_left(let top, let right, let bottom, let left):
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         case .global(let global):

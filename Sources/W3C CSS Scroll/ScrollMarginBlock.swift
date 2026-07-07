@@ -28,7 +28,7 @@ public enum ScrollMarginBlock: Property, LengthConvertible, ExpressibleByInteger
     case all(Length)
 
     /// Two length values for block start and block end
-    case start_end(Length, Length)
+    case startEnd(Length, Length)
 
     /// Global CSS value
     case global(Global)
@@ -37,7 +37,7 @@ public enum ScrollMarginBlock: Property, LengthConvertible, ExpressibleByInteger
         switch self {
         case .all(let value):
             return value.description
-        case .start_end(let start, let end):
+        case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
         case .global(let global):
             return global.description

@@ -47,6 +47,8 @@ public enum CalcKeyword: String, Sendable, Hashable {
     /// ```
     case negativeInfinity = "-infinity"
 
+    // swift-format-ignore: AlwaysUseLowerCamelCase
+    // Reason: mirrors the literal CSS calc() keyword spelling "NaN" (spec-mirroring, API-NAME-003).
     /// Represents "Not a Number"
     ///
     /// Results from invalid mathematical operations.

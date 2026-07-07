@@ -29,7 +29,8 @@ extension Geometry.Ball where N == 2, Scalar == Double, Space == W3C_CSS.Space {
         /// Example output: `"circle(50px at 100px 100px)"`
         public var clipPath: String? {
             guard circle.radius.underlying >= 0 else { return nil }
-            return "circle(\(circle.radius.formatted(.number))px at \(circle.center.x.formatted(.number))px \(circle.center.y.formatted(.number))px)"
+            return
+                "circle(\(circle.radius.formatted(.number))px at \(circle.center.x.formatted(.number))px \(circle.center.y.formatted(.number))px)"
         }
     }
 }
@@ -55,14 +56,17 @@ extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Sp
         /// Note: CSS inset() uses distances from edges, not coordinates.
         /// This assumes a reference box and computes insets accordingly.
         public func inset(referenceWidth: Double, referenceHeight: Double) -> String? {
-            guard rectangle.width.underlying >= 0, rectangle.height.underlying >= 0 else { return nil }
+            guard rectangle.width.underlying >= 0, rectangle.height.underlying >= 0 else {
+                return nil
+            }
 
             let top = rectangle.lly.underlying
             let left = rectangle.llx.underlying
             let bottom = referenceHeight - (rectangle.lly.underlying + rectangle.height.underlying)
             let right = referenceWidth - (rectangle.llx.underlying + rectangle.width.underlying)
 
-            return "inset(\(top.formatted(.number))px \(right.formatted(.number))px \(bottom.formatted(.number))px \(left.formatted(.number))px)"
+            return
+                "inset(\(top.formatted(.number))px \(right.formatted(.number))px \(bottom.formatted(.number))px \(left.formatted(.number))px)"
         }
 
         /// Convert to a CSS clip-path xywh value string.
@@ -71,8 +75,11 @@ extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Sp
         ///
         /// Example output: `"xywh(10px 20px 200px 100px)"`
         public var xywh: String? {
-            guard rectangle.width.underlying >= 0, rectangle.height.underlying >= 0 else { return nil }
-            return "xywh(\(rectangle.llx.formatted(.number))px \(rectangle.lly.formatted(.number))px \(rectangle.width.formatted(.number))px \(rectangle.height.formatted(.number))px)"
+            guard rectangle.width.underlying >= 0, rectangle.height.underlying >= 0 else {
+                return nil
+            }
+            return
+                "xywh(\(rectangle.llx.formatted(.number))px \(rectangle.lly.formatted(.number))px \(rectangle.width.formatted(.number))px \(rectangle.height.formatted(.number))px)"
         }
     }
 }
@@ -97,8 +104,11 @@ extension Geometry.Ellipse where Scalar == Double, Space == W3C_CSS.Space {
         ///
         /// Example output: `"ellipse(100px 50px at 200px 150px)"`
         public var clipPath: String? {
-            guard ellipse.semiMajor.underlying >= 0, ellipse.semiMinor.underlying >= 0 else { return nil }
-            return "ellipse(\(ellipse.semiMajor.formatted(.number))px \(ellipse.semiMinor.formatted(.number))px at \(ellipse.center.x.formatted(.number))px \(ellipse.center.y.formatted(.number))px)"
+            guard ellipse.semiMajor.underlying >= 0, ellipse.semiMinor.underlying >= 0 else {
+                return nil
+            }
+            return
+                "ellipse(\(ellipse.semiMajor.formatted(.number))px \(ellipse.semiMinor.formatted(.number))px at \(ellipse.center.x.formatted(.number))px \(ellipse.center.y.formatted(.number))px)"
         }
     }
 }
@@ -157,7 +167,8 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                 } else {
                     d += " M"
                 }
-                d += " \(subpath.startPoint.x.formatted(.number)) \(subpath.startPoint.y.formatted(.number))"
+                d +=
+                    " \(subpath.startPoint.x.formatted(.number)) \(subpath.startPoint.y.formatted(.number))"
 
                 // Add segments
                 for segment in subpath.segments {
@@ -168,18 +179,18 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                     case .bezier(let bez):
                         // Convert bezier to path commands based on degree
                         switch bez.controlPoints.count {
-                        case 2: // Linear (should use line instead, but handle it)
+                        case 2:  // Linear (should use line instead, but handle it)
                             if let end = bez.controlPoints.last {
                                 d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
-                        case 3: // Quadratic
+                        case 3:  // Quadratic
                             if bez.controlPoints.count >= 3 {
                                 let cp = bez.controlPoints[1]
                                 let end = bez.controlPoints[2]
                                 d += " Q \(cp.x.formatted(.number)) \(cp.y.formatted(.number))"
                                 d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
-                        case 4: // Cubic
+                        case 4:  // Cubic
                             if bez.controlPoints.count >= 4 {
                                 let cp1 = bez.controlPoints[1]
                                 let cp2 = bez.controlPoints[2]

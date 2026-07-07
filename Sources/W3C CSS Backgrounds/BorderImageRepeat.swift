@@ -62,7 +62,7 @@ public enum BorderImageRepeat: Property {
     case all(RepeatStyle)
 
     /// Different repeat styles for horizontal (top & bottom) and vertical (left & right) sides
-    case horizontal_vertical(RepeatStyle, RepeatStyle)
+    case horizontalVertical(RepeatStyle, RepeatStyle)
 
     /// Global CSS values
     case global(Global)
@@ -95,7 +95,7 @@ public enum BorderImageRepeat: Property {
     ///   - horizontal: The repeat style for horizontal sides (top & bottom)
     ///   - vertical: The repeat style for vertical sides (left & right)
     public init(_ horizontal: RepeatStyle, _ vertical: RepeatStyle) {
-        self = .horizontal_vertical(horizontal, vertical)
+        self = .horizontalVertical(horizontal, vertical)
     }
 
     /// Default repeat style (stretch)
@@ -130,7 +130,7 @@ extension BorderImageRepeat: CustomStringConvertible {
         switch self {
         case .all(let style):
             return style.rawValue
-        case .horizontal_vertical(let horizontal, let vertical):
+        case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal.rawValue) \(vertical.rawValue)"
         case .global(let global):
             return global.description

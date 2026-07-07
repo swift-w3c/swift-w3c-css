@@ -27,7 +27,7 @@ public enum OverscrollBehavior: Property {
     case single(Value)
 
     /// Different values for horizontal (x) and vertical (y) directions
-    case horizontal_vertical(Value, Value)
+    case horizontalVertical(Value, Value)
 
     /// Global CSS value
     case global(Global)
@@ -49,7 +49,7 @@ public enum OverscrollBehavior: Property {
         switch self {
         case .single(let value):
             return value.rawValue
-        case .horizontal_vertical(let x, let y):
+        case .horizontalVertical(let x, let y):
             return "\(x.rawValue) \(y.rawValue)"
         case .global(let global):
             return global.description

@@ -48,7 +48,7 @@ public enum BorderEndEndRadius: Property {
     case radius(LengthPercentage)
 
     /// Different radii for horizontal and vertical dimensions
-    case horizontal_vertical(LengthPercentage, LengthPercentage)
+    case horizontalVertical(LengthPercentage, LengthPercentage)
 
     /// Global CSS values
     case global(Global)
@@ -67,7 +67,7 @@ extension BorderEndEndRadius: CustomStringConvertible {
         switch self {
         case .radius(let radius):
             return radius.description
-        case .horizontal_vertical(let horizontal, let vertical):
+        case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal) \(vertical)"
         case .global(let global):
             return global.description

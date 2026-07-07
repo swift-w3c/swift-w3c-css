@@ -25,7 +25,7 @@ public enum ScrollPaddingBlock: Property, LengthPercentageConvertible, CustomStr
     case all(LengthPercentage)
 
     /// Two values for start and end block paddings
-    case start_end(LengthPercentage, LengthPercentage)
+    case startEnd(LengthPercentage, LengthPercentage)
 
     /// Global CSS value
     case global(Global)
@@ -36,7 +36,7 @@ public enum ScrollPaddingBlock: Property, LengthPercentageConvertible, CustomStr
             return "auto"
         case .all(let value):
             return value.description
-        case .start_end(let start, let end):
+        case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
         case .global(let global):
             return global.description

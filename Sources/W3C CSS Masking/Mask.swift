@@ -217,7 +217,7 @@ public enum Mask: Property {
                 return "round"
             case .noRepeat:
                 return "no-repeat"
-            case .horizontal_vertical(let horizontal, let vertical):
+            case .horizontalVertical(let horizontal, let vertical):
                 return "\(horizontal.rawValue) \(vertical.rawValue)"
             }
         }
@@ -408,7 +408,7 @@ public enum Mask: Property {
         case noRepeat
 
         /// Different values for horizontal and vertical
-        case horizontal_vertical(Value, Value)
+        case horizontalVertical(Value, Value)
 
         /// Repeat value
         public enum Value: String, Sendable {

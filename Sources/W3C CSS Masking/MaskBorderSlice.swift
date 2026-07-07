@@ -57,13 +57,13 @@ public enum MaskBorderSlice: Property {
     case all(SliceValue, fill: Bool)
 
     /// Different values for vertical (top/bottom) and horizontal (left/right) sides
-    case vertical_horizontal(SliceValue, SliceValue, fill: Bool)
+    case verticalHorizontal(SliceValue, SliceValue, fill: Bool)
 
     /// Different values for top, horizontal (left/right), and bottom sides
-    case top_horizontal_bottom(SliceValue, SliceValue, SliceValue, fill: Bool)
+    case topHorizontalBottom(SliceValue, SliceValue, SliceValue, fill: Bool)
 
     /// Different values for each side (top, right, bottom, left)
-    case top_right_bottom_left(SliceValue, SliceValue, SliceValue, SliceValue, fill: Bool)
+    case topRightBottomLeft(SliceValue, SliceValue, SliceValue, SliceValue, fill: Bool)
 
     /// Global CSS values
     case global(Global)
@@ -103,7 +103,7 @@ public enum MaskBorderSlice: Property {
     ///   - horizontal: The slice value for left and right sides
     ///   - fill: Whether to display the middle region
     public init(_ vertical: SliceValue, _ horizontal: SliceValue, fill: Bool = false) {
-        self = .vertical_horizontal(vertical, horizontal, fill: fill)
+        self = .verticalHorizontal(vertical, horizontal, fill: fill)
     }
 
     /// Creates a mask-border-slice with different values for top, horizontal sides, and bottom
@@ -119,7 +119,7 @@ public enum MaskBorderSlice: Property {
         _ bottom: SliceValue,
         fill: Bool = false
     ) {
-        self = .top_horizontal_bottom(top, horizontal, bottom, fill: fill)
+        self = .topHorizontalBottom(top, horizontal, bottom, fill: fill)
     }
 
     /// Creates a mask-border-slice with different values for each side
@@ -137,7 +137,7 @@ public enum MaskBorderSlice: Property {
         _ left: SliceValue,
         fill: Bool = false
     ) {
-        self = .top_right_bottom_left(top, right, bottom, left, fill: fill)
+        self = .topRightBottomLeft(top, right, bottom, left, fill: fill)
     }
 
     /// Creates a mask-border-slice with a number value for all sides
@@ -180,13 +180,13 @@ extension MaskBorderSlice: CustomStringConvertible {
         switch self {
         case .all(let value, let fill):
             return combineWithFill(value.description, fill)
-        case .vertical_horizontal(let vertical, let horizontal, let fill):
+        case .verticalHorizontal(let vertical, let horizontal, let fill):
             let values = "\(vertical.description) \(horizontal.description)"
             return combineWithFill(values, fill)
-        case .top_horizontal_bottom(let top, let horizontal, let bottom, let fill):
+        case .topHorizontalBottom(let top, let horizontal, let bottom, let fill):
             let values = "\(top.description) \(horizontal.description) \(bottom.description)"
             return combineWithFill(values, fill)
-        case .top_right_bottom_left(let top, let right, let bottom, let left, let fill):
+        case .topRightBottomLeft(let top, let right, let bottom, let left, let fill):
             let values =
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
             return combineWithFill(values, fill)

@@ -69,7 +69,7 @@ public enum BorderRight: Property {
     /// Border right properties
     case properties(Properties)
 
-    /// Global values like inherit, initial, etc.
+    /// Global values like inherit, initial, and similar CSS-wide keywords
     case global(Global)
 
     /// Creates a border-right with just a style

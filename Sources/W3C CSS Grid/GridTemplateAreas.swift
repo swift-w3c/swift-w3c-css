@@ -38,7 +38,7 @@ public enum GridTemplateAreas: Property {
     /// Each string represents a row in the grid
     case areas([String])
 
-    /// Global values (inherit, initial, etc.)
+    /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
 
     public var description: String {

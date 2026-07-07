@@ -50,13 +50,13 @@ public enum BorderColor: Property, ColorConvertible {
     case all(W3C_CSS_Values.Color)
 
     /// Different colors for vertical (top/bottom) and horizontal (left/right) sides
-    case vertical_horizontal(W3C_CSS_Values.Color, W3C_CSS_Values.Color)
+    case verticalHorizontal(W3C_CSS_Values.Color, W3C_CSS_Values.Color)
 
     /// Different colors for top, horizontal (left/right), and bottom sides
-    case top_horizontal_bottom(W3C_CSS_Values.Color, W3C_CSS_Values.Color, W3C_CSS_Values.Color)
+    case topHorizontalBottom(W3C_CSS_Values.Color, W3C_CSS_Values.Color, W3C_CSS_Values.Color)
 
     /// Different colors for each side in clockwise order: top, right, bottom, left
-    case top_right_bottom_left(
+    case topRightBottomLeft(
         W3C_CSS_Values.Color,
         W3C_CSS_Values.Color,
         W3C_CSS_Values.Color,
@@ -79,7 +79,7 @@ public enum BorderColor: Property, ColorConvertible {
     ///   - vertical: The color for top and bottom borders
     ///   - horizontal: The color for left and right borders
     public init(_ vertical: W3C_CSS_Values.Color, _ horizontal: W3C_CSS_Values.Color) {
-        self = .vertical_horizontal(vertical, horizontal)
+        self = .verticalHorizontal(vertical, horizontal)
     }
 
     /// Creates a border color with three values (top, horizontal, bottom)
@@ -93,7 +93,7 @@ public enum BorderColor: Property, ColorConvertible {
         _ horizontal: W3C_CSS_Values.Color,
         _ bottom: W3C_CSS_Values.Color
     ) {
-        self = .top_horizontal_bottom(top, horizontal, bottom)
+        self = .topHorizontalBottom(top, horizontal, bottom)
     }
 
     /// Creates a border color with four values (one for each side)
@@ -109,7 +109,7 @@ public enum BorderColor: Property, ColorConvertible {
         _ bottom: W3C_CSS_Values.Color,
         _ left: W3C_CSS_Values.Color
     ) {
-        self = .top_right_bottom_left(top, right, bottom, left)
+        self = .topRightBottomLeft(top, right, bottom, left)
     }
 }
 
@@ -128,11 +128,11 @@ extension BorderColor: CustomStringConvertible {
         switch self {
         case .all(let color):
             return color.description
-        case .vertical_horizontal(let vertical, let horizontal):
+        case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
-        case .top_horizontal_bottom(let top, let horizontal, let bottom):
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
-        case .top_right_bottom_left(let top, let right, let bottom, let left):
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         case .global(let global):

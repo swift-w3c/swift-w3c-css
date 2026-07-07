@@ -25,7 +25,7 @@ public enum ScrollMarginInline: Property, LengthConvertible, ExpressibleByIntege
     case all(Length)
 
     /// Two length values for start and end inline margins
-    case start_end(Length, Length)
+    case startEnd(Length, Length)
 
     /// Global CSS value
     case global(Global)
@@ -34,7 +34,7 @@ public enum ScrollMarginInline: Property, LengthConvertible, ExpressibleByIntege
         switch self {
         case .all(let length):
             return length.description
-        case .start_end(let start, let end):
+        case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
         case .global(let global):
             return global.description

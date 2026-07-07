@@ -34,7 +34,7 @@ public enum Inset: Property, LengthPercentageConvertible {
     /// Values for each side (top, right, bottom, left)
     case sides(top: Value, right: Value, bottom: Value, left: Value)
 
-    /// Global values (inherit, initial, etc.)
+    /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
 
     /// Represents a value for each side that can be either a length/percentage or auto

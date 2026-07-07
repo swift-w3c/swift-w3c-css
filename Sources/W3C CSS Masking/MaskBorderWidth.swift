@@ -57,13 +57,13 @@ public enum MaskBorderWidth: Property {
     case all(WidthValue)
 
     /// Top and bottom sides have the same value, and left and right sides have the same value
-    case vertical_horizontal(WidthValue, WidthValue)
+    case verticalHorizontal(WidthValue, WidthValue)
 
     /// Top, horizontal sides (left and right), and bottom have different values
-    case top_horizontal_bottom(WidthValue, WidthValue, WidthValue)
+    case topHorizontalBottom(WidthValue, WidthValue, WidthValue)
 
     /// Each side (top, right, bottom, left) has a different value
-    case top_right_bottom_left(WidthValue, WidthValue, WidthValue, WidthValue)
+    case topRightBottomLeft(WidthValue, WidthValue, WidthValue, WidthValue)
 
     /// Global CSS values
     case global(Global)
@@ -110,7 +110,7 @@ public enum MaskBorderWidth: Property {
     ///   - vertical: The width value for top and bottom sides
     ///   - horizontal: The width value for left and right sides
     public init(_ vertical: WidthValue, _ horizontal: WidthValue) {
-        self = .vertical_horizontal(vertical, horizontal)
+        self = .verticalHorizontal(vertical, horizontal)
     }
 
     /// Creates a mask-border-width with different values for top, horizontal sides, and bottom
@@ -120,7 +120,7 @@ public enum MaskBorderWidth: Property {
     ///   - horizontal: The width value for the left and right sides
     ///   - bottom: The width value for the bottom side
     public init(_ top: WidthValue, _ horizontal: WidthValue, _ bottom: WidthValue) {
-        self = .top_horizontal_bottom(top, horizontal, bottom)
+        self = .topHorizontalBottom(top, horizontal, bottom)
     }
 
     /// Creates a mask-border-width with different values for each side
@@ -131,7 +131,7 @@ public enum MaskBorderWidth: Property {
     ///   - bottom: The width value for the bottom side
     ///   - left: The width value for the left side
     public init(_ top: WidthValue, _ right: WidthValue, _ bottom: WidthValue, _ left: WidthValue) {
-        self = .top_right_bottom_left(top, right, bottom, left)
+        self = .topRightBottomLeft(top, right, bottom, left)
     }
 
     /// Creates a mask-border-width with a length value for all sides
@@ -183,11 +183,11 @@ extension MaskBorderWidth: CustomStringConvertible {
         switch self {
         case .all(let value):
             return value.description
-        case .vertical_horizontal(let vertical, let horizontal):
+        case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
-        case .top_horizontal_bottom(let top, let horizontal, let bottom):
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
-        case .top_right_bottom_left(let top, let right, let bottom, let left):
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         case .global(let global):

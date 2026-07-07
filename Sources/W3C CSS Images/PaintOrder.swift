@@ -39,7 +39,7 @@ public enum PaintOrder: Property {
         /// The stroke (outline) of the element
         case stroke
 
-        /// SVG markers (e.g., arrowheads) used with the marker-* properties
+        /// SVG markers (for example, arrowheads) used with the marker-* properties
         case markers
     }
 }

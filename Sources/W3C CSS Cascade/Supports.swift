@@ -63,7 +63,8 @@ public struct Supports: AtRule {
     /// @supports not (condition) {}
     public static func not(_ condition: Supports) -> Supports {
         // Extract the condition from the rawValue string
-        let start = condition.rawValue.index(condition.rawValue.startIndex, offsetBy: 10)  // Skip "@supports "
+        // Skip "@supports "
+        let start = condition.rawValue.index(condition.rawValue.startIndex, offsetBy: 10)
         let end = condition.rawValue.index(condition.rawValue.endIndex, offsetBy: -4)  // Skip " {}"
         let conditionString = condition.rawValue[start..<end]
 
