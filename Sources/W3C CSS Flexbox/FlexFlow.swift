@@ -14,12 +14,15 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on flex-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-flow)
 public enum FlexFlow: Property {
-    public static let property: String = "flex-flow"
     /// Specifies both the flex-direction and flex-wrap properties
     case flexFlow(FlexDirection, FlexWrap)
 
     /// Global values
     case global(Global)
+}
+
+extension FlexFlow {
+    public static let property: String = "flex-flow"
 
     public var description: String {
         switch self {

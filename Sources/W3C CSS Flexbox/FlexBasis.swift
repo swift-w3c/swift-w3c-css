@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 public enum FlexBasis: Property, LengthPercentageConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral
 {
-    public static let property: String = "flex-basis"
     /// Default value. The item's base size is determined by its width/height properties or by its content.
     case auto
 
@@ -52,6 +51,10 @@ public enum FlexBasis: Property, LengthPercentageConvertible, ExpressibleByInteg
     public init(floatLiteral value: Double) {
         self = .length(.px(value))
     }
+}
+
+extension FlexBasis {
+    public static let property: String = "flex-basis"
 
     public var description: String {
         switch self {

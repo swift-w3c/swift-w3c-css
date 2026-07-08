@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on flex](https://developer.mozilla.org/en-US/docs/Web/CSS/flex)
 public enum Flex: Property {
-    public static let property: String = "flex"
-
     /// Default value. Items do not grow or shrink. Equivalent to `0 1 auto`.
     case initial
 
@@ -34,6 +32,10 @@ public enum Flex: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Flex {
+    public static let property: String = "flex"
 
     public var description: String {
         switch self {

@@ -17,8 +17,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on mix-blend-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/mix-blend-mode)
 public enum MixBlendMode: Property {
 
-    public static let property: String = "mix-blend-mode"
-
     // Standard blend modes
     /// The final color is the top color, regardless of the bottom color
     case normal
@@ -76,6 +74,10 @@ public enum MixBlendMode: Property {
     case plusLighter
 
     case global(Global)
+}
+
+extension MixBlendMode {
+    public static let property: String = "mix-blend-mode"
 }
 
 /// CSS Output conversion

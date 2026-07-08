@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-language-override](https://developer.mozilla.org/en-US/docs/Web/CSS/font-language-override)
 public enum FontLanguageOverride: Property {
-    public static let property: String = "font-language-override"
-
     /// Tells the browser to use font glyphs that are appropriate for the language
     /// specified by the lang attribute. This is the default value.
     case normal
@@ -31,6 +29,10 @@ public enum FontLanguageOverride: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension FontLanguageOverride {
+    public static let property: String = "font-language-override"
 
     public var description: String {
         switch self {

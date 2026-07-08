@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
 public enum FlexDirection: Property {
-    public static let property: String = "flex-direction"
-
     /// Default value. The flex container's main axis has the same orientation as the text direction.
     case row
 
@@ -30,6 +28,10 @@ public enum FlexDirection: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FlexDirection {
+    public static let property: String = "flex-direction"
 
     public var description: String {
         switch self {

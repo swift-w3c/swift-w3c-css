@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-kerning](https://developer.mozilla.org/en-US/docs/Web/CSS/font-kerning)
 public enum FontKerning: Property {
-    public static let property: String = "font-kerning"
-
     /// The browser determines whether font kerning should be used or not.
     /// For example, some browsers will disable kerning on small fonts,
     /// since applying it could harm the readability of text.
@@ -31,6 +29,10 @@ public enum FontKerning: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontKerning {
+    public static let property: String = "font-kerning"
 
     public var description: String {
         switch self {

@@ -36,8 +36,6 @@ public import W3C_CSS_Values
 ///     ])
 /// ```
 public struct FontFace: AtRule {
-    public static let identifier: String = "font-face"
-
     public var rawValue: String
     private var descriptors: [String: String] = [:]
 
@@ -49,6 +47,10 @@ public struct FontFace: AtRule {
     public init() {
         self.rawValue = "@font-face {}"
     }
+}
+
+extension FontFace {
+    public static let identifier: String = "font-face"
 
     /// Updates the raw value based on the current descriptors.
     private mutating func updateRawValue() {
@@ -219,22 +221,6 @@ extension FontFace {
 
         /// A URL font source with optional format and technology.
         case url(String, format: String? = nil, tech: String? = nil)
-
-        public var description: String {
-            switch self {
-            case .local(let name):
-                return "local(\"\(name)\")"
-            case .url(let url, let format, let tech):
-                var result = "url(\"\(url)\")"
-                if let format = format {
-                    result += " format(\"\(format)\")"
-                }
-                if let tech = tech {
-                    result += " tech(\(tech))"
-                }
-                return result
-            }
-        }
     }
 
     /// Represents font-display descriptor values.
@@ -268,19 +254,6 @@ extension FontFace {
 
         /// Font weight: bold (700).
         case bold
-
-        public var description: String {
-            switch self {
-            case .value(let value):
-                return String(value)
-            case .range(let min, let max):
-                return "\(min) \(max)"
-            case .normal:
-                return "normal"
-            case .bold:
-                return "bold"
-            }
-        }
     }
 
     /// Represents font-style descriptor values.
@@ -296,22 +269,6 @@ extension FontFace {
 
         /// A range of oblique angles for variable fonts.
         case obliqueRange(Int, Int)
-
-        public var description: String {
-            switch self {
-            case .normal:
-                return "normal"
-            case .italic:
-                return "italic"
-            case .oblique(let angle):
-                if let angle = angle {
-                    return "oblique \(angle)deg"
-                }
-                return "oblique"
-            case .obliqueRange(let min, let max):
-                return "oblique \(min)deg \(max)deg"
-            }
-        }
     }
 
     /// Represents font-stretch descriptor values.
@@ -348,32 +305,85 @@ extension FontFace {
 
         /// Font stretch: ultra-expanded (200%).
         case ultraExpanded
+    }
+}
 
-        public var description: String {
-            switch self {
-            case .value(let value):
-                return "\(value)%"
-            case .range(let min, let max):
-                return "\(min)% \(max)%"
-            case .normal:
-                return "normal"
-            case .ultraCondensed:
-                return "ultra-condensed"
-            case .extraCondensed:
-                return "extra-condensed"
-            case .condensed:
-                return "condensed"
-            case .semiCondensed:
-                return "semi-condensed"
-            case .semiExpanded:
-                return "semi-expanded"
-            case .expanded:
-                return "expanded"
-            case .extraExpanded:
-                return "extra-expanded"
-            case .ultraExpanded:
-                return "ultra-expanded"
+extension FontFace.Source {
+    public var description: String {
+        switch self {
+        case .local(let name):
+            return "local(\"\(name)\")"
+        case .url(let url, let format, let tech):
+            var result = "url(\"\(url)\")"
+            if let format = format {
+                result += " format(\"\(format)\")"
             }
+            if let tech = tech {
+                result += " tech(\(tech))"
+            }
+            return result
+        }
+    }
+}
+
+extension FontFace.FontWeight {
+    public var description: String {
+        switch self {
+        case .value(let value):
+            return String(value)
+        case .range(let min, let max):
+            return "\(min) \(max)"
+        case .normal:
+            return "normal"
+        case .bold:
+            return "bold"
+        }
+    }
+}
+
+extension FontFace.FontStyle {
+    public var description: String {
+        switch self {
+        case .normal:
+            return "normal"
+        case .italic:
+            return "italic"
+        case .oblique(let angle):
+            if let angle = angle {
+                return "oblique \(angle)deg"
+            }
+            return "oblique"
+        case .obliqueRange(let min, let max):
+            return "oblique \(min)deg \(max)deg"
+        }
+    }
+}
+
+extension FontFace.FontStretch {
+    public var description: String {
+        switch self {
+        case .value(let value):
+            return "\(value)%"
+        case .range(let min, let max):
+            return "\(min)% \(max)%"
+        case .normal:
+            return "normal"
+        case .ultraCondensed:
+            return "ultra-condensed"
+        case .extraCondensed:
+            return "extra-condensed"
+        case .condensed:
+            return "condensed"
+        case .semiCondensed:
+            return "semi-condensed"
+        case .semiExpanded:
+            return "semi-expanded"
+        case .expanded:
+            return "expanded"
+        case .extraExpanded:
+            return "extra-expanded"
+        case .ultraExpanded:
+            return "ultra-expanded"
         }
     }
 }

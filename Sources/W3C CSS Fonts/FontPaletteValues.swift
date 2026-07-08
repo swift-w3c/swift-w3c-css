@@ -38,8 +38,6 @@ public import W3C_CSS_Values
 ///     ])
 /// ```
 public struct FontPaletteValues: AtRule {
-    public static let identifier: String = "font-palette-values"
-
     public var rawValue: String
     private var identifier: String
     private var descriptors: [String: String] = [:]
@@ -73,6 +71,10 @@ public struct FontPaletteValues: AtRule {
         self.identifier = identifier
         self.rawValue = "@font-palette-values \(identifier) {}"
     }
+}
+
+extension FontPaletteValues {
+    public static let identifier: String = "font-palette-values"
 
     /// Updates the raw value based on the current descriptors.
     private mutating func updateRawValue() {

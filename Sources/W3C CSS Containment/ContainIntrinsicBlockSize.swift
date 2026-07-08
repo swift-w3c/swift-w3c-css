@@ -9,8 +9,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/contain-intrinsic-block-size)
 public enum ContainIntrinsicBlockSize: Property, LengthConvertible {
-    public static let property: String = "contain-intrinsic-block-size"
-
     /// The element has no intrinsic block size.
     case none
 
@@ -27,6 +25,10 @@ public enum ContainIntrinsicBlockSize: Property, LengthConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension ContainIntrinsicBlockSize {
+    public static let property: String = "contain-intrinsic-block-size"
 
     public var description: String {
         switch self {

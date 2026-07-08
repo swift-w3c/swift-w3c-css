@@ -70,6 +70,9 @@ extension DisplayListitem: CustomStringConvertible {
 /// Provides convenience methods for creating combined display listitem values
 /// using the modern multi-keyword syntax.
 public struct DisplayListitemFactory {
+}
+
+extension DisplayListitemFactory {
     /// Creates a list item with specified outer and inner display types
     ///
     /// - Parameters:

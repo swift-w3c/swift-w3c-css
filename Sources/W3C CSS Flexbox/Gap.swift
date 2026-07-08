@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on gap](https://developer.mozilla.org/en-US/docs/Web/CSS/gap)
 public enum Gap: Property {
 
-    public static let property: String = "gap"
-
     /// A single gap value for both row and column gaps
     case single(GapValue)
 
@@ -32,6 +30,10 @@ public enum Gap: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Gap {
+    public static let property: String = "gap"
 }
 
 extension Gap: LengthConvertible {

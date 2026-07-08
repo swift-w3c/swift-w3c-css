@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on filter](https://developer.mozilla.org/en-US/docs/Web/CSS/filter)
 public enum Filter: Property {
-    public static let property: String = "filter"
     /// No filter effect is applied
     case none
 
@@ -30,6 +29,10 @@ public enum Filter: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Filter {
+    public static let property: String = "filter"
 
     public var description: String {
         switch self {

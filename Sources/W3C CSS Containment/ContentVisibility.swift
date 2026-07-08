@@ -10,8 +10,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/content-visibility)
 public enum ContentVisibility: Property {
-    public static let property: String = "content-visibility"
-
     /// No effect. The element's contents are laid out and rendered as normal.
     case visible
 
@@ -26,6 +24,10 @@ public enum ContentVisibility: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ContentVisibility {
+    public static let property: String = "content-visibility"
 
     public var description: String {
         switch self {

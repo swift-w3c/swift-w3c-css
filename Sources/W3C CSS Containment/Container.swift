@@ -31,8 +31,6 @@ public import W3C_CSS_Values
 /// Container.scrollState(.scrollable(.top))
 /// ```
 public struct Container: AtRule {
-    public static let identifier: String = "container"
-
     public var rawValue: String
 
     public init(rawValue: String) {
@@ -51,6 +49,10 @@ public struct Container: AtRule {
             self.rawValue = "@container \(condition.rawValue)"
         }
     }
+}
+
+extension Container {
+    public static let identifier: String = "container"
 
     /// Creates a container query with a width condition.
     ///
@@ -174,51 +176,6 @@ extension Container {
         public init(rawValue: String) {
             self.rawValue = rawValue
         }
-
-        /// Creates a width condition.
-        public static func width(_ comparison: SizeComparison) -> Condition {
-            Condition(rawValue: "(width \(comparison.rawValue))")
-        }
-
-        /// Creates a height condition.
-        public static func height(_ comparison: SizeComparison) -> Condition {
-            Condition(rawValue: "(height \(comparison.rawValue))")
-        }
-
-        /// Creates an inline-size condition.
-        public static func inlineSize(_ comparison: SizeComparison) -> Condition {
-            Condition(rawValue: "(inline-size \(comparison.rawValue))")
-        }
-
-        /// Creates a block-size condition.
-        public static func blockSize(_ comparison: SizeComparison) -> Condition {
-            Condition(rawValue: "(block-size \(comparison.rawValue))")
-        }
-
-        /// Creates an aspect-ratio condition.
-        public static func aspectRatio(_ comparison: RatioComparison) -> Condition {
-            Condition(rawValue: "(aspect-ratio \(comparison.rawValue))")
-        }
-
-        /// Creates an orientation condition.
-        public static func orientation(_ orientation: Orientation) -> Condition {
-            Condition(rawValue: "(orientation: \(orientation.rawValue))")
-        }
-
-        /// Creates a scroll-state condition.
-        public static func scrollState(_ state: ScrollState) -> Condition {
-            Condition(rawValue: "scroll-state(\(state.rawValue))")
-        }
-
-        /// Creates a style condition.
-        public static func style(_ feature: String) -> Condition {
-            Condition(rawValue: "style(\(feature))")
-        }
-
-        /// Creates a negated condition.
-        public static func not(_ condition: Condition) -> Condition {
-            Condition(rawValue: "not \(condition.rawValue)")
-        }
     }
 
     /// Represents a size comparison in a container query.
@@ -228,36 +185,6 @@ extension Container {
         public init(rawValue: String) {
             self.rawValue = rawValue
         }
-
-        /// Creates an equals comparison.
-        public static func equalTo(_ value: LengthPercentage) -> SizeComparison {
-            SizeComparison(rawValue: "= \(value)")
-        }
-
-        /// Creates a greater than comparison.
-        public static func greaterThan(_ value: LengthPercentage) -> SizeComparison {
-            SizeComparison(rawValue: "> \(value)")
-        }
-
-        /// Creates a less than comparison.
-        public static func lessThan(_ value: LengthPercentage) -> SizeComparison {
-            SizeComparison(rawValue: "< \(value)")
-        }
-
-        /// Creates a greater than or equal to comparison.
-        public static func greaterThanOrEqual(_ value: LengthPercentage) -> SizeComparison {
-            SizeComparison(rawValue: ">= \(value)")
-        }
-
-        /// Creates a less than or equal to comparison.
-        public static func lessThanOrEqual(_ value: LengthPercentage) -> SizeComparison {
-            SizeComparison(rawValue: "<= \(value)")
-        }
-
-        /// Creates a range comparison.
-        public static func range(min: LengthPercentage, max: LengthPercentage) -> SizeComparison {
-            SizeComparison(rawValue: "\(min) <= && <= \(max)")
-        }
     }
 
     /// Represents a ratio comparison in a container query.
@@ -266,31 +193,6 @@ extension Container {
 
         public init(rawValue: String) {
             self.rawValue = rawValue
-        }
-
-        /// Creates an equals comparison.
-        public static func equalTo(_ width: Int, _ height: Int) -> RatioComparison {
-            RatioComparison(rawValue: "= \(width)/\(height)")
-        }
-
-        /// Creates a greater than comparison.
-        public static func greaterThan(_ width: Int, _ height: Int) -> RatioComparison {
-            RatioComparison(rawValue: "> \(width)/\(height)")
-        }
-
-        /// Creates a less than comparison.
-        public static func lessThan(_ width: Int, _ height: Int) -> RatioComparison {
-            RatioComparison(rawValue: "< \(width)/\(height)")
-        }
-
-        /// Creates a greater than or equal to comparison.
-        public static func greaterThanOrEqual(_ width: Int, _ height: Int) -> RatioComparison {
-            RatioComparison(rawValue: ">= \(width)/\(height)")
-        }
-
-        /// Creates a less than or equal to comparison.
-        public static func lessThanOrEqual(_ width: Int, _ height: Int) -> RatioComparison {
-            RatioComparison(rawValue: "<= \(width)/\(height)")
         }
     }
 
@@ -306,21 +208,6 @@ extension Container {
 
         public init(rawValue: String) {
             self.rawValue = rawValue
-        }
-
-        /// Creates a scrollable scroll state query.
-        public static func scrollable(_ direction: ScrollDirection) -> ScrollState {
-            ScrollState(rawValue: "scrollable: \(direction.rawValue)")
-        }
-
-        /// Creates a stuck scroll state query.
-        public static func stuck(_ direction: ScrollDirection) -> ScrollState {
-            ScrollState(rawValue: "stuck: \(direction.rawValue)")
-        }
-
-        /// Creates a snapped scroll state query.
-        public static func snapped(_ direction: ScrollDirection) -> ScrollState {
-            ScrollState(rawValue: "snapped: \(direction.rawValue)")
         }
     }
 
@@ -340,6 +227,129 @@ extension Container {
         case block
         case inline
         case both
+    }
+}
+
+extension Container.Condition {
+    /// Creates a width condition.
+    public static func width(_ comparison: Container.SizeComparison) -> Container.Condition {
+        Container.Condition(rawValue: "(width \(comparison.rawValue))")
+    }
+
+    /// Creates a height condition.
+    public static func height(_ comparison: Container.SizeComparison) -> Container.Condition {
+        Container.Condition(rawValue: "(height \(comparison.rawValue))")
+    }
+
+    /// Creates an inline-size condition.
+    public static func inlineSize(_ comparison: Container.SizeComparison) -> Container.Condition {
+        Container.Condition(rawValue: "(inline-size \(comparison.rawValue))")
+    }
+
+    /// Creates a block-size condition.
+    public static func blockSize(_ comparison: Container.SizeComparison) -> Container.Condition {
+        Container.Condition(rawValue: "(block-size \(comparison.rawValue))")
+    }
+
+    /// Creates an aspect-ratio condition.
+    public static func aspectRatio(_ comparison: Container.RatioComparison) -> Container.Condition {
+        Container.Condition(rawValue: "(aspect-ratio \(comparison.rawValue))")
+    }
+
+    /// Creates an orientation condition.
+    public static func orientation(_ orientation: Container.Orientation) -> Container.Condition {
+        Container.Condition(rawValue: "(orientation: \(orientation.rawValue))")
+    }
+
+    /// Creates a scroll-state condition.
+    public static func scrollState(_ state: Container.ScrollState) -> Container.Condition {
+        Container.Condition(rawValue: "scroll-state(\(state.rawValue))")
+    }
+
+    /// Creates a style condition.
+    public static func style(_ feature: String) -> Container.Condition {
+        Container.Condition(rawValue: "style(\(feature))")
+    }
+
+    /// Creates a negated condition.
+    public static func not(_ condition: Container.Condition) -> Container.Condition {
+        Container.Condition(rawValue: "not \(condition.rawValue)")
+    }
+}
+
+extension Container.SizeComparison {
+    /// Creates an equals comparison.
+    public static func equalTo(_ value: LengthPercentage) -> Container.SizeComparison {
+        Container.SizeComparison(rawValue: "= \(value)")
+    }
+
+    /// Creates a greater than comparison.
+    public static func greaterThan(_ value: LengthPercentage) -> Container.SizeComparison {
+        Container.SizeComparison(rawValue: "> \(value)")
+    }
+
+    /// Creates a less than comparison.
+    public static func lessThan(_ value: LengthPercentage) -> Container.SizeComparison {
+        Container.SizeComparison(rawValue: "< \(value)")
+    }
+
+    /// Creates a greater than or equal to comparison.
+    public static func greaterThanOrEqual(_ value: LengthPercentage) -> Container.SizeComparison {
+        Container.SizeComparison(rawValue: ">= \(value)")
+    }
+
+    /// Creates a less than or equal to comparison.
+    public static func lessThanOrEqual(_ value: LengthPercentage) -> Container.SizeComparison {
+        Container.SizeComparison(rawValue: "<= \(value)")
+    }
+
+    /// Creates a range comparison.
+    public static func range(min: LengthPercentage, max: LengthPercentage) -> Container.SizeComparison {
+        Container.SizeComparison(rawValue: "\(min) <= && <= \(max)")
+    }
+}
+
+extension Container.RatioComparison {
+    /// Creates an equals comparison.
+    public static func equalTo(_ width: Int, _ height: Int) -> Container.RatioComparison {
+        Container.RatioComparison(rawValue: "= \(width)/\(height)")
+    }
+
+    /// Creates a greater than comparison.
+    public static func greaterThan(_ width: Int, _ height: Int) -> Container.RatioComparison {
+        Container.RatioComparison(rawValue: "> \(width)/\(height)")
+    }
+
+    /// Creates a less than comparison.
+    public static func lessThan(_ width: Int, _ height: Int) -> Container.RatioComparison {
+        Container.RatioComparison(rawValue: "< \(width)/\(height)")
+    }
+
+    /// Creates a greater than or equal to comparison.
+    public static func greaterThanOrEqual(_ width: Int, _ height: Int) -> Container.RatioComparison {
+        Container.RatioComparison(rawValue: ">= \(width)/\(height)")
+    }
+
+    /// Creates a less than or equal to comparison.
+    public static func lessThanOrEqual(_ width: Int, _ height: Int) -> Container.RatioComparison {
+        Container.RatioComparison(rawValue: "<= \(width)/\(height)")
+    }
+}
+
+extension Container.ScrollState {
+    /// Creates a scrollable scroll state query.
+    public static func scrollable(_ direction: Container.ScrollDirection) -> Container.ScrollState {
+        Container.ScrollState(rawValue: "scrollable: \(direction.rawValue)")
+    }
+
+    /// Creates a stuck scroll state query.
+    public static func stuck(_ direction: Container.ScrollDirection) -> Container.ScrollState {
+        Container.ScrollState(rawValue: "stuck: \(direction.rawValue)")
+    }
+
+    /// Creates a snapped scroll state query.
+    public static func snapped(_ direction: Container.ScrollDirection) -> Container.ScrollState {
+        Container.ScrollState(rawValue: "snapped: \(direction.rawValue)")
     }
 }
 

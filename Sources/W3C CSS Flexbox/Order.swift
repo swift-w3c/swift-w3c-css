@@ -17,13 +17,15 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on order](https://developer.mozilla.org/en-US/docs/Web/CSS/order)
 public enum Order: Property {
-    public static let property: String = "order"
-
     /// An integer representing the ordinal group to be used by the item
     case value(Int)
 
     /// Global values
     case global(Global)
+}
+
+extension Order {
+    public static let property: String = "order"
 }
 
 /// CSS Output conversion

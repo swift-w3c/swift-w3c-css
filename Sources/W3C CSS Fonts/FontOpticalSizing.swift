@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-optical-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/font-optical-sizing)
 public enum FontOpticalSizing: Property {
-    public static let property: String = "font-optical-sizing"
-
     /// The browser will modify the shape of glyphs for optimal viewing.
     /// This is the default in supporting browsers.
     case auto
@@ -25,6 +23,10 @@ public enum FontOpticalSizing: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontOpticalSizing {
+    public static let property: String = "font-optical-sizing"
 
     public var description: String {
         switch self {

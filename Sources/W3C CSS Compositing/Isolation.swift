@@ -13,8 +13,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: `MixBlendMode`
 public enum Isolation: Property {
-    public static let property: String = "isolation"
-
     /// A new stacking context is created only if one of the properties applied to the element requires it.
     case auto
 
@@ -23,6 +21,10 @@ public enum Isolation: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension Isolation {
+    public static let property: String = "isolation"
 
     public var description: String {
         switch self {

@@ -84,7 +84,9 @@ public enum StepPosition: String, Sendable, Hashable, CustomStringConvertible {
 
     /// Jumps occur at both the start and end positions
     case jumpBoth = "jump-both"
+}
 
+extension StepPosition {
     public var description: String {
         rawValue
     }

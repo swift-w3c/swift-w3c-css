@@ -14,8 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on flex-shrink](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-shrink)
 public enum FlexShrink: Property, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
-    public static let property: String = "flex-shrink"
-
     /// A number specifying how much the flex item will shrink
     case number(Number)
 
@@ -33,6 +31,10 @@ public enum FlexShrink: Property, ExpressibleByIntegerLiteral, ExpressibleByFloa
     public init(floatLiteral value: Double) {
         self = .number(.init(value))
     }
+}
+
+extension FlexShrink {
+    public static let property: String = "flex-shrink"
 
     public var description: String {
         switch self {

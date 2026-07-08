@@ -15,8 +15,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-family](https://developer.mozilla.org/en-US/docs/Web/CSS/font-family)
 public enum FontFamily: Property {
-    public static let property: String = "font-family"
-
     /// A list of font families, both specific and generic
     case families([Family])
 
@@ -25,34 +23,10 @@ public enum FontFamily: Property {
 
     /// Global values
     case global(Global)
+}
 
-    /// Represents a font family either specific or generic
-    public enum Family: Sendable, Hashable, CustomStringConvertible {
-        /// A specifically named font family
-        case specific(String)
-
-        /// A generic font family
-        case generic(GenericFamily)
-
-        /// Multiple font families with fallbacks
-        case multiple([Family])
-
-        /// String representation of the family with proper escaping
-        public var description: String {
-            switch self {
-            case .specific(let name):
-                // If name contains spaces or special characters, wrap in quotes
-                if name.contains(" ") || name.contains("-") || name.contains(".") {
-                    return "\"\(name)\""
-                }
-                return name
-            case .generic(let family):
-                return family.description
-            case .multiple(let families):
-                return families.map { $0.description }.joined(separator: ", ")
-            }
-        }
-    }
+extension FontFamily {
+    public static let property: String = "font-family"
 
     // MARK: - Convenience initializers
 
@@ -93,6 +67,38 @@ public enum FontFamily: Property {
             return family.description
         case .global(let value):
             return value.description
+        }
+    }
+}
+
+extension FontFamily {
+    /// Represents a font family either specific or generic
+    public enum Family: Sendable, Hashable, CustomStringConvertible {
+        /// A specifically named font family
+        case specific(String)
+
+        /// A generic font family
+        case generic(GenericFamily)
+
+        /// Multiple font families with fallbacks
+        case multiple([Family])
+    }
+}
+
+extension FontFamily.Family {
+    /// String representation of the family with proper escaping
+    public var description: String {
+        switch self {
+        case .specific(let name):
+            // If name contains spaces or special characters, wrap in quotes
+            if name.contains(" ") || name.contains("-") || name.contains(".") {
+                return "\"\(name)\""
+            }
+            return name
+        case .generic(let family):
+            return family.description
+        case .multiple(let families):
+            return families.map { $0.description }.joined(separator: ", ")
         }
     }
 }

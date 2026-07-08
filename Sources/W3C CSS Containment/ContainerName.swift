@@ -10,8 +10,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/container-name)
 public enum ContainerName: Property {
-    public static let property: String = "container-name"
-
     /// Default value. The query container has no name.
     case none
 
@@ -23,6 +21,10 @@ public enum ContainerName: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ContainerName {
+    public static let property: String = "container-name"
 
     public var description: String {
         switch self {

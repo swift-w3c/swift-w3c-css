@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on flex-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-wrap)
 public enum FlexWrap: Property {
-    public static let property: String = "flex-wrap"
-
     /// Default value. All flex items are laid out in a single line, potentially overflowing the flex container
     case nowrap
 
@@ -27,6 +25,10 @@ public enum FlexWrap: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FlexWrap {
+    public static let property: String = "flex-wrap"
 
     public var description: String {
         switch self {

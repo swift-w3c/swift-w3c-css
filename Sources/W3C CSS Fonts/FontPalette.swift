@@ -17,8 +17,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-palette](https://developer.mozilla.org/en-US/docs/Web/CSS/font-palette)
 public enum FontPalette: Property {
-    public static let property: String = "font-palette"
-
     /// Specifies the default color palette or the default glyph colorization (set by the font maker) to be used for the font.
     /// With this setting, the palette in the font at index 0 is rendered.
     case normal
@@ -39,6 +37,10 @@ public enum FontPalette: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontPalette {
+    public static let property: String = "font-palette"
 
     public var description: String {
         switch self {

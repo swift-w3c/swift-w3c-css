@@ -22,8 +22,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-feature-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-feature-settings)
 public enum FontFeatureSettings: Property {
-    public static let property: String = "font-feature-settings"
-
     /// Indicates that text is laid out using default font settings.
     case normal
 
@@ -62,6 +60,10 @@ public enum FontFeatureSettings: Property {
     //    }
 }
 
+extension FontFeatureSettings {
+    public static let property: String = "font-feature-settings"
+}
+
 /// Represents the possible values for OpenType feature settings
 public enum FeatureValue: Sendable, Hashable, CustomStringConvertible {
     /// Positive integer value
@@ -72,7 +74,9 @@ public enum FeatureValue: Sendable, Hashable, CustomStringConvertible {
 
     /// Disable the feature (equivalent to value 0)
     case off
+}
 
+extension FeatureValue {
     public var description: String {
         switch self {
         case .integer(let value):

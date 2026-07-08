@@ -14,8 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on flex-grow](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-grow)
 public enum FlexGrow: Property, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
-    public static let property: String = "flex-grow"
-
     /// A number specifying how much the flex item will grow
     case number(Number)
 
@@ -33,6 +31,10 @@ public enum FlexGrow: Property, ExpressibleByIntegerLiteral, ExpressibleByFloatL
     public init(floatLiteral value: Double) {
         self = .number(.init(value))
     }
+}
+
+extension FlexGrow {
+    public static let property: String = "flex-grow"
 
     public var description: String {
         switch self {

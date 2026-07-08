@@ -17,8 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on font](https://developer.mozilla.org/en-US/docs/Web/CSS/font)
 public enum Font: Property {
-    public static let property: String = "font"
-
     /// Specifies a font with size, weight, style, and family values
     case style(Style?, Variant?, Weight?, FontFamily?, Size, LineHeight?)
 
@@ -30,6 +28,10 @@ public enum Font: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Font {
+    public static let property: String = "font"
 
     /// Creates a system font with the specified size
     public static func system(size: Size) -> Font {

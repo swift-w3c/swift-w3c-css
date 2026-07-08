@@ -8,8 +8,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/contain-intrinsic-width)
 public enum ContainIntrinsicWidth: Property, GlobalConvertible, LengthConvertible {
-    public static let property: String = "contain-intrinsic-width"
-
     /// The element has no intrinsic width.
     case none
 
@@ -26,6 +24,10 @@ public enum ContainIntrinsicWidth: Property, GlobalConvertible, LengthConvertibl
 
     /// Global values
     case global(Global)
+}
+
+extension ContainIntrinsicWidth {
+    public static let property: String = "contain-intrinsic-width"
 
     public var description: String {
         switch self {

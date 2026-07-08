@@ -36,8 +36,6 @@ public import W3C_CSS_Syntax
 ///     .range(.infinite)
 /// ```
 public struct CounterStyle: AtRule {
-    public static let identifier: String = "container-style"
-
     public var rawValue: String
     private var name: String
     private var descriptors: [String: String] = [:]
@@ -71,6 +69,10 @@ public struct CounterStyle: AtRule {
         self.name = name
         self.rawValue = "@counter-style \(name) {}"
     }
+}
+
+extension CounterStyle {
+    public static let identifier: String = "container-style"
 
     /// Updates the raw value based on the current descriptors.
     private mutating func updateRawValue() {
@@ -241,21 +243,6 @@ extension CounterStyle {
 
         /// An infinite range, for counters that work with any value.
         case infinite
-
-        public var description: String {
-            switch self {
-            case .specific(let min, let max):
-                return "\(min) \(max)"
-            case .auto:
-                return "auto"
-            case .infinite:
-                return "infinite"
-            }
-        }
-
-        public var rawValue: String {
-            description
-        }
     }
 
     /// Represents the speech synthesis style for a counter style.
@@ -277,5 +264,22 @@ extension CounterStyle {
 
         /// Use auto-detection.
         case auto
+    }
+}
+
+extension CounterStyle.Range {
+    public var description: String {
+        switch self {
+        case .specific(let min, let max):
+            return "\(min) \(max)"
+        case .auto:
+            return "auto"
+        case .infinite:
+            return "infinite"
+        }
+    }
+
+    public var rawValue: String {
+        description
     }
 }

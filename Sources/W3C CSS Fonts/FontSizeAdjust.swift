@@ -15,8 +15,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size-adjust)
 public enum FontSizeAdjust: Property {
-    public static let property: String = "font-size-adjust"
-
     /// No adjustment is applied to the font-size value for the fallback font.
     case none
 
@@ -33,6 +31,10 @@ public enum FontSizeAdjust: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSizeAdjust {
+    public static let property: String = "font-size-adjust"
 
     /// Font metrics that can be used for font-size-adjust
     public enum Metric: String, Sendable, CustomStringConvertible {
@@ -52,10 +54,6 @@ public enum FontSizeAdjust: Property {
 
         /// Uses the ratio of the advance height of the character "水" (CJK water ideograph, U+6C34) to font size.
         case icHeight = "ic-height"
-
-        public var description: String {
-            return rawValue
-        }
     }
 
     /// Represents either a numeric value or the from-font keyword
@@ -65,15 +63,6 @@ public enum FontSizeAdjust: Property {
 
         /// The from-font keyword
         case fromFont
-
-        public var description: String {
-            switch self {
-            case .value(let number):
-                return String(number)
-            case .fromFont:
-                return "from-font"
-            }
-        }
     }
 
     public var description: String {
@@ -88,6 +77,23 @@ public enum FontSizeAdjust: Property {
             return "\(metric.description) \(value.description)"
         case .global(let value):
             return value.description
+        }
+    }
+}
+
+extension FontSizeAdjust.Metric {
+    public var description: String {
+        return rawValue
+    }
+}
+
+extension FontSizeAdjust.ValueOrFromFont {
+    public var description: String {
+        switch self {
+        case .value(let number):
+            return String(number)
+        case .fromFont:
+            return "from-font"
         }
     }
 }

@@ -25,8 +25,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on row-gap](https://developer.mozilla.org/en-US/docs/Web/CSS/row-gap)
 public enum RowGap: Property, LengthPercentageConvertible {
-    public static let property: String = "row-gap"
-
     /// A length-percentage value for the gap
     case lengthPercentage(LengthPercentage)
 
@@ -35,6 +33,10 @@ public enum RowGap: Property, LengthPercentageConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension RowGap {
+    public static let property: String = "row-gap"
 
     public var description: String {
         switch self {

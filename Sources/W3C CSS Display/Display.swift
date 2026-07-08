@@ -9,8 +9,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
 public enum Display: Property {
-    public static let property: String = "display"
-
     // MARK: - Precomposed values
 
     /// Creates a block box that generates line breaks before and after
@@ -106,6 +104,10 @@ public enum Display: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Display {
+    public static let property: String = "display"
 
     public var description: String {
         switch self {
@@ -176,3 +178,4 @@ public enum Display: Property {
         }
     }
 }
+

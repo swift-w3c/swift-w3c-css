@@ -47,8 +47,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on backdrop-filter](https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter)
 public enum BackdropFilter: Property {
 
-    public static let property: String = "backdrop-filter"
-
     /// No filter effect
     case none
 
@@ -66,6 +64,10 @@ public enum BackdropFilter: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BackdropFilter {
+    public static let property: String = "backdrop-filter"
 
     //    /// Creates a backdrop filter with no effect
     //    public static var none: BackdropFilter {

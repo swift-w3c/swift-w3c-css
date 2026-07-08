@@ -10,8 +10,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/contain)
 public enum Contain: Property, GlobalConvertible {
-    public static let property: String = "contain"
-
     /// The element renders as normal, with no containment applied.
     case none
 
@@ -41,6 +39,10 @@ public enum Contain: Property, GlobalConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension Contain {
+    public static let property: String = "contain"
 
     public var description: String {
         switch self {
@@ -84,7 +86,9 @@ public enum ContainValue: Sendable, Hashable, CustomStringConvertible {
 
     /// Descendants of the element don't display outside its bounds.
     case paint
+}
 
+extension ContainValue {
     public var description: String {
         switch self {
         case .size:

@@ -17,8 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on font-size](https://developer.mozilla.org/en-US/docs/Web/CSS/font-size)
 public enum FontSize: Property, LengthPercentageConvertible {
-    public static let property: String = "font-size"
-
     /// Absolute size keyword
     case absoluteSize(AbsoluteSize)
 
@@ -32,6 +30,10 @@ public enum FontSize: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSize {
+    public static let property: String = "font-size"
 
     // MARK: - Convenience properties
 

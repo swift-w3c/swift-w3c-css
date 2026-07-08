@@ -13,8 +13,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/content)
 public enum Content: Property {
-    public static let property: String = "content"
-
     /// Default value. For elements, computes to descendants. For ::before and ::after, computes to none.
     case normal
 
@@ -56,6 +54,10 @@ public enum Content: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Content {
+    public static let property: String = "content"
 
     public var description: String {
         switch self {

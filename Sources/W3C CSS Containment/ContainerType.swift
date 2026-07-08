@@ -8,8 +8,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/container-type)
 public enum ContainerType: Property, GlobalConvertible {
-    public static let property: String = "container-type"
-
     /// Default value. The element is not a query container for any container size queries,
     /// but remains a query container for container style queries.
     case normal
@@ -34,6 +32,10 @@ public enum ContainerType: Property, GlobalConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension ContainerType {
+    public static let property: String = "container-type"
 
     public var description: String {
         switch self {

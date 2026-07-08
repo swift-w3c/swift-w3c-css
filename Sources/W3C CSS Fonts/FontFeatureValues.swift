@@ -26,7 +26,6 @@ public import W3C_CSS_Syntax
 ///     .characterVariant(["beta": (1, 2)])
 /// ```
 public struct FontFeatureValues: AtRule {
-    public static let identifier: String = "font-feature-values"
     public var rawValue: String
     private var families: [String]
     private var blocks: [String: [String: String]] = [:]
@@ -97,6 +96,10 @@ public struct FontFeatureValues: AtRule {
         let familiesString = families.map { "\"\($0)\"" }.joined(separator: ", ")
         self.rawValue = "@font-feature-values \(familiesString) {}"
     }
+}
+
+extension FontFeatureValues {
+    public static let identifier: String = "font-feature-values"
 
     /// Updates the raw value based on the current blocks.
     private mutating func updateRawValue() {
