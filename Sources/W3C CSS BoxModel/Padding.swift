@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding](https://developer.mozilla.org/en-US/docs/Web/CSS/padding)
 public enum Padding: Property, LengthPercentageConvertible {
-    public static let property: String = "padding"
-
     /// Single value for all sides
     case all(LengthPercentage)
 
@@ -41,6 +39,10 @@ public enum Padding: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension Padding {
+    public static let property: String = "padding"
 
     /// Named sides for padding
     public struct NamedSides: Sendable, Hashable {
@@ -77,9 +79,7 @@ public enum Padding: Property, LengthPercentageConvertible {
             self.left = horizontal
         }
     }
-}
 
-extension Padding {
     public static func lengthPercentage(_ value: LengthPercentage) -> Padding {
         .all(value)
     }

@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline)
 public enum PaddingInline: Property {
-    public static let property: String = "padding-inline"
-
     /// Single value for both inline-start and inline-end padding
     case uniform(LengthPercentage)
 
@@ -49,6 +47,7 @@ extension PaddingInline: CustomStringConvertible {
 
 /// Convenience initializers
 extension PaddingInline {
+    public static let property: String = "padding-inline"
 
     /// Creates a padding-inline with separate start and end values
     ///

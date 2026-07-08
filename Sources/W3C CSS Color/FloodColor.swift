@@ -16,8 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on flood-color](https://developer.mozilla.org/en-US/docs/Web/CSS/flood-color)
 public enum FloodColor: Property, ColorConvertible {
-    public static let property: String = "flood-color"
-
     /// A specific color value
     case color(W3C_CSS_Values.Color)
 
@@ -26,6 +24,10 @@ public enum FloodColor: Property, ColorConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension FloodColor {
+    public static let property: String = "flood-color"
 }
 
 extension FloodColor: CustomStringConvertible {

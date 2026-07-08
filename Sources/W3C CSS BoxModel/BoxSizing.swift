@@ -35,8 +35,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on box-sizing](https://developer.mozilla.org/en-US/docs/Web/CSS/box-sizing)
 public enum BoxSizing: Property {
-    public static let property: String = "box-sizing"
-
     /// Default CSS box model behavior. Width and height dimensions apply to the content box only.
     /// Padding and border width are added to the outside of the element.
     case contentBox
@@ -47,6 +45,10 @@ public enum BoxSizing: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BoxSizing {
+    public static let property: String = "box-sizing"
 
     /// String representation of the box-sizing value
     public var description: String {

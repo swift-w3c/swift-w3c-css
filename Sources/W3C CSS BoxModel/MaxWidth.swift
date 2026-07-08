@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on max-width](https://developer.mozilla.org/en-US/docs/Web/CSS/max-width)
 public enum MaxWidth: Property, LengthPercentageConvertible {
-    public static let property: String = "max-width"
-
     case lengthPercentage(LengthPercentage)
 
     /// No maximum width constraint
@@ -36,6 +34,10 @@ public enum MaxWidth: Property, LengthPercentageConvertible {
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MaxWidth {
+    public static let property: String = "max-width"
 
     public static let fitContent: Self = .fitContent(nil)
 }

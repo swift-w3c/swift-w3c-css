@@ -18,13 +18,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-block-start)
 public enum PaddingBlockStart: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-block-start"
-
     /// A length or percentage value for the block-start padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingBlockStart {
+    public static let property: String = "padding-block-start"
 }
 
 /// CSS Output conversion

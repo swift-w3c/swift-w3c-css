@@ -20,8 +20,6 @@ public import W3C_CSS_Values
 ///     .renderingIntent(.perceptual)
 /// ```
 public struct ColorProfile: AtRule {
-    public static let identifier: String = "color-profile"
-
     public var rawValue: String
     private var name: String
     private var descriptors: [String: String] = [:]
@@ -55,6 +53,11 @@ public struct ColorProfile: AtRule {
         self.rawValue = "@color-profile \(name) {}"
     }
 
+}
+
+extension ColorProfile {
+    public static let identifier: String = "color-profile"
+
     /// Predefined device-cmyk color profile.
     public static let deviceCMYK = ColorProfile("device-cmyk")
 
@@ -81,7 +84,7 @@ public struct ColorProfile: AtRule {
     }
 
     /// Updates the raw value based on the current descriptors.
-    private mutating func updateRawValue() {
+    fileprivate mutating func updateRawValue() {
         let descriptorString = descriptors.map { key, value in
             "  \(key): \(value);"
         }.joined(separator: "\n")

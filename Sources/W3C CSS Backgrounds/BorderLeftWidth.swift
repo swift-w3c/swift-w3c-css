@@ -49,8 +49,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-left-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-width)
 public enum BorderLeftWidth: Property {
 
-    public static let property: String = "border-left-width"
-
     /// A specific width for the left border
     case width(BorderWidth)
 
@@ -93,6 +91,8 @@ extension BorderLeftWidth: CustomStringConvertible {
 
 /// Convenience methods for creating BorderLeftWidth values
 extension BorderLeftWidth {
+    public static let property: String = "border-left-width"
+
     /// The default border-left-width value (medium)
     public static let `default` = BorderLeftWidth(.medium)
 

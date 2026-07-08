@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-anchor)
 public enum OverflowAnchor: Property {
-    public static let property: String = "overflow-anchor"
-
     /// The element becomes a potential anchor when adjusting scroll position (default)
     case auto
 
@@ -28,6 +26,10 @@ public enum OverflowAnchor: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension OverflowAnchor {
+    public static let property: String = "overflow-anchor"
 
     /// CSS string representation
     public var description: String {

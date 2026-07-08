@@ -19,7 +19,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-x](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-x)
 public enum OverflowX: Property {
-    public static let property: String = "overflow-x"
     /// Content is not clipped and may be visible outside the element's padding box
     case visible
 
@@ -37,6 +36,10 @@ public enum OverflowX: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension OverflowX {
+    public static let property: String = "overflow-x"
 
     /// CSS string representation
     public var description: String {

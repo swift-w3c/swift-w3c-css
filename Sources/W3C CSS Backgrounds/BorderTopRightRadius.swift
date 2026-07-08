@@ -42,7 +42,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-top-right-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-right-radius)
 public enum BorderTopRightRadius: Property {
-    public static let property: String = "border-top-right-radius"
     /// A single radius value for a circular corner
     case radius(LengthPercentage)
 
@@ -80,6 +79,10 @@ public enum BorderTopRightRadius: Property {
     public init(horizontalRadius: LengthPercentage, verticalRadius: LengthPercentage) {
         self = .elliptical(horizontalRadius, verticalRadius)
     }
+}
+
+extension BorderTopRightRadius {
+    public static let property: String = "border-top-right-radius"
 }
 
 /// Support for LengthPercentageConvertible

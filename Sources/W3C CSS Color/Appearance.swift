@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on appearance](https://developer.mozilla.org/en-US/docs/Web/CSS/appearance)
 public enum Appearance: Property {
 
-    public static let property: String = "appearance"
-
     /// Force standardized primitive appearance
     case none
 
@@ -77,6 +75,10 @@ public enum CompatAuto: String, Sendable, Hashable, CaseIterable {
 
     /// Textarea appearance
     case textarea
+}
+
+extension Appearance {
+    public static let property: String = "appearance"
 }
 
 /// CSS Output conversion

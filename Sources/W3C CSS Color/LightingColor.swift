@@ -24,12 +24,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on lighting-color](https://developer.mozilla.org/en-US/docs/Web/CSS/lighting-color)
 public enum LightingColor: Property, ColorConvertible {
-    public static let property: String = "lighting-color"
     /// A specific color value
     case color(W3C_CSS_Values.Color)
 
     /// Global values
     case global(Global)
+}
+
+extension LightingColor {
+    public static let property: String = "lighting-color"
 }
 
 extension LightingColor: CustomStringConvertible {

@@ -21,7 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on margin-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-inline)
 public enum MarginInline: Property {
-    public static let property: String = "margin-inline"
     /// Single value for both inline-start and inline-end margins
     case single(Margin)
 
@@ -34,6 +33,7 @@ public enum MarginInline: Property {
 }
 
 extension MarginInline {
+    public static let property: String = "margin-inline"
 
     /// Factory method for auto margins (centers the element in its container if used with both sides)
     public static var auto: MarginInline {

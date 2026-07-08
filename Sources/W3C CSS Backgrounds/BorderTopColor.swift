@@ -36,8 +36,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-top-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-color)
 public enum BorderTopColor: Property, ColorConvertible {
 
-    public static let property: String = "border-top-color"
-
     /// A specific color for the top border
     case color(W3C_CSS_Values.Color)
 
@@ -50,6 +48,10 @@ public enum BorderTopColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BorderTopColor {
+    public static let property: String = "border-top-color"
 }
 
 /// Provides string conversion for CSS output

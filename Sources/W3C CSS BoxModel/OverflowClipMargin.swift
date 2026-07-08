@@ -24,8 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-clip-margin](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-clip-margin)
 public enum OverflowClipMargin: Property {
-    public static let property: String = "overflow-clip-margin"
-
     /// A length value for the clip margin
     case length(Length)
 
@@ -37,6 +35,10 @@ public enum OverflowClipMargin: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension OverflowClipMargin {
+    public static let property: String = "overflow-clip-margin"
 
     /// Visual box reference points
     public enum VisualBox: String, Sendable, Hashable {

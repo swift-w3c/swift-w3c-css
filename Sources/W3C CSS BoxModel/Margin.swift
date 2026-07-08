@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on margin](https://developer.mozilla.org/en-US/docs/Web/CSS/margin)
 public enum Margin: Property, LengthPercentageConvertible {
-    public static let property: String = "margin"
-
     case auto
 
     /// Single value for all sides
@@ -52,6 +50,8 @@ public enum Margin: Property, LengthPercentageConvertible {
 }
 
 extension Margin {
+    public static let property: String = "margin"
+
     public static func lengthPercentage(_ value: LengthPercentage) -> Margin {
         .all(value)
     }

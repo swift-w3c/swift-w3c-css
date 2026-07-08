@@ -53,8 +53,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-start-start-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-start-start-radius)
 public enum BorderStartStartRadius: Property {
 
-    public static let property: String = "border-start-start-radius"
-
     /// A circular corner with a single radius
     case radius(LengthPercentage)
 
@@ -67,6 +65,8 @@ public enum BorderStartStartRadius: Property {
 
 /// Convenience initializers for BorderStartStartRadius
 extension BorderStartStartRadius {
+    public static let property: String = "border-start-start-radius"
+
     /// Creates a border-start-start-radius with a circular corner
     ///
     /// - Parameter radius: The radius of the corner

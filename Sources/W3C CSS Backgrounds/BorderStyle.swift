@@ -56,8 +56,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-style)
 public enum BorderStyle: Property {
 
-    public static let property: String = "border-style"
-
     /// Same style for all four sides
     case all(LineStyle)
 
@@ -141,6 +139,8 @@ extension BorderStyle: CustomStringConvertible {
 
 /// Convenience methods for creating border style values
 extension BorderStyle {
+    public static let property: String = "border-style"
+
     /// The default border style (none)
     public static let `default` = BorderStyle(.none)
 

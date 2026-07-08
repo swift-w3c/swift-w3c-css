@@ -44,8 +44,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-top-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-style)
 public enum BorderTopStyle: Property {
-    public static let property: String = "border-top-style"
-
     /// A specific line style for the top border
     case lineStyle(LineStyle)
 
@@ -83,6 +81,8 @@ extension BorderTopStyle: CustomStringConvertible {
 
 /// Convenience methods for creating BorderTopStyle values
 extension BorderTopStyle {
+    public static let property: String = "border-top-style"
+
     /// The default border-top-style value (none)
     public static let `default` = BorderTopStyle(.none)
 

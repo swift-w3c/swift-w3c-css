@@ -5,7 +5,9 @@ public import W3C_CSS_Values
 /// This extension adds validation functions that can be used to ensure color
 /// component values are within the proper ranges before creating color values.
 /// These functions are designed to work with the Color type from the Types module.
-public enum ColorValidation {
+public enum ColorValidation {}
+
+extension ColorValidation {
 
     /// Validates and clamps RGB color components.
     ///

@@ -42,8 +42,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/border-spacing)
 public enum BorderSpacing: Property {
 
-    public static let property: String = "border-spacing"
-
     /// Same spacing for both horizontal and vertical
     case all(Length)
 
@@ -99,6 +97,8 @@ extension BorderSpacing {
 
 /// Convenience methods for creating BorderSpacing values
 extension BorderSpacing {
+    public static let property: String = "border-spacing"
+
     /// The default border-spacing value (0)
     public static let `default` = BorderSpacing(.px(0))
 

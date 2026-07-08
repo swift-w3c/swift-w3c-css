@@ -49,8 +49,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-right-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-width)
 public enum BorderRightWidth: Property {
 
-    public static let property: String = "border-right-width"
-
     /// A specific width for the right border
     case width(BorderWidth)
 
@@ -93,6 +91,8 @@ extension BorderRightWidth: LengthConvertible {
 
 /// Convenience methods for creating BorderRightWidth values
 extension BorderRightWidth {
+    public static let property: String = "border-right-width"
+
     /// The default border-right-width value (medium)
     public static let `default` = BorderRightWidth(.medium)
 

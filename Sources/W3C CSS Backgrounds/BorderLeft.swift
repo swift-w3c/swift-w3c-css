@@ -64,12 +64,16 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-left](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left)
 public enum BorderLeft: Property {
-    public static let property: String = "border-left"
     /// Represents the possible border property combinations
     case properties(width: BorderWidth.Width?, style: LineStyle?, color: Color?)
 
     /// Global CSS values
     case global(Global)
+}
+
+/// Convenience initializers for BorderLeft
+extension BorderLeft {
+    public static let property: String = "border-left"
 
     /// Creates a border-left with just a style
     public static func style(_ style: LineStyle) -> BorderLeft {
@@ -86,7 +90,7 @@ public enum BorderLeft: Property {
     }
 }
 
-/// Convenience initializers for BorderLeft
+/// Convenience initializers for BorderLeft (2)
 extension BorderLeft {
     /// Creates a border-left with just a style
     ///

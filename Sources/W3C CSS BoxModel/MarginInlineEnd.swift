@@ -23,7 +23,6 @@ public import W3C_CSS_Values
 public enum MarginInlineEnd: Property, LengthPercentageConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral
 {
-    public static let property: String = "margin-inline-end"
     /// A specific length or percentage value for the margin
     case lengthPercentage(LengthPercentage)
 
@@ -32,6 +31,22 @@ public enum MarginInlineEnd: Property, LengthPercentageConvertible, ExpressibleB
 
     /// Global values
     case global(Global)
+
+    // MARK: - Convenience initializers
+
+    /// Create a margin value using a float literal as pixels
+    public init(floatLiteral value: Double) {
+        self = .px(value)
+    }
+
+    /// Create a margin value using an integer literal as pixels
+    public init(integerLiteral value: Int) {
+        self = .px(Double(value))
+    }
+}
+
+extension MarginInlineEnd {
+    public static let property: String = "margin-inline-end"
 
     // MARK: - Protocol Conformance
 
@@ -45,17 +60,5 @@ public enum MarginInlineEnd: Property, LengthPercentageConvertible, ExpressibleB
         case .global(let global):
             return global.description
         }
-    }
-
-    // MARK: - Convenience initializers
-
-    /// Create a margin value using a float literal as pixels
-    public init(floatLiteral value: Double) {
-        self = .px(value)
-    }
-
-    /// Create a margin value using an integer literal as pixels
-    public init(integerLiteral value: Int) {
-        self = .px(Double(value))
     }
 }

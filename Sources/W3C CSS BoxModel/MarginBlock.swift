@@ -11,12 +11,6 @@ public import W3C_CSS_Values
 ///
 /// [Learn more at MDN](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-block)
 public enum MarginBlock: Property, LengthPercentageConvertible {
-    public static let property: String = "margin-block"
-
-    public static func lengthPercentage(_ value: LengthPercentage) -> MarginBlock {
-        .uniform(value)
-    }
-
     /// The same value applied to both start and end margins
     case uniform(LengthPercentage)
 
@@ -44,6 +38,14 @@ public enum MarginBlock: Property, LengthPercentageConvertible {
     /// Initialize with a single Length value for both start and end
     public init(_ value: Length) {
         self = .uniform(.length(value))
+    }
+}
+
+extension MarginBlock {
+    public static let property: String = "margin-block"
+
+    public static func lengthPercentage(_ value: LengthPercentage) -> MarginBlock {
+        .uniform(value)
     }
 }
 

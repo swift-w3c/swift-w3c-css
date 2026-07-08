@@ -37,8 +37,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on margin-trim](https://developer.mozilla.org/en-US/docs/Web/CSS/margin-trim)
 public enum MarginTrim: Property {
-    public static let property: String = "margin-trim"
-
     /// Margins are not trimmed by the container (default)
     case none
 
@@ -65,6 +63,10 @@ public enum MarginTrim: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MarginTrim {
+    public static let property: String = "margin-trim"
 
     /// Edge types for margin trimming
     public enum Edge: String, Sendable, Hashable, CaseIterable {

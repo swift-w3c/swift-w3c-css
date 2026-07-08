@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on min-height](https://developer.mozilla.org/en-US/docs/Web/CSS/min-height)
 public enum MinHeight: Property, LengthPercentageConvertible {
-    public static let property: String = "min-height"
-
     case lengthPercentage(LengthPercentage)
 
     case auto
@@ -38,9 +36,12 @@ public enum MinHeight: Property, LengthPercentageConvertible {
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MinHeight {
+    public static let property: String = "min-height"
 
     public static let fitContent: Self = .fitContent(nil)
-
 }
 
 /// CSS Output conversion

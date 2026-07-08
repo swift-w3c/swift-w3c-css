@@ -55,8 +55,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-style)
 public enum BorderInlineStyle: Property {
 
-    public static let property: String = "border-inline-style"
-
     /// A specific style for both inline borders
     case lineStyle(LineStyle)
 
@@ -94,6 +92,8 @@ extension BorderInlineStyle: CustomStringConvertible {
 
 /// Convenience methods for creating BorderInlineStyle values
 extension BorderInlineStyle {
+    public static let property: String = "border-inline-style"
+
     /// The default border-inline-style value (none)
     public static let `default` = BorderInlineStyle(.none)
 

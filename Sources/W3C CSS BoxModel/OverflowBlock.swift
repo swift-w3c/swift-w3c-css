@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-block](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-block)
 public enum OverflowBlock: Property {
-    public static let property: String = "overflow-block"
-
     /// Content is not clipped and may be visible outside the block edges of the element's box
     case visible
 
@@ -39,6 +37,10 @@ public enum OverflowBlock: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension OverflowBlock {
+    public static let property: String = "overflow-block"
 
     /// CSS string representation
     public var description: String {

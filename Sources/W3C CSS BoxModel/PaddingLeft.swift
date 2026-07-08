@@ -15,13 +15,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-left](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-left)
 public enum PaddingLeft: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-left"
-
     /// A length or percentage value for the left padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingLeft {
+    public static let property: String = "padding-left"
 }
 
 /// CSS Output conversion

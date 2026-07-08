@@ -42,8 +42,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-top-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top-width)
 public enum BorderTopWidth: Property {
-    public static let property: String = "border-top-width"
-
     /// A specific width for the top border
     case width(BorderWidth)
 
@@ -86,6 +84,8 @@ extension BorderTopWidth: LengthConvertible {
 
 /// Convenience methods for creating BorderTopWidth values
 extension BorderTopWidth {
+    public static let property: String = "border-top-width"
+
     /// The default border-top-width value (medium)
     public static let `default` = BorderTopWidth(.medium)
 

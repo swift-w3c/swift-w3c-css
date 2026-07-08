@@ -51,8 +51,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-width)
 public enum BorderInlineWidth: Property {
 
-    public static let property: String = "border-inline-width"
-
     /// A specific width for both inline borders
     case width(BorderWidth)
 
@@ -95,6 +93,8 @@ extension BorderInlineWidth: CustomStringConvertible {
 
 /// Convenience methods for creating BorderInlineWidth values
 extension BorderInlineWidth {
+    public static let property: String = "border-inline-width"
+
     /// The default border-inline-width value (medium)
     public static let `default` = BorderInlineWidth(.medium)
 

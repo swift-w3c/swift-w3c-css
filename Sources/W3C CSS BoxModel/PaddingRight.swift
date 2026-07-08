@@ -15,13 +15,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-right](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-right)
 public enum PaddingRight: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-right"
-
     /// A length or percentage value for the right padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingRight {
+    public static let property: String = "padding-right"
 }
 
 /// CSS Output conversion

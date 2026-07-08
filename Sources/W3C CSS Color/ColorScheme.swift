@@ -21,7 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on color-scheme](https://developer.mozilla.org/en-US/docs/Web/CSS/color-scheme)
 public enum ColorScheme: Property {
-    public static let property: String = "color-scheme"
     /// Indicates that the element can be rendered using the page's color scheme settings.
     /// If the page does not have a color scheme set, the element is rendered using the page's default color settings.
     case normal
@@ -31,6 +30,10 @@ public enum ColorScheme: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ColorScheme {
+    public static let property: String = "color-scheme"
 }
 
 /// Values for color schemes
@@ -43,7 +46,9 @@ public enum ColorSchemeValue: Sendable, Hashable, CustomStringConvertible {
 
     /// Custom color scheme identifier
     case custom(CSSString)
+}
 
+extension ColorSchemeValue {
     public var description: String {
         switch self {
         case .light:

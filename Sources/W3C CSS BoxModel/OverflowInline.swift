@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-inline)
 public enum OverflowInline: Property {
-    public static let property: String = "overflow-inline"
-
     /// Content is not clipped and may be visible outside the inline edges of the element's box
     case visible
 
@@ -39,6 +37,10 @@ public enum OverflowInline: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension OverflowInline {
+    public static let property: String = "overflow-inline"
 
     /// CSS string representation
     public var description: String {

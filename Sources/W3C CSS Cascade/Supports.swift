@@ -27,13 +27,15 @@ public import W3C_CSS_Syntax
 ///     .style(".fallback", "display: block;")
 /// ```
 public struct Supports: AtRule {
-    public static let identifier: String = "supports"
-
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
+
+extension Supports {
+    public static let identifier: String = "supports"
 
     /// Creates a CSS property support check
     /// @supports (property: value) {}

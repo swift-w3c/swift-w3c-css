@@ -30,8 +30,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on height](https://developer.mozilla.org/en-US/docs/Web/CSS/height)
 public enum Height: Property, LengthPercentageConvertible {
-    public static let property: String = "height"
-
     /// A length or percentage value
     case lengthPercentage(LengthPercentage)
 
@@ -55,6 +53,10 @@ public enum Height: Property, LengthPercentageConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension Height {
+    public static let property: String = "height"
 
     public var description: String {
         switch self {

@@ -15,13 +15,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-bottom)
 public enum PaddingBottom: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-bottom"
-
     /// A length or percentage value for the bottom padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingBottom {
+    public static let property: String = "padding-bottom"
 }
 
 /// CSS Output conversion

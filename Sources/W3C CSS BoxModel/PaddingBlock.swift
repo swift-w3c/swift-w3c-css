@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-block](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-block)
 public enum PaddingBlock: Property {
-    public static let property: String = "padding-block"
-
     /// Single value for both block-start and block-end padding
     case uniform(LengthPercentage)
 
@@ -49,6 +47,7 @@ extension PaddingBlock: CustomStringConvertible {
 
 /// Convenience initializers
 extension PaddingBlock {
+    public static let property: String = "padding-block"
 
     /// Creates a padding-block with separate start and end values
     ///

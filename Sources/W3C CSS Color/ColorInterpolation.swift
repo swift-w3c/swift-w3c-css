@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on color-interpolation](https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation)
 public enum ColorInterpolation: Property {
-    public static let property: String = "color-interpolation"
     /// Indicates that the user agent can choose either the sRGB or linearRGB color space for interpolation.
     /// This means the author doesn't require interpolation to occur in a specific color space.
     case auto
@@ -30,6 +29,10 @@ public enum ColorInterpolation: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ColorInterpolation {
+    public static let property: String = "color-interpolation"
 
     public var description: String {
         switch self {

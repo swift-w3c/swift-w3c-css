@@ -26,8 +26,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-wrap)
 public enum OverflowWrap: Property, Sendable, Hashable, CustomStringConvertible {
-    public static let property: String = "overflow-wrap"
-
     /// Lines may only break at normal word break points (such as a space between two words).
     case normal
 
@@ -43,6 +41,10 @@ public enum OverflowWrap: Property, Sendable, Hashable, CustomStringConvertible 
 
     /// Global value
     case global(Global)
+}
+
+extension OverflowWrap {
+    public static let property: String = "overflow-wrap"
 
     public var description: String {
         switch self {

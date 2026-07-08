@@ -18,13 +18,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-start)
 public enum PaddingInlineStart: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-inline-start"
-
     /// A length or percentage value for the inline-start padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingInlineStart {
+    public static let property: String = "padding-inline-start"
 }
 
 /// CSS Output conversion

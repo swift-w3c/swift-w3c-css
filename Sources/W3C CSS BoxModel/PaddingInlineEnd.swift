@@ -18,13 +18,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-inline-end](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-inline-end)
 public enum PaddingInlineEnd: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-inline-end"
-
     /// A length or percentage value for the inline-end padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingInlineEnd {
+    public static let property: String = "padding-inline-end"
 }
 
 /// CSS Output conversion

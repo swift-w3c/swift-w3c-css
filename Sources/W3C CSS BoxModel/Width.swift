@@ -23,8 +23,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on width](https://developer.mozilla.org/en-US/docs/Web/CSS/width)
 public enum Width: Property, LengthPercentageConvertible {
-    public static let property: String = "width"
-
     case lengthPercentage(LengthPercentage)
 
     /// The browser calculates and selects a width for the specified element
@@ -47,6 +45,10 @@ public enum Width: Property, LengthPercentageConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension Width {
+    public static let property: String = "width"
 
     public var description: String {
         switch self {

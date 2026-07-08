@@ -24,8 +24,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow)
 public enum Overflow: Property {
-    public static let property: String = "overflow"
-
     /// Single overflow value for both horizontal and vertical
     case single(Value)
 
@@ -34,6 +32,26 @@ public enum Overflow: Property {
 
     /// Global CSS values
     case global(Global)
+
+    /// Creates an overflow with the same value for horizontal and vertical
+    ///
+    /// - Parameter value: The overflow value for both directions
+    public init(_ value: Value) {
+        self = .single(value)
+    }
+
+    /// Creates an overflow with different values for horizontal and vertical
+    ///
+    /// - Parameters:
+    ///   - x: The horizontal overflow value
+    ///   - y: The vertical overflow value
+    public init(_ x: Value, _ y: Value) {
+        self = .horizontalVertical(x, y)
+    }
+}
+
+extension Overflow {
+    public static let property: String = "overflow"
 
     /// Overflow value options
     public enum Value: String, Sendable, Hashable {
@@ -51,22 +69,6 @@ public enum Overflow: Property {
 
         /// Content is clipped if necessary, with scrollbars appearing only when needed
         case auto
-    }
-
-    /// Creates an overflow with the same value for horizontal and vertical
-    ///
-    /// - Parameter value: The overflow value for both directions
-    public init(_ value: Value) {
-        self = .single(value)
-    }
-
-    /// Creates an overflow with different values for horizontal and vertical
-    ///
-    /// - Parameters:
-    ///   - x: The horizontal overflow value
-    ///   - y: The vertical overflow value
-    public init(_ x: Value, _ y: Value) {
-        self = .horizontalVertical(x, y)
     }
 
     /// Content is not clipped and may overflow the padding box (both directions)

@@ -19,7 +19,9 @@ public struct SystemColor: RawRepresentable, Sendable, Hashable {
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
 
+extension SystemColor {
     /// Background of accented user interface controls.
     public static let accentColor = SystemColor(rawValue: "AccentColor")
 

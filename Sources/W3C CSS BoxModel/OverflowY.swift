@@ -19,8 +19,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on overflow-y](https://developer.mozilla.org/en-US/docs/Web/CSS/overflow-y)
 public enum OverflowY: Property {
-    public static let property: String = "overflow-y"
-
     /// Content is not clipped and may be visible outside the element's padding box
     case visible
 
@@ -38,6 +36,10 @@ public enum OverflowY: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension OverflowY {
+    public static let property: String = "overflow-y"
 
     /// CSS string representation
     public var description: String {

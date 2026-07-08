@@ -60,8 +60,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-radius)
 public enum BorderRadius: Property {
-    public static let property: String = "border-radius"
-
     /// Border radius values
     case values(Values)
 
@@ -145,83 +143,87 @@ extension BorderRadius {
         public init(horizontal: LengthPercentage, vertical: LengthPercentage) {
             self.init(horizontal: [horizontal], vertical: [vertical])
         }
+    }
+}
 
-        /// Expands an array of radii according to CSS rules
-        ///
-        /// CSS has specific rules for how shorthand values are expanded:
-        /// - 1 value: Same value for all corners
-        /// - 2 values: First for top-left/bottom-right, second for top-right/bottom-left
-        /// - 3 values: First for top-left, second for top-right/bottom-left, third for bottom-right
-        /// - 4 values: One for each corner in clockwise order
-        ///
-        /// - Parameter radii: Array of radii [1-4 values]
-        /// - Returns: Array with exactly 4 values
-        private static func expandRadii(_ radii: [LengthPercentage]) -> [LengthPercentage] {
-            switch radii.count {
-            case 0:
-                return [.px(0), .px(0), .px(0), .px(0)]
-            case 1:
-                return [radii[0], radii[0], radii[0], radii[0]]
-            case 2:
-                return [radii[0], radii[1], radii[0], radii[1]]
-            case 3:
-                return [radii[0], radii[1], radii[2], radii[1]]
-            case 4:
-                return [radii[0], radii[1], radii[2], radii[3]]
-            default:
-                // Truncate to 4 values if more are provided
-                return Array(radii.prefix(4))
+extension BorderRadius.Values {
+    /// Expands an array of radii according to CSS rules
+    ///
+    /// CSS has specific rules for how shorthand values are expanded:
+    /// - 1 value: Same value for all corners
+    /// - 2 values: First for top-left/bottom-right, second for top-right/bottom-left
+    /// - 3 values: First for top-left, second for top-right/bottom-left, third for bottom-right
+    /// - 4 values: One for each corner in clockwise order
+    ///
+    /// - Parameter radii: Array of radii [1-4 values]
+    /// - Returns: Array with exactly 4 values
+    fileprivate static func expandRadii(_ radii: [LengthPercentage]) -> [LengthPercentage] {
+        switch radii.count {
+        case 0:
+            return [.px(0), .px(0), .px(0), .px(0)]
+        case 1:
+            return [radii[0], radii[0], radii[0], radii[0]]
+        case 2:
+            return [radii[0], radii[1], radii[0], radii[1]]
+        case 3:
+            return [radii[0], radii[1], radii[2], radii[1]]
+        case 4:
+            return [radii[0], radii[1], radii[2], radii[3]]
+        default:
+            // Truncate to 4 values if more are provided
+            return Array(radii.prefix(4))
+        }
+    }
+
+    /// String representation of the radius values according to CSS syntax
+    public var description: String {
+        guard let vertical = vertical, !vertical.isEmpty else {
+            // Only horizontal values
+            return formatCSSValues(horizontal)
+        }
+
+        // Both horizontal and vertical values (elliptical corners)
+        return "\(formatCSSValues(horizontal)) / \(formatCSSValues(vertical))"
+    }
+
+    /// Formats array values for CSS output, applying CSS shorthand optimizations
+    fileprivate func formatCSSValues(_ values: [LengthPercentage]) -> String {
+        guard !values.isEmpty else { return "" }
+
+        // Apply CSS shorthand optimization for values
+        // - If all 4 values are the same, output 1 value
+        // - If values follow the pattern [a, b, a, b], output 2 values
+        // - If values follow the pattern [a, b, c, b], output 3 values
+        // - Otherwise, output all 4 values
+
+        if values.count == 4 {
+            let topLeft = values[0]
+            let topRight = values[1]
+            let bottomRight = values[2]
+            let bottomLeft = values[3]
+
+            if topLeft == topRight && topRight == bottomRight && bottomRight == bottomLeft {
+                // All values are the same - use 1-value syntax
+                return topLeft.description
+            } else if topLeft == bottomRight && topRight == bottomLeft {
+                // Values follow [a, b, a, b] pattern - use 2-value syntax
+                return "\(topLeft.description) \(topRight.description)"
+            } else if topRight == bottomLeft {
+                // Values follow [a, b, c, b] pattern - use 3-value syntax
+                return
+                    "\(topLeft.description) \(topRight.description) \(bottomRight.description)"
             }
         }
 
-        /// String representation of the radius values according to CSS syntax
-        public var description: String {
-            guard let vertical = vertical, !vertical.isEmpty else {
-                // Only horizontal values
-                return formatCSSValues(horizontal)
-            }
-
-            // Both horizontal and vertical values (elliptical corners)
-            return "\(formatCSSValues(horizontal)) / \(formatCSSValues(vertical))"
-        }
-
-        /// Formats array values for CSS output, applying CSS shorthand optimizations
-        private func formatCSSValues(_ values: [LengthPercentage]) -> String {
-            guard !values.isEmpty else { return "" }
-
-            // Apply CSS shorthand optimization for values
-            // - If all 4 values are the same, output 1 value
-            // - If values follow the pattern [a, b, a, b], output 2 values
-            // - If values follow the pattern [a, b, c, b], output 3 values
-            // - Otherwise, output all 4 values
-
-            if values.count == 4 {
-                let topLeft = values[0]
-                let topRight = values[1]
-                let bottomRight = values[2]
-                let bottomLeft = values[3]
-
-                if topLeft == topRight && topRight == bottomRight && bottomRight == bottomLeft {
-                    // All values are the same - use 1-value syntax
-                    return topLeft.description
-                } else if topLeft == bottomRight && topRight == bottomLeft {
-                    // Values follow [a, b, a, b] pattern - use 2-value syntax
-                    return "\(topLeft.description) \(topRight.description)"
-                } else if topRight == bottomLeft {
-                    // Values follow [a, b, c, b] pattern - use 3-value syntax
-                    return
-                        "\(topLeft.description) \(topRight.description) \(bottomRight.description)"
-                }
-            }
-
-            // Default to all values
-            return values.map { $0.description }.joined(separator: " ")
-        }
+        // Default to all values
+        return values.map { $0.description }.joined(separator: " ")
     }
 }
 
 /// Convenience initializers for BorderRadius
 extension BorderRadius {
+    public static let property: String = "border-radius"
+
     /// Creates a border-radius with uniform radius for all corners
     ///
     /// - Parameter radius: The radius for all corners

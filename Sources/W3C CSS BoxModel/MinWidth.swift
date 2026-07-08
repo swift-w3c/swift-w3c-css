@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on min-width](https://developer.mozilla.org/en-US/docs/Web/CSS/min-width)
 public enum MinWidth: Property, LengthPercentageConvertible {
-    public static let property: String = "min-width"
-
     case lengthPercentage(LengthPercentage)
 
     case auto
@@ -38,9 +36,12 @@ public enum MinWidth: Property, LengthPercentageConvertible {
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MinWidth {
+    public static let property: String = "min-width"
 
     public static let fitContent: Self = .fitContent(nil)
-
 }
 
 /// CSS Output conversion

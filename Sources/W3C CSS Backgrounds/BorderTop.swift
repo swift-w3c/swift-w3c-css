@@ -62,8 +62,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-top](https://developer.mozilla.org/en-US/docs/Web/CSS/border-top)
 public enum BorderTop: Property {
 
-    public static let property: String = "border-top"
-
     /// Border top properties
     case properties(Properties)
 
@@ -114,25 +112,27 @@ extension BorderTop {
             self.style = style
             self.color = color
         }
+    }
+}
 
-        /// CSS string representation of the border-top properties
-        public var description: String {
-            var parts: [String] = []
+extension BorderTop.Properties {
+    /// CSS string representation of the border-top properties
+    public var description: String {
+        var parts: [String] = []
 
-            if let width = width {
-                parts.append(width.description)
-            }
-
-            if let style = style {
-                parts.append(style.description)
-            }
-
-            if let color = color {
-                parts.append(color.description)
-            }
-
-            return parts.joined(separator: " ")
+        if let width = width {
+            parts.append(width.description)
         }
+
+        if let style = style {
+            parts.append(style.description)
+        }
+
+        if let color = color {
+            parts.append(color.description)
+        }
+
+        return parts.joined(separator: " ")
     }
 }
 
@@ -161,6 +161,8 @@ extension BorderTop: CustomStringConvertible {
 
 /// Convenience factories for creating BorderTop values
 extension BorderTop {
+    public static let property: String = "border-top"
+
     /// Creates a none border-top (invisible)
     public static let none = BorderTop(.none)
 

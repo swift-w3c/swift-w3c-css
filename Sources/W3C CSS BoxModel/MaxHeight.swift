@@ -20,8 +20,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on max-height](https://developer.mozilla.org/en-US/docs/Web/CSS/max-height)
 public enum MaxHeight: Property, LengthPercentageConvertible {
 
-    public static let property: String = "size"
-
     case lengthPercentage(LengthPercentage)
 
     /// No maximum width constraint
@@ -37,6 +35,10 @@ public enum MaxHeight: Property, LengthPercentageConvertible {
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MaxHeight {
+    public static let property: String = "size"
 
     public static let fitContent: Self = .fitContent(nil)
 }

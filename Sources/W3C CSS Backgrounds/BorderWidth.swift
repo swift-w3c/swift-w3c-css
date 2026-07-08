@@ -40,8 +40,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-width)
 public enum BorderWidth: Property {
-    public static let property: String = "border-width"
-
     /// One of the various patterns of border width values
     /// The width values can be specified in multiple patterns:
     /// - Single width for all sides
@@ -131,20 +129,22 @@ extension BorderWidth {
             self.left = left
             self.pattern = .fourSides
         }
+    }
+}
 
-        /// String representation of the width values
-        public var description: String {
-            switch pattern {
-            case .all:
-                return top.description
-            case .verticalHorizontal:
-                return "\(top.description) \(right.description)"
-            case .topHorizontalBottom:
-                return "\(top.description) \(right.description) \(bottom.description)"
-            case .fourSides:
-                return
-                    "\(top.description) \(right.description) \(bottom.description) \(left.description)"
-            }
+extension BorderWidth.Values {
+    /// String representation of the width values
+    public var description: String {
+        switch pattern {
+        case .all:
+            return top.description
+        case .verticalHorizontal:
+            return "\(top.description) \(right.description)"
+        case .topHorizontalBottom:
+            return "\(top.description) \(right.description) \(bottom.description)"
+        case .fourSides:
+            return
+                "\(top.description) \(right.description) \(bottom.description) \(left.description)"
         }
     }
 }
@@ -162,25 +162,29 @@ extension BorderWidth {
 
         /// A specific length value
         case length(Length)
+    }
+}
 
-        /// String representation of the width
-        public var description: String {
-            switch self {
-            case .thin:
-                return "thin"
-            case .medium:
-                return "medium"
-            case .thick:
-                return "thick"
-            case .length(let length):
-                return length.description
-            }
+extension BorderWidth.Width {
+    /// String representation of the width
+    public var description: String {
+        switch self {
+        case .thin:
+            return "thin"
+        case .medium:
+            return "medium"
+        case .thick:
+            return "thick"
+        case .length(let length):
+            return length.description
         }
     }
 }
 
 /// Convenience initializers for BorderWidth
 extension BorderWidth {
+    public static let property: String = "border-width"
+
     /// Creates a border width with the same value for all sides
     ///
     /// - Parameter width: The width for all sides

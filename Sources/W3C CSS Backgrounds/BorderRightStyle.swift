@@ -47,8 +47,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-right-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-style)
 public enum BorderRightStyle: Property {
 
-    public static let property: String = "border-right-style"
-
     /// A specific line style for the right border
     case lineStyle(LineStyle)
 
@@ -86,6 +84,8 @@ extension BorderRightStyle: CustomStringConvertible {
 
 /// Convenience methods for creating BorderRightStyle values
 extension BorderRightStyle {
+    public static let property: String = "border-right-style"
+
     /// The default border-right-style value (none)
     public static let `default` = BorderRightStyle(.none)
 

@@ -18,13 +18,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-block-end)
 public enum PaddingBlockEnd: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-block-end"
-
     /// A length or percentage value for the block-end padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingBlockEnd {
+    public static let property: String = "padding-block-end"
 }
 
 /// CSS Output conversion

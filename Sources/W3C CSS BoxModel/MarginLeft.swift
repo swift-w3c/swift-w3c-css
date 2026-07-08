@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 public enum MarginLeft: Property, LengthPercentageConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral
 {
-    public static let property: String = "margin-left"
-
     /// A specific length or percentage value for the margin
     case lengthPercentage(LengthPercentage)
 
@@ -31,6 +29,22 @@ public enum MarginLeft: Property, LengthPercentageConvertible, ExpressibleByInte
 
     /// Global values
     case global(Global)
+
+    // MARK: - Convenience initializers
+
+    /// Create a margin value using a float literal as pixels
+    public init(floatLiteral value: Double) {
+        self = .px(value)
+    }
+
+    /// Create a margin value using an integer literal as pixels
+    public init(integerLiteral value: Int) {
+        self = .px(Double(value))
+    }
+}
+
+extension MarginLeft {
+    public static let property: String = "margin-left"
 
     // MARK: - Protocol Conformance
 
@@ -44,17 +58,5 @@ public enum MarginLeft: Property, LengthPercentageConvertible, ExpressibleByInte
         case .global(let global):
             return global.description
         }
-    }
-
-    // MARK: - Convenience initializers
-
-    /// Create a margin value using a float literal as pixels
-    public init(floatLiteral value: Double) {
-        self = .px(value)
-    }
-
-    /// Create a margin value using an integer literal as pixels
-    public init(integerLiteral value: Int) {
-        self = .px(Double(value))
     }
 }

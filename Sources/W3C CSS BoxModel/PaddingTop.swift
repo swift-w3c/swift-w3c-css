@@ -15,13 +15,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on padding-top](https://developer.mozilla.org/en-US/docs/Web/CSS/padding-top)
 public enum PaddingTop: Property, LengthPercentageConvertible {
-    public static let property: String = "padding-top"
-
     /// A length or percentage value for the top padding
     case lengthPercentage(LengthPercentage)
 
     /// Global values
     case global(Global)
+}
+
+extension PaddingTop {
+    public static let property: String = "padding-top"
 }
 
 /// CSS Output conversion

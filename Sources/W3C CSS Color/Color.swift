@@ -16,8 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on color](https://developer.mozilla.org/en-US/docs/Web/CSS/color)
 public enum Color: Property, ColorConvertible {
-    public static let property: String = "color"
-
     /// A specific color value
     case color(W3C_CSS_Values.Color)
 
@@ -40,6 +38,8 @@ extension Color: CustomStringConvertible {
 
 /// Factory methods for creating color values
 extension Color {
+    public static let property: String = "color"
+
     /// Creates a color that matches the current color value
     public static let currentColor: Color = .color(.currentColor)
 }

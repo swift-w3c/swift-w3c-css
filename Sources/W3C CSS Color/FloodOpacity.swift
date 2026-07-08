@@ -15,8 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on flood-opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/flood-opacity)
 public enum FloodOpacity: Property, PercentageConvertible {
-    public static let property: String = "flood-opacity"
-
     /// A numeric opacity value between 0 and 1
     case number(Number)
 
@@ -40,6 +38,10 @@ public enum FloodOpacity: Property, PercentageConvertible {
             self = .percentage(.init(opacity))
         }
     }
+}
+
+extension FloodOpacity {
+    public static let property: String = "flood-opacity"
 
     public var description: String {
         switch self {

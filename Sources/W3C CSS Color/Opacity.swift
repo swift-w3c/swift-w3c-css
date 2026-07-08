@@ -23,8 +23,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on opacity](https://developer.mozilla.org/en-US/docs/Web/CSS/opacity)
 public enum Opacity: Property {
-    public static let property: String = "opacity"
-
     /// A specific opacity value
     case value(Double)
 
@@ -37,6 +35,10 @@ public enum Opacity: Property {
     public init(_ value: Double) {
         self = .value(max(0, min(1, value)))
     }
+}
+
+extension Opacity {
+    public static let property: String = "opacity"
 
     /// Fully transparent (opacity: 0)
     public static let transparent: Opacity = .value(0)

@@ -39,8 +39,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-right-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-right-color)
 public enum BorderRightColor: Property, ColorConvertible {
 
-    public static let property: String = "border-right-color"
-
     /// A specific color for the right border
     case color(W3C_CSS_Values.Color)
 
@@ -53,6 +51,10 @@ public enum BorderRightColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BorderRightColor {
+    public static let property: String = "border-right-color"
 }
 
 /// Provides string conversion for CSS output

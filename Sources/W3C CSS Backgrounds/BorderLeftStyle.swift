@@ -45,8 +45,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-left-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-left-style)
 public enum BorderLeftStyle: Property {
 
-    public static let property: String = "border-left-style"
-
     /// A specific line style for the left border
     case lineStyle(LineStyle)
 
@@ -84,6 +82,8 @@ extension BorderLeftStyle: CustomStringConvertible {
 
 /// Convenience methods for creating BorderLeftStyle values
 extension BorderLeftStyle {
+    public static let property: String = "border-left-style"
+
     /// The default border-left-style value (none)
     public static let `default` = BorderLeftStyle(.none)
 

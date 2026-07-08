@@ -26,8 +26,6 @@ public import W3C_CSS_Syntax
 /// Layer.anonymous
 /// ```
 public struct Layer: AtRule {
-    public static let identifier: String = "layer"
-
     public var rawValue: String
 
     public init(rawValue: String) {
@@ -43,6 +41,10 @@ public struct Layer: AtRule {
     public init() {
         self.rawValue = "@layer"
     }
+}
+
+extension Layer {
+    public static let identifier: String = "layer"
 
     /// Creates a declaration of multiple layers in a specific order.
     ///

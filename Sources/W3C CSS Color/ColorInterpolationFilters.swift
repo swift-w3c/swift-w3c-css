@@ -21,7 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on color-interpolation-filters](https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-filters)
 public enum ColorInterpolationFilters: Property {
-    public static let property: String = "color-interpolation-filters"
     /// Indicates that color interpolation should occur in the linearized RGB color space
     /// as described in the sRGB specification. This is the default property value.
     case linearRGB
@@ -35,6 +34,10 @@ public enum ColorInterpolationFilters: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ColorInterpolationFilters {
+    public static let property: String = "color-interpolation-filters"
 
     public var description: String {
         switch self {

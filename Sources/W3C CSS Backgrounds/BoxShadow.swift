@@ -20,8 +20,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on box-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/box-shadow)
 public enum BoxShadow: Property {
-    public static let property: String = "border-shadow"
-
     /// No shadow effect
     case none
 
@@ -33,6 +31,37 @@ public enum BoxShadow: Property {
 
     /// Global CSS values
     case global(Global)
+
+    /// Creates a box shadow with a single shadow effect
+    ///
+    /// - Parameter shadow: The shadow effect to apply
+    public init(_ shadow: Shadow) {
+        self = .shadow(shadow)
+    }
+
+    /// Creates a box shadow with multiple shadow effects
+    ///
+    /// - Parameter shadows: Array of shadow effects to apply
+    public init(_ shadows: [Shadow]) {
+        if shadows.isEmpty {
+            self = .none
+        } else if shadows.count == 1 {
+            self = .shadow(shadows[0])
+        } else {
+            self = .multiple(shadows)
+        }
+    }
+
+    /// Creates a box shadow with multiple shadow effects
+    ///
+    /// - Parameter shadows: Variadic list of shadow effects to apply
+    public init(_ shadows: Shadow...) {
+        self.init(shadows)
+    }
+}
+
+extension BoxShadow {
+    public static let property: String = "border-shadow"
 
     /// Represents a single box shadow
     public struct Shadow: Sendable, Hashable, CustomStringConvertible {
@@ -78,58 +107,33 @@ public enum BoxShadow: Property {
             self.color = color
             self.isInset = isInset
         }
+    }
+}
 
-        /// String representation of the shadow for CSS output
-        public var description: String {
-            var result = ""
+extension BoxShadow.Shadow {
+    /// String representation of the shadow for CSS output
+    public var description: String {
+        var result = ""
 
-            if isInset {
-                result += "inset "
-            }
-
-            result += "\(offsetX.description) \(offsetY.description)"
-
-            if let blur = blurRadius {
-                result += " \(blur.description)"
-            }
-
-            if let spread = spreadRadius {
-                result += " \(spread.description)"
-            }
-
-            if let shadowColor = color {
-                result += " \(shadowColor.description)"
-            }
-
-            return result
+        if isInset {
+            result += "inset "
         }
-    }
 
-    /// Creates a box shadow with a single shadow effect
-    ///
-    /// - Parameter shadow: The shadow effect to apply
-    public init(_ shadow: Shadow) {
-        self = .shadow(shadow)
-    }
+        result += "\(offsetX.description) \(offsetY.description)"
 
-    /// Creates a box shadow with multiple shadow effects
-    ///
-    /// - Parameter shadows: Array of shadow effects to apply
-    public init(_ shadows: [Shadow]) {
-        if shadows.isEmpty {
-            self = .none
-        } else if shadows.count == 1 {
-            self = .shadow(shadows[0])
-        } else {
-            self = .multiple(shadows)
+        if let blur = blurRadius {
+            result += " \(blur.description)"
         }
-    }
 
-    /// Creates a box shadow with multiple shadow effects
-    ///
-    /// - Parameter shadows: Variadic list of shadow effects to apply
-    public init(_ shadows: Shadow...) {
-        self.init(shadows)
+        if let spread = spreadRadius {
+            result += " \(spread.description)"
+        }
+
+        if let shadowColor = color {
+            result += " \(shadowColor.description)"
+        }
+
+        return result
     }
 }
 

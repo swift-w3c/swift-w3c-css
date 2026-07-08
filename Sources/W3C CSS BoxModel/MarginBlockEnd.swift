@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 public enum MarginBlockEnd: Property, LengthPercentageConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral
 {
-    public static let property: String = "margin-block-end"
     /// A specific length or percentage value for the margin
     case lengthPercentage(LengthPercentage)
 
@@ -31,6 +30,22 @@ public enum MarginBlockEnd: Property, LengthPercentageConvertible, ExpressibleBy
 
     /// Global values
     case global(Global)
+
+    // MARK: - Convenience initializers
+
+    /// Create a margin value using a float literal as pixels
+    public init(floatLiteral value: Double) {
+        self = .px(value)
+    }
+
+    /// Create a margin value using an integer literal as pixels
+    public init(integerLiteral value: Int) {
+        self = .px(Double(value))
+    }
+}
+
+extension MarginBlockEnd {
+    public static let property: String = "margin-block-end"
 
     // MARK: - Protocol Conformance
 
@@ -44,18 +59,6 @@ public enum MarginBlockEnd: Property, LengthPercentageConvertible, ExpressibleBy
         case .global(let global):
             return global.description
         }
-    }
-
-    // MARK: - Convenience initializers
-
-    /// Create a margin value using a float literal as pixels
-    public init(floatLiteral value: Double) {
-        self = .px(value)
-    }
-
-    /// Create a margin value using an integer literal as pixels
-    public init(integerLiteral value: Int) {
-        self = .px(Double(value))
     }
 }
 
