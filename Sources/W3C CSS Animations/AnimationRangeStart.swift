@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-range-start](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range-start)
 public enum AnimationRangeStart: Property, LengthPercentageConvertible {
 
-    public static let property: String = "animation-range-start"
 
     /// Represents the start of the timeline (default)
     case normal
@@ -30,6 +29,10 @@ public enum AnimationRangeStart: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension AnimationRangeStart {
+    public static let property: String = "animation-range-start"
 }
 
 /// Named timeline range values for animations

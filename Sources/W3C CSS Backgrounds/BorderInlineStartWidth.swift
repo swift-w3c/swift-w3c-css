@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-start-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-width)
 public enum BorderInlineStartWidth: Property {
 
-    public static let property: String = "border-inline-start-width"
 
     /// Use a specific width value for the inline-start border
     case width(BorderWidth.Width)
@@ -62,6 +61,10 @@ public enum BorderInlineStartWidth: Property {
     public init(_ width: BorderWidth.Width) {
         self = .width(width)
     }
+}
+
+extension BorderInlineStartWidth {
+    public static let property: String = "border-inline-start-width"
 }
 
 /// Provides string conversion for CSS output

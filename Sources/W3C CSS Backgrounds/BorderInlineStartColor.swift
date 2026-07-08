@@ -52,7 +52,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-start-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-color)
 public enum BorderInlineStartColor: Property, ColorConvertible {
 
-    public static let property: String = "border-inline-start-color"
 
     /// A specific color for the inline-start border
     case color(W3C_CSS_Values.Color)
@@ -66,6 +65,10 @@ public enum BorderInlineStartColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BorderInlineStartColor {
+    public static let property: String = "border-inline-start-color"
 }
 
 /// Provides string conversion for CSS output

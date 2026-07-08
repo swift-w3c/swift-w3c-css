@@ -18,7 +18,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on justify-self](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-self)
 public enum JustifySelf: Property, SelfPositionConvertible, BaselinePositionConvertible {
-    public static let property: String = "justify-self"
     /// Uses the parent's justify-items value
     case auto
 
@@ -45,6 +44,10 @@ public enum JustifySelf: Property, SelfPositionConvertible, BaselinePositionConv
 
     /// Global values
     case global(Global)
+}
+
+extension JustifySelf {
+    public static let property: String = "justify-self"
 }
 
 /// CSS Output conversion

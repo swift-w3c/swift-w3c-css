@@ -16,7 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on align-items](https://developer.mozilla.org/en-US/docs/Web/CSS/align-items)
 public enum AlignItems: Property, SelfPositionConvertible, BaselinePositionConvertible {
-    public static let property: String = "align-items"
 
     /// Default alignment for the layout mode
     case normal
@@ -35,6 +34,10 @@ public enum AlignItems: Property, SelfPositionConvertible, BaselinePositionConve
 
     /// Global values
     case global(Global)
+}
+
+extension AlignItems {
+    public static let property: String = "align-items"
 }
 
 /// CSS Output conversion

@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-style)
 public enum BorderBlockEndStyle: Property {
 
-    public static let property: String = "border-block-end-style"
 
     /// A specific line style for the block-end border
     case lineStyle(LineStyle)
@@ -64,6 +63,10 @@ public enum BorderBlockEndStyle: Property {
     public init(_ style: LineStyle) {
         self = .lineStyle(style)
     }
+}
+
+extension BorderBlockEndStyle {
+    public static let property: String = "border-block-end-style"
 }
 
 /// Provides string conversion for CSS output

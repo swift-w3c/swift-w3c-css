@@ -37,9 +37,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-image-source](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-source)
 public enum BorderImageSource: Property {
-
-    public static let property: String = "border-image-source"
-
     /// No border image (use border-style instead)
     case none
 
@@ -66,7 +63,13 @@ public enum BorderImageSource: Property {
 
     /// Global CSS values
     case global(Global)
+}
 
+extension BorderImageSource {
+    public static let property: String = "border-image-source"
+}
+
+extension BorderImageSource {
     /// Default value (none)
     public static let `default` = BorderImageSource.none
 }

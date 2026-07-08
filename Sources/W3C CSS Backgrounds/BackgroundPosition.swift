@@ -54,7 +54,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-position](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position)
 public enum BackgroundPosition: Property {
-    public static let property: String = "background-position"
 
     /// A single position value
     case single(Position)
@@ -82,6 +81,10 @@ public enum BackgroundPosition: Property {
             self = .multiple(positions)
         }
     }
+}
+
+extension BackgroundPosition {
+    public static let property: String = "background-position"
 }
 
 /// Provides string conversion for CSS output

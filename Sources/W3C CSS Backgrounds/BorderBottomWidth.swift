@@ -43,7 +43,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-width)
 public enum BorderBottomWidth: Property {
 
-    public static let property: String = "border-bottom-width"
 
     /// A specific width for the bottom border
     case width(BorderWidth)
@@ -57,6 +56,10 @@ public enum BorderBottomWidth: Property {
     public init(_ width: BorderWidth) {
         self = .width(width)
     }
+}
+
+extension BorderBottomWidth {
+    public static let property: String = "border-bottom-width"
 }
 
 /// Provides string conversion for CSS output

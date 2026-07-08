@@ -18,7 +18,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on align-content](https://developer.mozilla.org/en-US/docs/Web/CSS/align-content)
 public enum AlignContent: Property, BaselinePositionConvertible {
-    public static let property: String = "align-content"
 
     /// Default alignment for the layout mode
     case normal
@@ -34,6 +33,10 @@ public enum AlignContent: Property, BaselinePositionConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension AlignContent {
+    public static let property: String = "align-content"
 }
 
 /// CSS Output conversion

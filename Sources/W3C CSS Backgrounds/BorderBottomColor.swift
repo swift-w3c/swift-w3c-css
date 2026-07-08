@@ -36,7 +36,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-color)
 public enum BorderBottomColor: Property, ColorConvertible {
 
-    public static let property: String = "border-bottom-color"
 
     /// A specific color for the bottom border
     case color(W3C_CSS_Values.Color)
@@ -50,6 +49,10 @@ public enum BorderBottomColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BorderBottomColor {
+    public static let property: String = "border-bottom-color"
 }
 
 /// Provides string conversion for CSS output

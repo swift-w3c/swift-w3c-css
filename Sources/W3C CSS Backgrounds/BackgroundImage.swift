@@ -51,7 +51,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-image](https://developer.mozilla.org/en-US/docs/Web/CSS/background-image)
 public enum BackgroundImage: Property {
-    public static let property: String = "background-image"
 
     /// A single image
     case single(Image)
@@ -79,6 +78,10 @@ public enum BackgroundImage: Property {
             self = .multiple(images)
         }
     }
+}
+
+extension BackgroundImage {
+    public static let property: String = "background-image"
 }
 
 /// Provides string conversion for CSS output

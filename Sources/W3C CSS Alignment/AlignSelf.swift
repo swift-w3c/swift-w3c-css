@@ -17,7 +17,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on align-self](https://developer.mozilla.org/en-US/docs/Web/CSS/align-self)
 public enum AlignSelf: Property, SelfPositionConvertible, BaselinePositionConvertible {
-    public static let property: String = "align-self"
 
     /// Uses the parent's align-items value
     case auto
@@ -39,6 +38,10 @@ public enum AlignSelf: Property, SelfPositionConvertible, BaselinePositionConver
 
     /// Global values
     case global(Global)
+}
+
+extension AlignSelf {
+    public static let property: String = "align-self"
 }
 
 /// CSS Output conversion

@@ -43,9 +43,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-image-outset](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-outset)
 public enum BorderImageOutset: Property {
-
-    public static let property: String = "border-image-outset"
-
     /// All four sides have the same outset value
     case all(OutsetValue)
 
@@ -60,25 +57,6 @@ public enum BorderImageOutset: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Represents a value for border-image-outset
-    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-        /// A length value
-        case length(Length)
-
-        /// A number value (multiple of the border width)
-        case number(Number)
-
-        /// String representation of the outset value
-        public var description: String {
-            switch self {
-            case .length(let length):
-                return length.description
-            case .number(let number):
-                return number.description
-            }
-        }
-    }
 
     /// Creates a border-image-outset with the same value for all sides
     ///
@@ -121,7 +99,36 @@ public enum BorderImageOutset: Property {
     ) {
         self = .topRightBottomLeft(top, right, bottom, left)
     }
+}
 
+extension BorderImageOutset {
+    public static let property: String = "border-image-outset"
+}
+
+extension BorderImageOutset {
+    /// Represents a value for border-image-outset
+    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+        /// A length value
+        case length(Length)
+
+        /// A number value (multiple of the border width)
+        case number(Number)
+    }
+}
+
+extension BorderImageOutset.OutsetValue {
+    /// String representation of the outset value
+    public var description: String {
+        switch self {
+        case .length(let length):
+            return length.description
+        case .number(let number):
+            return number.description
+        }
+    }
+}
+
+extension BorderImageOutset {
     /// Creates a border-image-outset with a number value for all sides
     ///
     /// - Parameter number: The number multiplier

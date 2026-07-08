@@ -51,9 +51,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-image-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-width)
 public enum BorderImageWidth: Property {
-
-    public static let property: String = "border-image-width"
-
     /// All four sides have the same width value
     case all(WidthValue)
 
@@ -68,31 +65,6 @@ public enum BorderImageWidth: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Represents a value for border-image-width
-    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthPercentageConvertible
-    {
-        /// A length value
-        case lengthPercentage(LengthPercentage)
-
-        /// A number value (multiple of the border width)
-        case number(Number)
-
-        /// Automatic width (uses intrinsic dimensions)
-        case auto
-
-        /// String representation of the width value
-        public var description: String {
-            switch self {
-            case .lengthPercentage(let value):
-                return value.description
-            case .number(let number):
-                return number.description
-            case .auto:
-                return "auto"
-            }
-        }
-    }
 
     /// Creates a border-image-width with the same value for all sides
     ///
@@ -130,7 +102,42 @@ public enum BorderImageWidth: Property {
     public init(_ top: WidthValue, _ right: WidthValue, _ bottom: WidthValue, _ left: WidthValue) {
         self = .topRightBottomLeft(top, right, bottom, left)
     }
+}
 
+extension BorderImageWidth {
+    public static let property: String = "border-image-width"
+}
+
+extension BorderImageWidth {
+    /// Represents a value for border-image-width
+    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthPercentageConvertible
+    {
+        /// A length value
+        case lengthPercentage(LengthPercentage)
+
+        /// A number value (multiple of the border width)
+        case number(Number)
+
+        /// Automatic width (uses intrinsic dimensions)
+        case auto
+    }
+}
+
+extension BorderImageWidth.WidthValue {
+    /// String representation of the width value
+    public var description: String {
+        switch self {
+        case .lengthPercentage(let value):
+            return value.description
+        case .number(let number):
+            return number.description
+        case .auto:
+            return "auto"
+        }
+    }
+}
+
+extension BorderImageWidth {
     /// Creates a border-image-width with a number value for all sides
     ///
     /// - Parameter number: The number multiplier

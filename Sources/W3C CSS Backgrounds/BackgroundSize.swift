@@ -51,7 +51,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-size](https://developer.mozilla.org/en-US/docs/Web/CSS/background-size)
 public enum BackgroundSize: Property {
-    public static let property: String = "background-size"
 
     /// Scale to the container without cropping or stretching (fit inside)
     case contain
@@ -73,6 +72,10 @@ public enum BackgroundSize: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BackgroundSize {
+    public static let property: String = "background-size"
 }
 
 /// Provides string conversion for CSS output

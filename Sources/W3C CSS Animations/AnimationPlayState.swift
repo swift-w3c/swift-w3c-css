@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-play-state](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state)
 public enum AnimationPlayState: Property {
-    public static let property: String = "animation-play-state"
     /// The animation is currently playing (default)
     case running
 
@@ -23,6 +22,10 @@ public enum AnimationPlayState: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension AnimationPlayState {
+    public static let property: String = "animation-play-state"
 }
 
 extension AnimationPlayState: CaseIterable {

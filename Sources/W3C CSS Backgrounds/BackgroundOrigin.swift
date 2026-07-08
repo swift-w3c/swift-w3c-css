@@ -40,7 +40,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on background-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin)
 public enum BackgroundOrigin: Property {
 
-    public static let property: String = "background-origin"
 
     /// The background is positioned relative to the border box
     case borderBox
@@ -56,6 +55,10 @@ public enum BackgroundOrigin: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BackgroundOrigin {
+    public static let property: String = "background-origin"
 }
 
 /// Provides string conversion for CSS output

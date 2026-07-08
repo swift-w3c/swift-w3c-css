@@ -16,9 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-block-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-width)
 public enum BorderBlockWidth: Property {
-
-    public static let property: String = "border-block-width"
-
     /// A single width for both block-start and block-end borders
     case all(BorderWidth.Width)
 
@@ -43,7 +40,13 @@ public enum BorderBlockWidth: Property {
     public init(start: BorderWidth.Width, end: BorderWidth.Width) {
         self = .startEnd(start, end)
     }
+}
 
+extension BorderBlockWidth {
+    public static let property: String = "border-block-width"
+}
+
+extension BorderBlockWidth {
     public var description: String {
         switch self {
         case .all(let width):

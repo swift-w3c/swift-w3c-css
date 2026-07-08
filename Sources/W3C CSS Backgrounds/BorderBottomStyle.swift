@@ -45,7 +45,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-style)
 public enum BorderBottomStyle: Property {
 
-    public static let property: String = "border-bottom-style"
 
     /// A specific line style for the bottom border
     case lineStyle(LineStyle)
@@ -59,6 +58,10 @@ public enum BorderBottomStyle: Property {
     public init(_ style: LineStyle) {
         self = .lineStyle(style)
     }
+}
+
+extension BorderBottomStyle {
+    public static let property: String = "border-bottom-style"
 }
 
 /// Provides string conversion for CSS output

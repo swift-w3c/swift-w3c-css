@@ -37,8 +37,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-image](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)
 public enum BorderImage: Property {
-    public static let property: String = "border-image"
-
     /// Configuration for a border image
     case config(Configuration)
 
@@ -93,7 +91,13 @@ public enum BorderImage: Property {
             )
         )
     }
+}
 
+extension BorderImage {
+    public static let property: String = "border-image"
+}
+
+extension BorderImage {
     /// Configuration for a border image
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
         /// The source of the border image
@@ -132,137 +136,141 @@ public enum BorderImage: Property {
             self.outset = outset
             self.repeat = `repeat`
         }
+    }
+}
 
-        /// CSS string representation
-        public var description: String {
-            var parts: [String] = []
+extension BorderImage.Configuration {
+    /// CSS string representation
+    public var description: String {
+        var parts: [String] = []
 
-            // Source
-            parts.append(sourceDescription)
+        // Source
+        parts.append(sourceDescription)
 
-            // Slice (required)
-            parts.append(sliceDescription)
+        // Slice (required)
+        parts.append(sliceDescription)
 
-            // Width and Outset (optional)
-            if let width = width {
-                let widthPart = " / \(widthDescription(width))"
+        // Width and Outset (optional)
+        if let width = width {
+            let widthPart = " / \(widthDescription(width))"
 
-                if let outset = outset {
-                    parts.append(widthPart + " / \(outsetDescription(outset))")
-                } else {
-                    parts.append(widthPart)
-                }
-            } else if let outset = outset {
-                parts.append(" / / \(outsetDescription(outset))")
-            }
-
-            // Repeat (optional)
-            if let `repeat` = `repeat` {
-                parts.append(repeatDescription(`repeat`))
-            }
-
-            return parts.joined(separator: " ")
-        }
-
-        private var sourceDescription: String {
-            switch source {
-            case .none:
-                return "none"
-            case .url(let url):
-                return url.description
-            case .linearGradient(let colors, let angle):
-                let angleStr = angle.map { "\($0), " } ?? ""
-                let colorsStr = colors.joined(separator: ", ")
-                return "linear-gradient(\(angleStr)\(colorsStr))"
-            case .radialGradient(let colors, let position):
-                let positionStr = position.map { "\($0), " } ?? ""
-                let colorsStr = colors.joined(separator: ", ")
-                return "radial-gradient(\(positionStr)\(colorsStr))"
-            case .repeatingLinearGradient(let colors, let angle):
-                let angleStr = angle.map { "\($0), " } ?? ""
-                let colorsStr = colors.joined(separator: ", ")
-                return "repeating-linear-gradient(\(angleStr)\(colorsStr))"
-            case .repeatingRadialGradient(let colors, let position):
-                let positionStr = position.map { "\($0), " } ?? ""
-                let colorsStr = colors.joined(separator: ", ")
-                return "repeating-radial-gradient(\(positionStr)\(colorsStr))"
-            }
-        }
-
-        private var sliceDescription: String {
-            var sliceValues: [String] = [slice.top.description]
-
-            if let right = slice.right {
-                sliceValues.append(right.description)
-
-                if let bottom = slice.bottom {
-                    sliceValues.append(bottom.description)
-
-                    if let left = slice.left {
-                        sliceValues.append(left.description)
-                    }
-                }
-            }
-
-            let sliceStr = sliceValues.joined(separator: " ")
-            return slice.fill ? "\(sliceStr) fill" : sliceStr
-        }
-
-        private func widthDescription(_ width: Width) -> String {
-            var widthValues: [String] = [width.top.description]
-
-            if let right = width.right {
-                widthValues.append(right.description)
-
-                if let bottom = width.bottom {
-                    widthValues.append(bottom.description)
-
-                    if let left = width.left {
-                        widthValues.append(left.description)
-                    }
-                }
-            }
-
-            return widthValues.joined(separator: " ")
-        }
-
-        private func outsetDescription(_ outset: Outset) -> String {
-            var outsetValues: [String] = [outset.top.description]
-
-            if let right = outset.right {
-                outsetValues.append(right.description)
-
-                if let bottom = outset.bottom {
-                    outsetValues.append(bottom.description)
-
-                    if let left = outset.left {
-                        outsetValues.append(left.description)
-                    }
-                }
-            }
-
-            return outsetValues.joined(separator: " ")
-        }
-
-        private func repeatDescription(_ repeat: Repeat) -> String {
-            if let vertical = `repeat`.vertical {
-                return
-                    "\(repeatValueDescription(`repeat`.horizontal)) \(repeatValueDescription(vertical))"
+            if let outset = outset {
+                parts.append(widthPart + " / \(outsetDescription(outset))")
             } else {
-                return repeatValueDescription(`repeat`.horizontal)
+                parts.append(widthPart)
             }
+        } else if let outset = outset {
+            parts.append(" / / \(outsetDescription(outset))")
         }
 
-        private func repeatValueDescription(_ value: Repeat.RepeatValue) -> String {
-            switch value {
-            case .stretch: return "stretch"
-            case .repeat: return "repeat"
-            case .round: return "round"
-            case .space: return "space"
-            }
+        // Repeat (optional)
+        if let `repeat` = `repeat` {
+            parts.append(repeatDescription(`repeat`))
+        }
+
+        return parts.joined(separator: " ")
+    }
+
+    private var sourceDescription: String {
+        switch source {
+        case .none:
+            return "none"
+        case .url(let url):
+            return url.description
+        case .linearGradient(let colors, let angle):
+            let angleStr = angle.map { "\($0), " } ?? ""
+            let colorsStr = colors.joined(separator: ", ")
+            return "linear-gradient(\(angleStr)\(colorsStr))"
+        case .radialGradient(let colors, let position):
+            let positionStr = position.map { "\($0), " } ?? ""
+            let colorsStr = colors.joined(separator: ", ")
+            return "radial-gradient(\(positionStr)\(colorsStr))"
+        case .repeatingLinearGradient(let colors, let angle):
+            let angleStr = angle.map { "\($0), " } ?? ""
+            let colorsStr = colors.joined(separator: ", ")
+            return "repeating-linear-gradient(\(angleStr)\(colorsStr))"
+        case .repeatingRadialGradient(let colors, let position):
+            let positionStr = position.map { "\($0), " } ?? ""
+            let colorsStr = colors.joined(separator: ", ")
+            return "repeating-radial-gradient(\(positionStr)\(colorsStr))"
         }
     }
 
+    private var sliceDescription: String {
+        var sliceValues: [String] = [slice.top.description]
+
+        if let right = slice.right {
+            sliceValues.append(right.description)
+
+            if let bottom = slice.bottom {
+                sliceValues.append(bottom.description)
+
+                if let left = slice.left {
+                    sliceValues.append(left.description)
+                }
+            }
+        }
+
+        let sliceStr = sliceValues.joined(separator: " ")
+        return slice.fill ? "\(sliceStr) fill" : sliceStr
+    }
+
+    private func widthDescription(_ width: BorderImage.Width) -> String {
+        var widthValues: [String] = [width.top.description]
+
+        if let right = width.right {
+            widthValues.append(right.description)
+
+            if let bottom = width.bottom {
+                widthValues.append(bottom.description)
+
+                if let left = width.left {
+                    widthValues.append(left.description)
+                }
+            }
+        }
+
+        return widthValues.joined(separator: " ")
+    }
+
+    private func outsetDescription(_ outset: BorderImage.Outset) -> String {
+        var outsetValues: [String] = [outset.top.description]
+
+        if let right = outset.right {
+            outsetValues.append(right.description)
+
+            if let bottom = outset.bottom {
+                outsetValues.append(bottom.description)
+
+                if let left = outset.left {
+                    outsetValues.append(left.description)
+                }
+            }
+        }
+
+        return outsetValues.joined(separator: " ")
+    }
+
+    private func repeatDescription(_ repeat: BorderImage.Repeat) -> String {
+        if let vertical = `repeat`.vertical {
+            return
+                "\(repeatValueDescription(`repeat`.horizontal)) \(repeatValueDescription(vertical))"
+        } else {
+            return repeatValueDescription(`repeat`.horizontal)
+        }
+    }
+
+    private func repeatValueDescription(_ value: BorderImage.Repeat.RepeatValue) -> String {
+        switch value {
+        case .stretch: return "stretch"
+        case .repeat: return "repeat"
+        case .round: return "round"
+        case .space: return "space"
+        }
+    }
+}
+
+extension BorderImage {
     /// The source of the border image
     public enum Source: Sendable, Hashable {
         /// No border image
@@ -283,7 +291,9 @@ public enum BorderImage: Property {
         /// Repeating radial gradient as border image
         case repeatingRadialGradient([String], String?)
     }
+}
 
+extension BorderImage {
     /// The slice values for dividing the border image
     public struct Slice: Sendable, Hashable {
         /// The top slice value
@@ -335,43 +345,51 @@ public enum BorderImage: Property {
             self.left = left
             self.fill = fill
         }
+    }
+}
 
-        /// Slice value type
-        public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
-            /// Number value for slice
-            case number(Number)
+extension BorderImage.Slice {
+    /// Slice value type
+    public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
+        /// Number value for slice
+        case number(Number)
 
-            /// Percentage value for slice
-            case percentage(Percentage)
+        /// Percentage value for slice
+        case percentage(Percentage)
+    }
+}
 
-            /// Returns string representation of the slice value
-            public var description: String {
-                switch self {
-                case .number(let number):
-                    return number.description
-                case .percentage(let percentage):
-                    return percentage.description
-                }
-            }
-        }
-
-        /// Creates a slice value from a number
-        ///
-        /// - Parameter value: The number value
-        /// - Returns: A slice with the number value
-        public static func slice(_ value: Number) -> Slice {
-            return Slice(.number(value))
-        }
-
-        /// Creates a slice value as a percentage
-        ///
-        /// - Parameter value: The percentage value
-        /// - Returns: A slice with the percentage value
-        public static func percentage(_ value: Percentage) -> Slice {
-            return Slice(.percentage(value))
+extension BorderImage.Slice.SliceValue {
+    /// Returns string representation of the slice value
+    public var description: String {
+        switch self {
+        case .number(let number):
+            return number.description
+        case .percentage(let percentage):
+            return percentage.description
         }
     }
+}
 
+extension BorderImage.Slice {
+    /// Creates a slice value from a number
+    ///
+    /// - Parameter value: The number value
+    /// - Returns: A slice with the number value
+    public static func slice(_ value: Number) -> BorderImage.Slice {
+        return BorderImage.Slice(.number(value))
+    }
+
+    /// Creates a slice value as a percentage
+    ///
+    /// - Parameter value: The percentage value
+    /// - Returns: A slice with the percentage value
+    public static func percentage(_ value: Percentage) -> BorderImage.Slice {
+        return BorderImage.Slice(.percentage(value))
+    }
+}
+
+extension BorderImage {
     /// The width of the border image
     public struct Width: Sendable, Hashable {
         /// The top width value
@@ -414,45 +432,53 @@ public enum BorderImage: Property {
             self.bottom = bottom
             self.left = left
         }
+    }
+}
 
-        /// Width value type
-        public enum WidthValue: Sendable, Hashable, CustomStringConvertible,
-            LengthPercentageConvertible
-        {
-            /// Auto width
-            case auto
+extension BorderImage.Width {
+    /// Width value type
+    public enum WidthValue: Sendable, Hashable, CustomStringConvertible,
+        LengthPercentageConvertible
+    {
+        /// Auto width
+        case auto
 
-            /// Number multiplier
-            case number(Number)
+        /// Number multiplier
+        case number(Number)
 
-            /// Length value
-            case lengthPercentage(LengthPercentage)
+        /// Length value
+        case lengthPercentage(LengthPercentage)
+    }
+}
 
-            /// Returns string representation of the width value
-            public var description: String {
-                switch self {
-                case .auto:
-                    return "auto"
-                case .number(let number):
-                    return number.description
-                case .lengthPercentage(let lengthPercentage):
-                    return lengthPercentage.description
-                }
-            }
+extension BorderImage.Width.WidthValue {
+    /// Returns string representation of the width value
+    public var description: String {
+        switch self {
+        case .auto:
+            return "auto"
+        case .number(let number):
+            return number.description
+        case .lengthPercentage(let lengthPercentage):
+            return lengthPercentage.description
         }
+    }
+}
 
-        /// Creates a width with a number multiplier
-        ///
-        /// - Parameter number: The number multiplier
-        /// - Returns: A width with the specified number
-        public static func number(_ number: Number) -> Width {
-            return Width(.number(number))
-        }
-
-        /// Creates a width with auto value
-        public static let auto = Width(.auto)
+extension BorderImage.Width {
+    /// Creates a width with a number multiplier
+    ///
+    /// - Parameter number: The number multiplier
+    /// - Returns: A width with the specified number
+    public static func number(_ number: Number) -> BorderImage.Width {
+        return BorderImage.Width(.number(number))
     }
 
+    /// Creates a width with auto value
+    public static let auto = BorderImage.Width(.auto)
+}
+
+extension BorderImage {
     /// The outset value of the border image
     public struct Outset: Sendable, Hashable {
         /// The top outset value
@@ -495,35 +521,43 @@ public enum BorderImage: Property {
             self.bottom = bottom
             self.left = left
         }
+    }
+}
 
-        /// Outset value type
-        public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-            /// Number multiplier
-            case number(Number)
+extension BorderImage.Outset {
+    /// Outset value type
+    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+        /// Number multiplier
+        case number(Number)
 
-            /// Length value
-            case length(Length)
+        /// Length value
+        case length(Length)
+    }
+}
 
-            /// Returns string representation of the outset value
-            public var description: String {
-                switch self {
-                case .number(let number):
-                    return number.description
-                case .length(let length):
-                    return length.description
-                }
-            }
-        }
-
-        /// Creates an outset with a number multiplier
-        ///
-        /// - Parameter number: The number multiplier
-        /// - Returns: An outset with the specified number
-        public static func number(_ number: Number) -> Outset {
-            return Outset(.number(number))
+extension BorderImage.Outset.OutsetValue {
+    /// Returns string representation of the outset value
+    public var description: String {
+        switch self {
+        case .number(let number):
+            return number.description
+        case .length(let length):
+            return length.description
         }
     }
+}
 
+extension BorderImage.Outset {
+    /// Creates an outset with a number multiplier
+    ///
+    /// - Parameter number: The number multiplier
+    /// - Returns: An outset with the specified number
+    public static func number(_ number: Number) -> BorderImage.Outset {
+        return BorderImage.Outset(.number(number))
+    }
+}
+
+extension BorderImage {
     /// The repeat behavior of the border image
     public struct Repeat: Sendable, Hashable {
         /// The horizontal repeat value
@@ -549,21 +583,23 @@ public enum BorderImage: Property {
             self.horizontal = horizontal
             self.vertical = vertical
         }
+    }
+}
 
-        /// Repeat value type
-        public enum RepeatValue: Sendable, Hashable {
-            /// Stretch the image to fill the space
-            case stretch
+extension BorderImage.Repeat {
+    /// Repeat value type
+    public enum RepeatValue: Sendable, Hashable {
+        /// Stretch the image to fill the space
+        case stretch
 
-            /// Repeat the image to fill the space
-            case `repeat`
+        /// Repeat the image to fill the space
+        case `repeat`
 
-            /// Scale the image to fit the space evenly
-            case round
+        /// Scale the image to fit the space evenly
+        case round
 
-            /// Repeat the image with spacing to fit evenly
-            case space
-        }
+        /// Repeat the image with spacing to fit evenly
+        case space
     }
 }
 

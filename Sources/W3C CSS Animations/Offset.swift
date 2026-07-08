@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on offset](https://developer.mozilla.org/en-US/docs/Web/CSS/offset)
 public enum Offset: Property {
-    public static let property: String = "offset"
 
     /// Complete offset definition with path, distance, rotation and anchor
     /// - Parameters:
@@ -53,6 +52,10 @@ public enum Offset: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension Offset {
+    public static let property: String = "offset"
 }
 
 /// CSS Output conversion

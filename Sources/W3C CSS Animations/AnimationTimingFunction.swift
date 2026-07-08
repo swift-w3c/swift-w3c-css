@@ -14,15 +14,18 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timing-function)
 public enum AnimationTimingFunction: Property {
-
-    public static let property: String = "animation-timing-function"
-
     /// The easing function for the animation
     case function(EasingFunction)
 
     /// Global values
     case global(Global)
+}
 
+extension AnimationTimingFunction {
+    public static let property: String = "animation-timing-function"
+}
+
+extension AnimationTimingFunction {
     /// Linear easing function (constant speed)
     public static let linear = AnimationTimingFunction.function(.linear)
 

@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on offset-path](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-path)
 public enum OffsetPath: Property {
-    public static let property: String = "offset-path"
-
     /// No offset path is specified
     case none
 
@@ -41,7 +39,13 @@ public enum OffsetPath: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension OffsetPath {
+    public static let property: String = "offset-path"
+}
+
+extension OffsetPath {
     /// Specifies the size of a ray
     public enum RaySize: Sendable, Hashable {
         /// Uses the length from the center to the closest side
@@ -80,7 +84,9 @@ public enum OffsetPath: Property {
         /// The box is positioned at the SVG viewBox
         case viewBox
     }
+}
 
+extension OffsetPath {
     /// Factory method for creating a path-based offset path
     ///
     /// - Parameter pathData: SVG path data string

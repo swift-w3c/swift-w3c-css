@@ -19,7 +19,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on alignment-baseline](https://developer.mozilla.org/en-US/docs/Web/CSS/alignment-baseline)
 public enum AlignmentBaseline: Property {
-    public static let property: String = "alignment-baseline"
 
     /// Use the dominant-baseline value of the parent
     case baseline
@@ -73,6 +72,10 @@ public enum AlignmentBaseline: Property {
     /// Deprecated - Alias for text-bottom
     @available(*, deprecated, message: "Use 'textBottom' instead")
     case textAfterEdge
+}
+
+extension AlignmentBaseline {
+    public static let property: String = "alignment-baseline"
 }
 
 /// CSS Output conversion

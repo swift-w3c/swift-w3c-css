@@ -57,15 +57,18 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline)
 public enum BorderInline: Property {
-
-    public static let property: String = "border-inline"
-
     /// Represents the possible border property combinations
     case properties(width: BorderWidth.Width?, style: LineStyle?, color: Color?)
 
     /// Global CSS values
     case global(Global)
+}
 
+extension BorderInline {
+    public static let property: String = "border-inline"
+}
+
+extension BorderInline {
     /// Creates a border-inline with just a style
     public static func style(_ style: LineStyle) -> BorderInline {
         .properties(width: nil, style: style, color: nil)
@@ -83,7 +86,6 @@ public enum BorderInline: Property {
 
 /// Convenience initializers for BorderInline
 extension BorderInline {
-
     /// Creates a border-inline with a width, style, and color
     ///
     /// - Parameters:

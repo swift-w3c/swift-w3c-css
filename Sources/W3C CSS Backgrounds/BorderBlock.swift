@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block)
 public enum BorderBlock: Property, LineStyleConvertible {
 
-    public static let property: String = "border-block"
 
     /// Only specifies the border style
     case lineStyle(LineStyle)
@@ -70,6 +69,10 @@ public enum BorderBlock: Property, LineStyleConvertible {
     /// Global CSS values
     case global(Global)
 
+}
+
+extension BorderBlock {
+    public static let property: String = "border-block"
 }
 
 /// Provides string conversion for CSS output

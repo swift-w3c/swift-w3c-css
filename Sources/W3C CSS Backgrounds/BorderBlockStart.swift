@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start)
 public enum BorderBlockStart: Property {
 
-    public static let property: String = "border-block-start"
 
     /// Specifies border properties (width, style, color)
     /// Note that per CSS spec, these can be specified in any order
@@ -64,6 +63,10 @@ public enum BorderBlockStart: Property {
     ) {
         self = .properties(width: width, style: style, color: color)
     }
+}
+
+extension BorderBlockStart {
+    public static let property: String = "border-block-start"
 }
 
 /// Provides string conversion for CSS output

@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end)
 public enum BorderBlockEnd: Property {
 
-    public static let property: String = "border-block-end"
 
     /// Specifies border properties (width, style, color)
     /// Note that per CSS spec, these can be specified in any order
@@ -66,6 +65,10 @@ public enum BorderBlockEnd: Property {
     ) {
         self = .properties(width: width, style: style, color: color)
     }
+}
+
+extension BorderBlockEnd {
+    public static let property: String = "border-block-end"
 }
 
 /// Provides string conversion for CSS output

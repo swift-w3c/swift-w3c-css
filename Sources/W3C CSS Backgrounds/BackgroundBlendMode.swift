@@ -43,7 +43,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-blend-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/background-blend-mode)
 public enum BackgroundBlendMode: Property {
-    public static let property: String = "background-blend-mode"
 
     /// A single blend mode
     case single(BlendMode)
@@ -60,6 +59,10 @@ public enum BackgroundBlendMode: Property {
     public init(_ mode: BlendMode) {
         self = .single(mode)
     }
+}
+
+extension BackgroundBlendMode {
+    public static let property: String = "background-blend-mode"
 }
 
 /// Provides string conversion for CSS output

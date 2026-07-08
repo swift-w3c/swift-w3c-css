@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-transition-name](https://developer.mozilla.org/en-US/docs/Web/CSS/view-transition-name)
 public enum ViewTransitionName: Property {
 
-    public static let property: String = "view-transition-name"
 
     /// The element will not participate in a view transition
     case none
@@ -29,6 +28,10 @@ public enum ViewTransitionName: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ViewTransitionName {
+    public static let property: String = "view-transition-name"
 }
 
 /// CSS Output conversion

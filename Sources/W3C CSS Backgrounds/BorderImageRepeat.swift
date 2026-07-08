@@ -55,9 +55,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-image-repeat](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-repeat)
 public enum BorderImageRepeat: Property {
-
-    public static let property: String = "border-image-repeat"
-
     /// Same repeat style for all sides
     case all(RepeatStyle)
 
@@ -66,21 +63,6 @@ public enum BorderImageRepeat: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Repeat style options for border images
-    public enum RepeatStyle: String, Sendable, Hashable {
-        /// Stretch the border image to fill the area
-        case stretch
-
-        /// Tile the border image (may be clipped if not exact fit)
-        case `repeat`
-
-        /// Tile the border image and scale it to fit exactly
-        case round
-
-        /// Tile the border image with space between tiles
-        case space
-    }
 
     /// Creates a border-image-repeat with the same style for all sides
     ///
@@ -97,7 +79,30 @@ public enum BorderImageRepeat: Property {
     public init(_ horizontal: RepeatStyle, _ vertical: RepeatStyle) {
         self = .horizontalVertical(horizontal, vertical)
     }
+}
 
+extension BorderImageRepeat {
+    public static let property: String = "border-image-repeat"
+}
+
+extension BorderImageRepeat {
+    /// Repeat style options for border images
+    public enum RepeatStyle: String, Sendable, Hashable {
+        /// Stretch the border image to fill the area
+        case stretch
+
+        /// Tile the border image (may be clipped if not exact fit)
+        case `repeat`
+
+        /// Tile the border image and scale it to fit exactly
+        case round
+
+        /// Tile the border image with space between tiles
+        case space
+    }
+}
+
+extension BorderImageRepeat {
     /// Default repeat style (stretch)
     public static let `default` = BorderImageRepeat(.stretch)
 

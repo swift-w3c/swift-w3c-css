@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on vertical-align](https://developer.mozilla.org/en-US/docs/Web/CSS/vertical-align)
 public enum VerticalAlign: Property {
-    public static let property: String = "vertical-align"
-
     /// Parent-relative values
 
     /// Aligns the baseline of the element with the baseline of its parent.
@@ -53,7 +51,13 @@ public enum VerticalAlign: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension VerticalAlign {
+    public static let property: String = "vertical-align"
+}
+
+extension VerticalAlign {
     public var description: String {
         switch self {
         case .baseline:

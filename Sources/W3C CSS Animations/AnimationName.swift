@@ -13,9 +13,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-name](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-name)
 public enum AnimationName: Property {
-
-    public static let property: String = "animation-name"
-
     /// No animation should be applied (default)
     case none
 
@@ -24,7 +21,13 @@ public enum AnimationName: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension AnimationName {
+    public static let property: String = "animation-name"
+}
+
+extension AnimationName {
     public enum KeyFramesName: Sendable, Hashable, CustomStringConvertible {
         case customIdent(Ident)
         case string(CSSString)
@@ -32,14 +35,16 @@ public enum AnimationName: Property {
         public init(_ string: String) {
             self = .customIdent(.init(string))
         }
+    }
+}
 
-        public var description: String {
-            switch self {
-            case .customIdent(let ident):
-                ident.description
-            case .string(let cSSString):
-                cSSString.description
-            }
+extension AnimationName.KeyFramesName {
+    public var description: String {
+        switch self {
+        case .customIdent(let ident):
+            ident.description
+        case .string(let cSSString):
+            cSSString.description
         }
     }
 }

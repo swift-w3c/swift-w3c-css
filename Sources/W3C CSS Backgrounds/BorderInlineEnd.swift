@@ -53,15 +53,18 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-inline-end](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end)
 public enum BorderInlineEnd: Property {
-
-    public static let property: String = "border-inline-end"
-
     /// Represents the possible border property combinations
     case properties(width: BorderWidth.Width?, style: LineStyle?, color: Color?)
 
     /// Global CSS values
     case global(Global)
+}
 
+extension BorderInlineEnd {
+    public static let property: String = "border-inline-end"
+}
+
+extension BorderInlineEnd {
     /// Creates a border-inline-end with just a style
     public static func style(_ style: LineStyle) -> BorderInlineEnd {
         .properties(width: nil, style: style, color: nil)

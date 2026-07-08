@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-start-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start-style)
 public enum BorderBlockStartStyle: Property {
 
-    public static let property: String = "border-block-start-style"
 
     /// A specific line style for the block-start border
     case lineStyle(LineStyle)
@@ -62,6 +61,10 @@ public enum BorderBlockStartStyle: Property {
     public init(_ style: LineStyle) {
         self = .lineStyle(style)
     }
+}
+
+extension BorderBlockStartStyle {
+    public static let property: String = "border-block-start-style"
 }
 
 /// Provides string conversion for CSS output

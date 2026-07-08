@@ -16,9 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-block-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-style)
 public enum BorderBlockStyle: Property {
-
-    public static let property: String = "border-block-style"
-
     /// A single style for both block-start and block-end borders
     case all(LineStyle)
 
@@ -43,7 +40,13 @@ public enum BorderBlockStyle: Property {
     public init(start: LineStyle, end: LineStyle) {
         self = .startEnd(start, end)
     }
+}
 
+extension BorderBlockStyle {
+    public static let property: String = "border-block-style"
+}
+
+extension BorderBlockStyle {
     public var description: String {
         switch self {
         case .all(let style):

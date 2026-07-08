@@ -23,7 +23,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-timeline-inset](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline-inset)
 public enum ViewTimelineInset: Property {
 
-    public static let property: String = "view-timeline-inset"
 
     /// A single value for both start and end
     case single(ViewTimelineInsetValue)
@@ -33,6 +32,10 @@ public enum ViewTimelineInset: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ViewTimelineInset {
+    public static let property: String = "view-timeline-inset"
 }
 
 /// Represents the possible values for view-timeline-inset

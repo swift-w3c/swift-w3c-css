@@ -38,7 +38,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/border-collapse)
 public enum BorderCollapse: Property {
-    public static let property: String = "border-collapse"
 
     /// Cells share borders (collapsed borders)
     case collapse
@@ -48,6 +47,10 @@ public enum BorderCollapse: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BorderCollapse {
+    public static let property: String = "border-collapse"
 }
 
 /// Provides string conversion for CSS output

@@ -51,7 +51,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-color)
 public enum BorderBlockColor: Property, ColorConvertible {
 
-    public static let property: String = "border-block-color"
 
     /// A specific color for both block borders
     case color(W3C_CSS_Values.Color)
@@ -65,6 +64,10 @@ public enum BorderBlockColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BorderBlockColor {
+    public static let property: String = "border-block-color"
 }
 
 /// Provides string conversion for CSS output

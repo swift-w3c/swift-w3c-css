@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-color](https://developer.mozilla.org/en-US/docs/Web/CSS/background-color)
 public enum BackgroundColor: Property, ColorConvertible {
-    public static let property: String = "background-color"
 
     /// A specific color value
     case color(W3C_CSS_Values.Color)
@@ -64,6 +63,10 @@ public enum BackgroundColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BackgroundColor {
+    public static let property: String = "background-color"
 }
 
 /// Provides string conversion for CSS output

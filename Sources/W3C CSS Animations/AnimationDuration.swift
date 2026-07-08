@@ -12,9 +12,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-duration)
 public enum AnimationDuration: Property {
-
-    public static let property: String = "animation-duration"
-
     /// Auto duration (equivalent to 0s for time-based animations, fills the entire timeline for scroll-driven animations)
     case auto
 
@@ -23,7 +20,13 @@ public enum AnimationDuration: Property {
 
     /// Global values
     case global(Global)
+}
 
+extension AnimationDuration {
+    public static let property: String = "animation-duration"
+}
+
+extension AnimationDuration {
     /// Creates a duration in seconds
     public static func s(_ seconds: Double) -> AnimationDuration {
         return .time(Time.s(max(0, seconds)))

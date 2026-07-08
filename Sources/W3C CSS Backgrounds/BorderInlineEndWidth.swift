@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-end-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-width)
 public enum BorderInlineEndWidth: Property {
 
-    public static let property: String = "border-inline-end-width"
 
     /// Use a specific width value for the inline-end border
     case width(BorderWidth.Width)
@@ -62,6 +61,10 @@ public enum BorderInlineEndWidth: Property {
     public init(_ width: BorderWidth.Width) {
         self = .width(width)
     }
+}
+
+extension BorderInlineEndWidth {
+    public static let property: String = "border-inline-end-width"
 }
 
 /// Provides string conversion for CSS output

@@ -16,14 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on place-self](https://developer.mozilla.org/en-US/docs/Web/CSS/place-self)
 public enum PlaceSelf: Property, SelfPositionConvertible {
-    public static func position(
-        _ value: OverflowPosition?,
-        _ value1: SelfPosition
-    ) -> PlaceSelf {
-        .single(.position(value, value1))
-    }
-
-    public static let property: String = "place-self"
     /// Combines both align-self and justify-self values
     case combined(AlignSelf, JustifySelf)
 
@@ -32,6 +24,19 @@ public enum PlaceSelf: Property, SelfPositionConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension PlaceSelf {
+    public static let property: String = "place-self"
+}
+
+extension PlaceSelf {
+    public static func position(
+        _ value: OverflowPosition?,
+        _ value1: SelfPosition
+    ) -> PlaceSelf {
+        .single(.position(value, value1))
+    }
 }
 
 /// CSS Output conversion

@@ -42,7 +42,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-end-start-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-end-start-radius)
 public enum BorderEndStartRadius: Property {
 
-    public static let property: String = "border-end-start-radius"
 
     /// A single radius applied to both the horizontal and vertical dimensions
     case radius(LengthPercentage)
@@ -52,6 +51,10 @@ public enum BorderEndStartRadius: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BorderEndStartRadius {
+    public static let property: String = "border-end-start-radius"
 }
 
 /// Provides string conversion for CSS output

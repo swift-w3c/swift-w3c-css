@@ -44,7 +44,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)
 public enum BorderColor: Property, ColorConvertible {
 
-    public static let property: String = "border-color"
 
     /// Same color for all four sides
     case all(W3C_CSS_Values.Color)
@@ -111,6 +110,10 @@ public enum BorderColor: Property, ColorConvertible {
     ) {
         self = .topRightBottomLeft(top, right, bottom, left)
     }
+}
+
+extension BorderColor {
+    public static let property: String = "border-color"
 }
 
 /// Provides string conversion for CSS output

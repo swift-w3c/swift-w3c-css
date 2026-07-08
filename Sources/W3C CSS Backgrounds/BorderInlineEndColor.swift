@@ -52,7 +52,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-end-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-color)
 public enum BorderInlineEndColor: Property, ColorConvertible {
 
-    public static let property: String = "border-inline-end-color"
 
     /// A specific color for the inline-end border
     case color(W3C_CSS_Values.Color)
@@ -66,6 +65,10 @@ public enum BorderInlineEndColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension BorderInlineEndColor {
+    public static let property: String = "border-inline-end-color"
 }
 
 /// Provides string conversion for CSS output

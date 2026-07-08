@@ -17,7 +17,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on justify-content](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-content)
 public enum JustifyContent: Property {
-    public static let property: String = "justify-content"
     /// Default alignment for the layout mode
     case normal
 
@@ -35,6 +34,10 @@ public enum JustifyContent: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension JustifyContent {
+    public static let property: String = "justify-content"
 }
 
 /// CSS Output conversion

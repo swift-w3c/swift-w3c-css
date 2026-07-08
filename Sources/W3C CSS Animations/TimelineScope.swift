@@ -23,7 +23,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on timeline-scope](https://developer.mozilla.org/en-US/docs/Web/CSS/timeline-scope)
 public enum TimelineScope: Property {
-    public static let property: String = "timeline-scope"
 
     /// There is no change in timeline scope
     case none
@@ -39,6 +38,10 @@ public enum TimelineScope: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension TimelineScope {
+    public static let property: String = "timeline-scope"
 }
 
 /// CSS Output conversion

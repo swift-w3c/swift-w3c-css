@@ -15,7 +15,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on place-items](https://developer.mozilla.org/en-US/docs/Web/CSS/place-items)
 public enum PlaceItems: Property {
-    public static let property: String = "place-items"
     /// Combines both align-items and justify-items values
     case combined(AlignItems, JustifyItems)
 
@@ -24,6 +23,10 @@ public enum PlaceItems: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension PlaceItems {
+    public static let property: String = "place-items"
 }
 
 /// CSS Output conversion

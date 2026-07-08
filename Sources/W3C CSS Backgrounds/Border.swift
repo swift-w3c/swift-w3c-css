@@ -49,7 +49,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border](https://developer.mozilla.org/en-US/docs/Web/CSS/border)
 public enum Border: Property {
 
-    public static let property: String = "border"
 
     /// Specifies border properties (width, style, color)
     /// Note that per CSS spec, these can be specified in any order
@@ -65,6 +64,10 @@ public enum Border: Property {
     ) {
         self = .properties(width: width, style: style, color: color)
     }
+}
+
+extension Border {
+    public static let property: String = "border"
 }
 
 /// Provides string conversion for CSS output

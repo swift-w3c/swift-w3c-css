@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)
 public enum AnimationIterationCount: Property {
 
-    public static let property: String = "animation-iteration-count"
 
     /// The animation will repeat forever
     case infinite
@@ -24,6 +23,10 @@ public enum AnimationIterationCount: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension AnimationIterationCount {
+    public static let property: String = "animation-iteration-count"
 }
 
 /// CSS Output conversion

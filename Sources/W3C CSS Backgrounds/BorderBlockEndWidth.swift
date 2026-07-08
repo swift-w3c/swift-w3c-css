@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-width)
 public enum BorderBlockEndWidth: Property {
 
-    public static let property: String = "border-block-end-width"
 
     /// A specific width for the block-end border
     case width(BorderWidth)
@@ -64,6 +63,10 @@ public enum BorderBlockEndWidth: Property {
     public init(_ width: BorderWidth) {
         self = .width(width)
     }
+}
+
+extension BorderBlockEndWidth {
+    public static let property: String = "border-block-end-width"
 }
 
 extension BorderBlockEndWidth: LengthConvertible {

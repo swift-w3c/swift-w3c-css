@@ -53,7 +53,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-position-x](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-x)
 public enum BackgroundPositionX: Property, LengthPercentageConvertible {
-    public static let property: String = "background-position-x"
 
     /// A horizontal position with a keyword value
     case keyword(Keyword)
@@ -70,6 +69,10 @@ public enum BackgroundPositionX: Property, LengthPercentageConvertible {
     /// Global CSS values
     case global(Global)
 
+}
+
+extension BackgroundPositionX {
+    public static let property: String = "background-position-x"
 }
 
 extension BackgroundPositionX {

@@ -51,9 +51,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-image-slice](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image-slice)
 public enum BorderImageSlice: Property {
-
-    public static let property: String = "border-image-slice"
-
     /// Same slice value for all sides
     case all(SliceValue, fill: Bool)
 
@@ -68,25 +65,6 @@ public enum BorderImageSlice: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Slice value type
-    public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
-        /// Number value (in pixels for raster images, coordinates for vector images)
-        case number(Number)
-
-        /// Percentage value relative to the source image's size
-        case percentage(Percentage)
-
-        /// String representation of the slice value
-        public var description: String {
-            switch self {
-            case .number(let number):
-                return number.description
-            case .percentage(let percentage):
-                return percentage.description
-            }
-        }
-    }
 
     /// Creates a border-image-slice with the same value for all sides
     ///
@@ -140,7 +118,36 @@ public enum BorderImageSlice: Property {
     ) {
         self = .topRightBottomLeft(top, right, bottom, left, fill: fill)
     }
+}
 
+extension BorderImageSlice {
+    public static let property: String = "border-image-slice"
+}
+
+extension BorderImageSlice {
+    /// Slice value type
+    public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
+        /// Number value (in pixels for raster images, coordinates for vector images)
+        case number(Number)
+
+        /// Percentage value relative to the source image's size
+        case percentage(Percentage)
+    }
+}
+
+extension BorderImageSlice.SliceValue {
+    /// String representation of the slice value
+    public var description: String {
+        switch self {
+        case .number(let number):
+            return number.description
+        case .percentage(let percentage):
+            return percentage.description
+        }
+    }
+}
+
+extension BorderImageSlice {
     /// Creates a border-image-slice with a number value for all sides
     ///
     /// - Parameters:

@@ -53,8 +53,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-position-y](https://developer.mozilla.org/en-US/docs/Web/CSS/background-position-y)
 public enum BackgroundPositionY: Property {
-    public static let property: String = "background-position-y"
-
     /// A vertical position with a keyword value
     case keyword(Keyword)
 
@@ -69,7 +67,13 @@ public enum BackgroundPositionY: Property {
 
     /// Global CSS values
     case global(Global)
+}
 
+extension BackgroundPositionY {
+    public static let property: String = "background-position-y"
+}
+
+extension BackgroundPositionY {
     /// Position keywords for vertical alignment
     public enum Keyword: String, Sendable, Hashable {
         /// Top edge

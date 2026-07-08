@@ -17,7 +17,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on place-content](https://developer.mozilla.org/en-US/docs/Web/CSS/place-content)
 public enum PlaceContent: Property, BaselinePositionConvertible {
-    public static let property: String = "place-content"
 
     /// Combines both align-content and justify-content values
     case combined(AlignContent, JustifyContent)
@@ -27,6 +26,10 @@ public enum PlaceContent: Property, BaselinePositionConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension PlaceContent {
+    public static let property: String = "place-content"
 }
 
 /// CSS Output conversion

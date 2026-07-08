@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on offset-rotate](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-rotate)
 public enum OffsetRotate: Property, AngleConvertible {
-    public static let property: String = "offset-rotate"
 
     /// The element is rotated to match the direction of the path
     case auto
@@ -33,6 +32,10 @@ public enum OffsetRotate: Property, AngleConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension OffsetRotate {
+    public static let property: String = "offset-rotate"
 }
 
 /// CSS Output conversion

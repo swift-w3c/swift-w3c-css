@@ -42,7 +42,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-attachment](https://developer.mozilla.org/en-US/docs/Web/CSS/background-attachment)
 public enum BackgroundAttachment: Property {
-    public static let property: String = "background-attachment"
 
     /// The background scrolls with the element's content (default)
     ///
@@ -65,6 +64,10 @@ public enum BackgroundAttachment: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BackgroundAttachment {
+    public static let property: String = "background-attachment"
 }
 
 /// Provides string conversion for CSS output

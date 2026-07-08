@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline)
 public enum AnimationTimeline: Property {
-    public static let property: String = "animation-timeline"
     /// Animation is not associated with a timeline
     case none
 
@@ -36,6 +35,10 @@ public enum AnimationTimeline: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension AnimationTimeline {
+    public static let property: String = "animation-timeline"
 }
 
 /// Scroller values for anonymous scroll progress timelines

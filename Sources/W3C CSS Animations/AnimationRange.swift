@@ -17,9 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-range](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range)
 public enum AnimationRange: Property, LengthPercentageConvertible {
-
-    public static let property: String = "animation-range"
-
     /// A single value that sets both start and end
     case single(AnimationRangeValue)
 
@@ -28,7 +25,13 @@ public enum AnimationRange: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
 
+extension AnimationRange {
+    public static let property: String = "animation-range"
+}
+
+extension AnimationRange {
     public static func lengthPercentage(_ value: LengthPercentage) -> AnimationRange {
         .single(.lengthPercentage(value))
     }

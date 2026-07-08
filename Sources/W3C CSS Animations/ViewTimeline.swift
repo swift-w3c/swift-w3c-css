@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline)
 public enum ViewTimeline: Property {
 
-    public static let property: String = "view-timeline"
 
     /// Just a name for the timeline (axis defaults to .block)
     case name(ViewTimelineName)
@@ -34,6 +33,10 @@ public enum ViewTimeline: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ViewTimeline {
+    public static let property: String = "view-timeline"
 }
 
 /// CSS Output conversion

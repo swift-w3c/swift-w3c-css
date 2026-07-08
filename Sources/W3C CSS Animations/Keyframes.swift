@@ -50,8 +50,6 @@ public import W3C_CSS_Values
 ///     ])
 /// ```
 public struct Keyframes: AtRule {
-    public static let identifier: String = "keyframes"
-
     public var rawValue: String
     private var name: String
     private var keyframes: [Keyframe] = []
@@ -85,7 +83,13 @@ public struct Keyframes: AtRule {
         self.name = name
         self.rawValue = "@keyframes \(name) {}"
     }
+}
 
+extension Keyframes {
+    public static let identifier: String = "keyframes"
+}
+
+extension Keyframes {
     /// Updates the raw value based on the current keyframes.
     private mutating func updateRawValue() {
         var sections: [String] = []
@@ -173,18 +177,20 @@ extension Keyframes {
 
         /// Named timeline range keyframe.
         case timelineRange(String, Int)
+    }
+}
 
-        public var rawValue: String {
-            switch self {
-            case .from:
-                return "from"
-            case .to:
-                return "to"
-            case .percentage(let value):
-                return "\(value)%"
-            case .timelineRange(let name, let value):
-                return "\(name) \(value)%"
-            }
+extension Keyframes.KeyframeSelector {
+    public var rawValue: String {
+        switch self {
+        case .from:
+            return "from"
+        case .to:
+            return "to"
+        case .percentage(let value):
+            return "\(value)%"
+        case .timelineRange(let name, let value):
+            return "\(name) \(value)%"
         }
     }
 }

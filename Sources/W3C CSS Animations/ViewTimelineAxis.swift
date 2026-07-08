@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-timeline-axis](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline-axis)
 public enum ViewTimelineAxis: Property {
 
-    public static let property: String = "view-timeline-axis"
 
     /// The scrollbar on the block axis of the scroller element
     /// For horizontal writing modes (like English), this is the same as y (vertical)
@@ -39,6 +38,10 @@ public enum ViewTimelineAxis: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ViewTimelineAxis {
+    public static let property: String = "view-timeline-axis"
 }
 
 /// CSS Output conversion

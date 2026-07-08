@@ -16,13 +16,16 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on offset-distance](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-distance)
 public enum OffsetDistance: Property, LengthPercentageConvertible {
-    public static let property: String = "offset-distance"
 
     /// A length or percentage value
     case lengthPercentage(LengthPercentage)
 
     /// Global value
     case global(Global)
+}
+
+extension OffsetDistance {
+    public static let property: String = "offset-distance"
 }
 
 /// CSS Output conversion

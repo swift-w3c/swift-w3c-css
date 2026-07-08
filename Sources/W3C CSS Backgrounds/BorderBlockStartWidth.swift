@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-start-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start-width)
 public enum BorderBlockStartWidth: Property {
 
-    public static let property: String = "border-block-start-width"
 
     /// A specific width for the block-start border
     case width(BorderWidth)
@@ -62,6 +61,10 @@ public enum BorderBlockStartWidth: Property {
     public init(_ width: BorderWidth) {
         self = .width(width)
     }
+}
+
+extension BorderBlockStartWidth {
+    public static let property: String = "border-block-start-width"
 }
 
 extension BorderBlockStartWidth: LengthConvertible {

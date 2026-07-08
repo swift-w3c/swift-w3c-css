@@ -53,7 +53,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on background-clip](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip)
 public enum BackgroundClip: Property {
 
-    public static let property: String = "background-clip"
 
     /// The background extends to the outside edge of the border
     case borderBox
@@ -78,6 +77,10 @@ public enum BackgroundClip: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BackgroundClip {
+    public static let property: String = "background-clip"
 }
 
 /// Provides string conversion for CSS output

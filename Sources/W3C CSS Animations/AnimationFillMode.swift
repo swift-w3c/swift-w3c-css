@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-fill-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-fill-mode)
 public enum AnimationFillMode: Property {
 
-    public static let property: String = "animation-fill-mode"
 
     /// The animation will not apply any styles to the target when it's not executing (default)
     case none
@@ -31,6 +30,10 @@ public enum AnimationFillMode: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension AnimationFillMode {
+    public static let property: String = "animation-fill-mode"
 }
 
 extension AnimationFillMode: CaseIterable {

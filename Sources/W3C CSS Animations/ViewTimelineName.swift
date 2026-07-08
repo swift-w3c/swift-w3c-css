@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-timeline-name](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline-name)
 public enum ViewTimelineName: Property {
 
-    public static let property: String = "view-timeline-name"
 
     /// The timeline has no name
     case none
@@ -32,6 +31,10 @@ public enum ViewTimelineName: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ViewTimelineName {
+    public static let property: String = "view-timeline-name"
 }
 
 /// CSS Output conversion

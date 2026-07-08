@@ -52,8 +52,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background](https://developer.mozilla.org/en-US/docs/Web/CSS/background)
 public enum Background: Property, ColorConvertible {
-    public static let property: String = "background"
-
     /// No background
     case none
 
@@ -68,6 +66,10 @@ public enum Background: Property, ColorConvertible {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension Background {
+    public static let property: String = "background"
 }
 
 extension Background {
@@ -127,107 +129,109 @@ extension Background {
             self.clip = clip
             self.color = color
         }
-
-        /// Creates a background layer with just a color
-        ///
-        /// - Parameter color: The background color
-        /// - Returns: A background layer with only a color
-        public static func color(_ color: W3C_CSS_Values.Color) -> Layer {
-            Layer(color: color)
-        }
-
-        /// Creates a background layer with an image and optional settings
-        ///
-        /// - Parameters:
-        ///   - image: The background image
-        ///   - position: The position of the background image
-        ///   - size: The size of the background image
-        ///   - repeat: How the background image repeats
-        ///   - attachment: How the background image is attached to the viewport
-        ///   - origin: How the background image's positioning area is defined
-        ///   - clip: How the background image is clipped
-        /// - Returns: A background layer with an image and specified settings
-        public static func image(
-            _ image: Image,
-            position: BackgroundPosition? = nil,
-            size: BackgroundSize? = nil,
-            repeat: BackgroundRepeat? = nil,
-            attachment: BackgroundAttachment? = nil,
-            origin: BackgroundOrigin? = nil,
-            clip: BackgroundClip? = nil
-        ) -> Layer {
-            Layer(
-                image: image,
-                position: position,
-                size: size,
-                repeat: `repeat`,
-                attachment: attachment,
-                origin: origin,
-                clip: clip
-            )
-        }
-        //
-        //        /// Creates a gradient background layer
-        //        ///
-        //        /// - Parameters:
-        //        ///   - gradient: The gradient to use as background
-        //        ///   - position: The position of the gradient
-        //        ///   - size: The size of the gradient
-        //        ///   - repeat: How the gradient repeats
-        //        ///   - attachment: How the gradient is attached to the viewport
-        //        ///   - origin: How the gradient's positioning area is defined
-        //        ///   - clip: How the gradient is clipped
-        //        /// - Returns: A background layer with a gradient and specified settings
-        //        public static func gradient(
-        //            _ gradient: Gradient,
-        //            position: BackgroundPosition? = nil,
-        //            size: BackgroundSize? = nil,
-        //            repeat: BackgroundRepeat? = nil,
-        //            attachment: BackgroundAttachment? = nil,
-        //            origin: BackgroundOrigin? = nil,
-        //            clip: BackgroundClip? = nil
-        //        ) -> Layer {
-        //            Layer(
-        //                image: .gradient(gradient),
-        //                position: position,
-        //                size: size,
-        //                repeat: `repeat`,
-        //                attachment: attachment,
-        //                origin: origin,
-        //                clip: clip
-        //            )
-        //        }
-        //
-        //        /// Creates a linear gradient background
-        //        ///
-        //        /// - Parameters:
-        //        ///   - direction: The direction of the gradient
-        //        ///   - stops: The color stops for the gradient
-        //        /// - Returns: A background layer with a linear gradient
-        //        public static func linear(
-        //            _ direction: Gradient.LinearGradient.Direction,
-        //            _ stops: [Gradient.LinearGradient.ColorStop]
-        //        ) -> Layer {
-        //            let gradient = Gradient.LinearGradient(direction: direction, stops: stops)
-        //            return .gradient(.linear(gradient))
-        //        }
-        //
-        //        /// Creates a radial gradient background
-        //        ///
-        //        /// - Parameters:
-        //        ///   - position: The position of the gradient center
-        //        ///   - stops: The color stops for the gradient
-        //        /// - Returns: A background layer with a radial gradient
-        //        public static func radial(
-        //            position: Gradient.RadialGradient.Position? = nil,
-        //            shape: Gradient.RadialGradient.Shape? = nil,
-        //            size: Gradient.RadialGradient.Size? = nil,
-        //            stops: [Gradient.LinearGradient.ColorStop]
-        //        ) -> Layer {
-        //            let gradient = Gradient.RadialGradient(position: position, shape: shape, size: size, stops: stops)
-        //            return .gradient(.radial(gradient))
-        //        }
     }
+}
+
+extension Background.Layer {
+    /// Creates a background layer with just a color
+    ///
+    /// - Parameter color: The background color
+    /// - Returns: A background layer with only a color
+    public static func color(_ color: W3C_CSS_Values.Color) -> Background.Layer {
+        Background.Layer(color: color)
+    }
+
+    /// Creates a background layer with an image and optional settings
+    ///
+    /// - Parameters:
+    ///   - image: The background image
+    ///   - position: The position of the background image
+    ///   - size: The size of the background image
+    ///   - repeat: How the background image repeats
+    ///   - attachment: How the background image is attached to the viewport
+    ///   - origin: How the background image's positioning area is defined
+    ///   - clip: How the background image is clipped
+    /// - Returns: A background layer with an image and specified settings
+    public static func image(
+        _ image: Image,
+        position: BackgroundPosition? = nil,
+        size: BackgroundSize? = nil,
+        repeat: BackgroundRepeat? = nil,
+        attachment: BackgroundAttachment? = nil,
+        origin: BackgroundOrigin? = nil,
+        clip: BackgroundClip? = nil
+    ) -> Background.Layer {
+        Background.Layer(
+            image: image,
+            position: position,
+            size: size,
+            repeat: `repeat`,
+            attachment: attachment,
+            origin: origin,
+            clip: clip
+        )
+    }
+    //
+    //        /// Creates a gradient background layer
+    //        ///
+    //        /// - Parameters:
+    //        ///   - gradient: The gradient to use as background
+    //        ///   - position: The position of the gradient
+    //        ///   - size: The size of the gradient
+    //        ///   - repeat: How the gradient repeats
+    //        ///   - attachment: How the gradient is attached to the viewport
+    //        ///   - origin: How the gradient's positioning area is defined
+    //        ///   - clip: How the gradient is clipped
+    //        /// - Returns: A background layer with a gradient and specified settings
+    //        public static func gradient(
+    //            _ gradient: Gradient,
+    //            position: BackgroundPosition? = nil,
+    //            size: BackgroundSize? = nil,
+    //            repeat: BackgroundRepeat? = nil,
+    //            attachment: BackgroundAttachment? = nil,
+    //            origin: BackgroundOrigin? = nil,
+    //            clip: BackgroundClip? = nil
+    //        ) -> Layer {
+    //            Layer(
+    //                image: .gradient(gradient),
+    //                position: position,
+    //                size: size,
+    //                repeat: `repeat`,
+    //                attachment: attachment,
+    //                origin: origin,
+    //                clip: clip
+    //            )
+    //        }
+    //
+    //        /// Creates a linear gradient background
+    //        ///
+    //        /// - Parameters:
+    //        ///   - direction: The direction of the gradient
+    //        ///   - stops: The color stops for the gradient
+    //        /// - Returns: A background layer with a linear gradient
+    //        public static func linear(
+    //            _ direction: Gradient.LinearGradient.Direction,
+    //            _ stops: [Gradient.LinearGradient.ColorStop]
+    //        ) -> Layer {
+    //            let gradient = Gradient.LinearGradient(direction: direction, stops: stops)
+    //            return .gradient(.linear(gradient))
+    //        }
+    //
+    //        /// Creates a radial gradient background
+    //        ///
+    //        /// - Parameters:
+    //        ///   - position: The position of the gradient center
+    //        ///   - stops: The color stops for the gradient
+    //        /// - Returns: A background layer with a radial gradient
+    //        public static func radial(
+    //            position: Gradient.RadialGradient.Position? = nil,
+    //            shape: Gradient.RadialGradient.Shape? = nil,
+    //            size: Gradient.RadialGradient.Size? = nil,
+    //            stops: [Gradient.LinearGradient.ColorStop]
+    //        ) -> Layer {
+    //            let gradient = Gradient.RadialGradient(position: position, shape: shape, size: size, stops: stops)
+    //            return .gradient(.radial(gradient))
+    //        }
 }
 
 /// Provides string conversion for CSS output

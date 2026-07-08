@@ -61,7 +61,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on border-bottom](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom)
 public enum BorderBottom: Property {
-    public static let property: String = "border-bottom"
     /// Border bottom properties
     case properties(Properties)
 
@@ -94,6 +93,10 @@ public enum BorderBottom: Property {
     }
 }
 
+extension BorderBottom {
+    public static let property: String = "border-bottom"
+}
+
 extension BorderBottom: LineStyleConvertible {
     /// Create a border-bottom with the given line style
     public static func lineStyle(_ lineStyle: LineStyle) -> BorderBottom {
@@ -119,25 +122,27 @@ extension BorderBottom {
             self.style = style
             self.color = color
         }
+    }
+}
 
-        /// CSS string representation of the border-bottom properties
-        public var description: String {
-            var parts: [String] = []
+extension BorderBottom.Properties {
+    /// CSS string representation of the border-bottom properties
+    public var description: String {
+        var parts: [String] = []
 
-            if let width = width {
-                parts.append(width.description)
-            }
-
-            if let style = style {
-                parts.append(style.description)
-            }
-
-            if let color = color {
-                parts.append(color.description)
-            }
-
-            return parts.joined(separator: " ")
+        if let width = width {
+            parts.append(width.description)
         }
+
+        if let style = style {
+            parts.append(style.description)
+        }
+
+        if let color = color {
+            parts.append(color.description)
+        }
+
+        return parts.joined(separator: " ")
     }
 }
 

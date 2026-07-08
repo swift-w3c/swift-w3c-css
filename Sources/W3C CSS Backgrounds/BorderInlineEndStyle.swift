@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-end-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-style)
 public enum BorderInlineEndStyle: Property {
 
-    public static let property: String = "border-inline-end-style"
 
     /// A specific line style for the inline-end border
     case lineStyle(LineStyle)
@@ -62,6 +61,10 @@ public enum BorderInlineEndStyle: Property {
     public init(_ style: LineStyle) {
         self = .lineStyle(style)
     }
+}
+
+extension BorderInlineEndStyle {
+    public static let property: String = "border-inline-end-style"
 }
 
 /// Provides string conversion for CSS output

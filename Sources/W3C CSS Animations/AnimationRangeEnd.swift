@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-range-end](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range-end)
 public enum AnimationRangeEnd: Property, LengthPercentageConvertible {
 
-    public static let property: String = "animation-range-end"
 
     /// Represents the end of the timeline (default)
     case normal
@@ -30,6 +29,10 @@ public enum AnimationRangeEnd: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension AnimationRangeEnd {
+    public static let property: String = "animation-range-end"
 }
 
 /// CSS Output conversion

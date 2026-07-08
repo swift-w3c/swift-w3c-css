@@ -18,7 +18,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on justify-items](https://developer.mozilla.org/en-US/docs/Web/CSS/justify-items)
 public enum JustifyItems: Property, SelfPositionConvertible, BaselinePositionConvertible {
-    public static let property: String = "justify-items"
 
     /// Default alignment for the layout mode
     case normal
@@ -46,6 +45,10 @@ public enum JustifyItems: Property, SelfPositionConvertible, BaselinePositionCon
 
     /// Global values
     case global(Global)
+}
+
+extension JustifyItems {
+    public static let property: String = "justify-items"
 }
 
 /// Legacy position for justify-items

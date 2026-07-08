@@ -43,7 +43,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-left-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-left-radius)
 public enum BorderBottomLeftRadius: Property {
 
-    public static let property: String = "border-bottom-left-radius"
 
     /// A circular corner with a single radius
     case radius(LengthPercentage)
@@ -53,6 +52,10 @@ public enum BorderBottomLeftRadius: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BorderBottomLeftRadius {
+    public static let property: String = "border-bottom-left-radius"
 }
 
 /// Convenience initializers for BorderBottomLeftRadius

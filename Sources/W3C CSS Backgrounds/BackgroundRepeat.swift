@@ -57,8 +57,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on background-repeat](https://developer.mozilla.org/en-US/docs/Web/CSS/background-repeat)
 public enum BackgroundRepeat: Property {
-    public static let property: String = "background-repeat"
-
     /// A single repetition style (shorthand for both directions)
     case single(RepeatStyle)
 
@@ -70,27 +68,6 @@ public enum BackgroundRepeat: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Repetition style values
-    public enum RepeatStyle: String, Sendable, Hashable {
-        /// Repeat the image in both directions (default)
-        case `repeat` = "repeat"
-
-        /// Don't repeat the image
-        case noRepeat = "no-repeat"
-
-        /// Repeat only horizontally (shorthand for repeat no-repeat)
-        case repeatX = "repeat-x"
-
-        /// Repeat only vertically (shorthand for no-repeat repeat)
-        case repeatY = "repeat-y"
-
-        /// Space images evenly without clipping
-        case space = "space"
-
-        /// Stretch and repeat to fill the area
-        case round = "round"
-    }
 
     /// Creates a background repeat with a single style for both directions
     ///
@@ -117,6 +94,33 @@ public enum BackgroundRepeat: Property {
         } else {
             self = .multiple(repeats)
         }
+    }
+}
+
+extension BackgroundRepeat {
+    public static let property: String = "background-repeat"
+}
+
+extension BackgroundRepeat {
+    /// Repetition style values
+    public enum RepeatStyle: String, Sendable, Hashable {
+        /// Repeat the image in both directions (default)
+        case `repeat` = "repeat"
+
+        /// Don't repeat the image
+        case noRepeat = "no-repeat"
+
+        /// Repeat only horizontally (shorthand for repeat no-repeat)
+        case repeatX = "repeat-x"
+
+        /// Repeat only vertically (shorthand for no-repeat repeat)
+        case repeatY = "repeat-y"
+
+        /// Space images evenly without clipping
+        case space = "space"
+
+        /// Stretch and repeat to fill the area
+        case round = "round"
     }
 }
 

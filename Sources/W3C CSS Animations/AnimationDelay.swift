@@ -15,15 +15,18 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation-delay](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-delay)
 public enum AnimationDelay: Property {
-
-    public static let property: String = "animation-delay"
-
     /// The delay time value
     case time(Time)
 
     /// Global values
     case global(Global)
+}
 
+extension AnimationDelay {
+    public static let property: String = "animation-delay"
+}
+
+extension AnimationDelay {
     /// Creates a delay in seconds
     public static func s(_ seconds: Double) -> AnimationDelay {
         return .time(Time.s(seconds))

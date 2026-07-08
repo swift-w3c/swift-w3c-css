@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on offset-position](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-position)
 public enum OffsetPosition: Property {
-    public static let property: String = "offset-position"
 
     /// Element is placed at 50% 50% of the containing block (default)
     case normal
@@ -42,6 +41,10 @@ public enum OffsetPosition: Property {
     public init(_ position: Position) {
         self = .position(position)
     }
+}
+
+extension OffsetPosition {
+    public static let property: String = "offset-position"
 }
 
 /// CSS Output conversion

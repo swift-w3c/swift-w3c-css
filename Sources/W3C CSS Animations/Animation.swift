@@ -42,9 +42,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on animation](https://developer.mozilla.org/en-US/docs/Web/CSS/animation)
 public enum Animation: Property {
-
-    public static let property: String = "animation"
-
     /// A single animation with multiple properties
     case single(AnimationProperties)
 
@@ -65,7 +62,13 @@ public enum Animation: Property {
             self = .single(AnimationProperties(properties: properties))
         }
     }
+}
 
+extension Animation {
+    public static let property: String = "animation"
+}
+
+extension Animation {
     /// Convenience initializer for creating an animation with a name only
     public static func name(_ name: CSSString) -> Animation {
         return .single(AnimationProperties(properties: [.name(.keyframes(.string(name)))]))

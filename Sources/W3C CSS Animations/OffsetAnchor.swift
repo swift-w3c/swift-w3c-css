@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on offset-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/offset-anchor)
 public enum OffsetAnchor: Property {
-    public static let property: String = "offset-anchor"
 
     /// The offset-anchor is given the same value as the element's transform-origin,
     /// unless offset-path is none, in which case it takes its value from offset-position
@@ -28,6 +27,10 @@ public enum OffsetAnchor: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension OffsetAnchor {
+    public static let property: String = "offset-anchor"
 }
 
 extension OffsetAnchor: LengthPercentageConvertible {
