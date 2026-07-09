@@ -19,7 +19,9 @@ public enum TimePercentage: Sendable, Hashable, PercentageConvertible {
 
     /// A percentage value
     case percentage(Percentage)
+}
 
+extension TimePercentage {
     /// Creates a time value in seconds
     /// - Parameter value: The time in seconds
     /// - Returns: A time-percentage with a seconds value

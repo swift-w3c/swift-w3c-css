@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/visibility)
 public enum Visibility: Property {
-    public static let property: String = "visibility"
-
     /// The element box is visible.
     case visible
 
@@ -38,6 +36,10 @@ public enum Visibility: Property {
     /// Global value
     case global(Global)
 
+}
+
+extension Visibility {
+    public static let property: String = "visibility"
 }
 
 extension Visibility: CustomStringConvertible {

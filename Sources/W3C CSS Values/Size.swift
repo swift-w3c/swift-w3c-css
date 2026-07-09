@@ -71,8 +71,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs: height](https://developer.mozilla.org/en-US/docs/Web/CSS/height)
 /// - SeeAlso: [MDN Web Docs: object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
 public enum Size: Property {
-    public static let property: String = "size"
-
     /// A single dimension value, which can be used for either width or height.
     case single(Length)
 
@@ -86,6 +84,10 @@ public enum Size: Property {
     case auto
 
     case global(Global)
+}
+
+extension Size {
+    public static let property: String = "size"
 
     /// Keywords for special sizing behaviors.
     public enum Keyword: String, Sendable {

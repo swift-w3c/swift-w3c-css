@@ -20,6 +20,20 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on object-position](https://developer.mozilla.org/en-US/docs/Web/CSS/object-position)
 public enum ObjectPosition: Property, LengthPercentageConvertible {
+    /// Single keyword position (top, right, bottom, left, center)
+    case keyword(W3C_CSS_Values.Position.Keyword)
+
+    /// Single value position (defaults to horizontal positioning)
+    case oneValue(Value)
+
+    /// Two values for horizontal and vertical positioning
+    case twoValues(Value, Value)
+
+    /// A global CSS value
+    case global(Global)
+}
+
+extension ObjectPosition {
     public static func lengthPercentage(_ value: LengthPercentage) -> ObjectPosition {
         .oneValue(.lengthPercentage(value))
     }
@@ -34,18 +48,6 @@ public enum ObjectPosition: Property, LengthPercentageConvertible {
         /// Percentage value
         case lengthPercentage(LengthPercentage)
     }
-
-    /// Single keyword position (top, right, bottom, left, center)
-    case keyword(W3C_CSS_Values.Position.Keyword)
-
-    /// Single value position (defaults to horizontal positioning)
-    case oneValue(Value)
-
-    /// Two values for horizontal and vertical positioning
-    case twoValues(Value, Value)
-
-    /// A global CSS value
-    case global(Global)
 
     /// Creates a positioning style with only the single value
     /// - Parameter value: The positioning value

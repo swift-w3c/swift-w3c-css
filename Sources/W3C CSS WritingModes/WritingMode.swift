@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on writing-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/writing-mode)
 public enum WritingMode: Property {
-    public static let property: String = "writing-mode"
-
     /// For ltr scripts, content flows horizontally from left to right.
     /// For rtl scripts, content flows horizontally from right to left.
     /// The next horizontal line is positioned below the previous line.
@@ -47,6 +45,10 @@ public enum WritingMode: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension WritingMode {
+    public static let property: String = "writing-mode"
 
     public var description: String {
         switch self {

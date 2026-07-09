@@ -24,8 +24,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on will-change](https://developer.mozilla.org/en-US/docs/Web/CSS/will-change)
 public enum WillChange: Property {
-    public static let property: String = "will-change"
-
     /// Default value. No particular intent is expressed.
     /// The user agent should apply whatever heuristics and optimizations it normally does.
     case auto
@@ -42,6 +40,10 @@ public enum WillChange: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension WillChange {
+    public static let property: String = "will-change"
 
     public var description: String {
         switch self {

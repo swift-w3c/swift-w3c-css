@@ -19,6 +19,14 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on object-fit](https://developer.mozilla.org/en-US/docs/Web/CSS/object-fit)
 public enum ObjectFit: Property {
+    /// Specifies a keyword value for the object-fit property
+    case keyword(Keyword)
+
+    /// Specifies a global value
+    case global(Global)
+}
+
+extension ObjectFit {
     public static let property: String = "object-fit"
 
     /// The available keyword values for the `object-fit` property
@@ -44,23 +52,19 @@ public enum ObjectFit: Property {
         /// The content is sized as if `none` or `contain` were specified, whichever would
         /// result in a smaller concrete object size.
         case scaleDown
+    }
+}
 
-        public var description: String {
-            switch self {
-            case .contain: return "contain"
-            case .cover: return "cover"
-            case .fill: return "fill"
-            case .none: return "none"
-            case .scaleDown: return "scale-down"
-            }
+extension ObjectFit.Keyword {
+    public var description: String {
+        switch self {
+        case .contain: return "contain"
+        case .cover: return "cover"
+        case .fill: return "fill"
+        case .none: return "none"
+        case .scaleDown: return "scale-down"
         }
     }
-
-    /// Specifies a keyword value for the object-fit property
-    case keyword(Keyword)
-
-    /// Specifies a global value
-    case global(Global)
 }
 
 /// CSS Output conversion

@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on aspect-ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/aspect-ratio)
 public enum AspectRatio: Property {
-    public static let property: String = "aspect-ratio"
-
     /// Replaced elements with an intrinsic aspect ratio use that ratio
     case auto
 
@@ -37,6 +35,10 @@ public enum AspectRatio: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension AspectRatio {
+    public static let property: String = "aspect-ratio"
 
     /// Convenience initializer for a specific width-to-height ratio
     /// - Throws: `RatioError.invalidValue` if width or height is negative

@@ -16,18 +16,6 @@ import Format_Primitives
 ///
 /// - SeeAlso: [MDN Web Docs on time](https://developer.mozilla.org/en-US/docs/Web/CSS/time)
 public struct Time: Sendable, Hashable {
-    /// Represents a time unit (seconds or milliseconds)
-    public enum Unit: String, Sendable, Hashable {
-        /// Seconds
-        case second = "s"
-
-        /// Milliseconds
-        case millisecond = "ms"
-
-        public static let s: Self = .second
-        public static let ms: Self = .millisecond
-    }
-
     /// The numeric value of the time
     public let value: Double
 
@@ -42,7 +30,25 @@ public struct Time: Sendable, Hashable {
         self.value = value
         self.unit = unit
     }
+}
 
+extension Time {
+    /// Represents a time unit (seconds or milliseconds)
+    public enum Unit: String, Sendable, Hashable {
+        /// Seconds
+        case second = "s"
+
+        /// Milliseconds
+        case millisecond = "ms"
+    }
+}
+
+extension Time.Unit {
+    public static let s: Self = .second
+    public static let ms: Self = .millisecond
+}
+
+extension Time {
     /// Creates a time value in seconds
     /// - Parameter value: The time in seconds
     /// - Returns: A time value in seconds

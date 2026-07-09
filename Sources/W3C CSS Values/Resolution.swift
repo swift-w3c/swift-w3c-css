@@ -17,26 +17,6 @@ import Format_Primitives
 ///
 /// - SeeAlso: [MDN Web Docs on resolution](https://developer.mozilla.org/en-US/docs/Web/CSS/resolution)
 public struct Resolution: Sendable, Hashable {
-    /// Errors that can occur when creating a Resolution
-    public enum ResolutionError: Error, Sendable {
-        case invalidValue(String)
-    }
-
-    /// Represents the resolution unit (dpi, dpcm, dppx, x)
-    public enum Unit: String, Sendable, Hashable {
-        /// Dots per inch (1dpi ≈ 0.39dpcm)
-        case dpi
-
-        /// Dots per centimeter (1dpcm ≈ 2.54dpi)
-        case dpcm
-
-        /// Dots per px unit (1dppx = 96dpi)
-        case dppx
-
-        /// Alias for dppx
-        case x
-    }
-
     /// The numeric value of the resolution
     public let value: Double
 
@@ -57,7 +37,31 @@ public struct Resolution: Sendable, Hashable {
         self.value = value
         self.unit = unit
     }
+}
 
+extension Resolution {
+    /// Errors that can occur when creating a Resolution
+    public enum ResolutionError: Error, Sendable {
+        case invalidValue(String)
+    }
+
+    /// Represents the resolution unit (dpi, dpcm, dppx, x)
+    public enum Unit: String, Sendable, Hashable {
+        /// Dots per inch (1dpi ≈ 0.39dpcm)
+        case dpi
+
+        /// Dots per centimeter (1dpcm ≈ 2.54dpi)
+        case dpcm
+
+        /// Dots per px unit (1dppx = 96dpi)
+        case dppx
+
+        /// Alias for dppx
+        case x
+    }
+}
+
+extension Resolution {
     /// Creates a resolution in dots per inch (dpi)
     /// - Parameter value: The dpi value (must be non-negative)
     /// - Returns: A resolution value in dpi

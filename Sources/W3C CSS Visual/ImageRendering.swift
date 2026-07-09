@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on image-rendering](https://developer.mozilla.org/en-US/docs/Web/CSS/image-rendering)
 public enum ImageRendering: Property {
 
-    public static let property: String = "image-rendering"
-
     /// The scaling algorithm is browser dependent. Most browsers use
     /// bilinear resampling (high quality).
     case auto
@@ -42,6 +40,10 @@ public enum ImageRendering: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension ImageRendering {
+    public static let property: String = "image-rendering"
 
     public var description: String {
         switch self {

@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on direction](https://developer.mozilla.org/en-US/docs/Web/CSS/direction)
 public enum Direction: Property {
-    public static let property: String = "direction"
-
     /// Text and other elements go from left to right. This is the default value.
     case ltr
 
@@ -30,6 +28,10 @@ public enum Direction: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension Direction {
+    public static let property: String = "direction"
 
     public var description: String {
         switch self {
