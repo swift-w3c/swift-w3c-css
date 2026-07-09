@@ -24,8 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
 public enum Transition: Property {
-    public static let property: String = "transition"
-
     /// A specific transition configuration
     case config(Configuration)
 
@@ -56,6 +54,10 @@ public enum Transition: Property {
             )
         )
     }
+}
+
+extension Transition {
+    public static let property: String = "transition"
 
     /// Represents a CSS transition property
     public typealias Property = TransitionProperty
@@ -106,20 +108,22 @@ public enum Transition: Property {
             self.delay = delay
             self.behavior = behavior
         }
+    }
+}
 
-        public var description: String {
-            var result = [property.description, duration.description, timingFunction.description]
+extension Transition.Configuration {
+    public var description: String {
+        var result = [property.description, duration.description, timingFunction.description]
 
-            if let delay = delay {
-                result.append(delay.description)
-            }
-
-            if let behavior = behavior {
-                result.append(behavior.description)
-            }
-
-            return result.joined(separator: " ")
+        if let delay = delay {
+            result.append(delay.description)
         }
+
+        if let behavior = behavior {
+            result.append(behavior.description)
+        }
+
+        return result.joined(separator: " ")
     }
 }
 

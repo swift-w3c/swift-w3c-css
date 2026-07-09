@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on outline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-offset)
 public enum OutlineOffset: Property, LengthConvertible {
-    public static let property: String = "outline-offset"
 
     /// A length value defining the offset distance
     case length(Length)
@@ -26,6 +25,8 @@ public enum OutlineOffset: Property, LengthConvertible {
 
 /// CSS Output conversion
 extension OutlineOffset: CustomStringConvertible {
+    public static let property: String = "outline-offset"
+
     /// Converts the outline-offset value to its CSS string representation
     public var description: String {
         switch self {

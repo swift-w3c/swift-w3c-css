@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on forced-color-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/forced-color-adjust)
 public enum ForcedColorAdjust: Property {
 
-    public static let property: String = "forced-color-adjust"
-
     /// The element's colors are adjusted by the user agent in forced colors mode.
     /// This is the default.
     case auto
@@ -39,6 +37,10 @@ public enum ForcedColorAdjust: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ForcedColorAdjust {
+    public static let property: String = "forced-color-adjust"
 
     public var description: String {
         switch self {

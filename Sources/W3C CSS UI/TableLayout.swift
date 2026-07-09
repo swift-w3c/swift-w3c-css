@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 /// table-layout: fixed;
 /// ```
 public enum TableLayout: Property {
-    public static let property: String = "table-layout"
 
     /// The automatic table layout algorithm is used (content-based sizing)
     case auto
@@ -28,6 +27,10 @@ public enum TableLayout: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension TableLayout {
+    public static let property: String = "table-layout"
 
     public var description: String {
         switch self {

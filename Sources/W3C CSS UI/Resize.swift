@@ -25,7 +25,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on resize](https://developer.mozilla.org/en-US/docs/Web/CSS/resize)
 public enum Resize: Property {
-    public static let property: String = "resize"
 
     /// Element can't be resized by the user
     case none
@@ -47,6 +46,10 @@ public enum Resize: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension Resize {
+    public static let property: String = "resize"
 
     public var description: String {
         switch self {

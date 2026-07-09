@@ -22,7 +22,9 @@ public struct Integer: Sendable, Hashable {
     public init(_ value: Int) {
         self.value = value
     }
+}
 
+extension Integer {
     /// Creates a CSS integer value with value 0
     public static let zero = Integer(0)
 

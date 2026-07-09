@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on outline-color](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color)
 public enum OutlineColor: Property, ColorConvertible {
-    public static let property: String = "outline-color"
 
     /// A specific color value
     case color(W3C_CSS_Values.Color)
@@ -31,6 +30,8 @@ public enum OutlineColor: Property, ColorConvertible {
 
 /// CSS Output conversion
 extension OutlineColor: CustomStringConvertible {
+    public static let property: String = "outline-color"
+
     /// Converts the outline-color value to its CSS string representation
     public var description: String {
         switch self {

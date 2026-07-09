@@ -36,7 +36,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-text-stroke-color](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke-color)
 public enum WebkitTextStrokeColor: Property, ColorConvertible {
-    public static let property: String = "-webkit-text-stroke-color"
 
     /// A specific color for the text stroke
     case color(W3C_CSS_Values.Color)
@@ -53,6 +52,10 @@ public enum WebkitTextStrokeColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension WebkitTextStrokeColor {
+    public static let property: String = "-webkit-text-stroke-color"
 
     public var description: String {
         switch self {

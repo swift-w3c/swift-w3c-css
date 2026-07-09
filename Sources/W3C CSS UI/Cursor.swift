@@ -9,7 +9,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/cursor)
 public indirect enum Cursor: Property {
-    public static let property: String = "cursor"
 
     /// General cursor types
 
@@ -119,6 +118,10 @@ public indirect enum Cursor: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Cursor {
+    public static let property: String = "cursor"
 
     public var description: String {
         switch self {

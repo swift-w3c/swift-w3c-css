@@ -17,8 +17,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on user-modify](https://developer.mozilla.org/en-US/docs/Web/CSS/user-modify)
 public enum UserModify: Property {
 
-    public static let property: String = "user-modify"
-
     /// Default value. Contents are read-only.
     case readOnly
 
@@ -33,6 +31,10 @@ public enum UserModify: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension UserModify {
+    public static let property: String = "user-modify"
 
     public var description: String {
         switch self {

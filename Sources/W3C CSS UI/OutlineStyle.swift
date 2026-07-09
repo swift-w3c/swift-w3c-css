@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on outline-style](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-style)
 public enum OutlineStyle: Property {
-    public static let property: String = "outline-style"
 
     /// Browser's default style for outlines
     case auto
@@ -54,6 +53,8 @@ public enum OutlineStyle: Property {
 
 /// CSS Output conversion
 extension OutlineStyle: CustomStringConvertible {
+    public static let property: String = "outline-style"
+
     /// Converts the outline-style value to its CSS string representation
     public var description: String {
         switch self {

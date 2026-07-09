@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on transition-duration](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-duration)
 public enum TransitionDuration: Property {
-    public static let property: String = "transition-duration"
 
     /// A single time duration
     case time(Time)
@@ -32,17 +31,6 @@ public enum TransitionDuration: Property {
 
     /// Global value
     case global(Global)
-
-    public var description: String {
-        switch self {
-        case .time(let time):
-            return time.description
-        case .list(let times):
-            return times.map { $0.description }.joined(separator: ", ")
-        case .global(let global):
-            return global.description
-        }
-    }
 
     /// Creates a transition duration with a time value
     public init(_ time: Time) {
@@ -63,6 +51,21 @@ public enum TransitionDuration: Property {
     /// Creates a transition duration with multiple time values
     public init(_ times: Time...) {
         self.init(times)
+    }
+}
+
+extension TransitionDuration {
+    public static let property: String = "transition-duration"
+
+    public var description: String {
+        switch self {
+        case .time(let time):
+            return time.description
+        case .list(let times):
+            return times.map { $0.description }.joined(separator: ", ")
+        case .global(let global):
+            return global.description
+        }
     }
 
     /// Creates a transition duration with a value in seconds

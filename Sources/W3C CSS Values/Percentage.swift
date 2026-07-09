@@ -33,7 +33,9 @@ public struct Percentage: Sendable, Hashable {
     public init(_ value: Int) {
         self.value = Double(value)
     }
+}
 
+extension Percentage {
     /// Creates a CSS percentage value of 0%
     public static let zero = Percentage(0)
 

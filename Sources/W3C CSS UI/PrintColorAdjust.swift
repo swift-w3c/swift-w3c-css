@@ -9,7 +9,6 @@ public import W3C_CSS_Values
 //
 
 public enum PrintColorAdjust: Property {
-    public static let property: String = "print-color-adjust"
 
     /// The browser is allowed to make adjustments as it deems appropriate for the output device
     case economy
@@ -19,6 +18,10 @@ public enum PrintColorAdjust: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension PrintColorAdjust {
+    public static let property: String = "print-color-adjust"
 
     public var description: String {
         switch self {

@@ -36,12 +36,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-text-stroke](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke)
 public enum WebkitTextStroke: Property {
-    public static let property: String = "-webkit-text-stroke"
     /// Specifies both width and color for the text stroke
     case stroke(width: StrokeWidth? = nil, color: StrokeColor? = nil)
 
     /// Global CSS value
     case global(Global)
+}
+
+extension WebkitTextStroke {
+    public static let property: String = "-webkit-text-stroke"
 
     /// Width value for the text stroke
     public enum StrokeWidth: Sendable, Hashable, CustomStringConvertible {
@@ -56,19 +59,6 @@ public enum WebkitTextStroke: Property {
 
         /// Custom length value
         case length(Length)
-
-        public var description: String {
-            switch self {
-            case .thin:
-                return "thin"
-            case .medium:
-                return "medium"
-            case .thick:
-                return "thick"
-            case .length(let length):
-                return length.description
-            }
-        }
     }
 
     /// Color value for the text stroke
@@ -78,15 +68,6 @@ public enum WebkitTextStroke: Property {
 
         /// Current text color
         case currentColor
-
-        public var description: String {
-            switch self {
-            case .color(let color):
-                return color.description
-            case .currentColor:
-                return "currentColor"
-            }
-        }
     }
 
     /// Creates a WebkitTextStroke with just a width
@@ -132,6 +113,32 @@ public enum WebkitTextStroke: Property {
 
         case .global(let global):
             return global.description
+        }
+    }
+}
+
+extension WebkitTextStroke.StrokeWidth {
+    public var description: String {
+        switch self {
+        case .thin:
+            return "thin"
+        case .medium:
+            return "medium"
+        case .thick:
+            return "thick"
+        case .length(let length):
+            return length.description
+        }
+    }
+}
+
+extension WebkitTextStroke.StrokeColor {
+    public var description: String {
+        switch self {
+        case .color(let color):
+            return color.description
+        case .currentColor:
+            return "currentColor"
         }
     }
 }

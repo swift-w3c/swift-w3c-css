@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on outline](https://developer.mozilla.org/en-US/docs/Web/CSS/outline)
 public enum Outline: Property {
-    public static let property: String = "outline"
 
     /// Style-only outline
     case style(OutlineStyle)
@@ -37,6 +36,8 @@ public enum Outline: Property {
 
 /// CSS Output conversion
 extension Outline: CustomStringConvertible {
+    public static let property: String = "outline"
+
     /// Converts the outline value to its CSS string representation
     public var description: String {
         switch self {

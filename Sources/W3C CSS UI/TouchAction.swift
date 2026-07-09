@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on touch-action](https://developer.mozilla.org/en-US/docs/Web/CSS/touch-action)
 public enum TouchAction: Sendable, Hashable, Property {
-    public static let property: String = "touch-action"
     /// Enable browser handling of all panning and zooming gestures
     case auto
 
@@ -68,6 +67,8 @@ public enum TouchActionValue: String, Sendable, Hashable {
 
 /// CSS Output conversion
 extension TouchAction: CustomStringConvertible {
+    public static let property: String = "touch-action"
+
     /// Converts the touch-action value to its CSS string representation
     public var description: String {
         switch self {

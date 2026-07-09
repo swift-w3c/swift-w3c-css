@@ -21,7 +21,9 @@ public enum Hue: Sendable, Hashable, AngleConvertible {
 
     /// Hue expressed as an angle
     case angle(Angle)
+}
 
+extension Hue {
     /// Normalizes the hue angle to its equivalent angle in the range [0, 360) degrees
     ///
     /// This method converts the hue angle to degrees and then ensures that the value

@@ -28,7 +28,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-text-fill-color](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-fill-color)
 public enum WebkitTextFillColor: Property, ColorConvertible {
-    public static let property: String = "-webkit-text-fill-color"
 
     /// A specific color for the text fill
     case color(W3C_CSS_Values.Color)
@@ -43,6 +42,10 @@ public enum WebkitTextFillColor: Property, ColorConvertible {
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
+}
+
+extension WebkitTextFillColor {
+    public static let property: String = "-webkit-text-fill-color"
 
     public var description: String {
         switch self {

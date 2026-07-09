@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on caption-side](https://developer.mozilla.org/en-US/docs/Web/CSS/caption-side)
 public enum CaptionSide: Property {
-    public static let property: String = "caption-side"
 
     /// The caption box should be positioned at the block start side of the table (typically the top).
     case top
@@ -24,6 +23,10 @@ public enum CaptionSide: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension CaptionSide {
+    public static let property: String = "caption-side"
 
     public var description: String {
         switch self {

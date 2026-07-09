@@ -34,7 +34,6 @@ public import W3C_CSS_Values
 ///         though it uses different keywords.
 ///
 public enum WebkitMaskComposite: Property {
-    public static let property: String = "-webkit-mask-composite"
 
     /// A single composite operation
     case operation(CompositeOperation)
@@ -58,6 +57,10 @@ public enum WebkitMaskComposite: Property {
             self = .multiple(operations)
         }
     }
+}
+
+extension WebkitMaskComposite {
+    public static let property: String = "-webkit-mask-composite"
 
     /// Composite operation for mask layers
     public enum CompositeOperation: String, Sendable, Hashable, CaseIterable {

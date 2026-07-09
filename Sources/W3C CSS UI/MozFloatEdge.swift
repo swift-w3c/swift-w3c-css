@@ -28,7 +28,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [Mozilla CSS Extensions Documentation](https://developer.mozilla.org/en-US/docs/Web/CSS/Mozilla_Extensions)
 public enum MozFloatEdge: Property {
-    public static let property: String = "-moz-float-edge"
 
     /// The height and width properties include the content, but not the padding, border or margin
     case contentBox
@@ -38,6 +37,10 @@ public enum MozFloatEdge: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension MozFloatEdge {
+    public static let property: String = "-moz-float-edge"
 
     public var description: String {
         switch self {

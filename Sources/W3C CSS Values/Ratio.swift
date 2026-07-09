@@ -20,11 +20,6 @@ import Format_Primitives
 ///
 /// - SeeAlso: [MDN Web Docs on ratio](https://developer.mozilla.org/en-US/docs/Web/CSS/ratio)
 public struct Ratio: Sendable, Hashable, Comparable {
-    /// Errors that can occur when creating a Ratio
-    public enum RatioError: Error, Sendable {
-        case invalidValue(String)
-    }
-
     /// The width component of the ratio
     public let width: Double
 
@@ -70,6 +65,13 @@ public struct Ratio: Sendable, Hashable, Comparable {
     /// - Throws: `RatioError.invalidValue` if value is negative
     public init(_ value: Int) throws(RatioError) {
         try self.init(Double(value))
+    }
+}
+
+extension Ratio {
+    /// Errors that can occur when creating a Ratio
+    public enum RatioError: Error, Sendable {
+        case invalidValue(String)
     }
 
     /// The quotient of width divided by height

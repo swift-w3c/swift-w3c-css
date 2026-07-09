@@ -21,7 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on speak-as](https://developer.mozilla.org/en-US/docs/Web/CSS/speak-as)
 public enum SpeakAs: Property {
-    public static let property: String = "speak-as"
 
     /// Configuration for how content is spoken
     case options(Options)
@@ -41,6 +40,10 @@ public enum SpeakAs: Property {
     ) {
         self = .options(Options(mode: mode, digits: digits, punctuation: punctuation))
     }
+}
+
+extension SpeakAs {
+    public static let property: String = "speak-as"
 
     /// The different modes for speaking content
     public enum SpeakingMode: Sendable, Hashable, CustomStringConvertible {
@@ -51,16 +54,6 @@ public enum SpeakAs: Property {
         /// Content is spelled out letter by letter.
         /// For example, "role" would be pronounced as "r" "o" "l" "e".
         case spellOut
-
-        /// String representation
-        public var description: String {
-            switch self {
-            case .normal:
-                return "normal"
-            case .spellOut:
-                return "spell-out"
-            }
-        }
     }
 
     /// The different modes for pronouncing punctuation
@@ -75,11 +68,6 @@ public enum SpeakAs: Property {
         /// Content is pronounced normally without any punctuation.
         /// For example, "Hello, world!" would be pronounced as "Hello" "world".
         case noPunctuation = "no-punctuation"
-
-        /// String representation
-        public var description: String {
-            return rawValue
-        }
     }
 
     /// Configuration options for speak-as
@@ -107,29 +95,50 @@ public enum SpeakAs: Property {
             self.digits = digits
             self.punctuation = punctuation
         }
+    }
+}
 
-        /// String representation
-        public var description: String {
-            if mode == .normal && !digits && punctuation == .auto {
-                return "normal"
-            }
-
-            var components: [String] = []
-
-            if mode != .normal {
-                components.append(mode.description)
-            }
-
-            if digits {
-                components.append("digits")
-            }
-
-            if punctuation != .auto {
-                components.append(punctuation.description)
-            }
-
-            return components.isEmpty ? "normal" : components.joined(separator: " ")
+extension SpeakAs.SpeakingMode {
+    /// String representation
+    public var description: String {
+        switch self {
+        case .normal:
+            return "normal"
+        case .spellOut:
+            return "spell-out"
         }
+    }
+}
+
+extension SpeakAs.PunctuationMode {
+    /// String representation
+    public var description: String {
+        return rawValue
+    }
+}
+
+extension SpeakAs.Options {
+    /// String representation
+    public var description: String {
+        if mode == .normal && !digits && punctuation == .auto {
+            return "normal"
+        }
+
+        var components: [String] = []
+
+        if mode != .normal {
+            components.append(mode.description)
+        }
+
+        if digits {
+            components.append("digits")
+        }
+
+        if punctuation != .auto {
+            components.append(punctuation.description)
+        }
+
+        return components.isEmpty ? "normal" : components.joined(separator: " ")
     }
 }
 

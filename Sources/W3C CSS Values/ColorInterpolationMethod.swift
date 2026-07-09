@@ -20,6 +20,29 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on color interpolation methods](https://developer.mozilla.org/en-US/docs/Web/CSS/color-interpolation-method)
 public struct ColorInterpolationMethod: Sendable, Hashable, CustomStringConvertible {
+
+    // MARK: - Storage
+
+    private let colorSpace: String
+    private let hueMethod: String?
+
+    // MARK: - Initialization
+
+    /// Creates a color interpolation method with a custom color space.
+    ///
+    /// This initializer allows you to specify any color space, including custom
+    /// `@color-profile` references using dashed-ident syntax.
+    ///
+    /// - Parameters:
+    ///   - colorSpace: The name of the color space (e.g., "srgb", "--my-profile")
+    ///   - hueMethod: Optional hue interpolation method for polar color spaces
+    public init(colorSpace: String, hueMethod: String? = nil) {
+        self.colorSpace = colorSpace
+        self.hueMethod = hueMethod
+    }
+}
+
+extension ColorInterpolationMethod {
     /// Rectangular color spaces for color interpolation
     public enum RectangularColorSpace: String, Sendable, Hashable, CustomStringConvertible {
         /// The standard sRGB color space
@@ -54,8 +77,6 @@ public struct ColorInterpolationMethod: Sendable, Hashable, CustomStringConverti
 
         /// The CIE XYZ color space with D65 white point
         case xyzD65 = "xyz-d65"
-
-        public var description: String { rawValue }
     }
 
     /// Polar color spaces for color interpolation
@@ -71,8 +92,6 @@ public struct ColorInterpolationMethod: Sendable, Hashable, CustomStringConverti
 
         /// The Oklch perceptual color space
         case oklch
-
-        public var description: String { rawValue }
     }
 
     /// Hue interpolation methods for polar color spaces
@@ -88,28 +107,6 @@ public struct ColorInterpolationMethod: Sendable, Hashable, CustomStringConverti
 
         /// Interpolates in the direction of decreasing hue values
         case decreasing = "decreasing hue"
-
-        public var description: String { rawValue }
-    }
-
-    // MARK: - Storage
-
-    private let colorSpace: String
-    private let hueMethod: String?
-
-    // MARK: - Initialization
-
-    /// Creates a color interpolation method with a custom color space.
-    ///
-    /// This initializer allows you to specify any color space, including custom
-    /// `@color-profile` references using dashed-ident syntax.
-    ///
-    /// - Parameters:
-    ///   - colorSpace: The name of the color space (e.g., "srgb", "--my-profile")
-    ///   - hueMethod: Optional hue interpolation method for polar color spaces
-    public init(colorSpace: String, hueMethod: String? = nil) {
-        self.colorSpace = colorSpace
-        self.hueMethod = hueMethod
     }
 
     // MARK: - Static Factory Methods
@@ -164,4 +161,16 @@ public struct ColorInterpolationMethod: Sendable, Hashable, CustomStringConverti
             return "in \(colorSpace)"
         }
     }
+}
+
+extension ColorInterpolationMethod.RectangularColorSpace {
+    public var description: String { rawValue }
+}
+
+extension ColorInterpolationMethod.PolarColorSpace {
+    public var description: String { rawValue }
+}
+
+extension ColorInterpolationMethod.HueInterpolationMethod {
+    public var description: String { rawValue }
 }

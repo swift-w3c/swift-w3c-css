@@ -18,22 +18,12 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on transition-timing-function](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-timing-function)
 public enum TransitionTimingFunction: Property {
-    public static let property: String = "transition-timing-function"
 
     /// A list of individual easing functions to be applied to different properties
     case list([EasingFunction])
 
     /// Global value
     case global(Global)
-
-    public var description: String {
-        switch self {
-        case .list(let functions):
-            return functions.map { $0.description }.joined(separator: ", ")
-        case .global(let global):
-            return global.description
-        }
-    }
 
     /// Creates a timing function with a single easing function
     public init(_ function: EasingFunction) {
@@ -48,6 +38,19 @@ public enum TransitionTimingFunction: Property {
     /// Creates a timing function with multiple easing functions
     public init(_ functions: EasingFunction...) {
         self = .list(functions)
+    }
+}
+
+extension TransitionTimingFunction {
+    public static let property: String = "transition-timing-function"
+
+    public var description: String {
+        switch self {
+        case .list(let functions):
+            return functions.map { $0.description }.joined(separator: ", ")
+        case .global(let global):
+            return global.description
+        }
     }
 }
 

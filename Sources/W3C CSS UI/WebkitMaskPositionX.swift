@@ -58,7 +58,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-mask-position-x](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-position-x)
 public enum WebkitMaskPositionX: Property, LengthPercentageConvertible {
-    public static let property: String = "-webkit-mask-position-x"
 
     /// Left edge position (0%)
     case left
@@ -93,6 +92,8 @@ public enum WebkitMaskPositionX: Property, LengthPercentageConvertible {
 
 /// String conversion for WebkitMaskPositionX
 extension WebkitMaskPositionX: CustomStringConvertible {
+    public static let property: String = "-webkit-mask-position-x"
+
     /// Converts the -webkit-mask-position-x value to its CSS string representation
     ///
     /// This method generates CSS like:

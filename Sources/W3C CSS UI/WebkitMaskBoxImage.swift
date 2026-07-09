@@ -31,8 +31,6 @@ public import W3C_CSS_Values
 ///
 public enum WebkitMaskBoxImage: Property {
 
-    public static let property: String = "-webkit-mask-box-image"
-
     /// No mask image
     case none
 
@@ -41,6 +39,10 @@ public enum WebkitMaskBoxImage: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension WebkitMaskBoxImage {
+    public static let property: String = "-webkit-mask-box-image"
 
     /// Source for the mask image
     public enum Source: Sendable, Hashable {
@@ -88,29 +90,6 @@ public enum WebkitMaskBoxImage: Property {
             self.bottom = bottom
             self.left = left
         }
-
-        /// Value type for edge offsets
-        public enum OffsetValue: Sendable, Hashable, CustomStringConvertible {
-            /// Number of pixels
-            case number(Int)
-
-            /// Length value
-            case length(Length)
-
-            /// Percentage value
-            case percentage(Percentage)
-
-            public var description: String {
-                switch self {
-                case .number(let number):
-                    return number.description
-                case .length(let length):
-                    return length.description
-                case .percentage(let percentage):
-                    return percentage.description
-                }
-            }
-        }
     }
 
     /// Repeat style for the mask image
@@ -131,21 +110,6 @@ public enum WebkitMaskBoxImage: Property {
         public init(_ horizontal: Style, _ vertical: Style) {
             self.horizontal = horizontal
             self.vertical = vertical
-        }
-
-        /// Style for how the image repeats
-        public enum Style: String, Sendable, Hashable {
-            /// Stretch the image to fill the space
-            case stretch
-
-            /// Repeat the image as needed
-            case `repeat`
-
-            /// Scale and repeat the image to fill the space evenly
-            case round
-
-            /// Repeat the image with spacing to fill the space
-            case space
         }
     }
 
@@ -207,5 +171,49 @@ public enum WebkitMaskBoxImage: Property {
         } else {
             return repeatStyle.horizontal.rawValue
         }
+    }
+}
+
+extension WebkitMaskBoxImage.EdgeOffset {
+    /// Value type for edge offsets
+    public enum OffsetValue: Sendable, Hashable, CustomStringConvertible {
+        /// Number of pixels
+        case number(Int)
+
+        /// Length value
+        case length(Length)
+
+        /// Percentage value
+        case percentage(Percentage)
+    }
+}
+
+extension WebkitMaskBoxImage.EdgeOffset.OffsetValue {
+    public var description: String {
+        switch self {
+        case .number(let number):
+            return number.description
+        case .length(let length):
+            return length.description
+        case .percentage(let percentage):
+            return percentage.description
+        }
+    }
+}
+
+extension WebkitMaskBoxImage.RepeatStyle {
+    /// Style for how the image repeats
+    public enum Style: String, Sendable, Hashable {
+        /// Stretch the image to fill the space
+        case stretch
+
+        /// Repeat the image as needed
+        case `repeat`
+
+        /// Scale and repeat the image to fill the space evenly
+        case round
+
+        /// Repeat the image with spacing to fill the space
+        case space
     }
 }

@@ -23,7 +23,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on caret-color](https://developer.mozilla.org/en-US/docs/Web/CSS/caret-color)
 public enum CaretColor: Property, ColorConvertible {
-    public static let property: String = "caret-color"
     /// The user agent selects an appropriate color for the caret. This is generally `currentcolor`, but the
     /// user agent may choose a different color to ensure good visibility and contrast with the surrounding content.
     case auto
@@ -37,6 +36,8 @@ public enum CaretColor: Property, ColorConvertible {
 
 /// CSS Output conversion
 extension CaretColor: CustomStringConvertible {
+    public static let property: String = "caret-color"
+
     public var description: String {
         switch self {
         case .auto:

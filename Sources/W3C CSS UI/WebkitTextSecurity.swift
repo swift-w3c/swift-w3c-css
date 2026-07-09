@@ -37,7 +37,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [CSS-Tricks article on -webkit-text-security](https://css-tricks.com/almanac/properties/t/text-security/)
 public enum WebkitTextSecurity: Property {
-    public static let property: String = "-webkit-text-security"
 
     /// Do not obscure text (default)
     case none
@@ -53,6 +52,10 @@ public enum WebkitTextSecurity: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension WebkitTextSecurity {
+    public static let property: String = "-webkit-text-security"
 
     public var description: String {
         switch self {

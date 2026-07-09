@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on user-select](https://developer.mozilla.org/en-US/docs/Web/CSS/user-select)
 public enum UserSelect: Property {
 
-    public static let property: String = "user-select"
-
     /// The text of the element and its sub-elements is not selectable.
     /// Note that the Selection object can contain these elements.
     case none
@@ -39,6 +37,10 @@ public enum UserSelect: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension UserSelect {
+    public static let property: String = "user-select"
 
     public var description: String {
         switch self {

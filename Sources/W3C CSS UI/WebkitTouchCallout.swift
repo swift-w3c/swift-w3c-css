@@ -30,7 +30,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [Safari CSS Reference on -webkit-touch-callout](https://developer.apple.com/library/archive/documentation/AppleApplications/Reference/SafariCSSRef/Articles/StandardCSSProperties.html)
 public enum WebkitTouchCallout: Property {
-    public static let property: String = "-webkit-touch-callout"
 
     /// Display the default callout
     case `default`
@@ -40,6 +39,10 @@ public enum WebkitTouchCallout: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension WebkitTouchCallout {
+    public static let property: String = "-webkit-touch-callout"
 
     public var description: String {
         switch self {

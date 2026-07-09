@@ -30,7 +30,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -moz-image-region](https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-image-region)
 public enum MozImageRegion: Property {
-    public static let property: String = "moz-image-region"
 
     /// Use the entire image
     case auto
@@ -40,6 +39,10 @@ public enum MozImageRegion: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension MozImageRegion {
+    public static let property: String = "moz-image-region"
 
     public var description: String {
         switch self {

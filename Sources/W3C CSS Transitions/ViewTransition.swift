@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 ///     .navigation(.auto)
 /// ```
 public struct ViewTransition: AtRule {
-    public static let identifier: String = "view-transition"
 
     public var rawValue: String
 
@@ -33,6 +32,10 @@ public struct ViewTransition: AtRule {
     public init() {
         self.rawValue = "@view-transition {}"
     }
+}
+
+extension ViewTransition {
+    public static let identifier: String = "view-transition"
 
     /// Sets the navigation property in the view transition rule
     /// @view-transition { navigation: value; }

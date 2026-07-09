@@ -57,7 +57,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-mask-repeat-y](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-repeat-y)
 public enum WebkitMaskRepeatY: Property {
-    public static let property: String = "-webkit-mask-repeat-y"
 
     /// Repeat the mask image vertically (default)
     case `repeat`
@@ -92,6 +91,8 @@ public enum WebkitMaskRepeatY: Property {
 
 /// String conversion for WebkitMaskRepeatY
 extension WebkitMaskRepeatY: CustomStringConvertible {
+    public static let property: String = "-webkit-mask-repeat-y"
+
     /// Converts the -webkit-mask-repeat-y value to its CSS string representation
     ///
     /// This method generates CSS like:

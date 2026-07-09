@@ -29,7 +29,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -moz-force-broken-image-icon](https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-force-broken-image-icon)
 public enum MozForceBrokenImageIcon: Property {
-    public static let property: String = "-moz-force-broken-image-icon"
 
     /// Do not show broken image icon when alt text exists (default)
     case off
@@ -39,6 +38,10 @@ public enum MozForceBrokenImageIcon: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension MozForceBrokenImageIcon {
+    public static let property: String = "-moz-force-broken-image-icon"
 
     public var description: String {
         switch self {

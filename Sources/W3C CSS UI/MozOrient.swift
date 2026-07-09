@@ -35,7 +35,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -moz-orient](https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-orient)
 public enum MozOrient: Property {
-    public static let property: String = "-moz-orient"
 
     /// The element is rendered in the same direction as the axis of the text
     case inline
@@ -51,6 +50,10 @@ public enum MozOrient: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension MozOrient {
+    public static let property: String = "-moz-orient"
 
     public var description: String {
         switch self {

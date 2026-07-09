@@ -12,7 +12,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/field-sizing)
 public enum FieldSizing: Property {
-    public static let property: String = "field-sizing"
 
     /// Allows the element to adjust its size to fit its contents
     case content
@@ -22,6 +21,10 @@ public enum FieldSizing: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FieldSizing {
+    public static let property: String = "field-sizing"
 
     public var description: String {
         switch self {

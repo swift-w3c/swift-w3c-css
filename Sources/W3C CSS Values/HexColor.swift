@@ -34,6 +34,9 @@ public struct HexColor: Sendable, Hashable {
         }
     }
 
+}
+
+extension HexColor {
     /// Creates a hexadecimal color using RGB components.
     ///
     /// - Parameters:

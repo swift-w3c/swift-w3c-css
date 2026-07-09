@@ -39,7 +39,9 @@ public enum Position: Sendable, Hashable {
     /// Four values (keyword, offset, keyword, offset)
     /// This creates positions like "top 10px right 20px"
     case offsets(Keyword, LengthPercentage, Keyword, LengthPercentage)
+}
 
+extension Position {
     /// Position keywords for horizontal and vertical alignment
     public enum Keyword: String, Sendable, Hashable {
         /// Center alignment

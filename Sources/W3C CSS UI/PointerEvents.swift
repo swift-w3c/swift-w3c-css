@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 /// pointer-events: auto; /* Default behavior */
 /// ```
 public enum PointerEvents: Property {
-    public static let property: String = "pointer-events"
 
     /// The element behaves as it would if the pointer-events property were not specified
     case auto
@@ -62,6 +61,10 @@ public enum PointerEvents: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension PointerEvents {
+    public static let property: String = "pointer-events"
 
     public var description: String {
         switch self {

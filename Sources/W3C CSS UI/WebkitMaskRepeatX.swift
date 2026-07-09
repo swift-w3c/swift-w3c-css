@@ -57,7 +57,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-mask-repeat-x](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-mask-repeat-x)
 public enum WebkitMaskRepeatX: Property {
-    public static let property: String = "-webkit-mask-repeat-x"
 
     /// Repeat the mask image horizontally (default)
     case `repeat`
@@ -92,6 +91,8 @@ public enum WebkitMaskRepeatX: Property {
 
 /// String conversion for WebkitMaskRepeatX
 extension WebkitMaskRepeatX: CustomStringConvertible {
+    public static let property: String = "-webkit-mask-repeat-x"
+
     /// Converts the -webkit-mask-repeat-x value to its CSS string representation
     ///
     /// This method generates CSS like:

@@ -24,7 +24,9 @@ public enum LengthPercentage: Sendable, Hashable, LengthConvertible, PercentageC
 
     /// A CSS calc() expression
     case calc(String)
+}
 
+extension LengthPercentage {
     /// Creates a length-percentage from pixels
     ///
     /// - Parameter value: The length in pixels

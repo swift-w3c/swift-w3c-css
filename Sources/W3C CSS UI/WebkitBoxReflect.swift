@@ -32,8 +32,6 @@ public import W3C_CSS_Values
 ///
 public enum WebkitBoxReflect: Property {
 
-    public static let property: String = "-webkit-box-reflect"
-
     /// No reflection (default)
     case none
 
@@ -51,6 +49,10 @@ public enum WebkitBoxReflect: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension WebkitBoxReflect {
+    public static let property: String = "-webkit-box-reflect"
 
     /// Types of reflection masks
     public enum ReflectionMask: Sendable, Hashable {

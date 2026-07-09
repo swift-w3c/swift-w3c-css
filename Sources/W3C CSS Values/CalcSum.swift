@@ -26,7 +26,9 @@ public struct CalcSum: Sendable, Hashable {
     public init(_ expression: String) {
         self.expression = expression
     }
+}
 
+extension CalcSum {
     /// Creates a CSS calc() function with the given expression
     ///
     /// - Parameter expression: A valid CSS calculation expression

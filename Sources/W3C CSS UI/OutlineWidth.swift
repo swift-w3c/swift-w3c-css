@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on outline-width](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-width)
 public enum OutlineWidth: Property, LengthConvertible {
-    public static let property: String = "outline-width"
 
     /// A specific length value
     case length(Length)
@@ -36,6 +35,8 @@ public enum OutlineWidth: Property, LengthConvertible {
 
 /// CSS Output conversion
 extension OutlineWidth: CustomStringConvertible {
+    public static let property: String = "outline-width"
+
     /// Converts the outline-width value to its CSS string representation
     public var description: String {
         switch self {

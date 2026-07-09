@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on ime-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/ime-mode)
 public enum ImeMode: Property {
 
-    public static let property: String = "ime-mode"
-
     /// No IME state is specified. The IME state should be allowed to vary as normal.
     case auto
 
@@ -44,6 +42,10 @@ public enum ImeMode: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension ImeMode {
+    public static let property: String = "ime-mode"
 
     public var description: String {
         switch self {

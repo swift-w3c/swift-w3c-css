@@ -35,7 +35,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-tap-highlight-color](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-tap-highlight-color)
 public enum WebkitTapHighlightColor: Property, ColorConvertible {
-    public static let property: String = "-webkit-tap-highlight-color"
 
     /// A specific color for the tap highlight
     case color(W3C_CSS_Values.Color)
@@ -45,6 +44,10 @@ public enum WebkitTapHighlightColor: Property, ColorConvertible {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension WebkitTapHighlightColor {
+    public static let property: String = "-webkit-tap-highlight-color"
 
     public var description: String {
         switch self {

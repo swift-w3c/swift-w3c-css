@@ -23,45 +23,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on basic-shape values](https://developer.mozilla.org/en-US/docs/Web/CSS/basic-shape)
 public enum BasicShape: Sendable, Hashable {
-    /// Represents a fill rule for the polygon and path shapes
-    public enum FillRule: String, Sendable, Hashable {
-        /// The default fill rule
-        case nonzero
-
-        /// Alternative fill rule for complex shapes with self-intersections
-        case evenodd
-    }
-
-    /// Specifies a radius keyword for circle and ellipse shapes
-    public enum ShapeRadius: Sendable, Hashable, LengthPercentageConvertible {
-        case lengthPercentage(LengthPercentage)
-
-        /// Uses the length from the center to the closest side as radius
-        case closestSide
-
-        /// Uses the length from the center to the farthest side as radius
-        case farthestSide
-    }
-
-    /// Represents a point in a polygon shape
-    public struct PolygonPoint: Sendable, Hashable {
-        /// The x-coordinate of the point
-        public let x: LengthPercentage
-
-        /// The y-coordinate of the point
-        public let y: LengthPercentage
-
-        /// Creates a new point for a polygon
-        ///
-        /// - Parameters:
-        ///   - x: The x-coordinate of the point
-        ///   - y: The y-coordinate of the point
-        public init(_ x: LengthPercentage, _ y: LengthPercentage) {
-            self.x = x
-            self.y = y
-        }
-    }
-
     /// Defines an inset rectangle
     /// ```css
     /// clip-path: inset(20px 50px 10px 30px round 10px);
@@ -205,6 +166,47 @@ extension BasicShape.ShapeRadius: CustomStringConvertible {
             return "closest-side"
         case .farthestSide:
             return "farthest-side"
+        }
+    }
+}
+
+extension BasicShape {
+    /// Represents a fill rule for the polygon and path shapes
+    public enum FillRule: String, Sendable, Hashable {
+        /// The default fill rule
+        case nonzero
+
+        /// Alternative fill rule for complex shapes with self-intersections
+        case evenodd
+    }
+
+    /// Specifies a radius keyword for circle and ellipse shapes
+    public enum ShapeRadius: Sendable, Hashable, LengthPercentageConvertible {
+        case lengthPercentage(LengthPercentage)
+
+        /// Uses the length from the center to the closest side as radius
+        case closestSide
+
+        /// Uses the length from the center to the farthest side as radius
+        case farthestSide
+    }
+
+    /// Represents a point in a polygon shape
+    public struct PolygonPoint: Sendable, Hashable {
+        /// The x-coordinate of the point
+        public let x: LengthPercentage
+
+        /// The y-coordinate of the point
+        public let y: LengthPercentage
+
+        /// Creates a new point for a polygon
+        ///
+        /// - Parameters:
+        ///   - x: The x-coordinate of the point
+        ///   - y: The y-coordinate of the point
+        public init(_ x: LengthPercentage, _ y: LengthPercentage) {
+            self.x = x
+            self.y = y
         }
     }
 }

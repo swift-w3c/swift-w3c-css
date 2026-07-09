@@ -30,7 +30,9 @@ public struct Number: Sendable, Hashable {
     public init(_ value: Int) {
         self.value = Double(value)
     }
+}
 
+extension Number {
     /// Creates a CSS number value with value 0
     public static let zero = Number(0)
 

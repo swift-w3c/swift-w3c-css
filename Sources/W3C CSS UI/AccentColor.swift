@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on accent-color](https://developer.mozilla.org/en-US/docs/Web/CSS/accent-color)
 public enum AccentColor: Property, ColorConvertible {
-    public static let property: String = "accent-color"
 
     /// The browser's default accent color
     case auto
@@ -31,6 +30,8 @@ public enum AccentColor: Property, ColorConvertible {
 
 /// CSS Output conversion
 extension AccentColor {
+    public static let property: String = "accent-color"
+
     /// Converts the accent color to its CSS string representation
     public var description: String {
         switch self {

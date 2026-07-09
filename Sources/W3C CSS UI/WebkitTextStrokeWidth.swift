@@ -30,7 +30,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -webkit-text-stroke-width](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke-width)
 public enum WebkitTextStrokeWidth: Property, LengthConvertible {
-    public static let property: String = "-webkit-text-stroke-width"
 
     /// Thin stroke width
     case thin
@@ -53,6 +52,10 @@ public enum WebkitTextStrokeWidth: Property, LengthConvertible {
     public init(_ length: Length) {
         self = .length(length)
     }
+}
+
+extension WebkitTextStrokeWidth {
+    public static let property: String = "-webkit-text-stroke-width"
 
     public var description: String {
         switch self {

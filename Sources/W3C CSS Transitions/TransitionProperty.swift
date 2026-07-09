@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on transition-property](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-property)
 public enum TransitionProperty: Property {
 
-    public static let property: String = "transition-property"
-
     /// Apply transitions to all properties that change
     case all
 
@@ -43,21 +41,6 @@ public enum TransitionProperty: Property {
     /// Global value
     case global(Global)
 
-    public var description: String {
-        switch self {
-        case .all:
-            return "all"
-        case .none:
-            return "none"
-        case .custom(let property):
-            return property.description
-        case .list(let properties):
-            return properties.joined(separator: ", ")
-        case .global(let global):
-            return global.description
-        }
-    }
-
     /// Creates a transition property with multiple property names
     public init(_ properties: [String]) {
         if properties.isEmpty {
@@ -72,5 +55,24 @@ public enum TransitionProperty: Property {
     /// Creates a transition property with multiple property names
     public init(_ properties: String...) {
         self.init(properties)
+    }
+}
+
+extension TransitionProperty {
+    public static let property: String = "transition-property"
+
+    public var description: String {
+        switch self {
+        case .all:
+            return "all"
+        case .none:
+            return "none"
+        case .custom(let property):
+            return property.description
+        case .list(let properties):
+            return properties.joined(separator: ", ")
+        case .global(let global):
+            return global.description
+        }
     }
 }

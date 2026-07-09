@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on transition-delay](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-delay)
 public enum TransitionDelay: Property {
 
-    public static let property: String = "transition-delay"
-
     /// A single time delay
     case time(Time)
 
@@ -36,17 +34,6 @@ public enum TransitionDelay: Property {
 
     /// Global value
     case global(Global)
-
-    public var description: String {
-        switch self {
-        case .time(let time):
-            return time.description
-        case .list(let times):
-            return times.map { $0.description }.joined(separator: ", ")
-        case .global(let global):
-            return global.description
-        }
-    }
 
     /// Creates a transition delay with a time value
     public init(_ time: Time) {
@@ -67,6 +54,21 @@ public enum TransitionDelay: Property {
     /// Creates a transition delay with multiple time values
     public init(_ times: Time...) {
         self.init(times)
+    }
+}
+
+extension TransitionDelay {
+    public static let property: String = "transition-delay"
+
+    public var description: String {
+        switch self {
+        case .time(let time):
+            return time.description
+        case .list(let times):
+            return times.map { $0.description }.joined(separator: ", ")
+        case .global(let global):
+            return global.description
+        }
     }
 
     /// Creates a transition delay with a value in seconds

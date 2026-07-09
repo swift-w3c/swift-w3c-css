@@ -89,6 +89,36 @@ public enum Length: Sendable, ExpressibleByIntegerLiteral, ExpressibleByFloatLit
     /// Global CSS values that can be applied to any CSS property
     case global(Global)
 
+    /// Creates a length using an integer literal
+    ///
+    /// Integer literals are interpreted as pixel values.
+    ///
+    /// - Parameter value: The pixel value as an integer
+    ///
+    /// Example:
+    /// ```swift
+    /// .width(100) // Equivalent to .width(.px(100))
+    /// ```
+    public init(integerLiteral value: Int) {
+        self = .length(Double(value), .px)
+    }
+
+    /// Creates a length using a floating-point literal
+    ///
+    /// Floating-point literals are interpreted as pixel values.
+    ///
+    /// - Parameter value: The pixel value as a double
+    ///
+    /// Example:
+    /// ```swift
+    /// .width(10.5) // Equivalent to .width(.px(10.5))
+    /// ```
+    public init(floatLiteral value: Double) {
+        self = .length(value, .px)
+    }
+}
+
+extension Length {
     /// Available CSS length units
     ///
     /// These units represent the various ways to measure length in CSS,
@@ -165,34 +195,6 @@ public enum Length: Sendable, ExpressibleByIntegerLiteral, ExpressibleByFloatLit
 
         /// Size based on content while respecting constraints
         case fitContent = "fit-content"
-    }
-
-    /// Creates a length using an integer literal
-    ///
-    /// Integer literals are interpreted as pixel values.
-    ///
-    /// - Parameter value: The pixel value as an integer
-    ///
-    /// Example:
-    /// ```swift
-    /// .width(100) // Equivalent to .width(.px(100))
-    /// ```
-    public init(integerLiteral value: Int) {
-        self = .length(Double(value), .px)
-    }
-
-    /// Creates a length using a floating-point literal
-    ///
-    /// Floating-point literals are interpreted as pixel values.
-    ///
-    /// - Parameter value: The pixel value as a double
-    ///
-    /// Example:
-    /// ```swift
-    /// .width(10.5) // Equivalent to .width(.px(10.5))
-    /// ```
-    public init(floatLiteral value: Double) {
-        self = .length(value, .px)
     }
 }
 

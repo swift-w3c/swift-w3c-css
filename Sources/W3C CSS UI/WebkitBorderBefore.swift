@@ -39,8 +39,6 @@ public import W3C_CSS_Values
 ///
 public enum WebkitBorderBefore: Property {
 
-    public static let property: String = "-webkit-border-before"
-
     /// Specifies border properties (width, style, color)
     /// Note that per CSS spec, these can be specified in any order
     case properties(
@@ -64,6 +62,8 @@ public enum WebkitBorderBefore: Property {
 
 /// Provides string conversion for CSS output
 extension WebkitBorderBefore: CustomStringConvertible {
+    public static let property: String = "-webkit-border-before"
+
     /// Converts the -webkit-border-before to its CSS string representation
     ///
     /// ```css

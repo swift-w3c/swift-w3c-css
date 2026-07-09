@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on transition-behavior](https://developer.mozilla.org/en-US/docs/Web/CSS/transition-behavior)
 public enum TransitionBehavior: Property {
-    public static let property: String = "transition-behavior"
     /// Allow transitions for discrete properties
     case allowDiscrete
 
@@ -31,6 +30,10 @@ public enum TransitionBehavior: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension TransitionBehavior {
+    public static let property: String = "transition-behavior"
 
     public var description: String {
         switch self {

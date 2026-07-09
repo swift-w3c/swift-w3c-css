@@ -8,7 +8,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/empty-cells)
 public enum EmptyCells: Property {
-    public static let property: String = "empty-cells"
 
     /// Borders and backgrounds are drawn around empty cells, just like normal cells
     case show
@@ -18,6 +17,10 @@ public enum EmptyCells: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension EmptyCells {
+    public static let property: String = "empty-cells"
 
     public var description: String {
         switch self {

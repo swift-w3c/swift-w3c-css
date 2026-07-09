@@ -28,7 +28,6 @@ public import W3C_CSS_Values
 /// - fit-content
 /// - content (for containers sized using flex-basis)
 public enum InterpolateSize: Property {
-    public static let property: String = "interpolate-size"
 
     /// The default behavior — intrinsic size values cannot be interpolated.
     case numericOnly
@@ -39,6 +38,10 @@ public enum InterpolateSize: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension InterpolateSize {
+    public static let property: String = "interpolate-size"
 
     public var description: String {
         switch self {

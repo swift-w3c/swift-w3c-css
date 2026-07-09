@@ -20,7 +20,9 @@ public enum FrequencyPercentage: Sendable, Hashable, PercentageConvertible {
 
     /// A percentage value
     case percentage(Percentage)
+}
 
+extension FrequencyPercentage {
     /// Creates a frequency-percentage from a hertz value
     ///
     /// - Parameter value: The frequency in hertz

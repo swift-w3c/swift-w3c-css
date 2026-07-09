@@ -30,7 +30,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on -moz-user-input](https://developer.mozilla.org/en-US/docs/Web/CSS/-moz-user-input)
 public enum MozUserInput: Property {
-    public static let property: String = "-moz-user-input"
 
     /// The element will respond to user input if it normally takes user input
     case auto
@@ -40,6 +39,10 @@ public enum MozUserInput: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension MozUserInput {
+    public static let property: String = "-moz-user-input"
 
     public var description: String {
         switch self {
