@@ -13,7 +13,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on line-break](https://developer.mozilla.org/en-US/docs/Web/CSS/line-break)
 public enum LineBreak: Property {
-    public static let property: String = "line-break"
     /// Break text using the default line break rule.
     case auto
 
@@ -35,7 +34,10 @@ public enum LineBreak: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension LineBreak {
+    public static let property: String = "line-break"
     public var description: String {
         switch self {
         case .auto:

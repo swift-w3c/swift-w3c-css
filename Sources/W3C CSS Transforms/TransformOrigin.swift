@@ -19,8 +19,24 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on transform-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-origin)
 public enum TransformOrigin: Property {
-    public static let property: String = "transform-origin"
+    /// Single value (horizontal position with vertical center) - can be a keyword or length
+    case singleValue(Value)
 
+    /// Two values (horizontal and vertical positions)
+    case twoValues(Value, Value)
+
+    /// Three values (horizontal, vertical, and z-depth)
+    case threeValues(Value, Value, Length)
+
+    /// Global values
+    case global(Global)
+}
+
+extension TransformOrigin {
+    public static let property: String = "transform-origin"
+}
+
+extension TransformOrigin {
     /// A horizontal position keyword
     public enum HorizontalKeyword: Sendable, Hashable, CustomStringConvertible {
         /// The left edge (0%)
@@ -31,14 +47,6 @@ public enum TransformOrigin: Property {
 
         /// The right edge (100%)
         case right
-
-        public var description: String {
-            switch self {
-            case .left: return "left"
-            case .center: return "center"
-            case .right: return "right"
-            }
-        }
     }
 
     /// A vertical position keyword
@@ -51,27 +59,7 @@ public enum TransformOrigin: Property {
 
         /// The bottom edge (100%)
         case bottom
-
-        public var description: String {
-            switch self {
-            case .top: return "top"
-            case .center: return "center"
-            case .bottom: return "bottom"
-            }
-        }
     }
-
-    /// Single value (horizontal position with vertical center) - can be a keyword or length
-    case singleValue(Value)
-
-    /// Two values (horizontal and vertical positions)
-    case twoValues(Value, Value)
-
-    /// Three values (horizontal, vertical, and z-depth)
-    case threeValues(Value, Value, Length)
-
-    /// Global values
-    case global(Global)
 
     /// A single position value (keyword or length)
     public enum Value: Sendable, Hashable, LengthPercentageConvertible {
@@ -85,6 +73,27 @@ public enum TransformOrigin: Property {
         case lengthPercentage(LengthPercentage)
     }
 }
+
+extension TransformOrigin.HorizontalKeyword {
+    public var description: String {
+        switch self {
+        case .left: return "left"
+        case .center: return "center"
+        case .right: return "right"
+        }
+    }
+}
+
+extension TransformOrigin.VerticalKeyword {
+    public var description: String {
+        switch self {
+        case .top: return "top"
+        case .center: return "center"
+        case .bottom: return "bottom"
+        }
+    }
+}
+
 extension TransformOrigin: LengthPercentageConvertible {
     public static func lengthPercentage(_ value: LengthPercentage) -> TransformOrigin {
         .singleValue(.init(value))

@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on hanging-punctuation](https://developer.mozilla.org/en-US/docs/Web/CSS/hanging-punctuation)
 public enum HangingPunctuation: Property {
 
-    public static let property: String = "hanging-punctuation"
-
     /// No character hangs
     case none
 
@@ -48,6 +46,10 @@ public enum HangingPunctuation: Property {
     public init(_ options: HangingPunctuationOption...) {
         self.init(options)
     }
+}
+
+extension HangingPunctuation {
+    public static let property: String = "hanging-punctuation"
 }
 
 /// Represents the possible options for hanging punctuation

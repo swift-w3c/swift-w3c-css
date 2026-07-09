@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-emphasis-color](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color)
 public enum TextEmphasisColor: Property, ColorConvertible {
-    public static let property: String = "text-emphasis-color"
 
     /// Defines the color of the emphasis marks.
     /// If no color is present, it defaults to currentcolor.
@@ -24,7 +23,10 @@ public enum TextEmphasisColor: Property, ColorConvertible {
 
     /// Global value
     case global(Global)
+}
 
+extension TextEmphasisColor {
+    public static let property: String = "text-emphasis-color"
     public var description: String {
         switch self {
         case .color(let color):

@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on transform-box](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-box)
 public enum TransformBox: Property {
 
-    public static let property: String = "transform-box"
-
     /// The content box is used as the reference box.
     ///
     /// The reference box of a `<table>` is the border box of its table wrapper box, not its table box.
@@ -53,6 +51,10 @@ public enum TransformBox: Property {
     case viewBox
 
     case global(Global)
+}
+
+extension TransformBox {
+    public static let property: String = "transform-box"
 }
 
 /// CSS Output conversion

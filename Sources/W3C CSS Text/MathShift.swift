@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on math-shift](https://developer.mozilla.org/en-US/docs/Web/CSS/math-shift)
 public enum MathShift: Property {
-    public static let property: String = "math-shift"
 
     /// The initial value, indicates normal rendering. Superscripts in MathML formulas use
     /// the superscriptShiftUp parameter from the OpenType MATH table.
@@ -30,7 +29,10 @@ public enum MathShift: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension MathShift {
+    public static let property: String = "math-shift"
     public var description: String {
         switch self {
         case .normal:

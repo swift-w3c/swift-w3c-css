@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 /// text-decoration-skip-ink: all;
 /// ```
 public enum TextDecorationSkipInk: Property {
-    public static let property: String = "text-decoration-skip-ink"
 
     /// The default — the browser may interrupt underlines and overlines so that they
     /// do not touch or closely approach a glyph. That is, they are interrupted where
@@ -42,6 +41,10 @@ public enum TextDecorationSkipInk: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecorationSkipInk {
+    public static let property: String = "text-decoration-skip-ink"
 }
 
 extension TextDecorationSkipInk: CustomStringConvertible {

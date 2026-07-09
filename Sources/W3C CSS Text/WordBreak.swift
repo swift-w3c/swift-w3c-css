@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on word-break](https://developer.mozilla.org/en-US/docs/Web/CSS/word-break)
 public enum WordBreak: Property {
-    public static let property: String = "word-break"
 
     /// Use the default line break rule.
     case normal
@@ -39,7 +38,10 @@ public enum WordBreak: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension WordBreak {
+    public static let property: String = "word-break"
     public var description: String {
         switch self {
         case .normal:

@@ -27,7 +27,6 @@ public import W3C_CSS_Values
 /// text-anchor: end;
 /// ```
 public enum TextAnchor: Property {
-    public static let property: String = "text-anchor"
 
     /// Aligns the text such that the inline start of the text string is aligned with
     /// the anchor point. This is the default value.
@@ -43,6 +42,10 @@ public enum TextAnchor: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextAnchor {
+    public static let property: String = "text-anchor"
 }
 
 extension TextAnchor: CustomStringConvertible {

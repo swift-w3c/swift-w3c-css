@@ -25,8 +25,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on rotate](https://developer.mozilla.org/en-US/docs/Web/CSS/rotate)
 public enum Rotate: Property {
-    public static let property: String = "rotate"
-
     /// No rotation is applied
     case none
 
@@ -41,7 +39,13 @@ public enum Rotate: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension Rotate {
+    public static let property: String = "rotate"
+}
+
+extension Rotate {
     /// Represents a rotation axis
     public enum Axis: String, Sendable, Hashable {
         /// X-axis (horizontal)
@@ -53,7 +57,9 @@ public enum Rotate: Property {
         /// Z-axis (depth)
         case z
     }
+}
 
+extension Rotate {
     public var description: String {
         switch self {
         case .none:

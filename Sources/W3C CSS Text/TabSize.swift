@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 /// tab-size: 2em;
 /// ```
 public enum TabSize: Property, LengthConvertible {
-    public static let property: String = "tab-size"
     /// Specify tab width as a number of spaces
     case number(Int)
 
@@ -31,6 +30,10 @@ public enum TabSize: Property, LengthConvertible {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TabSize {
+    public static let property: String = "tab-size"
 }
 
 extension TabSize: ExpressibleByIntegerLiteral {

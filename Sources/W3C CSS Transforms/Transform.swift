@@ -28,7 +28,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on transform](https://developer.mozilla.org/en-US/docs/Web/CSS/transform)
 public enum Transform: Property {
-    public static let property: String = "transform"
     /// No transformation
     case none
 
@@ -40,6 +39,10 @@ public enum Transform: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Transform {
+    public static let property: String = "transform"
 }
 
 extension Transform {

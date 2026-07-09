@@ -53,7 +53,9 @@ public enum TextDecorationSkipValue: Sendable, Hashable, CustomStringConvertible
 
     /// The text decoration is skipped over the box's margin, border, and padding areas.
     case boxDecoration
+}
 
+extension TextDecorationSkipValue {
     public var description: String {
         switch self {
         case .none:
@@ -77,7 +79,6 @@ public enum TextDecorationSkipValue: Sendable, Hashable, CustomStringConvertible
 }
 
 public enum TextDecorationSkip: Property {
-    public static let property: String = "text-decoration-skip"
 
     /// A single value
     case value(TextDecorationSkipValue)
@@ -87,6 +88,10 @@ public enum TextDecorationSkip: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecorationSkip {
+    public static let property: String = "text-decoration-skip"
 }
 
 extension TextDecorationSkip: CustomStringConvertible {

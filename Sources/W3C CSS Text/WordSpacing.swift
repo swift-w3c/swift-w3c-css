@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on word-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/word-spacing)
 public enum WordSpacing: Property {
-    public static let property: String = "word-spacing"
 
     /// The normal inter-word spacing, as defined by the current font and/or the browser.
     case normal
@@ -26,7 +25,10 @@ public enum WordSpacing: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension WordSpacing {
+    public static let property: String = "word-spacing"
     public var description: String {
         switch self {
         case .normal:

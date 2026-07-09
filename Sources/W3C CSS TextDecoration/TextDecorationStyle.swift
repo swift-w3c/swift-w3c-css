@@ -26,7 +26,6 @@ public import W3C_CSS_Values
 /// text-decoration-style: wavy;
 /// ```
 public enum TextDecorationStyle: Property {
-    public static let property: String = "text-decoration-style"
 
     /// A single line. This is the default style.
     case solid
@@ -45,6 +44,10 @@ public enum TextDecorationStyle: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecorationStyle {
+    public static let property: String = "text-decoration-style"
 }
 
 extension TextDecorationStyle: CustomStringConvertible {

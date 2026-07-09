@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-emphasis-style](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-style)
 public enum TextEmphasisStyle: Property {
-    public static let property: String = "text-emphasis-style"
 
     /// No emphasis marks.
     case none
@@ -29,7 +28,10 @@ public enum TextEmphasisStyle: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextEmphasisStyle {
+    public static let property: String = "text-emphasis-style"
     public var description: String {
         switch self {
         case .none:

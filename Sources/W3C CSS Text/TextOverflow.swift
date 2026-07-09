@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 /// text-overflow: "...";
 /// ```
 public enum TextOverflow: Property {
-    public static let property: String = "text-overflow"
 
     /// Default value. Text is clipped and not accessible.
     case clip
@@ -32,6 +31,10 @@ public enum TextOverflow: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextOverflow {
+    public static let property: String = "text-overflow"
 }
 
 extension TextOverflow: CustomStringConvertible {

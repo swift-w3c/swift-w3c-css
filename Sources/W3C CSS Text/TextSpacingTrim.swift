@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-spacing-trim](https://developer.mozilla.org/en-US/docs/Web/CSS/text-spacing-trim)
 public enum TextSpacingTrim: Property {
-    public static let property: String = "text-spacing-trim"
 
     /// Sets CJK full-width opening punctuation characters to be full-width at the start of each line.
     /// Sets CJK full-width closing punctuation characters to be full-width at the end of each line,
@@ -45,7 +44,10 @@ public enum TextSpacingTrim: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextSpacingTrim {
+    public static let property: String = "text-spacing-trim"
     public var description: String {
         switch self {
         case .normal: return "normal"

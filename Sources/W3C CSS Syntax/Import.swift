@@ -34,8 +34,6 @@ public import W3C_CSS_Shared
 ///     .media([Media.screen, Media.maxWidth(.px(500))])
 /// ```
 public struct Import: AtRule {
-    public static let identifier: String = "import"
-
     public var rawValue: String
     private var urlString: String
     private var conditions: [String] = []
@@ -73,7 +71,13 @@ public struct Import: AtRule {
         self.urlString = "\"\(path)\""
         self.rawValue = "@import \(self.urlString);"
     }
+}
 
+extension Import {
+    public static let identifier: String = "import"
+}
+
+extension Import {
     /// Creates an import rule with the specified URL.
     ///
     /// - Parameter url: The URL to the CSS file to import.

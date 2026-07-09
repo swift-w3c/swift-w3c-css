@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [CSS Text Module Level 3](https://www.w3.org/TR/css-text-3/)
 public enum LetterSpacingEastAsian: Property, LengthConvertible {
-    public static let property: String = "letter-spacing-east-asian"
     /// Uses the default spacing as specified by the font.
     case normal
 
@@ -27,7 +26,10 @@ public enum LetterSpacingEastAsian: Property, LengthConvertible {
 
     /// Global values
     case global(Global)
+}
 
+extension LetterSpacingEastAsian {
+    public static let property: String = "letter-spacing-east-asian"
 }
 
 /// CSS Output conversion

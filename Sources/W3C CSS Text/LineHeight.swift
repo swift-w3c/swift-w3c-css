@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 public enum LineHeight: Property, LengthPercentageConvertible, ExpressibleByFloatLiteral,
     ExpressibleByIntegerLiteral
 {
-    public static let property: String = "line-height"
     /// Default value. Browser dependent, typically around 1.2 times the font size
     case normal
 
@@ -42,7 +41,10 @@ public enum LineHeight: Property, LengthPercentageConvertible, ExpressibleByFloa
     public init(integerLiteral value: Int) {
         self = .multiple(Double(value))
     }
+}
 
+extension LineHeight {
+    public static let property: String = "line-height"
     public var description: String {
         switch self {
         case .normal:

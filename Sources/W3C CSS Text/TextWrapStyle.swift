@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-wrap-style](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap-style)
 public enum TextWrapStyle: Property {
-    public static let property: String = "text-wrap-style"
 
     /// Text is wrapped in the most performant way for the browser and does not take into account the number of characters.
     case auto
@@ -35,6 +34,10 @@ public enum TextWrapStyle: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension TextWrapStyle {
+    public static let property: String = "text-wrap-style"
 }
 
 /// CSS Output conversion

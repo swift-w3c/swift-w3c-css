@@ -18,14 +18,18 @@ public import W3C_CSS_Shared
 /// Namespace.default("http://www.w3.org/1999/xhtml")
 /// ```
 public struct Namespace: AtRule {
-    public static let identifier: String = "namespace"
-
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
 
+extension Namespace {
+    public static let identifier: String = "namespace"
+}
+
+extension Namespace {
     /// Creates a default namespace with the specified namespace URI.
     /// @namespace url(XML-namespace-URL);
     public static func `default`(_ uri: NamespaceURI) -> Namespace {
@@ -56,28 +60,33 @@ extension Namespace {
     public enum NamespaceURI: Hashable, Sendable {
         /// A URL-based namespace URI.
         case url(String)
-
-        /// The raw value representation in CSS.
-        public var rawValue: String {
-            switch self {
-            case .url(let url):
-                return "url(\(url))"
-            }
-        }
     }
 
     /// Common XML namespaces used in web development
     public struct CommonNamespaces {
-        /// XHTML namespace: http://www.w3.org/1999/xhtml
-        public static let xhtml = "http://www.w3.org/1999/xhtml"
-
-        /// SVG namespace: http://www.w3.org/2000/svg
-        public static let svg = "http://www.w3.org/2000/svg"
-
-        /// MathML namespace: http://www.w3.org/1998/Math/MathML
-        public static let mathML = "http://www.w3.org/1998/Math/MathML"
-
-        /// XLink namespace: http://www.w3.org/1999/xlink
-        public static let xlink = "http://www.w3.org/1999/xlink"
     }
+}
+
+extension Namespace.NamespaceURI {
+    /// The raw value representation in CSS.
+    public var rawValue: String {
+        switch self {
+        case .url(let url):
+            return "url(\(url))"
+        }
+    }
+}
+
+extension Namespace.CommonNamespaces {
+    /// XHTML namespace: http://www.w3.org/1999/xhtml
+    public static let xhtml = "http://www.w3.org/1999/xhtml"
+
+    /// SVG namespace: http://www.w3.org/2000/svg
+    public static let svg = "http://www.w3.org/2000/svg"
+
+    /// MathML namespace: http://www.w3.org/1998/Math/MathML
+    public static let mathML = "http://www.w3.org/1998/Math/MathML"
+
+    /// XLink namespace: http://www.w3.org/1999/xlink
+    public static let xlink = "http://www.w3.org/1999/xlink"
 }

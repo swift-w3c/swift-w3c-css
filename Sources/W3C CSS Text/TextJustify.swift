@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-justify](https://developer.mozilla.org/en-US/docs/Web/CSS/text-justify)
 public enum TextJustify: Property {
-    public static let property: String = "text-justify"
 
     /// Text justification is turned off. This has the same effect as not setting
     /// text-align to justify at all.
@@ -38,7 +37,10 @@ public enum TextJustify: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextJustify {
+    public static let property: String = "text-justify"
     public var description: String {
         switch self {
         case .none: return "none"

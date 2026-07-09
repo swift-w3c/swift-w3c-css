@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on white-space](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space)
 public enum WhiteSpace: Property {
-    public static let property: String = "white-space"
     /// Sequences of white space are collapsed.
     /// Newline characters in the source are handled the same as other white spaces.
     /// Lines are broken as necessary to fill line boxes.
@@ -47,7 +46,10 @@ public enum WhiteSpace: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension WhiteSpace {
+    public static let property: String = "white-space"
     public var description: String {
         switch self {
         case .normal:

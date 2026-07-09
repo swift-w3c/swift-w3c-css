@@ -24,8 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-emphasis](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis)
 public enum TextEmphasis: Property {
-    public static let property: String = "text-emphasis"
-
     /// Emphasis configuration with style and optional color
     case config(Configuration)
 
@@ -61,7 +59,13 @@ public enum TextEmphasis: Property {
     public init(string: CSSString, color: TextEmphasisColor? = nil) {
         self = .config(Configuration(style: .string(string), color: color))
     }
+}
 
+extension TextEmphasis {
+    public static let property: String = "text-emphasis"
+}
+
+extension TextEmphasis {
     /// Configuration for a text emphasis
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
         /// The style of the emphasis marks
@@ -78,15 +82,17 @@ public enum TextEmphasis: Property {
             self.style = style
             self.color = color
         }
+    }
+}
 
-        /// CSS string representation
-        public var description: String {
-            if let color = color {
-                return "\(style) \(color)"
-            }
-
-            return style.description
+extension TextEmphasis.Configuration {
+    /// CSS string representation
+    public var description: String {
+        if let color = color {
+            return "\(style) \(color)"
         }
+
+        return style.description
     }
 }
 

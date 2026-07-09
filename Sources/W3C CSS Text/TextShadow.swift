@@ -24,8 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-shadow](https://developer.mozilla.org/en-US/docs/Web/CSS/text-shadow)
 public enum TextShadow: Property {
-    public static let property: String = "text-shadow"
-
     /// No shadow (default)
     case none
 
@@ -58,7 +56,13 @@ public enum TextShadow: Property {
     public init(_ shadows: TextShadowValue...) {
         self.init(shadows)
     }
+}
 
+extension TextShadow {
+    public static let property: String = "text-shadow"
+}
+
+extension TextShadow {
     /// A convenience factory method for creating a shadow with pixel values
     public static func shadow(
         offsetX: Double,

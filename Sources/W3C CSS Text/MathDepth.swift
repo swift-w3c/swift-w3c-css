@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on math-depth](https://developer.mozilla.org/en-US/docs/Web/CSS/math-depth)
 public enum MathDepth: Property {
-    public static let property: String = "math-depth"
 
     /// Set to the inherited math-depth plus 1 when inherited math-style is compact.
     case autoAdd
@@ -29,7 +28,10 @@ public enum MathDepth: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension MathDepth {
+    public static let property: String = "math-depth"
     public var description: String {
         switch self {
         case .autoAdd:

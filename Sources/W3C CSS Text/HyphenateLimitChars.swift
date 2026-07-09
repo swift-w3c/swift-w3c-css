@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on hyphenate-limit-chars](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphenate-limit-chars)
 public enum HyphenateLimitChars: Property {
 
-    public static let property: String = "hyphenate-limit-chars"
-
     /// The user agent will choose appropriate values for the current layout.
     /// Unless the user agent can calculate better values, the following defaults will be used:
     /// - Minimum word length to allow hyphenation: 5
@@ -46,7 +44,10 @@ public enum HyphenateLimitChars: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension HyphenateLimitChars {
+    public static let property: String = "hyphenate-limit-chars"
     public var description: String {
         switch self {
         case .auto:
@@ -72,7 +73,9 @@ public enum HyphenateLimitChars: Property {
 public enum HyphenLimit: Sendable, Hashable, CustomStringConvertible {
     case auto
     case value(Int)
+}
 
+extension HyphenLimit {
     public var description: String {
         switch self {
         case .auto:

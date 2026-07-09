@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-indent](https://developer.mozilla.org/en-US/docs/Web/CSS/text-indent)
 public enum TextIndent: Property {
-    public static let property: String = "text-indent"
 
     /// Specifies indentation with length and optional modifiers
     case indent(value: LengthPercentage, eachLine: Bool, hanging: Bool)
@@ -32,7 +31,10 @@ public enum TextIndent: Property {
     public init(value: LengthPercentage, eachLine: Bool = false, hanging: Bool = false) {
         self = .indent(value: value, eachLine: eachLine, hanging: hanging)
     }
+}
 
+extension TextIndent {
+    public static let property: String = "text-indent"
     public var description: String {
         switch self {
         case .indent(let value, let eachLine, let hanging):

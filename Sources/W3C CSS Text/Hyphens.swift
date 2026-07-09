@@ -23,8 +23,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on hyphens](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphens)
 public enum Hyphens: Property {
 
-    public static let property: String = "hyphens"
-
     /// Words are not broken at line breaks, even if characters inside the words suggest line break points.
     /// Lines will only wrap at whitespace.
     case none
@@ -40,7 +38,10 @@ public enum Hyphens: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension Hyphens {
+    public static let property: String = "hyphens"
     public var description: String {
         switch self {
         case .none:

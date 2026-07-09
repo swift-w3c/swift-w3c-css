@@ -27,8 +27,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-box-edge](https://developer.mozilla.org/en-US/docs/Web/CSS/text-box-edge)
 public enum TextBoxEdge: Property {
-    public static let property: String = "text-box-edge"
-
     /// The default value. Equivalent to the text-edge value text.
     case auto
 
@@ -50,6 +48,10 @@ public enum TextBoxEdge: Property {
             self = .edgePair(overValue, underValue)
         }
     }
+}
+
+extension TextBoxEdge {
+    public static let property: String = "text-box-edge"
 
     /// Both font edges are set to 'text' baseline
     public static let text = TextBoxEdge.edge(.text)

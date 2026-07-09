@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-size-adjust](https://developer.mozilla.org/en-US/docs/Web/CSS/text-size-adjust)
 public enum TextSizeAdjust: Property {
-    public static let property: String = "text-size-adjust"
 
     /// Enables the browser's inflation algorithm. This value is used to cancel a none value
     /// previously set with CSS.
@@ -34,6 +33,10 @@ public enum TextSizeAdjust: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension TextSizeAdjust {
+    public static let property: String = "text-size-adjust"
 }
 
 /// CSS Output conversion

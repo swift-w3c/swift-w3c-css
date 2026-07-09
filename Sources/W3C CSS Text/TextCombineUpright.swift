@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-combine-upright](https://developer.mozilla.org/en-US/docs/Web/CSS/text-combine-upright)
 public enum TextCombineUpright: Property {
-    public static let property: String = "text-combine-upright"
 
     /// There is no special processing.
     case none
@@ -37,6 +36,10 @@ public enum TextCombineUpright: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension TextCombineUpright {
+    public static let property: String = "text-combine-upright"
 }
 
 extension TextCombineUpright: ExpressibleByIntegerLiteral {

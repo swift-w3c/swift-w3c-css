@@ -28,7 +28,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-box](https://developer.mozilla.org/en-US/docs/Web/CSS/text-box)
 public enum TextBox: Property {
-    public static let property: String = "text-box"
 
     /// Default value, equivalent to text-box: none auto;
     case normal
@@ -43,7 +42,10 @@ public enum TextBox: Property {
     public init(_ trim: TextBoxTrim, _ edge: TextBoxEdge = .auto) {
         self = .trim(trim, edge)
     }
+}
 
+extension TextBox {
+    public static let property: String = "text-box"
     public var description: String {
         switch self {
         case .normal:

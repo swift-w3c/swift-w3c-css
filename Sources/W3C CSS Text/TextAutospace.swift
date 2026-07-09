@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [CSS Text Level 3 Working Draft](https://www.w3.org/TR/css-text-3/)
 public enum TextAutospace: Property {
-    public static let property: String = "text-autospace"
 
     /// No extra space is inserted at script boundaries.
     case none
@@ -48,6 +47,10 @@ public enum TextAutospace: Property {
     public init(_ options: TextAutospaceOption...) {
         self.init(options)
     }
+}
+
+extension TextAutospace {
+    public static let property: String = "text-autospace"
 }
 
 /// Individual options for text autospace

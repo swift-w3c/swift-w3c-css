@@ -28,13 +28,16 @@ public import W3C_CSS_Values
 /// text-decoration-color: currentColor;
 /// ```
 public enum TextDecorationColor: Property, ColorConvertible {
-    public static let property: String = "text-decoration-color"
 
     /// A specific color value for the text decoration.
     case color(W3C_CSS_Values.Color)
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecorationColor {
+    public static let property: String = "text-decoration-color"
 }
 
 extension TextDecorationColor: CustomStringConvertible {

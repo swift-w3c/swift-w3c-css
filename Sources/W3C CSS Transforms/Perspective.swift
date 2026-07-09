@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 public enum Perspective: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "perspective"
 
     /// No perspective transform is applied
     case none
@@ -33,14 +32,6 @@ public enum Perspective: Property, LengthConvertible, ExpressibleByIntegerLitera
     /// Global CSS value
     case global(Global)
 
-    public var description: String {
-        switch self {
-        case .none: return "none"
-        case .length(let length): return length.description
-        case .global(let global): return global.description
-        }
-    }
-
     /// Creates a Perspective using an integer literal (interpreted as pixels)
     public init(integerLiteral value: Int) {
         self = .length(.px(Double(value)))
@@ -49,5 +40,16 @@ public enum Perspective: Property, LengthConvertible, ExpressibleByIntegerLitera
     /// Creates a Perspective using a floating-point literal (interpreted as pixels)
     public init(floatLiteral value: Double) {
         self = .length(.px(value))
+    }
+}
+
+extension Perspective {
+    public static let property: String = "perspective"
+    public var description: String {
+        switch self {
+        case .none: return "none"
+        case .length(let length): return length.description
+        case .global(let global): return global.description
+        }
     }
 }

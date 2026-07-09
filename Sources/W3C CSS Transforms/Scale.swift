@@ -22,7 +22,6 @@ public import W3C_CSS_Shared
 public enum Scale: Property, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
     CustomStringConvertible
 {
-    public static let property: String = "scale"
 
     /// No scaling should be applied
     case none
@@ -48,7 +47,10 @@ public enum Scale: Property, ExpressibleByIntegerLiteral, ExpressibleByFloatLite
     public init(floatLiteral value: Double) {
         self = .single(value)
     }
+}
 
+extension Scale {
+    public static let property: String = "scale"
     public var description: String {
         switch self {
         case .none: return "none"

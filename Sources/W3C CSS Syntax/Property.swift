@@ -28,13 +28,18 @@ public import W3C_CSS_Values
 ///     .initialValue("1px")
 /// ```
 public struct Property: AtRule {
-    public static let identifier: String = "property"
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
 
+extension Property {
+    public static let identifier: String = "property"
+}
+
+extension Property {
     /// Creates a new @property rule with the specified custom property name
     /// @property --name {}
     public static func define(_ name: String) -> Property {
@@ -150,33 +155,35 @@ extension Property {
         // Functions
         /// A CSS <gradient> value
         case gradient = "<gradient>"
+    }
+}
 
-        // Composite types with multipliers
-        /// One or more of the specified type, for example "<length>+"
-        public static func oneOrMore(_ type: SyntaxType) -> String {
-            "\(type.rawValue)+"
-        }
+extension Property.SyntaxType {
+    // Composite types with multipliers
+    /// One or more of the specified type, for example "<length>+"
+    public static func oneOrMore(_ type: Property.SyntaxType) -> String {
+        "\(type.rawValue)+"
+    }
 
-        /// Zero or more of the specified type, for example "<length>*"
-        public static func zeroOrMore(_ type: SyntaxType) -> String {
-            "\(type.rawValue)*"
-        }
+    /// Zero or more of the specified type, for example "<length>*"
+    public static func zeroOrMore(_ type: Property.SyntaxType) -> String {
+        "\(type.rawValue)*"
+    }
 
-        /// A list of the specified type, for example "<length>#"
-        public static func list(_ type: SyntaxType) -> String {
-            "\(type.rawValue)#"
-        }
+    /// A list of the specified type, for example "<length>#"
+    public static func list(_ type: Property.SyntaxType) -> String {
+        "\(type.rawValue)#"
+    }
 
-        // Composite types with combinators
-        /// Either of the specified types, for example "<length> | <percentage>"
-        public static func either(_ type1: SyntaxType, _ type2: SyntaxType) -> String {
-            "\(type1.rawValue) | \(type2.rawValue)"
-        }
+    // Composite types with combinators
+    /// Either of the specified types, for example "<length> | <percentage>"
+    public static func either(_ type1: Property.SyntaxType, _ type2: Property.SyntaxType) -> String {
+        "\(type1.rawValue) | \(type2.rawValue)"
+    }
 
-        /// Any number of the specified types, for example "[ <length> | <percentage> ]+"
-        public static func any(_ types: SyntaxType...) -> String {
-            let typeList = types.map { $0.rawValue }.joined(separator: " | ")
-            return "[ \(typeList) ]+"
-        }
+    /// Any number of the specified types, for example "[ <length> | <percentage> ]+"
+    public static func any(_ types: Property.SyntaxType...) -> String {
+        let typeList = types.map { $0.rawValue }.joined(separator: " | ")
+        return "[ \(typeList) ]+"
     }
 }

@@ -22,14 +22,18 @@ public import W3C_CSS_Shared
 ///     .style("img", "border: 1px solid red;")
 /// ```
 public struct Scope: AtRule {
-    public static let identifier: String = "scope"
-
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
 
+extension Scope {
+    public static let identifier: String = "scope"
+}
+
+extension Scope {
     /// Creates a new @scope rule with a root selector
     /// @scope (root-selector) {}
     public static func root(_ selector: String) -> Scope {

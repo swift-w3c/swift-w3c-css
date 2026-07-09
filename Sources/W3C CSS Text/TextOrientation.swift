@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-orientation](https://developer.mozilla.org/en-US/docs/Web/CSS/text-orientation)
 public enum TextOrientation: Property {
-    public static let property: String = "text-orientation"
 
     /// Rotates the characters of horizontal scripts 90° clockwise.
     /// Lays out the characters of vertical scripts naturally. Default value.
@@ -41,7 +40,10 @@ public enum TextOrientation: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextOrientation {
+    public static let property: String = "text-orientation"
     public var description: String {
         switch self {
         case .mixed: return "mixed"

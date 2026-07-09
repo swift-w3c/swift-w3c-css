@@ -23,8 +23,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on text-emphasis-position](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-position)
 public enum TextEmphasisPosition: Property {
 
-    public static let property: String = "text-emphasis-position"
-
     /// Draws marks over the text in horizontal writing mode and to the right
     /// of the text in vertical writing mode.
     case auto
@@ -34,7 +32,10 @@ public enum TextEmphasisPosition: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextEmphasisPosition {
+    public static let property: String = "text-emphasis-position"
     public var description: String {
         switch self {
         case .auto:

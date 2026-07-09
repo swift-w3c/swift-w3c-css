@@ -28,7 +28,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-box-trim](https://developer.mozilla.org/en-US/docs/Web/CSS/text-box-trim)
 public enum TextBoxTrim: Property {
-    public static let property: String = "text-box-trim"
 
     /// No space is trimmed from the text.
     case none
@@ -44,7 +43,10 @@ public enum TextBoxTrim: Property {
 
     /// Global CSS value
     case global(Global)
+}
 
+extension TextBoxTrim {
+    public static let property: String = "text-box-trim"
     public var description: String {
         switch self {
         case .none:

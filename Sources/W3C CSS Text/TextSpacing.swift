@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [CSS Text Level 4 specification](https://www.w3.org/TR/css-text-4/#text-spacing-property)
 public enum TextSpacing: Property {
-    public static let property: String = "text-spacing"
 
     /// Default spacing behavior.
     case normal
@@ -51,6 +50,10 @@ public enum TextSpacing: Property {
     public init(_ options: TextSpacingOption...) {
         self.init(options)
     }
+}
+
+extension TextSpacing {
+    public static let property: String = "text-spacing"
 }
 
 /// Individual options for text spacing

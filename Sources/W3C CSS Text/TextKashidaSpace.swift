@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [Microsoft Docs on text-kashida-space](https://docs.microsoft.com/en-us/previous-versions/ms531174(v=vs.85))
 public enum TextKashidaSpace: Property {
-    public static let property: String = "text-kashida-space"
 
     /// No kashida expansion is used.
     case none
@@ -31,6 +30,10 @@ public enum TextKashidaSpace: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension TextKashidaSpace {
+    public static let property: String = "text-kashida-space"
 }
 
 /// CSS Output conversion

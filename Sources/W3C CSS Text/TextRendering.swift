@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-rendering](https://developer.mozilla.org/en-US/docs/Web/CSS/text-rendering)
 public enum TextRendering: Property {
-    public static let property: String = "text-rendering"
 
     /// The browser makes educated guesses about when to optimize for speed, legibility, and
     /// geometric precision while drawing text. This is a good default for balancing quality
@@ -48,7 +47,10 @@ public enum TextRendering: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextRendering {
+    public static let property: String = "text-rendering"
     public var description: String {
         switch self {
         case .auto: return "auto"

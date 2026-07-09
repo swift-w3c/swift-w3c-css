@@ -2,7 +2,6 @@ public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
 public enum TextDecoration: Property {
-    public static let property: String = "text-decoration"
 
     /// No text decoration
     case none
@@ -28,6 +27,10 @@ public enum TextDecoration: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecoration {
+    public static let property: String = "text-decoration"
 }
 
 extension TextDecoration: CustomStringConvertible {
@@ -92,7 +95,9 @@ public struct TextDecorationValue: Sendable, Hashable, CustomStringConvertible {
         self.color = color
         self.thickness = thickness
     }
+}
 
+extension TextDecorationValue {
     public var description: String {
         var components: [String] = []
 

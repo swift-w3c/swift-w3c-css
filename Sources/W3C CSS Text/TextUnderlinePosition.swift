@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-underline-position](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-position)
 public enum TextUnderlinePosition: Property {
-    public static let property: String = "text-underline-position"
 
     /// The user agent uses its own algorithm to place the line at or under the alphabetic baseline.
     case auto
@@ -86,6 +85,10 @@ public enum TextUnderlinePosition: Property {
     }
 }
 
+extension TextUnderlinePosition {
+    public static let property: String = "text-underline-position"
+}
+
 /// The possible individual values for text-underline-position
 public enum TextUnderlinePositionValue: Sendable, Hashable, CustomStringConvertible {
     /// The user agent uses its own algorithm to place the line at or under the alphabetic baseline.
@@ -107,7 +110,9 @@ public enum TextUnderlinePositionValue: Sendable, Hashable, CustomStringConverti
     /// In vertical writing-modes, this keyword forces the line to be placed on the right
     /// side of the text. In horizontal writing-modes, it is a synonym of auto.
     case right
+}
 
+extension TextUnderlinePositionValue {
     public var description: String {
         switch self {
         case .auto: return "auto"

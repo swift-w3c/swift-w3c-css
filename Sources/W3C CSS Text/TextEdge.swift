@@ -23,7 +23,9 @@ public enum TextEdge: Sendable, Hashable {
 
     /// Separate values for over and under edges
     case pair(OverValue, UnderValue)
+}
 
+extension TextEdge {
     /// Values for both over and under edges
     public enum Value: String, Sendable, Hashable, CaseIterable {
         /// Both font edges are at text baseline (includes font's ascenders/descenders but excludes half-leading)
@@ -68,7 +70,9 @@ public enum TextEdge: Sendable, Hashable {
         /// The font's under edge is at alphabetic baseline (bottom of short lowercase letters)
         case alphabetic
     }
+}
 
+extension TextEdge {
     /// Both font edges are set to 'text' baseline
     public static let text = TextEdge.single(.text)
 

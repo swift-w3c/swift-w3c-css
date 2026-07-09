@@ -16,8 +16,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on hyphenate-character](https://developer.mozilla.org/en-US/docs/Web/CSS/hyphenate-character)
 public enum HyphenateCharacter: Property {
 
-    public static let property: String = "hyphenate-character"
-
     /// The user-agent selects an appropriate string based on the content language's typographic conventions.
     /// This is the default property value.
     case auto
@@ -28,7 +26,10 @@ public enum HyphenateCharacter: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension HyphenateCharacter {
+    public static let property: String = "hyphenate-character"
     public var description: String {
         switch self {
         case .auto:

@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-underline-offset](https://developer.mozilla.org/en-US/docs/Web/CSS/text-underline-offset)
 public enum TextUnderlineOffset: Property, LengthPercentageConvertible {
-    public static let property: String = "text-underline-offset"
 
     /// The browser chooses the appropriate offset for underlines.
     case auto
@@ -28,6 +27,10 @@ public enum TextUnderlineOffset: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension TextUnderlineOffset {
+    public static let property: String = "text-underline-offset"
 }
 
 /// CSS Output conversion

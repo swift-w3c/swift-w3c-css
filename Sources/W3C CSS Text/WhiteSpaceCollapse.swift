@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on white-space-collapse](https://developer.mozilla.org/en-US/docs/Web/CSS/white-space-collapse)
 public enum WhiteSpaceCollapse: Property {
-    public static let property: String = "white-space-collapse"
 
     /// White space sequences are collapsed.
     case collapse
@@ -38,7 +37,10 @@ public enum WhiteSpaceCollapse: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension WhiteSpaceCollapse {
+    public static let property: String = "white-space-collapse"
     public var description: String {
         switch self {
         case .collapse:

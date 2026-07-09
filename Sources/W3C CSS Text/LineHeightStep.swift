@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 public enum LineHeightStep: Property, LengthConvertible, ExpressibleByFloatLiteral,
     ExpressibleByIntegerLiteral
 {
-    public static let property: String = "line-height-step"
     /// A specific length value defining the step unit
     case length(Length)
 
@@ -27,16 +26,6 @@ public enum LineHeightStep: Property, LengthConvertible, ExpressibleByFloatLiter
     case global(Global)
 
     // MARK: - Protocol Conformance
-
-    /// Implementation of the CustomStringConvertible protocol
-    public var description: String {
-        switch self {
-        case .length(let length):
-            return length.description
-        case .global(let global):
-            return global.description
-        }
-    }
 
     // MARK: - Convenience initializers
 
@@ -49,5 +38,17 @@ public enum LineHeightStep: Property, LengthConvertible, ExpressibleByFloatLiter
     public init(integerLiteral value: Int) {
         self = .px(Double(value))
     }
+}
 
+extension LineHeightStep {
+    public static let property: String = "line-height-step"
+    /// Implementation of the CustomStringConvertible protocol
+    public var description: String {
+        switch self {
+        case .length(let length):
+            return length.description
+        case .global(let global):
+            return global.description
+        }
+    }
 }

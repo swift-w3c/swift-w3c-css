@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-align](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align)
 public enum TextAlign: Property {
-    public static let property: String = "text-align"
 
     /// The same as left if direction is left-to-right and right if direction is right-to-left.
     case start
@@ -50,7 +49,10 @@ public enum TextAlign: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextAlign {
+    public static let property: String = "text-align"
     public var description: String {
         switch self {
         case .start:

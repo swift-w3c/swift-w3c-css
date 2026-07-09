@@ -19,13 +19,16 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on perspective-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/perspective-origin)
 public enum PerspectiveOrigin: Property {
-    public static let property: String = "perspective-origin"
 
     /// A position defined with CSS position values (keywords, lengths, percentages)
     case position(Position)
 
     /// Global values
     case global(Global)
+}
+
+extension PerspectiveOrigin {
+    public static let property: String = "perspective-origin"
 }
 
 /// CSS Output conversion

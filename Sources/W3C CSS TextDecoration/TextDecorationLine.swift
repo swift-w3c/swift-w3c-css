@@ -2,7 +2,6 @@ public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
 public enum TextDecorationLine: Property {
-    public static let property: String = "text-decoration-line"
 
     /// A single value
     case value(TextDecorationLineValue)
@@ -12,6 +11,10 @@ public enum TextDecorationLine: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecorationLine {
+    public static let property: String = "text-decoration-line"
 }
 
 /// Sets the kind of decoration that is used on text in an element, such as an underline or overline.
@@ -62,7 +65,9 @@ public enum TextDecorationLineValue: Sendable, Hashable, CustomStringConvertible
     /// Each line of text uses the user agents' method of highlighting grammar mistakes,
     /// which is a dotted green line in most browsers.
     case grammarError
+}
 
+extension TextDecorationLineValue {
     public var description: String {
         switch self {
         case .none:

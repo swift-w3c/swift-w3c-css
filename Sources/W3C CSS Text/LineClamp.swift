@@ -27,7 +27,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on line-clamp](https://developer.mozilla.org/en-US/docs/Web/CSS/line-clamp)
 public enum LineClamp: Property {
-    public static let property: String = "line-clamp"
     /// No clamping; all lines of text are displayed
     case none
 
@@ -36,7 +35,10 @@ public enum LineClamp: Property {
 
     /// Global values
     case global(Global)
+}
 
+extension LineClamp {
+    public static let property: String = "line-clamp"
     public var description: String {
         switch self {
         case .none:

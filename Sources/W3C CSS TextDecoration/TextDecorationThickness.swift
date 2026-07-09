@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 /// text-decoration-thickness: from-font;
 /// ```
 public enum TextDecorationThickness: Property, LengthPercentageConvertible {
-    public static let property: String = "text-decoration-thickness"
 
     /// The UA chooses an appropriate thickness for text decoration lines.
     case auto
@@ -37,6 +36,10 @@ public enum TextDecorationThickness: Property, LengthPercentageConvertible {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension TextDecorationThickness {
+    public static let property: String = "text-decoration-thickness"
 }
 
 extension TextDecorationThickness: CustomStringConvertible {

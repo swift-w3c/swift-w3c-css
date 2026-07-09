@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on ruby-position](https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-position)
 public enum RubyPosition: Property, GlobalConvertible {
-    public static let property: String = "ruby-position"
 
     /// Ruby text is positioned over the base text in horizontal scripts
     case over
@@ -46,7 +45,10 @@ public enum RubyPosition: Property, GlobalConvertible {
 
     /// Global value
     case global(Global)
+}
 
+extension RubyPosition {
+    public static let property: String = "ruby-position"
     public var description: String {
         switch self {
         case .over:

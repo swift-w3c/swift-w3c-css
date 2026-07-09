@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-align-last](https://developer.mozilla.org/en-US/docs/Web/CSS/text-align-last)
 public enum TextAlignLast: Property {
-    public static let property: String = "text-align-last"
 
     /// The affected line is aligned per the value of text-align, unless text-align is justify,
     /// in which case the effect is the same as setting text-align-last to start.
@@ -47,7 +46,10 @@ public enum TextAlignLast: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension TextAlignLast {
+    public static let property: String = "text-align-last"
     public var description: String {
         switch self {
         case .auto:

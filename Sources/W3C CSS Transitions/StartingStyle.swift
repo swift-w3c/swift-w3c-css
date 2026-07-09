@@ -30,14 +30,18 @@ public import W3C_CSS_Values
 ///     )
 /// ```
 public struct StartingStyle: AtRule {
-    public static let identifier: String = "starting-style"
-
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
 
+extension StartingStyle {
+    public static let identifier: String = "starting-style"
+}
+
+extension StartingStyle {
     /// Creates a standalone @starting-style block
     /// @starting-style { }
     public static func standalone() -> StartingStyle {

@@ -24,7 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on ruby-align](https://developer.mozilla.org/en-US/docs/Web/CSS/ruby-align)
 public enum RubyAlign: Property {
-    public static let property: String = "ruby-align"
 
     /// Ruby is aligned with the start of the base text
     case start
@@ -40,7 +39,10 @@ public enum RubyAlign: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension RubyAlign {
+    public static let property: String = "ruby-align"
     public var description: String {
         switch self {
         case .start:

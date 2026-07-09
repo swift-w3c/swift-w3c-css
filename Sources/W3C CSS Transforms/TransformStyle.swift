@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on transform-style](https://developer.mozilla.org/en-US/docs/Web/CSS/transform-style)
 public enum TransformStyle: Property {
 
-    public static let property: String = "transform-style"
-
     /// Indicates that the children of the element are lying in the plane of the element itself.
     case flat
 
@@ -27,6 +25,10 @@ public enum TransformStyle: Property {
     case preserve3D
 
     case global(Global)
+}
+
+extension TransformStyle {
+    public static let property: String = "transform-style"
 }
 
 /// CSS Output conversion

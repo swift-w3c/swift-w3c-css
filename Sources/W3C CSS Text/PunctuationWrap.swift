@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [CSS Text Module Level 3](https://www.w3.org/TR/css-text-3/#hanging-punctuation-property)
 public enum PunctuationWrap: Property {
-    public static let property: String = "punctuation-wrap"
 
     /// Punctuation marks should not hang. All characters are placed within the line box.
     case none
@@ -39,7 +38,10 @@ public enum PunctuationWrap: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension PunctuationWrap {
+    public static let property: String = "punctuation-wrap"
     public var description: String {
         switch self {
         case .none: return "none"

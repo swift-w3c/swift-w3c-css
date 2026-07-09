@@ -27,7 +27,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on letter-spacing](https://developer.mozilla.org/en-US/docs/Web/CSS/letter-spacing)
 public enum LetterSpacing: Property, LengthPercentageConvertible {
-    public static let property: String = "letter-spacing"
     /// The normal letter spacing for the current font
     case normal
 
@@ -36,7 +35,10 @@ public enum LetterSpacing: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
 
+extension LetterSpacing {
+    public static let property: String = "letter-spacing"
     /// Converts the letter-spacing value to its CSS string representation
     public var description: String {
         switch self {

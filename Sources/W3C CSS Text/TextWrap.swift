@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on text-wrap](https://developer.mozilla.org/en-US/docs/Web/CSS/text-wrap)
 public enum TextWrap: Property {
-    public static let property: String = "text-wrap"
 
     /// Text is wrapped across lines at appropriate characters (for example spaces, in languages like
     /// English that use space separators) to minimize overflow. This is the default value.
@@ -52,6 +51,10 @@ public enum TextWrap: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension TextWrap {
+    public static let property: String = "text-wrap"
 }
 
 /// CSS Output conversion

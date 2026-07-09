@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on math-style](https://developer.mozilla.org/en-US/docs/Web/CSS/math-style)
 public enum MathStyle: Property, GlobalConvertible {
-    public static let property: String = "math-style"
 
     /// The initial value, indicates normal rendering.
     case normal
@@ -26,7 +25,10 @@ public enum MathStyle: Property, GlobalConvertible {
 
     /// Global value
     case global(Global)
+}
 
+extension MathStyle {
+    public static let property: String = "math-style"
     public var description: String {
         switch self {
         case .normal:

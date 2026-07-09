@@ -17,8 +17,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on translate](https://developer.mozilla.org/en-US/docs/Web/CSS/translate)
 public enum Translate: Property {
 
-    public static let property: String = "translate"
-
     /// Specifies that no translation should be applied.
     case none
 
@@ -36,7 +34,10 @@ public enum Translate: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension Translate {
+    public static let property: String = "translate"
     public var description: String {
         switch self {
         case .none:

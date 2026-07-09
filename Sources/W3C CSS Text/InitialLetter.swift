@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on initial-letter](https://developer.mozilla.org/en-US/docs/Web/CSS/initial-letter)
 public enum InitialLetter: Property {
 
-    public static let property: String = "initial-letter"
-
     /// No special initial-letter effect. Text behaves as normal.
     case normal
 
@@ -29,7 +27,10 @@ public enum InitialLetter: Property {
 
     /// Global value
     case global(Global)
+}
 
+extension InitialLetter {
+    public static let property: String = "initial-letter"
     public var description: String {
         switch self {
         case .normal:
