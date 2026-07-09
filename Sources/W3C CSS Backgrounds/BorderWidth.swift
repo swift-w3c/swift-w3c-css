@@ -67,14 +67,6 @@ extension BorderWidth {
         /// The width for the left border
         public let left: Width
 
-        /// Pattern used to create this width values set
-        private enum Pattern {
-            case all
-            case verticalHorizontal
-            case topHorizontalBottom
-            case fourSides
-        }
-
         private let pattern: Pattern
 
         /// Creates a width values set with the same value for all sides
@@ -129,6 +121,16 @@ extension BorderWidth {
             self.left = left
             self.pattern = .fourSides
         }
+    }
+}
+
+extension BorderWidth.Values {
+    /// Pattern used to create this width values set
+    private enum Pattern {
+        case all
+        case verticalHorizontal
+        case topHorizontalBottom
+        case fourSides
     }
 }
 

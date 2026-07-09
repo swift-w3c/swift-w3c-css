@@ -129,15 +129,6 @@ extension GridAreaCoordinates {
 
 /// Represents a grid line position or span
 public struct GridLine: Sendable, Hashable, CustomStringConvertible {
-    /// The type of grid line specification
-    private enum LineType: Sendable, Hashable {
-        case number(Int)  // A numbered grid line
-        case name(String)  // A named grid line
-        case span(Int)  // A span of grid lines
-        case spanName(String)  // A span to a named grid line
-        case auto  // Automatic placement
-    }
-
     private let type: LineType
 
     /// Creates a grid line by number
@@ -163,6 +154,17 @@ public struct GridLine: Sendable, Hashable, CustomStringConvertible {
     /// Private initializer for auto value
     private init() {
         self.type = .auto
+    }
+}
+
+extension GridLine {
+    /// The type of grid line specification
+    private enum LineType: Sendable, Hashable {
+        case number(Int)  // A numbered grid line
+        case name(String)  // A named grid line
+        case span(Int)  // A span of grid lines
+        case spanName(String)  // A span to a named grid line
+        case auto  // Automatic placement
     }
 }
 
