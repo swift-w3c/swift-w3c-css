@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :focus-visible](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-visible)
 public struct FocusVisible: CSSPseudoClass {
-    public var description: String { ":focus-visible" }
-
     public init() {}
+}
+
+extension FocusVisible {
+    public var description: String { ":focus-visible" }
 }

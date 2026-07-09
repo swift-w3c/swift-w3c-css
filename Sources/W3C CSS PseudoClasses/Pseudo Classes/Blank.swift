@@ -13,7 +13,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :blank](https://developer.mozilla.org/en-US/docs/Web/CSS/:blank)
 public struct Blank: CSSPseudoClass {
-    public var description: String { ":blank" }
-
     public init() {}
+}
+
+extension Blank {
+    public var description: String { ":blank" }
 }

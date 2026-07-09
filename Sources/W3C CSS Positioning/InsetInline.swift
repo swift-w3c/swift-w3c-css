@@ -25,8 +25,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset-inline](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline)
 public enum InsetInline: Property, LengthPercentageConvertible {
-    public static let property: String = "inset-inline"
-
     /// Auto value for both start and end
     case auto
 
@@ -38,6 +36,10 @@ public enum InsetInline: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension InsetInline {
+    public static let property: String = "inset-inline"
 
     /// Represents a value that can be either a length/percentage or auto
     public enum Value: Hashable, Sendable {
@@ -46,15 +48,6 @@ public enum InsetInline: Property, LengthPercentageConvertible {
 
         /// Specific length or percentage value
         case lengthPercentage(LengthPercentage)
-
-        public var description: String {
-            switch self {
-            case .auto:
-                return "auto"
-            case .lengthPercentage(let lengthPercentage):
-                return lengthPercentage.description
-            }
-        }
     }
 
     public var description: String {
@@ -79,6 +72,17 @@ public enum InsetInline: Property, LengthPercentageConvertible {
 
         case .global(let global):
             return global.description
+        }
+    }
+}
+
+extension InsetInline.Value {
+    public var description: String {
+        switch self {
+        case .auto:
+            return "auto"
+        case .lengthPercentage(let lengthPercentage):
+            return lengthPercentage.description
         }
     }
 }

@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :read-only](https://developer.mozilla.org/en-US/docs/Web/CSS/:read-only)
 public struct ReadOnly: CSSPseudoClass {
-    public var description: String { ":read-only" }
-
     public init() {}
+}
+
+extension ReadOnly {
+    public var description: String { ":read-only" }
 }

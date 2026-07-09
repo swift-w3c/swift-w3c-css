@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on z-index](https://developer.mozilla.org/en-US/docs/Web/CSS/z-index)
 public enum ZIndex: Property {
-    public static let property: String = "z-index"
-
     /// The box does not establish a new local stacking context.
     /// The stack level of the generated box in the current stacking context is 0.
     case auto
@@ -30,6 +28,10 @@ public enum ZIndex: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension ZIndex {
+    public static let property: String = "z-index"
 
     public var description: String {
         switch self {

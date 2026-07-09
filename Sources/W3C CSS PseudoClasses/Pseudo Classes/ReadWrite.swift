@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :read-write](https://developer.mozilla.org/en-US/docs/Web/CSS/:read-write)
 public struct ReadWrite: CSSPseudoClass {
-    public var description: String { ":read-write" }
-
     public init() {}
+}
+
+extension ReadWrite {
+    public var description: String { ":read-write" }
 }

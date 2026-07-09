@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :target](https://developer.mozilla.org/en-US/docs/Web/CSS/:target)
 public struct Target: CSSPseudoClass {
-    public var description: String { ":target" }
-
     public init() {}
+}
+
+extension Target {
+    public var description: String { ":target" }
 }

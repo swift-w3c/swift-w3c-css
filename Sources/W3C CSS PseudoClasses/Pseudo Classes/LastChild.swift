@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :last-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:last-child)
 public struct LastChild: CSSPseudoClass {
-    public var description: String { ":last-child" }
-
     public init() {}
+}
+
+extension LastChild {
+    public var description: String { ":last-child" }
 }

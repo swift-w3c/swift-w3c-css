@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :empty](https://developer.mozilla.org/en-US/docs/Web/CSS/:empty)
 public struct Empty: CSSPseudoClass {
-    public var description: String { ":empty" }
-
     public init() {}
+}
+
+extension Empty {
+    public var description: String { ":empty" }
 }

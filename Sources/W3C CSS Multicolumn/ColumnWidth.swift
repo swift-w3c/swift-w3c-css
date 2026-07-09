@@ -20,7 +20,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-width](https://developer.mozilla.org/en-US/docs/Web/CSS/column-width)
 public enum ColumnWidth: Property, LengthConvertible {
-    public static let property: String = "column-width"
     /// The width of the column is determined by other CSS properties, such as column-count
     case auto
 
@@ -29,6 +28,10 @@ public enum ColumnWidth: Property, LengthConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension ColumnWidth {
+    public static let property: String = "column-width"
 }
 
 /// CSS Output conversion

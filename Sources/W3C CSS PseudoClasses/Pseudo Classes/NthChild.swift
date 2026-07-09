@@ -31,7 +31,9 @@ public struct NthChild: CSSPseudoClass {
     public init(formula: String) {
         self.description = ":nth-child(\(formula))"
     }
+}
 
+extension NthChild {
     /// Matches odd-numbered children (equivalent to `2n+1`).
     public static let odd = NthChild(formula: "odd")
 

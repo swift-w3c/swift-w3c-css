@@ -13,7 +13,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :visited](https://developer.mozilla.org/en-US/docs/Web/CSS/:visited)
 public struct Visited: CSSPseudoClass {
-    public var description: String { ":visited" }
-
     public init() {}
+}
+
+extension Visited {
+    public var description: String { ":visited" }
 }

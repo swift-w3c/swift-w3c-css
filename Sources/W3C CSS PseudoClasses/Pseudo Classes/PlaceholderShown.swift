@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :placeholder-shown](https://developer.mozilla.org/en-US/docs/Web/CSS/:placeholder-shown)
 public struct PlaceholderShown: CSSPseudoClass {
-    public var description: String { ":placeholder-shown" }
-
     public init() {}
+}
+
+extension PlaceholderShown {
+    public var description: String { ":placeholder-shown" }
 }

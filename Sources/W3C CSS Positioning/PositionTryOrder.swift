@@ -9,8 +9,6 @@ public import W3C_CSS_Values
 //
 
 public enum PositionTryOrder: Property {
-    public static let property: String = "position-try-order"
-
     /// Default value. No position-try fallback options will be tried when the element is first displayed.
     case normal
 
@@ -28,6 +26,10 @@ public enum PositionTryOrder: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension PositionTryOrder {
+    public static let property: String = "position-try-order"
 
     public var description: String {
         switch self {

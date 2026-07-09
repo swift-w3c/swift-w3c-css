@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :first-of-type](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-of-type)
 public struct FirstOfType: CSSPseudoClass {
-    public var description: String { ":first-of-type" }
-
     public init() {}
+}
+
+extension FirstOfType {
+    public var description: String { ":first-of-type" }
 }

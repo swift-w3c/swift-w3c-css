@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset-inline-start](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-start)
 public enum InsetInlineStart: Property, LengthPercentageConvertible {
-    public static let property: String = "inset-inline-start"
-
     /// The position is determined automatically based on the element's normal flow position
     case auto
 
@@ -36,6 +34,10 @@ public enum InsetInlineStart: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension InsetInlineStart {
+    public static let property: String = "inset-inline-start"
 
     public var description: String {
         switch self {

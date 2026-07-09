@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on anchor-name](https://developer.mozilla.org/en-US/docs/Web/CSS/anchor-name)
 public enum AnchorName: Property {
 
-    public static let property: String = "anchor-name"
-
     /// No anchor name defined (default)
     case none
 
@@ -32,6 +30,10 @@ public enum AnchorName: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension AnchorName {
+    public static let property: String = "anchor-name"
 }
 
 /// CSS Output conversion

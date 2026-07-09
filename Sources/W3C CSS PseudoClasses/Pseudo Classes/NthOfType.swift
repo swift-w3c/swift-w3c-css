@@ -28,7 +28,9 @@ public struct NthOfType: CSSPseudoClass {
     public init(formula: String) {
         self.description = ":nth-of-type(\(formula))"
     }
+}
 
+extension NthOfType {
     /// Matches odd-numbered elements of the same type (equivalent to `2n+1`).
     public static let odd = NthOfType(formula: "odd")
 

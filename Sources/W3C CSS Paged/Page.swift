@@ -29,13 +29,15 @@ public import W3C_CSS_Values
 ///     .margin(.px(30))
 /// ```
 public struct Page: AtRule {
-    public static let identifier: String = "page"
-
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
+
+extension Page {
+    public static let identifier: String = "page"
 
     /// Creates a basic @page rule with no selectors
     public static let all = Page(rawValue: "@page {}")
@@ -163,30 +165,6 @@ extension Page {
 
         // Custom size using length values directly
         case custom(width: LengthPercentage, height: LengthPercentage)
-
-        public var rawValue: String {
-            switch self {
-            case .a3, .a4, .a5, .b4, .b5, .letter, .legal, .ledger, .auto:
-                return rawValueEnum
-            case .custom(let width, let height):
-                return "\(width) \(height)"
-            }
-        }
-
-        private var rawValueEnum: String {
-            switch self {
-            case .a3: return "A3"
-            case .a4: return "A4"
-            case .a5: return "A5"
-            case .b4: return "B4"
-            case .b5: return "B5"
-            case .letter: return "letter"
-            case .legal: return "legal"
-            case .ledger: return "ledger"
-            case .auto: return "auto"
-            case .custom: return ""  // Not used
-            }
-        }
     }
 
     /// Page orientation values
@@ -220,5 +198,31 @@ extension Page {
         case rightTop = "right-top"
         case rightMiddle = "right-middle"
         case rightBottom = "right-bottom"
+    }
+}
+
+extension Page.PageSize {
+    public var rawValue: String {
+        switch self {
+        case .a3, .a4, .a5, .b4, .b5, .letter, .legal, .ledger, .auto:
+            return rawValueEnum
+        case .custom(let width, let height):
+            return "\(width) \(height)"
+        }
+    }
+
+    private var rawValueEnum: String {
+        switch self {
+        case .a3: return "A3"
+        case .a4: return "A4"
+        case .a5: return "A5"
+        case .b4: return "B4"
+        case .b5: return "B5"
+        case .letter: return "letter"
+        case .legal: return "legal"
+        case .ledger: return "ledger"
+        case .auto: return "auto"
+        case .custom: return ""  // Not used
+        }
     }
 }

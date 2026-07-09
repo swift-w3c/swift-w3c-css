@@ -28,7 +28,9 @@ public struct NthLastChild: CSSPseudoClass {
     public init(formula: String) {
         self.description = ":nth-last-child(\(formula))"
     }
+}
 
+extension NthLastChild {
     /// Matches odd-numbered children from the end (equivalent to `2n+1`).
     public static let odd = NthLastChild(formula: "odd")
 

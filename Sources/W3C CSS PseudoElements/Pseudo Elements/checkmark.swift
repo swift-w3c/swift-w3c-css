@@ -32,7 +32,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on ::checkmark](https://developer.mozilla.org/en-US/docs/Web/CSS/::checkmark)
 public struct Checkmark: CSSPseudoElement {
-    @inlinable public static var name: String { "checkmark" }
-
     public init() {}
+}
+
+extension Checkmark {
+    @inlinable public static var name: String { "checkmark" }
 }

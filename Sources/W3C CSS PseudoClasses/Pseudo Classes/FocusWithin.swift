@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :focus-within](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within)
 public struct FocusWithin: CSSPseudoClass {
-    public var description: String { ":focus-within" }
-
     public init() {}
+}
+
+extension FocusWithin {
+    public var description: String { ":focus-within" }
 }

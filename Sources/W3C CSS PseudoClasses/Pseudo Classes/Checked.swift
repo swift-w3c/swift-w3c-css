@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :checked](https://developer.mozilla.org/en-US/docs/Web/CSS/:checked)
 public struct Checked: CSSPseudoClass {
-    public var description: String { ":checked" }
-
     public init() {}
+}
+
+extension Checked {
+    public var description: String { ":checked" }
 }

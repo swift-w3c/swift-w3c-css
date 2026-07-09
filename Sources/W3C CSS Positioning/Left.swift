@@ -29,7 +29,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on left](https://developer.mozilla.org/en-US/docs/Web/CSS/left)
 public enum Left: Property, LengthPercentageConvertible {
-    public static let property: String = "left"
     /// A specific length or percentage value
     case lengthPercentage(LengthPercentage)
 
@@ -38,6 +37,10 @@ public enum Left: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension Left {
+    public static let property: String = "left"
 
     /// Converts the left value to its CSS string representation
     public var description: String {
@@ -52,7 +55,6 @@ public enum Left: Property, LengthPercentageConvertible {
             return global.description
         }
     }
-
 }
 
 /// Factory methods for creating Left values

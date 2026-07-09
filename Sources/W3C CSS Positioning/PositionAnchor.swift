@@ -44,8 +44,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on position-anchor](https://developer.mozilla.org/en-US/docs/Web/CSS/position-anchor)
 public enum PositionAnchor: Property {
-    public static let property: String = "position-anchor"
-
     /// Associates a positioned element with its implicit anchor element, if it has one
     /// (for example, as set by the non-standard HTML anchor attribute)
     case auto
@@ -55,6 +53,10 @@ public enum PositionAnchor: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension PositionAnchor {
+    public static let property: String = "position-anchor"
 
     /// Creates a position anchor using a string value
     ///

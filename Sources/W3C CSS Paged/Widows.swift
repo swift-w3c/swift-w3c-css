@@ -15,8 +15,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on widows](https://developer.mozilla.org/en-US/docs/Web/CSS/widows)
 public enum Widows: Property {
-    public static let property: String = "widows"
-
     /// Specifies the minimum number of lines that can stay by themselves
     /// at the top of a new fragment after a fragmentation break.
     /// The value must be positive.
@@ -24,6 +22,10 @@ public enum Widows: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension Widows {
+    public static let property: String = "widows"
 
     public var description: String {
         switch self {

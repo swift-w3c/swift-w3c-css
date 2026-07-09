@@ -25,7 +25,9 @@ public struct AnyPseudoElement: Sendable, Hashable, CustomStringConvertible {
         self._description = element.description
         self._hashValue = element.hashValue
     }
+}
 
+extension AnyPseudoElement {
     /// The CSS string representation of the pseudo-element.
     public var description: String {
         _description

@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-span](https://developer.mozilla.org/en-US/docs/Web/CSS/column-span)
 public enum ColumnSpan: Property {
-    public static let property: String = "column-span"
     /// The element does not span multiple columns.
     case none
 
@@ -25,6 +24,10 @@ public enum ColumnSpan: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ColumnSpan {
+    public static let property: String = "column-span"
 
     public var description: String {
         switch self {

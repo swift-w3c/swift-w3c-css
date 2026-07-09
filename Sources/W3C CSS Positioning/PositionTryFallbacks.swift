@@ -9,8 +9,6 @@ public import W3C_CSS_Values
 //
 
 public enum PositionTryFallbacks: Property {
-    public static let property: String = "position-try-fallbacks"
-
     /// No position try fallback options
     case none
 
@@ -31,6 +29,10 @@ public enum PositionTryFallbacks: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension PositionTryFallbacks {
+    public static let property: String = "position-try-fallbacks"
 
     /// Predefined position fallback tactics
     public enum TryTactic: String, Sendable, Hashable {
@@ -54,18 +56,6 @@ public enum PositionTryFallbacks: Property {
 
         /// A custom option name
         case customOption(CSSString)
-
-        /// String representation of the fallback option
-        var description: String {
-            switch self {
-            case .tactic(let tactic):
-                return tactic.rawValue
-            case .positionArea(let area):
-                return area.description
-            case .customOption(let option):
-                return option.description
-            }
-        }
     }
 
     public var description: String {
@@ -90,5 +80,19 @@ public enum PositionTryFallbacks: Property {
     /// Create a combined fallback with tactics and position areas
     public static func combine(_ options: FallbackOption...) -> PositionTryFallbacks {
         .combined(options)
+    }
+}
+
+extension PositionTryFallbacks.FallbackOption {
+    /// String representation of the fallback option
+    var description: String {
+        switch self {
+        case .tactic(let tactic):
+            return tactic.rawValue
+        case .positionArea(let area):
+            return area.description
+        case .customOption(let option):
+            return option.description
+        }
     }
 }

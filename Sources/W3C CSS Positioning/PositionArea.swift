@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on position-area](https://developer.mozilla.org/en-US/docs/Web/CSS/position-area)
 public enum PositionArea: Property {
-    public static let property: String = "position-area"
-
     /// No position area is set
     case none
 
@@ -51,6 +49,10 @@ public enum PositionArea: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension PositionArea {
+    public static let property: String = "position-area"
 
     /// Vertical (top/bottom) and horizontal (left/right) physical positions
     public enum Physical: String, Sendable, Hashable {
@@ -203,20 +205,6 @@ public enum PositionArea: Property {
 
         /// Span all vertical positions
         case spanAll
-
-        /// Convert to a Physical value
-        fileprivate var physical: Physical {
-            switch self {
-            case .top: return .top
-            case .bottom: return .bottom
-            case .center: return .center
-            case .spanTop: return .spanTop
-            case .spanBottom: return .spanBottom
-            case .yStart: return .yStart
-            case .yEnd: return .yEnd
-            case .spanAll: return .spanAll
-            }
-        }
     }
 
     /// Container for creating vertical/horizontal position combinations
@@ -244,20 +232,6 @@ public enum PositionArea: Property {
 
         /// Span all horizontal positions
         case spanAll
-
-        /// Convert to a Physical value
-        fileprivate var physical: Physical {
-            switch self {
-            case .left: return .left
-            case .right: return .right
-            case .center: return .center
-            case .spanLeft: return .spanLeft
-            case .spanRight: return .spanRight
-            case .xStart: return .xStart
-            case .xEnd: return .xEnd
-            case .spanAll: return .spanAll
-            }
-        }
     }
 
     public var description: String {
@@ -290,4 +264,36 @@ public enum PositionArea: Property {
     //    public static func logical(block: Logical, inline: Logical) -> PositionArea {
     //        .logical(block, inline)
     //    }
+}
+
+extension PositionArea.Vertical {
+    /// Convert to a Physical value
+    fileprivate var physical: PositionArea.Physical {
+        switch self {
+        case .top: return .top
+        case .bottom: return .bottom
+        case .center: return .center
+        case .spanTop: return .spanTop
+        case .spanBottom: return .spanBottom
+        case .yStart: return .yStart
+        case .yEnd: return .yEnd
+        case .spanAll: return .spanAll
+        }
+    }
+}
+
+extension PositionArea.Horizontal {
+    /// Convert to a Physical value
+    fileprivate var physical: PositionArea.Physical {
+        switch self {
+        case .left: return .left
+        case .right: return .right
+        case .center: return .center
+        case .spanLeft: return .spanLeft
+        case .spanRight: return .spanRight
+        case .xStart: return .xStart
+        case .xEnd: return .xEnd
+        case .spanAll: return .spanAll
+        }
+    }
 }

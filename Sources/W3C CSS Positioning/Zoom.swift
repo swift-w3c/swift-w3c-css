@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on zoom](https://developer.mozilla.org/en-US/docs/Web/CSS/zoom)
 public enum Zoom: Property {
-    public static let property: String = "zoom"
-
     /// Zoom factor as a percentage. 100% is equivalent to normal.
     /// Values larger than 100% zoom in. Values smaller than 100% zoom out.
     case percentage(Percentage)
@@ -42,6 +40,10 @@ public enum Zoom: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension Zoom {
+    public static let property: String = "zoom"
 
     public var description: String {
         switch self {

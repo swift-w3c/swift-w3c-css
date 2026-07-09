@@ -13,7 +13,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :local-link](https://developer.mozilla.org/en-US/docs/Web/CSS/:local-link)
 public struct LocalLink: CSSPseudoClass {
-    public var description: String { ":local-link" }
-
     public init() {}
+}
+
+extension LocalLink {
+    public var description: String { ":local-link" }
 }

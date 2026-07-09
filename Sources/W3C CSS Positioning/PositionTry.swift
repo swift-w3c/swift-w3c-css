@@ -31,13 +31,15 @@ public import W3C_CSS_Values
 ///     .positionArea(.none)
 /// ```
 public struct PositionTry: AtRule {
-    public static let identifier: String = "position-try"
-
     public var rawValue: String
 
     public init(rawValue: String) {
         self.rawValue = rawValue
     }
+}
+
+extension PositionTry {
+    public static let identifier: String = "position-try"
 
     /// Creates a new @position-try rule with the specified custom identifier
     /// @position-try --name {}
@@ -165,16 +167,6 @@ extension PositionTry {
 
         /// Value using a calc() function
         case calc(String)
-
-        /// The raw CSS representation
-        public var rawValue: String {
-            switch self {
-            case .anchor(let edge):
-                return "anchor(\(edge))"
-            case .calc(let expression):
-                return "calc(\(expression))"
-            }
-        }
     }
 
     /// Self-alignment values for anchor positioning
@@ -192,5 +184,17 @@ extension PositionTry {
 
         /// Anchor-specific alignment value
         case anchorCenter = "anchor-center"
+    }
+}
+
+extension PositionTry.AnchorValue {
+    /// The raw CSS representation
+    public var rawValue: String {
+        switch self {
+        case .anchor(let edge):
+            return "anchor(\(edge))"
+        case .calc(let expression):
+            return "calc(\(expression))"
+        }
     }
 }

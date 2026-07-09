@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :only-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:only-child)
 public struct OnlyChild: CSSPseudoClass {
-    public var description: String { ":only-child" }
-
     public init() {}
+}
+
+extension OnlyChild {
+    public var description: String { ":only-child" }
 }

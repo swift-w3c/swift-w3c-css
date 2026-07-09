@@ -14,12 +14,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-rule-color](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-color)
 public enum ColumnRuleColor: Property, ColorConvertible, GlobalConvertible {
-    public static let property: String = "column-rule-color"
     /// Specific color value for the column rule
     case color(W3C_CSS_Values.Color)
 
     /// Global CSS values
     case global(Global)
+}
+
+extension ColumnRuleColor {
+    public static let property: String = "column-rule-color"
 
     /// Creates a column rule color
     ///

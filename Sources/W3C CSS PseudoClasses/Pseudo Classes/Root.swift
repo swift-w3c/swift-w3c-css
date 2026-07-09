@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :root](https://developer.mozilla.org/en-US/docs/Web/CSS/:root)
 public struct Root: CSSPseudoClass {
-    public var description: String { ":root" }
-
     public init() {}
+}
+
+extension Root {
+    public var description: String { ":root" }
 }

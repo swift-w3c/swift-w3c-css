@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset](https://developer.mozilla.org/en-US/docs/Web/CSS/inset)
 public enum Inset: Property, LengthPercentageConvertible {
-    public static let property: String = "inset"
-
     /// Auto value for all sides
     case auto
 
@@ -36,29 +34,6 @@ public enum Inset: Property, LengthPercentageConvertible {
 
     /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
-
-    /// Represents a value for each side that can be either a length/percentage or auto
-    public enum Value: Hashable, Sendable, LengthPercentageConvertible {
-        /// Auto value (browser-determined)
-        case auto
-
-        /// Specific length or percentage value
-        case lengthPercentage(LengthPercentage)
-
-        public var description: String {
-            switch self {
-            case .auto:
-                return "auto"
-            case .lengthPercentage(let value):
-                return value.description
-            }
-        }
-
-        /// Converts a LengthPercentage to a Value
-        public static func from(_ value: LengthPercentage) -> Value {
-            .lengthPercentage(value)
-        }
-    }
 
     /// Initialize with the same value for all sides
     public init(_ value: LengthPercentage) {
@@ -128,6 +103,19 @@ public enum Inset: Property, LengthPercentageConvertible {
     ) {
         self = .sides(top: top, right: right, bottom: bottom, left: left)
     }
+}
+
+extension Inset {
+    public static let property: String = "inset"
+
+    /// Represents a value for each side that can be either a length/percentage or auto
+    public enum Value: Hashable, Sendable, LengthPercentageConvertible {
+        /// Auto value (browser-determined)
+        case auto
+
+        /// Specific length or percentage value
+        case lengthPercentage(LengthPercentage)
+    }
 
     public var description: String {
         switch self {
@@ -159,7 +147,22 @@ public enum Inset: Property, LengthPercentageConvertible {
     public static func lengthPercentage(_ value: LengthPercentage) -> Inset {
         .init(value)
     }
+}
 
+extension Inset.Value {
+    public var description: String {
+        switch self {
+        case .auto:
+            return "auto"
+        case .lengthPercentage(let value):
+            return value.description
+        }
+    }
+
+    /// Converts a LengthPercentage to a Value
+    public static func from(_ value: LengthPercentage) -> Inset.Value {
+        .lengthPercentage(value)
+    }
 }
 
 /// Literal expressions for Inset

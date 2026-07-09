@@ -15,12 +15,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-rule-style](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-style)
 public enum ColumnRuleStyle: Property, LineStyleConvertible {
-    public static let property: String = "column-rule-style"
     /// A specific line style for the column rule
     case lineStyle(LineStyle)
 
     /// Global CSS values
     case global(Global)
+}
+
+extension ColumnRuleStyle {
+    public static let property: String = "column-rule-style"
 
     /// Creates a column rule style
     ///

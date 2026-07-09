@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :scope](https://developer.mozilla.org/en-US/docs/Web/CSS/:scope)
 public struct Scope: CSSPseudoClass {
-    public var description: String { ":scope" }
-
     public init() {}
+}
+
+extension Scope {
+    public var description: String { ":scope" }
 }

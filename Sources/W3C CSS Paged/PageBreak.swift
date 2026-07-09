@@ -59,7 +59,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs: page-break-before](https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before)
 /// - SeeAlso: [MDN Web Docs: page-break-inside](https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside)
 public enum PageBreak: Sendable, Hashable, Property {
-    public static let property: String = "page-break"
     /// Controls page breaks after an element.
     case after(After)
 
@@ -70,6 +69,10 @@ public enum PageBreak: Sendable, Hashable, Property {
     case inside(Inside)
 
     case global(Global)
+}
+
+extension PageBreak {
+    public static let property: String = "page-break"
 
     /// Values for the page-break-after property.
     public enum After: String, Sendable {

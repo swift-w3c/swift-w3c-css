@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :active](https://developer.mozilla.org/en-US/docs/Web/CSS/:active)
 public struct Active: CSSPseudoClass {
-    public var description: String { ":active" }
-
     public init() {}
+}
+
+extension Active {
+    public var description: String { ":active" }
 }

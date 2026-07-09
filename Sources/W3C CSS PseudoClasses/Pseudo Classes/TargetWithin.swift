@@ -13,7 +13,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :target-within](https://developer.mozilla.org/en-US/docs/Web/CSS/:target-within)
 public struct TargetWithin: CSSPseudoClass {
-    public var description: String { ":target-within" }
-
     public init() {}
+}
+
+extension TargetWithin {
+    public var description: String { ":target-within" }
 }

@@ -14,7 +14,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :hover](https://developer.mozilla.org/en-US/docs/Web/CSS/:hover)
 public struct Hover: CSSPseudoClass {
-    public var description: String { ":hover" }
-
     public init() {}
+}
+
+extension Hover {
+    public var description: String { ":hover" }
 }

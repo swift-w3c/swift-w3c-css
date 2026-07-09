@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :in-range](https://developer.mozilla.org/en-US/docs/Web/CSS/:in-range)
 public struct InRange: CSSPseudoClass {
-    public var description: String { ":in-range" }
-
     public init() {}
+}
+
+extension InRange {
+    public var description: String { ":in-range" }
 }

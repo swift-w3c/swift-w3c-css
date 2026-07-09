@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :any-link](https://developer.mozilla.org/en-US/docs/Web/CSS/:any-link)
 public struct AnyLink: CSSPseudoClass {
-    public var description: String { ":any-link" }
-
     public init() {}
+}
+
+extension AnyLink {
+    public var description: String { ":any-link" }
 }

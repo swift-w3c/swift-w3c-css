@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on float](https://developer.mozilla.org/en-US/docs/Web/CSS/float)
 public enum Float: Property {
-    public static let property: String = "float"
-
     /// Default value. The element does not float
     case none
 
@@ -39,6 +37,10 @@ public enum Float: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Float {
+    public static let property: String = "float"
 
     public var description: String {
         switch self {

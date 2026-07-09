@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :default](https://developer.mozilla.org/en-US/docs/Web/CSS/:default)
 public struct Default: CSSPseudoClass {
-    public var description: String { ":default" }
-
     public init() {}
+}
+
+extension Default {
+    public var description: String { ":default" }
 }

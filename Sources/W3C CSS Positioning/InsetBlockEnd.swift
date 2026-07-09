@@ -27,7 +27,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-end)
 public enum InsetBlockEnd: Property, LengthPercentageConvertible {
-    public static let property: String = "inset-block-end"
     /// The position is determined automatically based on the element's normal flow position
     case auto
 
@@ -36,6 +35,10 @@ public enum InsetBlockEnd: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension InsetBlockEnd {
+    public static let property: String = "inset-block-end"
 
     public var description: String {
         switch self {
@@ -47,5 +50,4 @@ public enum InsetBlockEnd: Property, LengthPercentageConvertible {
             return value.description
         }
     }
-
 }

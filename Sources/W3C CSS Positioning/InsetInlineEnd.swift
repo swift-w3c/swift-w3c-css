@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset-inline-end](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-inline-end)
 public enum InsetInlineEnd: Property, LengthPercentageConvertible {
-    public static let property: String = "inset-inline-end"
-
     /// The position is determined automatically based on the element's normal flow position
     case auto
 
@@ -36,6 +34,10 @@ public enum InsetInlineEnd: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension InsetInlineEnd {
+    public static let property: String = "inset-inline-end"
 
     public var description: String {
         switch self {

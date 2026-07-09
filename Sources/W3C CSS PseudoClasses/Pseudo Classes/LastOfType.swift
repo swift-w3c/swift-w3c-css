@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :last-of-type](https://developer.mozilla.org/en-US/docs/Web/CSS/:last-of-type)
 public struct LastOfType: CSSPseudoClass {
-    public var description: String { ":last-of-type" }
-
     public init() {}
+}
+
+extension LastOfType {
+    public var description: String { ":last-of-type" }
 }

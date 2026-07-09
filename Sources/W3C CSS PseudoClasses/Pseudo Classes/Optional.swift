@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :optional](https://developer.mozilla.org/en-US/docs/Web/CSS/:optional)
 public struct Optional: CSSPseudoClass {
-    public var description: String { ":optional" }
-
     public init() {}
+}
+
+extension Optional {
+    public var description: String { ":optional" }
 }

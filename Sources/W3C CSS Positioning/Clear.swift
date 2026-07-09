@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on clear](https://developer.mozilla.org/en-US/docs/Web/CSS/clear)
 public enum Clear: Property {
-    public static let property: String = "clear"
-
     /// The element is not moved down to clear past floating elements.
     case none
 
@@ -46,6 +44,10 @@ public enum Clear: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Clear {
+    public static let property: String = "clear"
 
     public var description: String {
         switch self {

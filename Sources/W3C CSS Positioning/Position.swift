@@ -20,8 +20,6 @@ public import W3C_CSS_Values
 /// position: sticky;
 /// ```
 public enum Position: Property {
-    public static let property: String = "position"
-
     /// The element is positioned according to the normal flow of the document.
     /// The top, right, bottom, left, and z-index properties have no effect.
     case `static`
@@ -44,6 +42,10 @@ public enum Position: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension Position {
+    public static let property: String = "position"
 
     public var description: String {
         switch self {

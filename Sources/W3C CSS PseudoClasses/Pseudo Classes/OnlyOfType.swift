@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :only-of-type](https://developer.mozilla.org/en-US/docs/Web/CSS/:only-of-type)
 public struct OnlyOfType: CSSPseudoClass {
-    public var description: String { ":only-of-type" }
-
     public init() {}
+}
+
+extension OnlyOfType {
+    public var description: String { ":only-of-type" }
 }

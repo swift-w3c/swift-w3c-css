@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :focus](https://developer.mozilla.org/en-US/docs/Web/CSS/:focus)
 public struct Focus: CSSPseudoClass {
-    public var description: String { ":focus" }
-
     public init() {}
+}
+
+extension Focus {
+    public var description: String { ":focus" }
 }

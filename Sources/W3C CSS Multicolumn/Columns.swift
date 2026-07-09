@@ -16,8 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on columns](https://developer.mozilla.org/en-US/docs/Web/CSS/columns)
 public enum Columns: Property {
-    public static let property: String = "columns"
-
     /// Set both column width and column count
     case both(ColumnWidth, ColumnCount)
 
@@ -29,6 +27,10 @@ public enum Columns: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Columns {
+    public static let property: String = "columns"
 }
 
 extension Columns: LengthConvertible {

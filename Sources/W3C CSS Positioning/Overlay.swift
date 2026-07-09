@@ -23,8 +23,6 @@ public import W3C_CSS_Values
 /// transition: opacity 0.7s, overlay 0.7s allow-discrete;
 /// ```
 public enum Overlay: Property {
-    public static let property: String = "overlay"
-
     /// The element is rendered in the top layer if it is promoted to the top layer
     case auto
 
@@ -33,6 +31,10 @@ public enum Overlay: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension Overlay {
+    public static let property: String = "overlay"
 
     public var description: String {
         switch self {

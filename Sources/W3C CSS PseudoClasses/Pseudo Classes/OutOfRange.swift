@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :out-of-range](https://developer.mozilla.org/en-US/docs/Web/CSS/:out-of-range)
 public struct OutOfRange: CSSPseudoClass {
-    public var description: String { ":out-of-range" }
-
     public init() {}
+}
+
+extension OutOfRange {
+    public var description: String { ":out-of-range" }
 }

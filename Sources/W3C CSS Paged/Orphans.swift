@@ -14,14 +14,16 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on orphans](https://developer.mozilla.org/en-US/docs/Web/CSS/orphans)
 public enum Orphans: Property {
-    public static let property: String = "orphans"
-
     /// The minimum number of lines that can stay by themselves at the bottom
     /// of a fragment before a fragmentation break.
     case value(Int)
 
     /// Global values
     case global(Global)
+}
+
+extension Orphans {
+    public static let property: String = "orphans"
 }
 
 /// CSS Output conversion

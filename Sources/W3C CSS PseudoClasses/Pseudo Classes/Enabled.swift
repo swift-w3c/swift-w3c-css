@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :enabled](https://developer.mozilla.org/en-US/docs/Web/CSS/:enabled)
 public struct Enabled: CSSPseudoClass {
-    public var description: String { ":enabled" }
-
     public init() {}
+}
+
+extension Enabled {
+    public var description: String { ":enabled" }
 }

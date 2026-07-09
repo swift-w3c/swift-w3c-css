@@ -27,8 +27,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block-start)
 public enum InsetBlockStart: Property, LengthPercentageConvertible {
-    public static let property: String = "inset-block-start"
-
     /// The position is determined automatically based on the element's normal flow position
     case auto
 
@@ -37,6 +35,10 @@ public enum InsetBlockStart: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension InsetBlockStart {
+    public static let property: String = "inset-block-start"
 
     public var description: String {
         switch self {

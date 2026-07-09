@@ -21,7 +21,9 @@ public struct Dir: CSSPseudoClass {
     public init(_ direction: Direction) {
         self.description = ":dir(\(direction.rawValue))"
     }
+}
 
+extension Dir {
     /// Represents text directionality.
     public enum Direction: String, Sendable, Hashable {
         /// Left-to-right text direction.

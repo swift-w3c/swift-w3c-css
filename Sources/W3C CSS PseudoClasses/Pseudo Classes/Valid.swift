@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :valid](https://developer.mozilla.org/en-US/docs/Web/CSS/:valid)
 public struct Valid: CSSPseudoClass {
-    public var description: String { ":valid" }
-
     public init() {}
+}
+
+extension Valid {
+    public var description: String { ":valid" }
 }

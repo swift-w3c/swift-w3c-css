@@ -16,7 +16,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-rule-width](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width)
 public enum ColumnRuleWidth: Property, LengthConvertible {
-    public static let property: String = "column-rule-width"
     /// Predefined width values
     case thin
     case medium
@@ -27,6 +26,10 @@ public enum ColumnRuleWidth: Property, LengthConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension ColumnRuleWidth {
+    public static let property: String = "column-rule-width"
 }
 
 /// CSS Output conversion

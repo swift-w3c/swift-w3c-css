@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :required](https://developer.mozilla.org/en-US/docs/Web/CSS/:required)
 public struct Required: CSSPseudoClass {
-    public var description: String { ":required" }
-
     public init() {}
+}
+
+extension Required {
+    public var description: String { ":required" }
 }

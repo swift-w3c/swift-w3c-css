@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :disabled](https://developer.mozilla.org/en-US/docs/Web/CSS/:disabled)
 public struct Disabled: CSSPseudoClass {
-    public var description: String { ":disabled" }
-
     public init() {}
+}
+
+extension Disabled {
+    public var description: String { ":disabled" }
 }

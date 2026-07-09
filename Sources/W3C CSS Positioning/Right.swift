@@ -27,8 +27,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on right](https://developer.mozilla.org/en-US/docs/Web/CSS/right)
 public enum Right: Property, LengthPercentageConvertible {
-    public static let property: String = "right"
-
     /// A length-percentage value
     case lengthPercentage(LengthPercentage)
 
@@ -37,6 +35,10 @@ public enum Right: Property, LengthPercentageConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension Right {
+    public static let property: String = "right"
 
     public var description: String {
         switch self {

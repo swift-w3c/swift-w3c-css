@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :indeterminate](https://developer.mozilla.org/en-US/docs/Web/CSS/:indeterminate)
 public struct Indeterminate: CSSPseudoClass {
-    public var description: String { ":indeterminate" }
-
     public init() {}
+}
+
+extension Indeterminate {
+    public var description: String { ":indeterminate" }
 }

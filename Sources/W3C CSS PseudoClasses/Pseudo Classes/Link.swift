@@ -12,7 +12,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :link](https://developer.mozilla.org/en-US/docs/Web/CSS/:link)
 public struct Link: CSSPseudoClass {
-    public var description: String { ":link" }
-
     public init() {}
+}
+
+extension Link {
+    public var description: String { ":link" }
 }

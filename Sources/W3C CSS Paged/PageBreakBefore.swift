@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on page-break-before](https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-before)
 public enum PageBreakBefore: Property {
-    public static let property: String = "page-break-before"
-
     /// Let the browser determine automatically where page breaks should occur (default)
     case auto
 
@@ -35,6 +33,10 @@ public enum PageBreakBefore: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension PageBreakBefore {
+    public static let property: String = "page-break-before"
 }
 
 /// CSS Output conversion

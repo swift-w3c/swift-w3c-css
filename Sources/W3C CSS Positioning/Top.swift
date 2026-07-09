@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on top](https://developer.mozilla.org/en-US/docs/Web/CSS/top)
 public enum Top: Sendable, Hashable, LengthPercentageConvertible, Property {
-    public static let property: String = "top"
     case lengthPercentage(LengthPercentage)
 
     /// Browser determines the position automatically
@@ -30,6 +29,10 @@ public enum Top: Sendable, Hashable, LengthPercentageConvertible, Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Top {
+    public static let property: String = "top"
 }
 
 /// CSS Output conversion

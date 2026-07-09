@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :first-child](https://developer.mozilla.org/en-US/docs/Web/CSS/:first-child)
 public struct FirstChild: CSSPseudoClass {
-    public var description: String { ":first-child" }
-
     public init() {}
+}
+
+extension FirstChild {
+    public var description: String { ":first-child" }
 }

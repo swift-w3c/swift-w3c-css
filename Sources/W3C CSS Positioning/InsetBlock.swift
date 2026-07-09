@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inset-block](https://developer.mozilla.org/en-US/docs/Web/CSS/inset-block)
 public enum InsetBlock: Property, LengthPercentageConvertible {
-    public static let property: String = "inset-block"
-
     /// Auto value for both start and end
     case auto
 
@@ -43,6 +41,10 @@ public enum InsetBlock: Property, LengthPercentageConvertible {
     ) {
         self = .sides(start: start, end: end)
     }
+}
+
+extension InsetBlock {
+    public static let property: String = "inset-block"
 
     public var description: String {
         switch self {

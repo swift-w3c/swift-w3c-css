@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on page-break-after](https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-after)
 public enum PageBreakAfter: Property {
-    public static let property: String = "page-break-after"
-
     /// Let the browser determine automatically where page breaks should occur (default)
     case auto
 
@@ -35,6 +33,10 @@ public enum PageBreakAfter: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension PageBreakAfter {
+    public static let property: String = "page-break-after"
 }
 
 /// CSS Output conversion

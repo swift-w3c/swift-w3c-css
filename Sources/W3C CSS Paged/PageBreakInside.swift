@@ -13,8 +13,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on page-break-inside](https://developer.mozilla.org/en-US/docs/Web/CSS/page-break-inside)
 public enum PageBreakInside: Property {
-    public static let property: String = "page-break-inside"
-
     /// Let the browser determine automatically where page breaks should occur (default)
     case auto
 
@@ -23,6 +21,10 @@ public enum PageBreakInside: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension PageBreakInside {
+    public static let property: String = "page-break-inside"
 }
 
 /// CSS Output conversion

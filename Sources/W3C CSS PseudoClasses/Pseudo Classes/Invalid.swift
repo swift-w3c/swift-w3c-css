@@ -11,7 +11,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on :invalid](https://developer.mozilla.org/en-US/docs/Web/CSS/:invalid)
 public struct Invalid: CSSPseudoClass {
-    public var description: String { ":invalid" }
-
     public init() {}
+}
+
+extension Invalid {
+    public var description: String { ":invalid" }
 }

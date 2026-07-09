@@ -9,8 +9,6 @@ public import W3C_CSS_Values
 //
 
 public enum PositionVisibility: Property {
-    public static let property: String = "position-visibility"
-
     /// The positioned element is always displayed
     case always
 
@@ -25,6 +23,10 @@ public enum PositionVisibility: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension PositionVisibility {
+    public static let property: String = "position-visibility"
 
     /// Individual visibility conditions
     public enum Condition: String, Sendable, Hashable {
