@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-fill](https://developer.mozilla.org/en-US/docs/Web/CSS/column-fill)
 public enum ColumnFill: Property {
-    public static let property: String = "column-fill"
     /// Columns are filled sequentially. Content takes up only the room it needs,
     /// possibly resulting in some columns remaining empty.
     case auto
@@ -29,6 +28,10 @@ public enum ColumnFill: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension ColumnFill {
+    public static let property: String = "column-fill"
 }
 
 extension ColumnFill: CustomStringConvertible {

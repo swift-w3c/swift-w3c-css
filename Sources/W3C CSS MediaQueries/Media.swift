@@ -27,8 +27,6 @@ public import W3C_CSS_Values
 /// Media.screen & Media.maxWidth(.px(500)) & Media.prefersColorScheme(.dark)
 /// ```
 public struct Media: AtRule {
-    public static let identifier: String = "media"
-
     public var rawValue: String
 
     public init(rawValue: String) {
@@ -39,6 +37,10 @@ public struct Media: AtRule {
     public init(_ type: MediaType) {
         self.rawValue = "@media \(type.rawValue)"
     }
+}
+
+extension Media {
+    public static let identifier: String = "media"
 
     /// Helper to create a media feature query
     private static func feature(_ name: String, _ value: CustomStringConvertible) -> Media {

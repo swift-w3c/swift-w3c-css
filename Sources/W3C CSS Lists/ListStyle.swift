@@ -20,7 +20,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on list-style](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style)
 public enum ListStyle: Property {
-    public static let property: String = "list-style"
     /// Specifies just the list-style-type
     case type(ListStyleType)
 
@@ -39,6 +38,10 @@ public enum ListStyle: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ListStyle {
+    public static let property: String = "list-style"
 
     // MARK: - CustomStringConvertible
 

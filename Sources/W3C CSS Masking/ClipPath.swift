@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on clip-path](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-path)
 public enum ClipPath: Property {
-    public static let property: String = "clip-path"
     /// No clipping path is created.
     case none
 
@@ -51,6 +50,10 @@ public enum ClipPath: Property {
     public init(_ value: CSSString) {
         self = .custom(value)
     }
+}
+
+extension ClipPath {
+    public static let property: String = "clip-path"
 }
 
 /// Represents a circle clipping shape

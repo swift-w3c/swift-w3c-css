@@ -14,7 +14,25 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/counter-increment)
 public enum CounterIncrement: Property {
+    /// Do not increment any counters
+    case none
+
+    /// Increment a single counter by 1
+    case counter(CustomIdent)
+
+    /// Increment a single counter by the specified value
+    case counterWithValue(CustomIdent, Int)
+
+    /// Increment multiple counters with their respective values
+    case counters([Counter])
+
+    /// Global values
+    case global(Global)
+}
+
+extension CounterIncrement {
     public static let property: String = "counter-increment"
+
     /// An individual counter with an optional increment value
     public struct Counter: Sendable, Hashable {
         /// The name of the counter
@@ -32,21 +50,6 @@ public enum CounterIncrement: Property {
             self.value = value
         }
     }
-
-    /// Do not increment any counters
-    case none
-
-    /// Increment a single counter by 1
-    case counter(CustomIdent)
-
-    /// Increment a single counter by the specified value
-    case counterWithValue(CustomIdent, Int)
-
-    /// Increment multiple counters with their respective values
-    case counters([Counter])
-
-    /// Global values
-    case global(Global)
 
     public var description: String {
         switch self {

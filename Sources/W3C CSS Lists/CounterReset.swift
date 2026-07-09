@@ -12,6 +12,29 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/counter-reset)
 public enum CounterReset: Property {
+    /// Do not create or reset any counters
+    case none
+
+    /// Create a single counter with default initial value (0)
+    case counter(CustomIdent)
+
+    /// Create a single counter with the specified initial value
+    case counterWithValue(CustomIdent, Int)
+
+    /// Create a reversed counter with default initial value
+    case reversedCounter(CustomIdent)
+
+    /// Create a reversed counter with the specified initial value
+    case reversedCounterWithValue(CustomIdent, Int)
+
+    /// Create multiple counters with their respective values
+    case counters([Counter])
+
+    /// Global values
+    case global(Global)
+}
+
+extension CounterReset {
     public static let property: String = "counter-reset"
 
     /// An individual counter with an optional initial value
@@ -36,27 +59,6 @@ public enum CounterReset: Property {
             self.value = value
         }
     }
-
-    /// Do not create or reset any counters
-    case none
-
-    /// Create a single counter with default initial value (0)
-    case counter(CustomIdent)
-
-    /// Create a single counter with the specified initial value
-    case counterWithValue(CustomIdent, Int)
-
-    /// Create a reversed counter with default initial value
-    case reversedCounter(CustomIdent)
-
-    /// Create a reversed counter with the specified initial value
-    case reversedCounterWithValue(CustomIdent, Int)
-
-    /// Create multiple counters with their respective values
-    case counters([Counter])
-
-    /// Global values
-    case global(Global)
 
     public var description: String {
         switch self {

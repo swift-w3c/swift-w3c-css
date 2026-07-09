@@ -48,8 +48,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-origin)
 public enum MaskOrigin: Property {
-    public static let property: String = "mask-origin"
-
     /// The mask is positioned relative to the border box (default)
     case borderBox
 
@@ -73,6 +71,10 @@ public enum MaskOrigin: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskOrigin {
+    public static let property: String = "mask-origin"
 
     /// Origin value type
     public enum Origin: String, Sendable, Hashable {

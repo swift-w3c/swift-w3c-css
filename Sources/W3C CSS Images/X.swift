@@ -20,12 +20,14 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on x](https://developer.mozilla.org/en-US/docs/Web/CSS/x)
 public enum X: Property, LengthPercentageConvertible {
-    public static let property: String = "x"
-
     case lengthPercentage(LengthPercentage)
 
     /// Global value
     case global(Global)
+}
+
+extension X {
+    public static let property: String = "x"
 
     public var description: String {
         switch self {

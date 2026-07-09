@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-count](https://developer.mozilla.org/en-US/docs/Web/CSS/column-count)
 public enum ColumnCount: Property {
-    public static let property: String = "column-count"
     /// The number of columns is determined by other CSS properties, such as column-width.
     case auto
 
@@ -25,6 +24,10 @@ public enum ColumnCount: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension ColumnCount {
+    public static let property: String = "column-count"
 
     /// Creates a column count value with an integer
     ///

@@ -21,7 +21,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on break-inside](https://developer.mozilla.org/en-US/docs/Web/CSS/break-inside)
 public enum BreakInside: Property {
-    public static let property: String = "break-inside"
     /// Allows, but does not force, any break (page, column, or region) to be inserted within the element.
     case auto
 
@@ -39,6 +38,10 @@ public enum BreakInside: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension BreakInside {
+    public static let property: String = "break-inside"
 
     public var description: String {
         switch self {

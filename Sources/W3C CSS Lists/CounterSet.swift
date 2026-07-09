@@ -10,6 +10,23 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/counter-set)
 public enum CounterSet: Property {
+    /// Do not set any counters
+    case none
+
+    /// Set a single counter to 0
+    case counter(CustomIdent)
+
+    /// Set a single counter to the specified value
+    case counterWithValue(CustomIdent, Int)
+
+    /// Set multiple counters with their respective values
+    case counters([Counter])
+
+    /// Global values
+    case global(Global)
+}
+
+extension CounterSet {
     public static let property: String = "counter-set"
 
     /// An individual counter with an optional value
@@ -29,21 +46,6 @@ public enum CounterSet: Property {
             self.value = value
         }
     }
-
-    /// Do not set any counters
-    case none
-
-    /// Set a single counter to 0
-    case counter(CustomIdent)
-
-    /// Set a single counter to the specified value
-    case counterWithValue(CustomIdent, Int)
-
-    /// Set multiple counters with their respective values
-    case counters([Counter])
-
-    /// Global values
-    case global(Global)
 
     public var description: String {
         switch self {

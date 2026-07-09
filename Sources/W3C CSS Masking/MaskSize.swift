@@ -51,8 +51,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-size](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-size)
 public enum MaskSize: Property {
-    public static let property: String = "mask-size"
-
     /// Scale to the container without cropping or stretching (fit inside)
     case contain
 
@@ -73,6 +71,10 @@ public enum MaskSize: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskSize {
+    public static let property: String = "mask-size"
 }
 
 /// Provides string conversion for CSS output

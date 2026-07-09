@@ -44,8 +44,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on mask-border-outset](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-outset)
 public enum MaskBorderOutset: Property, LengthConvertible {
 
-    public static let property: String = "mask-border-outset"
-
     /// All four sides have the same outset value
     case all(OutsetValue)
 
@@ -60,29 +58,6 @@ public enum MaskBorderOutset: Property, LengthConvertible {
 
     /// Global CSS values
     case global(Global)
-
-    public static func length(_ length: Length) -> MaskBorderOutset {
-        .init(.length(length))
-    }
-
-    /// Represents a value for mask-border-outset
-    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-        /// A length value
-        case length(Length)
-
-        /// A number value (multiple of the border width)
-        case number(Number)
-
-        /// String representation of the outset value
-        public var description: String {
-            switch self {
-            case .length(let length):
-                return length.description
-            case .number(let number):
-                return number.description
-            }
-        }
-    }
 
     /// Creates a mask-border-outset with the same value for all sides
     ///
@@ -125,6 +100,23 @@ public enum MaskBorderOutset: Property, LengthConvertible {
     ) {
         self = .topRightBottomLeft(top, right, bottom, left)
     }
+}
+
+extension MaskBorderOutset {
+    public static let property: String = "mask-border-outset"
+
+    public static func length(_ length: Length) -> MaskBorderOutset {
+        .init(.length(length))
+    }
+
+    /// Represents a value for mask-border-outset
+    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+        /// A length value
+        case length(Length)
+
+        /// A number value (multiple of the border width)
+        case number(Number)
+    }
 
     /// Creates a mask-border-outset with a number value for all sides
     ///
@@ -136,6 +128,18 @@ public enum MaskBorderOutset: Property, LengthConvertible {
 
     /// Default value (0)
     public static let `default` = MaskBorderOutset(.number(0))
+}
+
+extension MaskBorderOutset.OutsetValue {
+    /// String representation of the outset value
+    public var description: String {
+        switch self {
+        case .length(let length):
+            return length.description
+        case .number(let number):
+            return number.description
+        }
+    }
 }
 
 /// Provides string conversion for CSS output

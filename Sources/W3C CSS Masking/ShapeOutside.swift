@@ -19,25 +19,8 @@ public import W3C_CSS_Values
 /// shape-outside: url(image.png);
 /// ```
 public enum ShapeOutside: Property {
-    public static let property: String = "shape-outside"
-
     /// The float area is unaffected. Inline content wraps around the element's margin box, like usual.
     case none
-
-    /// A shape box that defines the reference box for the shape
-    public enum ShapeBox: String, Sendable {
-        /// The shape is enclosed by the outside margin edge
-        case marginBox = "margin-box"
-
-        /// The shape is enclosed by the outside border edge
-        case borderBox = "border-box"
-
-        /// The shape is enclosed by the outside padding edge
-        case paddingBox = "padding-box"
-
-        /// The shape is enclosed by the outside content edge
-        case contentBox = "content-box"
-    }
 
     /// The float area is computed according to the shape of a float element's edges
     case box(ShapeBox)
@@ -53,6 +36,25 @@ public enum ShapeOutside: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension ShapeOutside {
+    public static let property: String = "shape-outside"
+
+    /// A shape box that defines the reference box for the shape
+    public enum ShapeBox: String, Sendable {
+        /// The shape is enclosed by the outside margin edge
+        case marginBox = "margin-box"
+
+        /// The shape is enclosed by the outside border edge
+        case borderBox = "border-box"
+
+        /// The shape is enclosed by the outside padding edge
+        case paddingBox = "padding-box"
+
+        /// The shape is enclosed by the outside content edge
+        case contentBox = "content-box"
+    }
 
     public var description: String {
         switch self {

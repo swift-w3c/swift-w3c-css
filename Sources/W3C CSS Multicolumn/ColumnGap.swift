@@ -15,8 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-gap](https://developer.mozilla.org/en-US/docs/Web/CSS/column-gap)
 public enum ColumnGap: Property, LengthPercentageConvertible {
-    public static let property: String = "column-gap"
-
     /// The browser's default spacing is used between columns.
     /// For multi-column layout this is typically 1em, for other layout types it is 0.
     case normal
@@ -25,6 +23,10 @@ public enum ColumnGap: Property, LengthPercentageConvertible {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension ColumnGap {
+    public static let property: String = "column-gap"
 
     /// String representation of the column-gap value
     public var description: String {

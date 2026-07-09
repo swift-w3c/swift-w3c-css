@@ -54,8 +54,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-position](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-position)
 public enum MaskPosition: Property {
-    public static let property: String = "mask-position"
-
     /// A single position value
     case single(Position)
 
@@ -82,6 +80,10 @@ public enum MaskPosition: Property {
             self = .multiple(positions)
         }
     }
+}
+
+extension MaskPosition {
+    public static let property: String = "mask-position"
 }
 
 /// Provides string conversion for CSS output

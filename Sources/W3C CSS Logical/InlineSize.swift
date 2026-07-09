@@ -56,8 +56,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on inline-size](https://developer.mozilla.org/en-US/docs/Web/CSS/inline-size)
 public enum InlineSize: Property, LengthPercentageConvertible {
-    public static let property: String = "inline-size"
-
     /// Automatic sizing based on content
     case auto
 
@@ -78,6 +76,10 @@ public enum InlineSize: Property, LengthPercentageConvertible {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension InlineSize {
+    public static let property: String = "inline-size"
 
     public var description: String {
         switch self {

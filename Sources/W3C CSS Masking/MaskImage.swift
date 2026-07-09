@@ -54,7 +54,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-image](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-image)
 public enum MaskImage: Property {
-    public static let property: String = "mask-image"
     /// No mask image (transparent black)
     case none
 
@@ -84,6 +83,10 @@ public enum MaskImage: Property {
             self = .multiple(images)
         }
     }
+}
+
+extension MaskImage {
+    public static let property: String = "mask-image"
 }
 
 /// Provides string conversion for CSS output

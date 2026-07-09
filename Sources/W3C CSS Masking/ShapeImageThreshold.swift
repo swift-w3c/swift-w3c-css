@@ -14,13 +14,15 @@ public import W3C_CSS_Values
 /// shape-image-threshold: 0.7;
 /// ```
 public enum ShapeImageThreshold: Property {
-    public static let property: String = "shape-image-threshold"
-
     /// Alpha threshold value (0.0 to 1.0)
     case value(Double)
 
     /// Global CSS value
     case global(Global)
+}
+
+extension ShapeImageThreshold {
+    public static let property: String = "shape-image-threshold"
 
     public var description: String {
         switch self {

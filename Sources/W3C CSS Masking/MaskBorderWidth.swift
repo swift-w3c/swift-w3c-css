@@ -51,8 +51,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-border-width](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-width)
 public enum MaskBorderWidth: Property {
-    public static let property: String = "mask-border-width"
-
     /// All four sides have the same width value
     case all(WidthValue)
 
@@ -67,35 +65,6 @@ public enum MaskBorderWidth: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Represents a value for mask-border-width
-    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-        /// A length value
-        case length(Length)
-
-        /// A percentage value
-        case percentage(Percentage)
-
-        /// A number value (multiple of the border width)
-        case number(Number)
-
-        /// Automatic width (uses intrinsic dimensions)
-        case auto
-
-        /// String representation of the width value
-        public var description: String {
-            switch self {
-            case .length(let length):
-                return length.description
-            case .percentage(let percentage):
-                return percentage.description
-            case .number(let number):
-                return number.description
-            case .auto:
-                return "auto"
-            }
-        }
-    }
 
     /// Creates a mask-border-width with the same value for all sides
     ///
@@ -133,6 +102,25 @@ public enum MaskBorderWidth: Property {
     public init(_ top: WidthValue, _ right: WidthValue, _ bottom: WidthValue, _ left: WidthValue) {
         self = .topRightBottomLeft(top, right, bottom, left)
     }
+}
+
+extension MaskBorderWidth {
+    public static let property: String = "mask-border-width"
+
+    /// Represents a value for mask-border-width
+    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+        /// A length value
+        case length(Length)
+
+        /// A percentage value
+        case percentage(Percentage)
+
+        /// A number value (multiple of the border width)
+        case number(Number)
+
+        /// Automatic width (uses intrinsic dimensions)
+        case auto
+    }
 
     /// Creates a mask-border-width with a length value for all sides
     ///
@@ -163,6 +151,22 @@ public enum MaskBorderWidth: Property {
 
     /// Default value (auto)
     public static let `default` = MaskBorderWidth(.auto)
+}
+
+extension MaskBorderWidth.WidthValue {
+    /// String representation of the width value
+    public var description: String {
+        switch self {
+        case .length(let length):
+            return length.description
+        case .percentage(let percentage):
+            return percentage.description
+        case .number(let number):
+            return number.description
+        case .auto:
+            return "auto"
+        }
+    }
 }
 
 /// Provides string conversion for CSS output

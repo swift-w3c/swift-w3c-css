@@ -16,7 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on list-style-position](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-position)
 public enum ListStylePosition: Property {
-    public static let property: String = "list-style-position"
     /// Marker is placed inside the principal block box
     case inside
 
@@ -25,6 +24,10 @@ public enum ListStylePosition: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ListStylePosition {
+    public static let property: String = "list-style-position"
 
     // MARK: - CustomStringConvertible
 

@@ -14,12 +14,14 @@ public import W3C_CSS_Values
 /// shape-margin: 60%;
 /// ```
 public enum ShapeMargin: Property, LengthPercentageConvertible, CustomStringConvertible {
-    public static let property: String = "shape-margin"
-
     case lengthPercentage(LengthPercentage)
 
     /// Global CSS value
     case global(Global)
+}
+
+extension ShapeMargin {
+    public static let property: String = "shape-margin"
 
     public var description: String {
         switch self {

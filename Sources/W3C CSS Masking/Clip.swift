@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on clip](https://developer.mozilla.org/en-US/docs/Web/CSS/clip)
 public enum Clip: Property {
-    public static let property: String = "clip"
     /// The element does not clip (default).
     case auto
 
@@ -24,6 +23,10 @@ public enum Clip: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Clip {
+    public static let property: String = "clip"
 }
 
 /// Represents a rectangular clipping shape

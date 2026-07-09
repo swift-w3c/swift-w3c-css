@@ -44,8 +44,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask](https://developer.mozilla.org/en-US/docs/Web/CSS/mask)
 public enum Mask: Property {
-    public static let property: String = "mask"
-
     /// No mask
     case none
 
@@ -57,6 +55,10 @@ public enum Mask: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension Mask {
+    public static let property: String = "mask"
 
     /// Configuration for a mask layer
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
@@ -114,166 +116,6 @@ public enum Mask: Property {
             self.composite = composite
             self.mode = mode
         }
-
-        /// CSS string representation
-        public var description: String {
-            var parts: [String] = []
-
-            // Mask reference
-            parts.append(reference.description)
-
-            // Masking mode
-            if let mode = mode {
-                parts.append(modeDescription(mode))
-            }
-
-            // Position and size
-            if let position = position {
-                let positionPart = positionDescription(position)
-
-                if let size = size {
-                    parts.append("\(positionPart) / \(sizeDescription(size))")
-                } else {
-                    parts.append(positionPart)
-                }
-            } else if let size = size {
-                parts.append("0% 0% / \(sizeDescription(size))")
-            }
-
-            // Repeat
-            if let `repeat` = `repeat` {
-                parts.append(repeatDescription(`repeat`))
-            }
-
-            // Geometry boxes (clip and origin)
-            if let origin = origin {
-                if let clip = clip {
-                    // If both are provided and different
-                    if clip != origin {
-                        parts.append(geometryBoxDescription(origin))
-                        parts.append(clipDescription(clip))
-                    } else {
-                        // If both are the same, just use one value
-                        parts.append(geometryBoxDescription(origin))
-                    }
-                } else {
-                    parts.append(geometryBoxDescription(origin))
-                }
-            } else if let clip = clip {
-                parts.append(clipDescription(clip))
-            }
-
-            // Composite
-            if let composite = composite {
-                parts.append(compositeDescription(composite))
-            }
-
-            return parts.joined(separator: " ")
-        }
-
-        private func positionDescription(_ position: Position) -> String {
-            switch position {
-            case .keywords(let horizontal, let vertical):
-                return "\(horizontal.rawValue) \(vertical.rawValue)"
-            case .custom(let x, let y):
-                return "\(x) \(y)"
-            case .center:
-                return "center"
-            case .top:
-                return "top"
-            case .bottom:
-                return "bottom"
-            case .left:
-                return "left"
-            case .right:
-                return "right"
-            }
-        }
-
-        private func sizeDescription(_ size: Size) -> String {
-            switch size {
-            case .dimensions(let width, let height):
-                return "\(width) \(height)"
-            case .cover:
-                return "cover"
-            case .contain:
-                return "contain"
-            case .auto:
-                return "auto"
-            }
-        }
-
-        private func repeatDescription(_ repeat: RepeatStyle) -> String {
-            switch `repeat` {
-            case .repeatX:
-                return "repeat-x"
-            case .repeatY:
-                return "repeat-y"
-            case .repeat:
-                return "repeat"
-            case .space:
-                return "space"
-            case .round:
-                return "round"
-            case .noRepeat:
-                return "no-repeat"
-            case .horizontalVertical(let horizontal, let vertical):
-                return "\(horizontal.rawValue) \(vertical.rawValue)"
-            }
-        }
-
-        private func geometryBoxDescription(_ box: GeometryBox) -> String {
-            switch box {
-            case .contentBox:
-                return "content-box"
-            case .paddingBox:
-                return "padding-box"
-            case .borderBox:
-                return "border-box"
-            case .marginBox:
-                return "margin-box"
-            case .fillBox:
-                return "fill-box"
-            case .strokeBox:
-                return "stroke-box"
-            case .viewBox:
-                return "view-box"
-            case .noClip:
-                return "no-clip"
-            }
-        }
-
-        private func clipDescription(_ clip: GeometryBox) -> String {
-            if clip == .noClip {
-                return "no-clip"
-            } else {
-                return geometryBoxDescription(clip)
-            }
-        }
-
-        private func compositeDescription(_ composite: Composite) -> String {
-            switch composite {
-            case .add:
-                return "add"
-            case .subtract:
-                return "subtract"
-            case .intersect:
-                return "intersect"
-            case .exclude:
-                return "exclude"
-            }
-        }
-
-        private func modeDescription(_ mode: MaskingMode) -> String {
-            switch mode {
-            case .alpha:
-                return "alpha"
-            case .luminance:
-                return "luminance"
-            case .matchSource:
-                return "match-source"
-            }
-        }
     }
 
     /// Represents a mask reference
@@ -301,37 +143,6 @@ public enum Mask: Property {
 
         /// Repeating conic gradient
         case repeatingConicGradient(CSSString)
-
-        /// CSS string representation
-        public var description: String {
-            switch self {
-            case .none:
-                return "none"
-            case .url(let url):
-                // If url already contains url(), use it as is
-                if url.value.hasPrefix("url(") {
-                    return url.description
-                }
-                // If url contains quotes, use it as is inside url()
-                if url.value.contains("\"") || url.value.contains("'") {
-                    return "url(\(url))"
-                }
-                // Otherwise, add quotes
-                return "url(\"\(url)\")"
-            case .linearGradient(let value):
-                return "linear-gradient(\(value))"
-            case .radialGradient(let value):
-                return "radial-gradient(\(value))"
-            case .conicGradient(let value):
-                return "conic-gradient(\(value))"
-            case .repeatingLinearGradient(let value):
-                return "repeating-linear-gradient(\(value))"
-            case .repeatingRadialGradient(let value):
-                return "repeating-radial-gradient(\(value))"
-            case .repeatingConicGradient(let value):
-                return "repeating-conic-gradient(\(value))"
-            }
-        }
     }
 
     /// Position of a mask
@@ -356,20 +167,6 @@ public enum Mask: Property {
 
         /// Right position (shorthand for right center)
         case right
-
-        /// Horizontal position keywords
-        public enum Horizontal: String, Sendable {
-            case left
-            case center
-            case right
-        }
-
-        /// Vertical position keywords
-        public enum Vertical: String, Sendable {
-            case top
-            case center
-            case bottom
-        }
     }
 
     /// Size of a mask
@@ -409,14 +206,6 @@ public enum Mask: Property {
 
         /// Different values for horizontal and vertical
         case horizontalVertical(Value, Value)
-
-        /// Repeat value
-        public enum Value: String, Sendable {
-            case `repeat`
-            case space
-            case round
-            case noRepeat = "no-repeat"
-        }
     }
 
     /// Geometry box for mask origin and clip
@@ -495,6 +284,227 @@ public enum Mask: Property {
     /// - Returns: A mask using the radial gradient
     public static func radialGradient(_ gradient: CSSString) -> Mask {
         return .configuration(Configuration(.radialGradient(gradient)))
+    }
+}
+
+extension Mask.Configuration {
+    /// CSS string representation
+    public var description: String {
+        var parts: [String] = []
+
+        // Mask reference
+        parts.append(reference.description)
+
+        // Masking mode
+        if let mode = mode {
+            parts.append(modeDescription(mode))
+        }
+
+        // Position and size
+        if let position = position {
+            let positionPart = positionDescription(position)
+
+            if let size = size {
+                parts.append("\(positionPart) / \(sizeDescription(size))")
+            } else {
+                parts.append(positionPart)
+            }
+        } else if let size = size {
+            parts.append("0% 0% / \(sizeDescription(size))")
+        }
+
+        // Repeat
+        if let `repeat` = `repeat` {
+            parts.append(repeatDescription(`repeat`))
+        }
+
+        // Geometry boxes (clip and origin)
+        if let origin = origin {
+            if let clip = clip {
+                // If both are provided and different
+                if clip != origin {
+                    parts.append(geometryBoxDescription(origin))
+                    parts.append(clipDescription(clip))
+                } else {
+                    // If both are the same, just use one value
+                    parts.append(geometryBoxDescription(origin))
+                }
+            } else {
+                parts.append(geometryBoxDescription(origin))
+            }
+        } else if let clip = clip {
+            parts.append(clipDescription(clip))
+        }
+
+        // Composite
+        if let composite = composite {
+            parts.append(compositeDescription(composite))
+        }
+
+        return parts.joined(separator: " ")
+    }
+
+    private func positionDescription(_ position: Mask.Position) -> String {
+        switch position {
+        case .keywords(let horizontal, let vertical):
+            return "\(horizontal.rawValue) \(vertical.rawValue)"
+        case .custom(let x, let y):
+            return "\(x) \(y)"
+        case .center:
+            return "center"
+        case .top:
+            return "top"
+        case .bottom:
+            return "bottom"
+        case .left:
+            return "left"
+        case .right:
+            return "right"
+        }
+    }
+
+    private func sizeDescription(_ size: Mask.Size) -> String {
+        switch size {
+        case .dimensions(let width, let height):
+            return "\(width) \(height)"
+        case .cover:
+            return "cover"
+        case .contain:
+            return "contain"
+        case .auto:
+            return "auto"
+        }
+    }
+
+    private func repeatDescription(_ repeat: Mask.RepeatStyle) -> String {
+        switch `repeat` {
+        case .repeatX:
+            return "repeat-x"
+        case .repeatY:
+            return "repeat-y"
+        case .repeat:
+            return "repeat"
+        case .space:
+            return "space"
+        case .round:
+            return "round"
+        case .noRepeat:
+            return "no-repeat"
+        case .horizontalVertical(let horizontal, let vertical):
+            return "\(horizontal.rawValue) \(vertical.rawValue)"
+        }
+    }
+
+    private func geometryBoxDescription(_ box: Mask.GeometryBox) -> String {
+        switch box {
+        case .contentBox:
+            return "content-box"
+        case .paddingBox:
+            return "padding-box"
+        case .borderBox:
+            return "border-box"
+        case .marginBox:
+            return "margin-box"
+        case .fillBox:
+            return "fill-box"
+        case .strokeBox:
+            return "stroke-box"
+        case .viewBox:
+            return "view-box"
+        case .noClip:
+            return "no-clip"
+        }
+    }
+
+    private func clipDescription(_ clip: Mask.GeometryBox) -> String {
+        if clip == .noClip {
+            return "no-clip"
+        } else {
+            return geometryBoxDescription(clip)
+        }
+    }
+
+    private func compositeDescription(_ composite: Mask.Composite) -> String {
+        switch composite {
+        case .add:
+            return "add"
+        case .subtract:
+            return "subtract"
+        case .intersect:
+            return "intersect"
+        case .exclude:
+            return "exclude"
+        }
+    }
+
+    private func modeDescription(_ mode: Mask.MaskingMode) -> String {
+        switch mode {
+        case .alpha:
+            return "alpha"
+        case .luminance:
+            return "luminance"
+        case .matchSource:
+            return "match-source"
+        }
+    }
+}
+
+extension Mask.MaskReference {
+    /// CSS string representation
+    public var description: String {
+        switch self {
+        case .none:
+            return "none"
+        case .url(let url):
+            // If url already contains url(), use it as is
+            if url.value.hasPrefix("url(") {
+                return url.description
+            }
+            // If url contains quotes, use it as is inside url()
+            if url.value.contains("\"") || url.value.contains("'") {
+                return "url(\(url))"
+            }
+            // Otherwise, add quotes
+            return "url(\"\(url)\")"
+        case .linearGradient(let value):
+            return "linear-gradient(\(value))"
+        case .radialGradient(let value):
+            return "radial-gradient(\(value))"
+        case .conicGradient(let value):
+            return "conic-gradient(\(value))"
+        case .repeatingLinearGradient(let value):
+            return "repeating-linear-gradient(\(value))"
+        case .repeatingRadialGradient(let value):
+            return "repeating-radial-gradient(\(value))"
+        case .repeatingConicGradient(let value):
+            return "repeating-conic-gradient(\(value))"
+        }
+    }
+}
+
+extension Mask.Position {
+    /// Horizontal position keywords
+    public enum Horizontal: String, Sendable {
+        case left
+        case center
+        case right
+    }
+
+    /// Vertical position keywords
+    public enum Vertical: String, Sendable {
+        case top
+        case center
+        case bottom
+    }
+}
+
+extension Mask.RepeatStyle {
+    /// Repeat value
+    public enum Value: String, Sendable {
+        case `repeat`
+        case space
+        case round
+        case noRepeat = "no-repeat"
     }
 }
 

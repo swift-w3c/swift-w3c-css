@@ -53,8 +53,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-composite](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-composite)
 public enum MaskComposite: Property {
-    public static let property: String = "mask-composite"
-
     /// Add current mask layer to previous mask layers
     case add
 
@@ -72,6 +70,10 @@ public enum MaskComposite: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskComposite {
+    public static let property: String = "mask-composite"
 
     /// Composite operation for mask layers
     public enum CompositeOperation: String, Sendable, Hashable {

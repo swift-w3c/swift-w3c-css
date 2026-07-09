@@ -26,8 +26,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-border-source](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-source)
 public enum MaskBorderSource: Property {
-    public static let property: String = "mask-border-source"
-
     /// No mask border source
     case none
 
@@ -54,6 +52,10 @@ public enum MaskBorderSource: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskBorderSource {
+    public static let property: String = "mask-border-source"
 
     /// Default value (none)
     public static let `default` = MaskBorderSource.none

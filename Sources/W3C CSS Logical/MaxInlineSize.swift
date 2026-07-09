@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on max-inline-size](https://developer.mozilla.org/en-US/docs/Web/CSS/max-inline-size)
 public enum MaxInlineSize: Property {
-    public static let property: String = "max-inline-size"
-
     /// A specific size value (length, percentage, or calculated value)
     case size(Size)
 
@@ -28,6 +26,10 @@ public enum MaxInlineSize: Property {
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MaxInlineSize {
+    public static let property: String = "max-inline-size"
 }
 
 /// CSS Output conversion

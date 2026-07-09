@@ -8,7 +8,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/list-style-type)
 public enum ListStyleType: Property {
-    public static let property: String = "list-style-type"
     /// No marker is shown
     case none
 
@@ -86,6 +85,10 @@ public enum ListStyleType: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ListStyleType {
+    public static let property: String = "list-style-type"
 
     public var description: String {
         switch self {

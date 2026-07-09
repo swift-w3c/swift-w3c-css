@@ -65,8 +65,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-clip](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-clip)
 public enum MaskClip: Property {
-    public static let property: String = "mask-clip"
-
     /// The mask extends to the outside edge of the border (default)
     case borderBox
 
@@ -96,6 +94,10 @@ public enum MaskClip: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskClip {
+    public static let property: String = "mask-clip"
 }
 
 /// Provides string conversion for CSS output

@@ -29,7 +29,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on break-after](https://developer.mozilla.org/en-US/docs/Web/CSS/break-after)
 public enum BreakAfter: Property {
-    public static let property: String = "break-after"
     // Generic break values
     /// Allows, but does not force, any break (page, column, or region) to be inserted right after the element.
     case auto
@@ -82,6 +81,10 @@ public enum BreakAfter: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension BreakAfter {
+    public static let property: String = "break-after"
 
     public var description: String {
         switch self {

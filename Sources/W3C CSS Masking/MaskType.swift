@@ -29,8 +29,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on mask-type](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-type)
 public enum MaskType: Property {
-    public static let property: String = "mask-type"
-
     /// Use luminance (brightness) values of the mask content
     case luminance
 
@@ -39,6 +37,10 @@ public enum MaskType: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskType {
+    public static let property: String = "mask-type"
 }
 
 /// Provides string conversion for CSS output

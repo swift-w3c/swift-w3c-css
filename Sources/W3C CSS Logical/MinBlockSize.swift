@@ -18,13 +18,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on min-block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/min-block-size)
 public enum MinBlockSize: Property {
-    public static let property: String = "min-block-size"
-
     /// A specific size value (length, percentage, or calculated value)
     case size(Size)
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MinBlockSize {
+    public static let property: String = "min-block-size"
 }
 
 /// CSS Output conversion

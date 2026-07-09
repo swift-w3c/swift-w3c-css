@@ -57,8 +57,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-repeat](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-repeat)
 public enum MaskRepeat: Property {
-    public static let property: String = "mask-repeat"
-
     /// A single repetition style (shorthand for both directions)
     case single(RepeatStyle)
 
@@ -70,27 +68,6 @@ public enum MaskRepeat: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Repetition style values
-    public enum RepeatStyle: String, Sendable, Hashable {
-        /// Repeat the image in both directions (default)
-        case `repeat` = "repeat"
-
-        /// Don't repeat the image
-        case noRepeat = "no-repeat"
-
-        /// Repeat only horizontally (shorthand for repeat no-repeat)
-        case repeatX = "repeat-x"
-
-        /// Repeat only vertically (shorthand for no-repeat repeat)
-        case repeatY = "repeat-y"
-
-        /// Space images evenly without clipping
-        case space = "space"
-
-        /// Stretch and repeat to fill the area
-        case round = "round"
-    }
 
     /// Creates a mask repeat with a single style for both directions
     ///
@@ -117,6 +94,31 @@ public enum MaskRepeat: Property {
         } else {
             self = .multiple(repeats)
         }
+    }
+}
+
+extension MaskRepeat {
+    public static let property: String = "mask-repeat"
+
+    /// Repetition style values
+    public enum RepeatStyle: String, Sendable, Hashable {
+        /// Repeat the image in both directions (default)
+        case `repeat` = "repeat"
+
+        /// Don't repeat the image
+        case noRepeat = "no-repeat"
+
+        /// Repeat only horizontally (shorthand for repeat no-repeat)
+        case repeatX = "repeat-x"
+
+        /// Repeat only vertically (shorthand for no-repeat repeat)
+        case repeatY = "repeat-y"
+
+        /// Space images evenly without clipping
+        case space = "space"
+
+        /// Stretch and repeat to fill the area
+        case round = "round"
     }
 }
 

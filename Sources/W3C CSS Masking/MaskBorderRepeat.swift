@@ -55,8 +55,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-border-repeat](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-repeat)
 public enum MaskBorderRepeat: Property {
-    public static let property: String = "mask-border-repeat"
-
     /// Same repeat style for all sides
     case all(RepeatStyle)
 
@@ -65,21 +63,6 @@ public enum MaskBorderRepeat: Property {
 
     /// Global CSS values
     case global(Global)
-
-    /// Repeat style options for mask borders
-    public enum RepeatStyle: String, Sendable, Hashable {
-        /// Stretch the mask border image to fill the area
-        case stretch
-
-        /// Tile the mask border image (may be clipped if not exact fit)
-        case `repeat`
-
-        /// Tile the mask border image and scale it to fit exactly
-        case round
-
-        /// Tile the mask border image with space between tiles
-        case space
-    }
 
     /// Creates a mask-border-repeat with the same style for all sides
     ///
@@ -95,6 +78,25 @@ public enum MaskBorderRepeat: Property {
     ///   - vertical: The repeat style for vertical sides (left & right)
     public init(_ horizontal: RepeatStyle, _ vertical: RepeatStyle) {
         self = .horizontalVertical(horizontal, vertical)
+    }
+}
+
+extension MaskBorderRepeat {
+    public static let property: String = "mask-border-repeat"
+
+    /// Repeat style options for mask borders
+    public enum RepeatStyle: String, Sendable, Hashable {
+        /// Stretch the mask border image to fill the area
+        case stretch
+
+        /// Tile the mask border image (may be clipped if not exact fit)
+        case `repeat`
+
+        /// Tile the mask border image and scale it to fit exactly
+        case round
+
+        /// Tile the mask border image with space between tiles
+        case space
     }
 
     /// Default repeat style (stretch)

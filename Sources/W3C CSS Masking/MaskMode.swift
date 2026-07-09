@@ -40,7 +40,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-mode)
 public enum MaskMode: Property {
-    public static let property: String = "mask-mode"
     /// Use the alpha channel of the mask image
     case alpha
 
@@ -55,6 +54,10 @@ public enum MaskMode: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskMode {
+    public static let property: String = "mask-mode"
 
     /// Masking mode value
     public enum MaskingMode: String, Sendable, Hashable {

@@ -18,7 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on column-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule)
 public enum ColumnRule: Property, LineStyleConvertible {
-    public static let property: String = "column-rule"
     /// A rule with style, width, and color
     case full(LineStyle, BorderWidth.Width, W3C_CSS_Values.Color?)
 
@@ -33,6 +32,10 @@ public enum ColumnRule: Property, LineStyleConvertible {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension ColumnRule {
+    public static let property: String = "column-rule"
 
     /// Creates a column rule with style, width, and color
     ///

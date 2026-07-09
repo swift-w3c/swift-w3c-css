@@ -56,8 +56,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/block-size)
 public enum BlockSize: Property {
-    public static let property: String = "block-size"
-
     /// Automatic sizing based on content
     case auto
 
@@ -78,6 +76,10 @@ public enum BlockSize: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BlockSize {
+    public static let property: String = "block-size"
 }
 
 /// Provides string conversion for CSS output

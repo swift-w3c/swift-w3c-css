@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on max-block-size](https://developer.mozilla.org/en-US/docs/Web/CSS/max-block-size)
 public enum MaxBlockSize: Property {
-    public static let property: String = "max-block-size"
-
     /// A specific size value (length, percentage, or calculated value)
     case size(Size)
 
@@ -28,6 +26,10 @@ public enum MaxBlockSize: Property {
 
     /// A global CSS value
     case global(Global)
+}
+
+extension MaxBlockSize {
+    public static let property: String = "max-block-size"
 }
 
 /// CSS Output conversion

@@ -32,7 +32,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on break-before](https://developer.mozilla.org/en-US/docs/Web/CSS/break-before)
 public enum BreakBefore: Property {
-    public static let property: String = "break-before"
     // Generic break values
     /// Allows, but does not force, any break (page, column, or region) to be inserted right before the element.
     case auto
@@ -85,6 +84,10 @@ public enum BreakBefore: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension BreakBefore {
+    public static let property: String = "break-before"
 
     public var description: String {
         switch self {

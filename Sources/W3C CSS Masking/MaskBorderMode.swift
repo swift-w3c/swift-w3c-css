@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-border-mode](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border-mode)
 public enum MaskBorderMode: Property {
-    public static let property: String = "mask-border-mode"
-
     /// The alpha values of the mask border image are used as the mask values
     case alpha
 
@@ -32,6 +30,10 @@ public enum MaskBorderMode: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension MaskBorderMode {
+    public static let property: String = "mask-border-mode"
 
     /// Default value (alpha)
     public static let `default` = MaskBorderMode.alpha

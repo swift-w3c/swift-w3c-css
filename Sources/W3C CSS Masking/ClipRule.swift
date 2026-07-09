@@ -15,8 +15,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on clip-rule](https://developer.mozilla.org/en-US/docs/Web/CSS/clip-rule)
 public enum ClipRule: Property {
-    public static let property: String = "clip-rule"
-
     /// For points inside a clipping region, a ray is drawn from that point in any direction.
     /// The number of times the ray crosses path segments that are moving right-to-left vs. left-to-right is counted.
     /// If the total is non-zero, the point is inside the shape.
@@ -29,6 +27,10 @@ public enum ClipRule: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ClipRule {
+    public static let property: String = "clip-rule"
 
     public var description: String {
         switch self {

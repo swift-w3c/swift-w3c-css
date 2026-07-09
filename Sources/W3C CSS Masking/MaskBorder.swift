@@ -37,8 +37,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on mask-border](https://developer.mozilla.org/en-US/docs/Web/CSS/mask-border)
 public enum MaskBorder: Property {
-    public static let property: String = "mask-border"
-
     /// Configuration for a mask border
     case config(Configuration)
 
@@ -99,6 +97,10 @@ public enum MaskBorder: Property {
             )
         )
     }
+}
+
+extension MaskBorder {
+    public static let property: String = "mask-border"
 
     /// Configuration for a mask border
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
@@ -143,145 +145,6 @@ public enum MaskBorder: Property {
             self.outset = outset
             self.repeat = `repeat`
             self.mode = mode
-        }
-
-        /// CSS string representation
-        public var description: String {
-            var parts: [String] = []
-
-            // Source
-            parts.append(sourceDescription)
-
-            // Slice (required)
-            parts.append(sliceDescription)
-
-            // Width and Outset (optional)
-            if let width = width {
-                let widthPart = " / \(widthDescription(width))"
-
-                if let outset = outset {
-                    parts.append(widthPart + " / \(outsetDescription(outset))")
-                } else {
-                    parts.append(widthPart)
-                }
-            } else if let outset = outset {
-                parts.append(" / / \(outsetDescription(outset))")
-            }
-
-            // Repeat (optional)
-            if let `repeat` = `repeat` {
-                parts.append(repeatDescription(`repeat`))
-            }
-
-            // Mode (optional)
-            if let mode = mode {
-                parts.append(modeDescription(mode))
-            }
-
-            return parts.joined(separator: " ")
-        }
-
-        private var sourceDescription: String {
-            switch source {
-            case .none:
-                return "none"
-            case .url(let url):
-                return url.description
-            case .linearGradient(let value):
-                return "linear-gradient(\(value))"
-            case .radialGradient(let value):
-                return "radial-gradient(\(value))"
-            case .conicGradient(let value):
-                return "conic-gradient(\(value))"
-            case .repeatingLinearGradient(let value):
-                return "repeating-linear-gradient(\(value))"
-            case .repeatingRadialGradient(let value):
-                return "repeating-radial-gradient(\(value))"
-            case .repeatingConicGradient(let value):
-                return "repeating-conic-gradient(\(value))"
-            }
-        }
-
-        private var sliceDescription: String {
-            var sliceValues: [String] = [slice.top.description]
-
-            if let right = slice.right {
-                sliceValues.append(right.description)
-
-                if let bottom = slice.bottom {
-                    sliceValues.append(bottom.description)
-
-                    if let left = slice.left {
-                        sliceValues.append(left.description)
-                    }
-                }
-            }
-
-            let sliceStr = sliceValues.joined(separator: " ")
-            return slice.fill ? "\(sliceStr) fill" : sliceStr
-        }
-
-        private func widthDescription(_ width: Width) -> String {
-            var widthValues: [String] = [width.top.description]
-
-            if let right = width.right {
-                widthValues.append(right.description)
-
-                if let bottom = width.bottom {
-                    widthValues.append(bottom.description)
-
-                    if let left = width.left {
-                        widthValues.append(left.description)
-                    }
-                }
-            }
-
-            return widthValues.joined(separator: " ")
-        }
-
-        private func outsetDescription(_ outset: Outset) -> String {
-            var outsetValues: [String] = [outset.top.description]
-
-            if let right = outset.right {
-                outsetValues.append(right.description)
-
-                if let bottom = outset.bottom {
-                    outsetValues.append(bottom.description)
-
-                    if let left = outset.left {
-                        outsetValues.append(left.description)
-                    }
-                }
-            }
-
-            return outsetValues.joined(separator: " ")
-        }
-
-        private func repeatDescription(_ repeat: Repeat) -> String {
-            if let vertical = `repeat`.vertical {
-                return
-                    "\(repeatValueDescription(`repeat`.horizontal)) \(repeatValueDescription(vertical))"
-            } else {
-                return repeatValueDescription(`repeat`.horizontal)
-            }
-        }
-
-        private func repeatValueDescription(_ value: Repeat.RepeatValue) -> String {
-            switch value {
-            case .stretch: return "stretch"
-            case .repeat: return "repeat"
-            case .round: return "round"
-            case .space: return "space"
-            }
-        }
-
-        private func modeDescription(_ mode: Mode) -> String {
-            switch mode {
-            case .alpha: return "alpha"
-            case .luminance: return "luminance"
-            case .global(let global):
-                return global.description
-            }
         }
     }
 
@@ -363,41 +226,6 @@ public enum MaskBorder: Property {
             self.left = left
             self.fill = fill
         }
-
-        /// Slice value type
-        public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
-            /// Number value for slice
-            case number(Number)
-
-            /// Percentage value for slice
-            case percentage(Percentage)
-
-            /// Returns string representation of the slice value
-            public var description: String {
-                switch self {
-                case .number(let number):
-                    return number.description
-                case .percentage(let percentage):
-                    return percentage.description
-                }
-            }
-        }
-
-        /// Creates a slice value from a number
-        ///
-        /// - Parameter value: The number value
-        /// - Returns: A slice with the number value
-        public static func slice(_ value: Double) -> Slice {
-            return Slice(.number(.init(value)))
-        }
-
-        /// Creates a slice value as a percentage
-        ///
-        /// - Parameter value: The percentage value
-        /// - Returns: A slice with the percentage value
-        public static func percentage(_ value: Percentage) -> Slice {
-            return Slice(.percentage(value))
-        }
     }
 
     /// The width of the mask border
@@ -413,12 +241,6 @@ public enum MaskBorder: Property {
 
         /// The left width value
         public let left: WidthValue?
-
-        public static func lengthPercentage(
-            _ value: LengthPercentage
-        ) -> MaskBorder.Width {
-            .init(.lengthPercentage(value))
-        }
 
         /// Creates a width with the same value for all sides
         ///
@@ -448,43 +270,6 @@ public enum MaskBorder: Property {
             self.bottom = bottom
             self.left = left
         }
-
-        /// Width value type
-        public enum WidthValue: Sendable, Hashable, CustomStringConvertible,
-            LengthPercentageConvertible
-        {
-            /// Auto width
-            case auto
-
-            /// Number multiplier
-            case number(Number)
-
-            /// Length value
-            case lengthPercentage(LengthPercentage)
-
-            /// Returns string representation of the width value
-            public var description: String {
-                switch self {
-                case .auto:
-                    return "auto"
-                case .number(let number):
-                    return number.description
-                case .lengthPercentage(let length):
-                    return length.description
-                }
-            }
-        }
-
-        /// Creates a width with a number multiplier
-        ///
-        /// - Parameter number: The number multiplier
-        /// - Returns: A width with the specified number
-        public static func number(_ number: Number) -> Width {
-            return Width(.number(number))
-        }
-
-        /// Creates a width with auto value
-        public static let auto = Width(.auto)
     }
 
     /// The outset value of the mask border
@@ -500,10 +285,6 @@ public enum MaskBorder: Property {
 
         /// The left outset value
         public let left: OutsetValue?
-
-        public static func length(_ length: Length) -> MaskBorder.Outset {
-            .init(.length(length))
-        }
 
         /// Creates an outset with the same value for all sides
         ///
@@ -533,33 +314,6 @@ public enum MaskBorder: Property {
             self.bottom = bottom
             self.left = left
         }
-
-        /// Outset value type
-        public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-            /// Number multiplier
-            case number(Number)
-
-            /// Length value
-            case length(Length)
-
-            /// Returns string representation of the outset value
-            public var description: String {
-                switch self {
-                case .number(let number):
-                    return number.description
-                case .length(let length):
-                    return length.description
-                }
-            }
-        }
-
-        /// Creates an outset with a number multiplier
-        ///
-        /// - Parameter number: The number multiplier
-        /// - Returns: An outset with the specified number
-        public static func number(_ number: Number) -> Outset {
-            return Outset(.number(number))
-        }
     }
 
     /// The repeat behavior of the mask border
@@ -587,25 +341,289 @@ public enum MaskBorder: Property {
             self.horizontal = horizontal
             self.vertical = vertical
         }
-
-        /// Repeat value type
-        public enum RepeatValue: Sendable, Hashable {
-            /// Stretch the image to fill the space
-            case stretch
-
-            /// Repeat the image to fill the space
-            case `repeat`
-
-            /// Scale the image to fit the space evenly
-            case round
-
-            /// Repeat the image with spacing to fit evenly
-            case space
-        }
     }
 
     /// The blending mode of the mask border
     public typealias Mode = MaskBorderMode
+}
+
+extension MaskBorder.Configuration {
+    /// CSS string representation
+    public var description: String {
+        var parts: [String] = []
+
+        // Source
+        parts.append(sourceDescription)
+
+        // Slice (required)
+        parts.append(sliceDescription)
+
+        // Width and Outset (optional)
+        if let width = width {
+            let widthPart = " / \(widthDescription(width))"
+
+            if let outset = outset {
+                parts.append(widthPart + " / \(outsetDescription(outset))")
+            } else {
+                parts.append(widthPart)
+            }
+        } else if let outset = outset {
+            parts.append(" / / \(outsetDescription(outset))")
+        }
+
+        // Repeat (optional)
+        if let `repeat` = `repeat` {
+            parts.append(repeatDescription(`repeat`))
+        }
+
+        // Mode (optional)
+        if let mode = mode {
+            parts.append(modeDescription(mode))
+        }
+
+        return parts.joined(separator: " ")
+    }
+
+    private var sourceDescription: String {
+        switch source {
+        case .none:
+            return "none"
+        case .url(let url):
+            return url.description
+        case .linearGradient(let value):
+            return "linear-gradient(\(value))"
+        case .radialGradient(let value):
+            return "radial-gradient(\(value))"
+        case .conicGradient(let value):
+            return "conic-gradient(\(value))"
+        case .repeatingLinearGradient(let value):
+            return "repeating-linear-gradient(\(value))"
+        case .repeatingRadialGradient(let value):
+            return "repeating-radial-gradient(\(value))"
+        case .repeatingConicGradient(let value):
+            return "repeating-conic-gradient(\(value))"
+        }
+    }
+
+    private var sliceDescription: String {
+        var sliceValues: [String] = [slice.top.description]
+
+        if let right = slice.right {
+            sliceValues.append(right.description)
+
+            if let bottom = slice.bottom {
+                sliceValues.append(bottom.description)
+
+                if let left = slice.left {
+                    sliceValues.append(left.description)
+                }
+            }
+        }
+
+        let sliceStr = sliceValues.joined(separator: " ")
+        return slice.fill ? "\(sliceStr) fill" : sliceStr
+    }
+
+    private func widthDescription(_ width: MaskBorder.Width) -> String {
+        var widthValues: [String] = [width.top.description]
+
+        if let right = width.right {
+            widthValues.append(right.description)
+
+            if let bottom = width.bottom {
+                widthValues.append(bottom.description)
+
+                if let left = width.left {
+                    widthValues.append(left.description)
+                }
+            }
+        }
+
+        return widthValues.joined(separator: " ")
+    }
+
+    private func outsetDescription(_ outset: MaskBorder.Outset) -> String {
+        var outsetValues: [String] = [outset.top.description]
+
+        if let right = outset.right {
+            outsetValues.append(right.description)
+
+            if let bottom = outset.bottom {
+                outsetValues.append(bottom.description)
+
+                if let left = outset.left {
+                    outsetValues.append(left.description)
+                }
+            }
+        }
+
+        return outsetValues.joined(separator: " ")
+    }
+
+    private func repeatDescription(_ repeat: MaskBorder.Repeat) -> String {
+        if let vertical = `repeat`.vertical {
+            return
+                "\(repeatValueDescription(`repeat`.horizontal)) \(repeatValueDescription(vertical))"
+        } else {
+            return repeatValueDescription(`repeat`.horizontal)
+        }
+    }
+
+    private func repeatValueDescription(_ value: MaskBorder.Repeat.RepeatValue) -> String {
+        switch value {
+        case .stretch: return "stretch"
+        case .repeat: return "repeat"
+        case .round: return "round"
+        case .space: return "space"
+        }
+    }
+
+    private func modeDescription(_ mode: MaskBorder.Mode) -> String {
+        switch mode {
+        case .alpha: return "alpha"
+        case .luminance: return "luminance"
+        case .global(let global):
+            return global.description
+        }
+    }
+}
+
+extension MaskBorder.Slice {
+    /// Slice value type
+    public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
+        /// Number value for slice
+        case number(Number)
+
+        /// Percentage value for slice
+        case percentage(Percentage)
+    }
+
+    /// Creates a slice value from a number
+    ///
+    /// - Parameter value: The number value
+    /// - Returns: A slice with the number value
+    public static func slice(_ value: Double) -> MaskBorder.Slice {
+        return MaskBorder.Slice(.number(.init(value)))
+    }
+
+    /// Creates a slice value as a percentage
+    ///
+    /// - Parameter value: The percentage value
+    /// - Returns: A slice with the percentage value
+    public static func percentage(_ value: Percentage) -> MaskBorder.Slice {
+        return MaskBorder.Slice(.percentage(value))
+    }
+}
+
+extension MaskBorder.Slice.SliceValue {
+    /// Returns string representation of the slice value
+    public var description: String {
+        switch self {
+        case .number(let number):
+            return number.description
+        case .percentage(let percentage):
+            return percentage.description
+        }
+    }
+}
+
+extension MaskBorder.Width {
+    public static func lengthPercentage(
+        _ value: LengthPercentage
+    ) -> MaskBorder.Width {
+        .init(.lengthPercentage(value))
+    }
+
+    /// Width value type
+    public enum WidthValue: Sendable, Hashable, CustomStringConvertible,
+        LengthPercentageConvertible
+    {
+        /// Auto width
+        case auto
+
+        /// Number multiplier
+        case number(Number)
+
+        /// Length value
+        case lengthPercentage(LengthPercentage)
+    }
+
+    /// Creates a width with a number multiplier
+    ///
+    /// - Parameter number: The number multiplier
+    /// - Returns: A width with the specified number
+    public static func number(_ number: Number) -> MaskBorder.Width {
+        return MaskBorder.Width(.number(number))
+    }
+
+    /// Creates a width with auto value
+    public static let auto = MaskBorder.Width(.auto)
+}
+
+extension MaskBorder.Width.WidthValue {
+    /// Returns string representation of the width value
+    public var description: String {
+        switch self {
+        case .auto:
+            return "auto"
+        case .number(let number):
+            return number.description
+        case .lengthPercentage(let length):
+            return length.description
+        }
+    }
+}
+
+extension MaskBorder.Outset {
+    public static func length(_ length: Length) -> MaskBorder.Outset {
+        .init(.length(length))
+    }
+
+    /// Outset value type
+    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+        /// Number multiplier
+        case number(Number)
+
+        /// Length value
+        case length(Length)
+    }
+
+    /// Creates an outset with a number multiplier
+    ///
+    /// - Parameter number: The number multiplier
+    /// - Returns: An outset with the specified number
+    public static func number(_ number: Number) -> MaskBorder.Outset {
+        return MaskBorder.Outset(.number(number))
+    }
+}
+
+extension MaskBorder.Outset.OutsetValue {
+    /// Returns string representation of the outset value
+    public var description: String {
+        switch self {
+        case .number(let number):
+            return number.description
+        case .length(let length):
+            return length.description
+        }
+    }
+}
+
+extension MaskBorder.Repeat {
+    /// Repeat value type
+    public enum RepeatValue: Sendable, Hashable {
+        /// Stretch the image to fill the space
+        case stretch
+
+        /// Repeat the image to fill the space
+        case `repeat`
+
+        /// Scale the image to fit the space evenly
+        case round
+
+        /// Repeat the image with spacing to fit evenly
+        case space
+    }
 }
 
 /// Provides string conversion for CSS output
