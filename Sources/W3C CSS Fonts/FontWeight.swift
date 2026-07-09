@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-weight)
 public enum FontWeight: Property, ExpressibleByIntegerLiteral {
-    public static let property: String = "font-weight"
-
     /// Numeric weight values between 1 and 1000
     case number(Int)
 
@@ -42,6 +40,10 @@ public enum FontWeight: Property, ExpressibleByIntegerLiteral {
     public init(integerLiteral value: Int) {
         self = .number(value)
     }
+}
+
+extension FontWeight {
+    public static let property: String = "font-weight"
 
     // MARK: - Convenience properties for common weight names
 

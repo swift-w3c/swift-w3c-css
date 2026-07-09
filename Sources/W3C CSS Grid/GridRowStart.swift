@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-row-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start)
 public enum GridRowStart: Property {
 
-    public static let property: String = "grid-row-start"
-
     /// Auto placement
     case auto
 
@@ -38,6 +36,10 @@ public enum GridRowStart: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension GridRowStart {
+    public static let property: String = "grid-row-start"
 
     public var description: String {
         switch self {

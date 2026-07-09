@@ -38,8 +38,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-template](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template)
 public enum GridTemplate: Property {
 
-    public static let property: String = "grid-template"
-
     /// Represents no explicit grid, equivalent to setting all three longhand properties to none
     case none
 
@@ -54,6 +52,10 @@ public enum GridTemplate: Property {
 
     /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
+}
+
+extension GridTemplate {
+    public static let property: String = "grid-template"
 
     /// Represents a single row in a grid template area definition
     public struct AreaRow: Sendable, Hashable {
@@ -97,29 +99,33 @@ public enum GridTemplate: Property {
             self.size = size
             self.lineNamesAfter = lineNamesAfter
         }
-
-        /// Generates the CSS string representation of this row
-        public var description: String {
-            var result = ""
-
-            if let lineNamesBefore = lineNamesBefore, !lineNamesBefore.isEmpty {
-                result += "[\(lineNamesBefore.joined(separator: " "))] "
-            }
-
-            result += "\"\(area)\""
-
-            if let size = size {
-                result += " \(size)"
-            }
-
-            if let lineNamesAfter = lineNamesAfter, !lineNamesAfter.isEmpty {
-                result += " [\(lineNamesAfter.joined(separator: " "))]"
-            }
-
-            return result
-        }
     }
+}
 
+extension GridTemplate.AreaRow {
+    /// Generates the CSS string representation of this row
+    public var description: String {
+        var result = ""
+
+        if let lineNamesBefore = lineNamesBefore, !lineNamesBefore.isEmpty {
+            result += "[\(lineNamesBefore.joined(separator: " "))] "
+        }
+
+        result += "\"\(area)\""
+
+        if let size = size {
+            result += " \(size)"
+        }
+
+        if let lineNamesAfter = lineNamesAfter, !lineNamesAfter.isEmpty {
+            result += " [\(lineNamesAfter.joined(separator: " "))]"
+        }
+
+        return result
+    }
+}
+
+extension GridTemplate {
     public var description: String {
         switch self {
         case .none:

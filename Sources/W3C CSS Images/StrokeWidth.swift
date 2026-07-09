@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 public enum StrokeWidth: Property, LengthPercentageConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "stroke-width"
-
     case lengthPercentage(LengthPercentage)
 
     /// A number of SVG units for the stroke width
@@ -28,6 +26,20 @@ public enum StrokeWidth: Property, LengthPercentageConvertible, ExpressibleByInt
 
     /// Global CSS value
     case global(Global)
+
+    /// Creates a StrokeWidth using an integer literal (interpreted as SVG units)
+    public init(integerLiteral value: Int) {
+        self = .number(.init(integerLiteral: value))
+    }
+
+    /// Creates a StrokeWidth using a floating-point literal (interpreted as SVG units)
+    public init(floatLiteral value: Double) {
+        self = .number(.init(floatLiteral: value))
+    }
+}
+
+extension StrokeWidth {
+    public static let property: String = "stroke-width"
 
     public var description: String {
         switch self {
@@ -38,15 +50,5 @@ public enum StrokeWidth: Property, LengthPercentageConvertible, ExpressibleByInt
         case .global(let global):
             return global.description
         }
-    }
-
-    /// Creates a StrokeWidth using an integer literal (interpreted as SVG units)
-    public init(integerLiteral value: Int) {
-        self = .number(.init(integerLiteral: value))
-    }
-
-    /// Creates a StrokeWidth using a floating-point literal (interpreted as SVG units)
-    public init(floatLiteral value: Double) {
-        self = .number(.init(floatLiteral: value))
     }
 }

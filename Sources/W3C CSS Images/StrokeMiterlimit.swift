@@ -19,13 +19,25 @@ public import W3C_CSS_Shared
 public enum StrokeMiterlimit: Property, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
     CustomStringConvertible
 {
-    public static let property: String = "stroke-miterlimit"
-
     /// A numeric miter limit value (must be >= 1)
     case value(Double)
 
     /// Global CSS value
     case global(Global)
+
+    /// Creates a StrokeMiterlimit using an integer literal
+    public init(integerLiteral value: Int) {
+        self = .value(Double(value))
+    }
+
+    /// Creates a StrokeMiterlimit using a floating-point literal
+    public init(floatLiteral value: Double) {
+        self = .value(value)
+    }
+}
+
+extension StrokeMiterlimit {
+    public static let property: String = "stroke-miterlimit"
 
     public var description: String {
         switch self {
@@ -43,15 +55,5 @@ public enum StrokeMiterlimit: Property, ExpressibleByIntegerLiteral, Expressible
     /// - Returns: A StrokeMiterlimit with the specified value
     public static func limit(_ limit: Double) -> Self {
         .value(limit)
-    }
-
-    /// Creates a StrokeMiterlimit using an integer literal
-    public init(integerLiteral value: Int) {
-        self = .value(Double(value))
-    }
-
-    /// Creates a StrokeMiterlimit using a floating-point literal
-    public init(floatLiteral value: Double) {
-        self = .value(value)
     }
 }

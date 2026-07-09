@@ -9,8 +9,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/d)
 public enum D: Property {
-    public static let property: String = "d"
-
     /// No path is drawn
     case none
 
@@ -19,6 +17,10 @@ public enum D: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension D {
+    public static let property: String = "d"
 
     public var description: String {
         switch self {

@@ -24,112 +24,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on gradients](https://developer.mozilla.org/en-US/docs/Web/CSS/gradient)
 public enum Gradient: Sendable, Hashable {
-    /// Represents directions for linear gradients
-    public enum Direction: Sendable, Hashable, AngleConvertible {
-        /// Direction specified by an angle
-        case angle(Angle)
-
-        /// Direction specified using the "to" keyword followed by sides/corners
-        case to(Side)
-
-        /// Represents sides or corners for the "to" keyword
-        public enum Side: String, Sendable, Hashable, CaseIterable {
-            /// Top edge
-            case top
-
-            /// Right edge
-            case right
-
-            /// Bottom edge
-            case bottom
-
-            /// Left edge
-            case left
-
-            /// Top-right corner
-            case topRight = "top right"
-
-            /// Bottom-right corner
-            case bottomRight = "bottom right"
-
-            /// Bottom-left corner
-            case bottomLeft = "bottom left"
-
-            /// Top-left corner
-            case topLeft = "top left"
-        }
-    }
-
-    /// Represents a color stop in a gradient
-    public struct ColorStop: Sendable, Hashable {
-        /// The color of the stop
-        public let color: Color
-
-        /// The position of the stop (optional)
-        public let position: LengthPercentage?
-
-        /// Creates a color stop with an optional position
-        public init(_ color: W3C_CSS_Values.Color, at position: LengthPercentage? = nil) {
-            self.color = color
-            self.position = position
-        }
-    }
-
-    /// Represents options for radial gradients
-    public struct RadialOptions: Sendable, Hashable {
-        /// The shape of the gradient
-        public enum Shape: String, Sendable, Hashable {
-            /// Circular shape (equal distance from center)
-            case circle
-
-            /// Elliptical shape (may be stretched)
-            case ellipse
-        }
-
-        /// Size keywords for radial gradients
-        public enum Size: Sendable, Hashable {
-            /// Size specified by keywords
-            case keyword(Keyword)
-
-            /// Size specified by explicit dimensions
-            case explicit(radius: LengthPercentage)
-
-            /// Size specified by explicit dimensions for elliptical gradients
-            case elliptical(radiusX: LengthPercentage, radiusY: LengthPercentage)
-
-            /// Keywords for radial gradient sizing
-            public enum Keyword: String, Sendable, Hashable {
-                /// Gradient ends at the closest side from the center
-                case closestSide = "closest-side"
-
-                /// Gradient ends at the closest corner from the center
-                case closestCorner = "closest-corner"
-
-                /// Gradient ends at the farthest side from the center
-                case farthestSide = "farthest-side"
-
-                /// Gradient ends at the farthest corner from the center
-                case farthestCorner = "farthest-corner"
-            }
-        }
-
-        /// The shape of the gradient (circle or ellipse)
-        public let shape: Shape?
-
-        /// The size of the gradient
-        public let size: Size?
-
-        /// The position of the gradient center
-        public let position: Position?
-
-        /// Creates radial gradient options
-        public init(shape: Shape? = nil, size: Size? = nil, at position: Position? = nil) {
-            self.shape = shape
-            self.size = size
-            self.position = position
-        }
-    }
-
     /// A linear gradient
     case linear(
         direction: Direction?,
@@ -173,6 +67,126 @@ public enum Gradient: Sendable, Hashable {
         colorStops: [ColorStop],
         interpolation: ColorInterpolationMethod? = nil
     )
+}
+
+extension Gradient {
+    /// Represents directions for linear gradients
+    public enum Direction: Sendable, Hashable, AngleConvertible {
+        /// Direction specified by an angle
+        case angle(Angle)
+
+        /// Direction specified using the "to" keyword followed by sides/corners
+        case to(Side)
+    }
+}
+
+extension Gradient.Direction {
+    /// Represents sides or corners for the "to" keyword
+    public enum Side: String, Sendable, Hashable, CaseIterable {
+        /// Top edge
+        case top
+
+        /// Right edge
+        case right
+
+        /// Bottom edge
+        case bottom
+
+        /// Left edge
+        case left
+
+        /// Top-right corner
+        case topRight = "top right"
+
+        /// Bottom-right corner
+        case bottomRight = "bottom right"
+
+        /// Bottom-left corner
+        case bottomLeft = "bottom left"
+
+        /// Top-left corner
+        case topLeft = "top left"
+    }
+}
+
+extension Gradient {
+    /// Represents a color stop in a gradient
+    public struct ColorStop: Sendable, Hashable {
+        /// The color of the stop
+        public let color: Color
+
+        /// The position of the stop (optional)
+        public let position: LengthPercentage?
+
+        /// Creates a color stop with an optional position
+        public init(_ color: W3C_CSS_Values.Color, at position: LengthPercentage? = nil) {
+            self.color = color
+            self.position = position
+        }
+    }
+}
+
+extension Gradient {
+    /// Represents options for radial gradients
+    public struct RadialOptions: Sendable, Hashable {
+        /// The shape of the gradient (circle or ellipse)
+        public let shape: Shape?
+
+        /// The size of the gradient
+        public let size: Size?
+
+        /// The position of the gradient center
+        public let position: Position?
+
+        /// Creates radial gradient options
+        public init(shape: Shape? = nil, size: Size? = nil, at position: Position? = nil) {
+            self.shape = shape
+            self.size = size
+            self.position = position
+        }
+    }
+}
+
+extension Gradient.RadialOptions {
+    /// The shape of the gradient
+    public enum Shape: String, Sendable, Hashable {
+        /// Circular shape (equal distance from center)
+        case circle
+
+        /// Elliptical shape (may be stretched)
+        case ellipse
+    }
+}
+
+extension Gradient.RadialOptions {
+    /// Size keywords for radial gradients
+    public enum Size: Sendable, Hashable {
+        /// Size specified by keywords
+        case keyword(Keyword)
+
+        /// Size specified by explicit dimensions
+        case explicit(radius: LengthPercentage)
+
+        /// Size specified by explicit dimensions for elliptical gradients
+        case elliptical(radiusX: LengthPercentage, radiusY: LengthPercentage)
+    }
+}
+
+extension Gradient.RadialOptions.Size {
+    /// Keywords for radial gradient sizing
+    public enum Keyword: String, Sendable, Hashable {
+        /// Gradient ends at the closest side from the center
+        case closestSide = "closest-side"
+
+        /// Gradient ends at the closest corner from the center
+        case closestCorner = "closest-corner"
+
+        /// Gradient ends at the farthest side from the center
+        case farthestSide = "farthest-side"
+
+        /// Gradient ends at the farthest corner from the center
+        case farthestCorner = "farthest-corner"
+    }
 }
 
 /// Provides string conversion for CSS output

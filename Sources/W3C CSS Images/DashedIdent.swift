@@ -39,7 +39,9 @@ public struct DashedIdent: Sendable, Hashable {
     public init(stringLiteral value: String) {
         self.init(value)
     }
+}
 
+extension DashedIdent {
     /// Creates a custom dashed identifier with a valid value
     ///
     /// - Parameter value: A string to convert to a valid CSS dashed identifier

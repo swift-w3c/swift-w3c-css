@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on image-orientation](https://developer.mozilla.org/en-US/docs/Web/CSS/image-orientation)
 public enum ImageOrientation: Property {
 
-    public static let property: String = "image-orientation"
-
     /// Does not apply any additional image rotation; the image is oriented as encoded
     /// or as other CSS property values dictate.
     ///
@@ -39,6 +37,10 @@ public enum ImageOrientation: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension ImageOrientation {
+    public static let property: String = "image-orientation"
 
     public var description: String {
         switch self {

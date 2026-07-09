@@ -23,8 +23,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on grid-template-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-columns)
 public enum GridTemplateColumns: Property {
-    public static let property: String = "grid-template-columns"
-
     /// No explicit grid. Columns will be implicitly generated.
     case none
 
@@ -48,6 +46,10 @@ public enum GridTemplateColumns: Property {
 
     /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
+}
+
+extension GridTemplateColumns {
+    public static let property: String = "grid-template-columns"
 
     /// Represents a grid track with optional line names before and after
     public struct NamedTrack: Sendable, Hashable {
@@ -66,25 +68,29 @@ public enum GridTemplateColumns: Property {
             self.size = size
             self.after = after
         }
-
-        /// Generates the CSS string representation of the named track
-        public var description: String {
-            var result = ""
-
-            if let before = before {
-                result += "[\(before)] "
-            }
-
-            result += size.description
-
-            if let after = after {
-                result += " [\(after)]"
-            }
-
-            return result
-        }
     }
+}
 
+extension GridTemplateColumns.NamedTrack {
+    /// Generates the CSS string representation of the named track
+    public var description: String {
+        var result = ""
+
+        if let before = before {
+            result += "[\(before)] "
+        }
+
+        result += size.description
+
+        if let after = after {
+            result += " [\(after)]"
+        }
+
+        return result
+    }
+}
+
+extension GridTemplateColumns {
     public var description: String {
         switch self {
         case .none:

@@ -24,8 +24,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on grid-auto-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-rows)
 public enum GridAutoRows: Property, LengthPercentageConvertible {
 
-    public static let property: String = "grid-auto-rows"
-
     /// Auto sizing (similar to minmax(min-content, max-content))
     case auto
 
@@ -48,6 +46,10 @@ public enum GridAutoRows: Property, LengthPercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension GridAutoRows {
+    public static let property: String = "grid-auto-rows"
 
     public var description: String {
         switch self {

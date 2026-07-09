@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 /// shape-rendering: optimizeSpeed;
 /// ```
 public enum ShapeRendering: Property {
-    public static let property: String = "shape-rendering"
-
     /// Directs user agents to make tradeoffs balancing speed, edge crispness, and geometric precision,
     /// with geometric precision given more importance
     case auto
@@ -34,6 +32,10 @@ public enum ShapeRendering: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension ShapeRendering {
+    public static let property: String = "shape-rendering"
 
     public var description: String {
         switch self {

@@ -10,8 +10,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/cy)
 public enum Cy: Property {
-    public static let property: String = "cy"
-
     /// A specific length value
     case length(Length)
 
@@ -23,6 +21,10 @@ public enum Cy: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Cy {
+    public static let property: String = "cy"
 
     public var description: String {
         switch self {

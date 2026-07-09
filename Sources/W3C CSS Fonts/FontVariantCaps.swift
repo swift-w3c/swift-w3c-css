@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-caps](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-caps)
 public enum FontVariantCaps: Property {
 
-    public static let property: String = "font-variant-caps"
-
     /// Deactivates the use of alternate glyphs.
     case normal
 
@@ -51,6 +49,10 @@ public enum FontVariantCaps: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontVariantCaps {
+    public static let property: String = "font-variant-caps"
 
     public var description: String {
         switch self {

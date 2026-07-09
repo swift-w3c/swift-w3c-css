@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variation-settings](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variation-settings)
 public enum FontVariationSettings: Property {
 
-    public static let property: String = "font-variation-settings"
-
     /// Text is laid out using default settings.
     case normal
 
@@ -44,6 +42,10 @@ public enum FontVariationSettings: Property {
             self = .axes(axes)
         }
     }
+}
+
+extension FontVariationSettings {
+    public static let property: String = "font-variation-settings"
 }
 
 /// CSS Output conversion

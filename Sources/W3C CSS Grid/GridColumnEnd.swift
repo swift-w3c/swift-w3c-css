@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-column-end](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column-end)
 public enum GridColumnEnd: Property {
 
-    public static let property: String = "grid-column-end"
-
     /// Auto placement
     case auto
 
@@ -38,6 +36,10 @@ public enum GridColumnEnd: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension GridColumnEnd {
+    public static let property: String = "grid-column-end"
 
     public var description: String {
         switch self {

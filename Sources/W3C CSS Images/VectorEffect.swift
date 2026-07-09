@@ -17,7 +17,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on vector-effect](https://developer.mozilla.org/en-US/docs/Web/CSS/vector-effect)
 public enum VectorEffect: Property {
-    public static let property: String = "vector-effect"
     /// No vector effects are applied to the element, meaning it will be fully affected by transforms as normal.
     case none
 
@@ -28,6 +27,10 @@ public enum VectorEffect: Property {
 
     /// Global value
     case global(Global)
+}
+
+extension VectorEffect {
+    public static let property: String = "vector-effect"
 
     public var description: String {
         switch self {

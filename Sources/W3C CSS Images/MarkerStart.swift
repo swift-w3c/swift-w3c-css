@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-start)
 /// - SeeAlso: `marker-mid`, `marker-end`, `marker` (shorthand)
 public enum MarkerStart: Property {
-    public static let property: String = "marker-start"
-
     /// No marker will be drawn at the first vertex of the element's path.
     case none
 
@@ -24,6 +22,10 @@ public enum MarkerStart: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension MarkerStart {
+    public static let property: String = "marker-start"
 
     public var description: String {
         switch self {

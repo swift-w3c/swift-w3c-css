@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on font-stretch](https://developer.mozilla.org/en-US/docs/Web/CSS/font-stretch)
 public enum FontStretch: Property, PercentageConvertible {
 
-    public static let property: String = "font-stretch"
-
     /// Keyword value for font stretch
     case keyword(Keyword)
 
@@ -28,6 +26,10 @@ public enum FontStretch: Property, PercentageConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension FontStretch {
+    public static let property: String = "font-stretch"
 
     /// Font stretch keyword values
     public enum Keyword: String, Sendable, Hashable {
@@ -57,23 +59,27 @@ public enum FontStretch: Property, PercentageConvertible {
 
         /// Ultra-expanded font (200% of normal width)
         case ultraExpanded = "ultra-expanded"
+    }
+}
 
-        /// Returns the equivalent percentage value for the keyword
-        public var percentage: Percentage {
-            switch self {
-            case .ultraCondensed: return 50
-            case .extraCondensed: return 62.5
-            case .condensed: return 75
-            case .semiCondensed: return 87.5
-            case .normal: return 100
-            case .semiExpanded: return 112.5
-            case .expanded: return 125
-            case .extraExpanded: return 150
-            case .ultraExpanded: return 200
-            }
+extension FontStretch.Keyword {
+    /// Returns the equivalent percentage value for the keyword
+    public var percentage: Percentage {
+        switch self {
+        case .ultraCondensed: return 50
+        case .extraCondensed: return 62.5
+        case .condensed: return 75
+        case .semiCondensed: return 87.5
+        case .normal: return 100
+        case .semiExpanded: return 112.5
+        case .expanded: return 125
+        case .extraExpanded: return 150
+        case .ultraExpanded: return 200
         }
     }
+}
 
+extension FontStretch {
     // MARK: - Convenience static properties for keyword values
 
     public static let ultraCondensed: FontStretch = .keyword(.ultraCondensed)

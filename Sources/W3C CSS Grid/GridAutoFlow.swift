@@ -15,8 +15,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-auto-flow](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-flow)
 public enum GridAutoFlow: Property {
 
-    public static let property: String = "grid-auto-flow"
-
     /// Items are placed by filling each row in turn, adding new rows as necessary.
     /// This is the default behavior.
     case row
@@ -34,6 +32,10 @@ public enum GridAutoFlow: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension GridAutoFlow {
+    public static let property: String = "grid-auto-flow"
 
     public var description: String {
         switch self {

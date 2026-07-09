@@ -15,8 +15,6 @@ public import W3C_CSS_Shared
 /// stroke-linejoin: round;
 /// ```
 public enum StrokeLinejoin: Property {
-    public static let property: String = "stroke-linejoin"
-
     /// A sharp corner is used to join path segments
     case miter
 
@@ -28,6 +26,10 @@ public enum StrokeLinejoin: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension StrokeLinejoin {
+    public static let property: String = "stroke-linejoin"
 
     public var description: String {
         switch self {

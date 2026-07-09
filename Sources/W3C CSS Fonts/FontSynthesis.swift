@@ -19,8 +19,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-synthesis](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis)
 public enum FontSynthesis: Property {
 
-    public static let property: String = "font-synthesis"
-
     /// Indicates that no bold, italic, small-caps, or position typeface may be synthesized by the browser.
     case none
 
@@ -42,6 +40,10 @@ public enum FontSynthesis: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSynthesis {
+    public static let property: String = "font-synthesis"
 
     /// Individual font synthesis options that can be combined
     public enum SynthesisOption: String, Sendable, CustomStringConvertible {
@@ -56,12 +58,16 @@ public enum FontSynthesis: Property {
 
         /// Position synthesis option
         case position
-
-        public var description: String {
-            return rawValue
-        }
     }
+}
 
+extension FontSynthesis.SynthesisOption {
+    public var description: String {
+        return rawValue
+    }
+}
+
+extension FontSynthesis {
     public var description: String {
         switch self {
         case .none:

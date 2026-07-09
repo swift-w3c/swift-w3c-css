@@ -21,7 +21,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on grid-row](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row)
 public enum GridRow: Property {
-    public static let property: String = "grid-row"
     /// Auto placement
     case auto
 
@@ -42,6 +41,10 @@ public enum GridRow: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension GridRow {
+    public static let property: String = "grid-row"
 
     public var description: String {
         switch self {
@@ -82,7 +85,9 @@ public enum GridRowValue: Sendable, Hashable, CustomStringConvertible {
 
     /// A span to a named line
     case spanTo(String)
+}
 
+extension GridRowValue {
     public var description: String {
         switch self {
         case .auto:

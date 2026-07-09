@@ -26,8 +26,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker)
 /// - SeeAlso: `marker-start`, `marker-mid`, `marker-end`
 public enum Marker: Property {
-    public static let property: String = "marker"
-
     /// Set all markers to the same value
     case all(MarkerValue)
 
@@ -36,6 +34,10 @@ public enum Marker: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Marker {
+    public static let property: String = "marker"
 
     /// Represents a marker value
     public enum MarkerValue: Sendable, Hashable, CustomStringConvertible {
@@ -44,17 +46,21 @@ public enum Marker: Property {
 
         /// A URL reference to a marker element
         case url(Url)
+    }
+}
 
-        public var description: String {
-            switch self {
-            case .none:
-                return "none"
-            case .url(let url):
-                return url.description
-            }
+extension Marker.MarkerValue {
+    public var description: String {
+        switch self {
+        case .none:
+            return "none"
+        case .url(let url):
+            return url.description
         }
     }
+}
 
+extension Marker {
     public var description: String {
         switch self {
         case .all(let value):

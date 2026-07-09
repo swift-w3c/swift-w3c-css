@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-synthesis-position](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis-position)
 public enum FontSynthesisPosition: Property {
 
-    public static let property: String = "font-synthesis-position"
-
     /// Indicates that a missing position typeface may be synthesized by the browser if needed.
     case auto
 
@@ -26,6 +24,10 @@ public enum FontSynthesisPosition: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSynthesisPosition {
+    public static let property: String = "font-synthesis-position"
 
     public var description: String {
         switch self {

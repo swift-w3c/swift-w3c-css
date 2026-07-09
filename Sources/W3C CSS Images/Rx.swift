@@ -25,8 +25,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on rx](https://developer.mozilla.org/en-US/docs/Web/CSS/rx)
 public enum Rx: Property, LengthPercentageConvertible {
-    public static let property: String = "rx"
-
     /// A length-percentage value for the horizontal radius
     case lengthPercentage(LengthPercentage)
 
@@ -35,6 +33,10 @@ public enum Rx: Property, LengthPercentageConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension Rx {
+    public static let property: String = "rx"
 
     public var description: String {
         switch self {

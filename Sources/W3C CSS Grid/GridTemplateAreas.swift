@@ -29,8 +29,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-template-areas](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-areas)
 public enum GridTemplateAreas: Property {
 
-    public static let property: String = "grid-template-areas"
-
     /// The grid container doesn't define any named grid areas
     case none
 
@@ -40,6 +38,10 @@ public enum GridTemplateAreas: Property {
 
     /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
+}
+
+extension GridTemplateAreas {
+    public static let property: String = "grid-template-areas"
 
     public var description: String {
         switch self {

@@ -22,8 +22,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-column](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-column)
 public enum GridColumn: Property {
 
-    public static let property: String = "grid-column"
-
     /// Auto placement
     case auto
 
@@ -44,6 +42,10 @@ public enum GridColumn: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension GridColumn {
+    public static let property: String = "grid-column"
 
     public var description: String {
         switch self {
@@ -84,7 +86,9 @@ public enum GridColumnValue: Sendable, Hashable, CustomStringConvertible {
 
     /// A span to a named line
     case spanTo(String)
+}
 
+extension GridColumnValue {
     public var description: String {
         switch self {
         case .auto:

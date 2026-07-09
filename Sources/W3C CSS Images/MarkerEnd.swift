@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-end)
 /// - SeeAlso: `marker-start`, `marker-mid`, `marker` (shorthand)
 public enum MarkerEnd: Property {
-    public static let property: String = "marker-end"
-
     /// No marker will be drawn at the last vertex of the element's path.
     case none
 
@@ -24,6 +22,10 @@ public enum MarkerEnd: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension MarkerEnd {
+    public static let property: String = "marker-end"
 
     public var description: String {
         switch self {

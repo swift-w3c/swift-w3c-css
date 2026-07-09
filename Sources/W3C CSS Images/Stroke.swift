@@ -32,8 +32,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on stroke](https://developer.mozilla.org/en-US/docs/Web/CSS/stroke)
 public indirect enum Stroke: Property, ColorConvertible {
-    public static let property: String = "stroke"
-
     /// No stroke is painted (transparent)
     case none
 
@@ -51,6 +49,10 @@ public indirect enum Stroke: Property, ColorConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension Stroke {
+    public static let property: String = "stroke"
 
     public var description: String {
         switch self {

@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on font-smooth](https://developer.mozilla.org/en-US/docs/Web/CSS/font-smooth)
 public enum FontSmooth: Property {
-    public static let property: String = "font-smooth"
-
     /// Let the browser decide (default behavior)
     case auto
 
@@ -34,6 +32,10 @@ public enum FontSmooth: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSmooth {
+    public static let property: String = "font-smooth"
 
     public var description: String {
         switch self {
@@ -53,8 +55,6 @@ public enum FontSmooth: Property {
 
 /// WebKit-specific font smoothing property
 public enum WebkitFontSmoothing: Property {
-    public static let property: String = "-webkit-font-smoothing"
-
     /// Let the browser decide (Uses subpixel anti-aliasing when available; this is the default)
     case auto
 
@@ -70,6 +70,10 @@ public enum WebkitFontSmoothing: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension WebkitFontSmoothing {
+    public static let property: String = "-webkit-font-smoothing"
 
     public var description: String {
         switch self {
@@ -89,8 +93,6 @@ public enum WebkitFontSmoothing: Property {
 
 /// Firefox-specific font smoothing property for macOS
 public enum MozOsxFontSmoothing: Property {
-    public static let property: String = "-moz-osx-font-smoothing"
-
     /// Allow the browser to select an optimization for font smoothing, typically grayscale.
     case auto
 
@@ -100,6 +102,10 @@ public enum MozOsxFontSmoothing: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension MozOsxFontSmoothing {
+    public static let property: String = "-moz-osx-font-smoothing"
 
     public var description: String {
         switch self {

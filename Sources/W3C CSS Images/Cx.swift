@@ -10,7 +10,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/cx)
 public enum Cx: Property {
-    public static let property: String = "cx"
     /// A specific length value
     case length(Length)
 
@@ -22,6 +21,10 @@ public enum Cx: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Cx {
+    public static let property: String = "cx"
 
     public var description: String {
         switch self {

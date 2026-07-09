@@ -25,8 +25,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-position](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-position)
 public enum FontVariantPosition: Property {
 
-    public static let property: String = "font-variant-position"
-
     /// Deactivates alternate superscript and subscript glyphs.
     case normal
 
@@ -40,6 +38,10 @@ public enum FontVariantPosition: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontVariantPosition {
+    public static let property: String = "font-variant-position"
 
     public var description: String {
         switch self {

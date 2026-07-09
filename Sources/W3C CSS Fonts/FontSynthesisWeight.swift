@@ -12,8 +12,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-synthesis-weight](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis-weight)
 public enum FontSynthesisWeight: Property {
-    public static let property: String = "font-synthesis-weight"
-
     /// Indicates that the missing bold typeface may be synthesized by the browser if needed.
     case auto
 
@@ -22,6 +20,10 @@ public enum FontSynthesisWeight: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSynthesisWeight {
+    public static let property: String = "font-synthesis-weight"
 
     public var description: String {
         switch self {

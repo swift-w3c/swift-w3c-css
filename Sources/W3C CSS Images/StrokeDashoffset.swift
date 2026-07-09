@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on stroke-dashoffset](https://developer.mozilla.org/en-US/docs/Web/CSS/stroke-dashoffset)
 public enum StrokeDashoffset: Property {
-    public static let property: String = "stroke-dashoffset"
-
     /// A numeric value representing SVG units
     case number(Number)
 
@@ -34,6 +32,10 @@ public enum StrokeDashoffset: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension StrokeDashoffset {
+    public static let property: String = "stroke-dashoffset"
 }
 
 /// CSS Output conversion

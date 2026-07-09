@@ -16,7 +16,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on font-style](https://developer.mozilla.org/en-US/docs/Web/CSS/font-style)
 public enum FontStyle: Property {
-    public static let property: String = "font-style"
     /// Selects a font that is classified as normal within a font family
     case normal
 
@@ -32,6 +31,10 @@ public enum FontStyle: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontStyle {
+    public static let property: String = "font-style"
 
     public var description: String {
         switch self {

@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-ligatures](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-ligatures)
 public enum FontVariantLigatures: Property {
 
-    public static let property: String = "font-variant-ligatures"
-
     /// Activates the usual ligatures and contextual forms needed for correct rendering.
     /// The ligatures and forms activated depend on the font, language, and script.
     case normal
@@ -53,6 +51,10 @@ public enum FontVariantLigatures: Property {
     public init(_ options: LigatureOption...) {
         self.init(options)
     }
+}
+
+extension FontVariantLigatures {
+    public static let property: String = "font-variant-ligatures"
 }
 
 /// Represents the possible ligature options

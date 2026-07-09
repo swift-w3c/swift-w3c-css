@@ -16,8 +16,6 @@ public import W3C_CSS_Values
 /// stroke-opacity: 50%;
 /// ```
 public enum StrokeOpacity: Property {
-    public static let property: String = "stroke-opacity"
-
     /// A numeric opacity value between 0 and 1
     case number(Number)
 
@@ -26,6 +24,10 @@ public enum StrokeOpacity: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension StrokeOpacity {
+    public static let property: String = "stroke-opacity"
 
     public var description: String {
         switch self {

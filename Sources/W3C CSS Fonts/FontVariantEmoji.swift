@@ -21,8 +21,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-emoji](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-emoji)
 public enum FontVariantEmoji: Property {
 
-    public static let property: String = "font-variant-emoji"
-
     /// Allows a browser to choose how to display the emoji.
     /// This often follows the operating system setting.
     case normal
@@ -41,6 +39,10 @@ public enum FontVariantEmoji: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontVariantEmoji {
+    public static let property: String = "font-variant-emoji"
 
     public var description: String {
         switch self {

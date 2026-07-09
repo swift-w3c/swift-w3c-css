@@ -22,8 +22,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-numeric](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-numeric)
 public enum FontVariantNumeric: Property {
 
-    public static let property: String = "font-variant-numeric"
-
     /// Default rendering, deactivating the use of alternate numeric glyphs
     case normal
 
@@ -51,6 +49,10 @@ public enum FontVariantNumeric: Property {
     public init(_ options: NumericOption...) {
         self.init(options)
     }
+}
+
+extension FontVariantNumeric {
+    public static let property: String = "font-variant-numeric"
 }
 
 /// Represents the possible numeric variant options

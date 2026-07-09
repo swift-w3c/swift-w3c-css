@@ -18,8 +18,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on grid-area](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-area)
 public enum GridArea: Property {
 
-    public static let property: String = "grid-area"
-
     /// Auto placement
     case auto
 
@@ -32,12 +30,16 @@ public enum GridArea: Property {
     /// A span to a named grid line
     case span(String)
 
+    /// Global values
+    case global(Global)
+}
+
+extension GridArea {
+    public static let property: String = "grid-area"
+
     public static func span(_ value: Int) -> Self {
         .span("\(value)")
     }
-
-    /// Global values
-    case global(Global)
 
     public var description: String {
         switch self {
@@ -113,7 +115,9 @@ public struct GridAreaCoordinates: Sendable, Hashable, CustomStringConvertible {
         self.rowEnd = rowEnd
         self.columnEnd = columnEnd
     }
+}
 
+extension GridAreaCoordinates {
     public var description: String {
         if let rowEnd = rowEnd, let columnEnd = columnEnd {
             return "\(rowStart) / \(columnStart) / \(rowEnd) / \(columnEnd)"
@@ -156,6 +160,13 @@ public struct GridLine: Sendable, Hashable, CustomStringConvertible {
         self.type = .spanName(name)
     }
 
+    /// Private initializer for auto value
+    private init() {
+        self.type = .auto
+    }
+}
+
+extension GridLine {
     /// Creates a line from the end (negative index)
     public static func end(_ number: Int) -> GridLine {
         // Ensure the number is negative
@@ -165,11 +176,6 @@ public struct GridLine: Sendable, Hashable, CustomStringConvertible {
 
     /// The auto keyword for grid line placement
     public static let auto = GridLine()
-
-    /// Private initializer for auto value
-    private init() {
-        self.type = .auto
-    }
 
     public var description: String {
         switch type {

@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-east-asian](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-east-asian)
 public enum FontVariantEastAsian: Property {
 
-    public static let property: String = "font-variant-east-asian"
-
     /// Normal (default) rendering, deactivating the use of alternate glyphs
     case normal
 
@@ -54,6 +52,10 @@ public enum FontVariantEastAsian: Property {
     public init(_ values: EastAsianVariantValue...) {
         self.init(values)
     }
+}
+
+extension FontVariantEastAsian {
+    public static let property: String = "font-variant-east-asian"
 }
 
 /// Represents the possible values for font-variant-east-asian

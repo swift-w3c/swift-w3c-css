@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid)
 public enum Grid: Property {
 
-    public static let property: String = "grid"
-
     /// Sets all grid values to their initial value
     case none
 
@@ -37,6 +35,10 @@ public enum Grid: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension Grid {
+    public static let property: String = "grid"
 
     public var description: String {
         switch self {
@@ -93,7 +95,9 @@ public struct AutoFlow: Sendable, Hashable, CustomStringConvertible {
 
     /// Auto track size
     let trackSize: GridTrackSize?
+}
 
+extension AutoFlow {
     /// Creates an auto-flow configuration
     public static func autoFlow(
         _ direction: AutoFlowDirection,
@@ -140,7 +144,9 @@ public enum GridTrackSize: Sendable, Hashable, CustomStringConvertible {
 
     /// Fit content to argument
     case fitContent(LengthPercentage)
+}
 
+extension GridTrackSize {
     public var description: String {
         return switch self {
         case .auto:

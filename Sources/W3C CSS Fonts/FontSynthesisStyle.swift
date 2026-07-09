@@ -13,8 +13,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-synthesis-style](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis-style)
 public enum FontSynthesisStyle: Property {
 
-    public static let property: String = "font-synthesis-style"
-
     /// Indicates that the missing oblique typeface may be synthesized by the browser if needed.
     case auto
 
@@ -23,6 +21,10 @@ public enum FontSynthesisStyle: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSynthesisStyle {
+    public static let property: String = "font-synthesis-style"
 
     public var description: String {
         switch self {

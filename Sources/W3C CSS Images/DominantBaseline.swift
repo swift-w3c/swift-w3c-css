@@ -12,8 +12,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/dominant-baseline)
 public enum DominantBaseline: Property {
-    public static let property: String = "dominant-baseline"
-
     /// The value depends on the writing mode, using alphabetic for horizontal
     /// and central for vertical writing modes
     case auto
@@ -44,6 +42,10 @@ public enum DominantBaseline: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension DominantBaseline {
+    public static let property: String = "dominant-baseline"
 
     public var description: String {
         switch self {

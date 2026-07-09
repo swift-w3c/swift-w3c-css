@@ -28,8 +28,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on stroke-dasharray](https://developer.mozilla.org/en-US/docs/Web/CSS/stroke-dasharray)
 public enum StrokeDasharray: Property {
-    public static let property: String = "stroke-dasharray"
-
     /// Solid line with no dashes (default)
     case none
 
@@ -67,6 +65,10 @@ public enum StrokeDasharray: Property {
     public init(_ values: [LengthPercentage]) {
         self = .lengthPercentages(values)
     }
+}
+
+extension StrokeDasharray {
+    public static let property: String = "stroke-dasharray"
 
     public var description: String {
         switch self {

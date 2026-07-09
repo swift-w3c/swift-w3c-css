@@ -19,8 +19,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant-alternates](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant-alternates)
 public enum FontVariantAlternates: Property {
 
-    public static let property: String = "font-variant-alternates"
-
     /// This value deactivates alternate glyphs.
     case normal
 
@@ -62,6 +60,10 @@ public enum FontVariantAlternates: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontVariantAlternates {
+    public static let property: String = "font-variant-alternates"
 
     public var description: String {
         switch self {
@@ -111,7 +113,9 @@ public enum AlternateOption: Sendable, Hashable, CustomStringConvertible {
 
     /// Annotations, like circled digits or inverted characters
     case annotation(String)
+}
 
+extension AlternateOption {
     public var description: String {
         switch self {
         case .historicalForms:

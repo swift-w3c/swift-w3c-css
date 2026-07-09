@@ -20,8 +20,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on image-resolution](https://developer.mozilla.org/en-US/docs/Web/CSS/image-resolution)
 public enum ImageResolution: Property {
 
-    public static let property: String = "image-resolution"
-
     /// Uses the intrinsic resolution as specified by the image format
     case fromImage(snap: Bool = false)
 
@@ -48,6 +46,10 @@ public enum ImageResolution: Property {
             self = .fromImageWithFallback(resolution, snap: snap)
         }
     }
+}
+
+extension ImageResolution {
+    public static let property: String = "image-resolution"
 
     /// The source type for image resolution
     public enum Source: Sendable, Hashable {
@@ -60,7 +62,9 @@ public enum ImageResolution: Property {
         /// Combines from-image with a fallback resolution
         case fromImageWithFallback(Resolution)
     }
+}
 
+extension ImageResolution {
     /// Applies the snap keyword to snap the resolution to device pixels
     public func snapped() -> ImageResolution {
         switch self {

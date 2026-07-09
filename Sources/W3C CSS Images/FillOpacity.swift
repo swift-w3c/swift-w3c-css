@@ -13,8 +13,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/fill-opacity)
 public enum FillOpacity: Property {
-    public static let property: String = "fill-opacity"
-
     /// A value between 0.0 (fully transparent) and 1.0 (fully opaque)
     case number(Number)
 
@@ -23,6 +21,10 @@ public enum FillOpacity: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FillOpacity {
+    public static let property: String = "fill-opacity"
 
     public var description: String {
         switch self {

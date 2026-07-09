@@ -24,7 +24,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on grid-template-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows)
 public enum GridTemplateRows: Property {
-    public static let property: String = "grid-template-rows"
     /// No explicit grid. Rows will be implicitly generated.
     case none
 
@@ -48,6 +47,10 @@ public enum GridTemplateRows: Property {
 
     /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
+}
+
+extension GridTemplateRows {
+    public static let property: String = "grid-template-rows"
 
     /// Represents a grid track with optional line names before and after
     public struct NamedTrack: Sendable, Hashable {
@@ -66,25 +69,29 @@ public enum GridTemplateRows: Property {
             self.size = size
             self.after = after
         }
-
-        /// Generates the CSS string representation of the named track
-        public var description: String {
-            var result = ""
-
-            if let before = before {
-                result += "[\(before)] "
-            }
-
-            result += size.description
-
-            if let after = after {
-                result += " [\(after)]"
-            }
-
-            return result
-        }
     }
+}
 
+extension GridTemplateRows.NamedTrack {
+    /// Generates the CSS string representation of the named track
+    public var description: String {
+        var result = ""
+
+        if let before = before {
+            result += "[\(before)] "
+        }
+
+        result += size.description
+
+        if let after = after {
+            result += " [\(after)]"
+        }
+
+        return result
+    }
+}
+
+extension GridTemplateRows {
     public var description: String {
         switch self {
         case .none:

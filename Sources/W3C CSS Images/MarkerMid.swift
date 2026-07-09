@@ -14,7 +14,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/marker-mid)
 /// - SeeAlso: `marker-start`, `marker-end`, `marker` (shorthand)
 public enum MarkerMid: Property {
-    public static let property: String = "marker-mid"
     /// No marker will be drawn at the middle vertices of the element's path.
     case none
 
@@ -23,6 +22,10 @@ public enum MarkerMid: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension MarkerMid {
+    public static let property: String = "marker-mid"
 
     public var description: String {
         switch self {

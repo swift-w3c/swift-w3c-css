@@ -26,7 +26,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on stroke-linecap](https://developer.mozilla.org/en-US/docs/Web/CSS/stroke-linecap)
 public enum StrokeLinecap: Property {
-    public static let property: String = "stroke-linecap"
     /// The stroke ends flat at its endpoints (default)
     case butt
 
@@ -38,6 +37,10 @@ public enum StrokeLinecap: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension StrokeLinecap {
+    public static let property: String = "stroke-linecap"
 
     public var description: String {
         switch self {

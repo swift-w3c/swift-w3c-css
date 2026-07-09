@@ -14,8 +14,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-synthesis-small-caps](https://developer.mozilla.org/en-US/docs/Web/CSS/font-synthesis-small-caps)
 public enum FontSynthesisSmallCaps: Property {
 
-    public static let property: String = "font-synthesis-small-caps"
-
     /// Indicates that the missing small-caps typeface may be synthesized by the browser if needed.
     case auto
 
@@ -24,6 +22,10 @@ public enum FontSynthesisSmallCaps: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontSynthesisSmallCaps {
+    public static let property: String = "font-synthesis-small-caps"
 
     public var description: String {
         switch self {

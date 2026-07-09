@@ -15,8 +15,6 @@ public import W3C_CSS_Values
 /// stop-opacity: 20%;
 /// ```
 public enum StopOpacity: Property {
-    public static let property: String = "stop-opacity"
-
     /// A numeric opacity value between 0 and 1
     case number(Number)
 
@@ -25,6 +23,10 @@ public enum StopOpacity: Property {
 
     /// Global CSS value
     case global(Global)
+}
+
+extension StopOpacity {
+    public static let property: String = "stop-opacity"
 
     public var description: String {
         switch self {

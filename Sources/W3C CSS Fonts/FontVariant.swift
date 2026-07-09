@@ -16,8 +16,6 @@ public import W3C_CSS_Shared
 /// - SeeAlso: [MDN Web Docs on font-variant](https://developer.mozilla.org/en-US/docs/Web/CSS/font-variant)
 public enum FontVariant: Property {
 
-    public static let property: String = "font-variant"
-
     /// Specifies a normal font face. Each longhand property has an initial value of normal.
     case normal
 
@@ -32,6 +30,10 @@ public enum FontVariant: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FontVariant {
+    public static let property: String = "font-variant"
 
     public var description: String {
         switch self {
@@ -107,7 +109,9 @@ public enum FontVariantOption: Sendable, Hashable, CustomStringConvertible {
     case text
     case emoji
     case unicode
+}
 
+extension FontVariantOption {
     public var description: String {
         switch self {
         // Ligatures

@@ -24,8 +24,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on grid-auto-columns](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-auto-columns)
 public enum GridAutoColumns: Property {
 
-    public static let property: String = "grid-auto-columns"
-
     /// Auto sizing (similar to minmax(min-content, max-content))
     case auto
 
@@ -55,6 +53,10 @@ public enum GridAutoColumns: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension GridAutoColumns {
+    public static let property: String = "grid-auto-columns"
 
     public var description: String {
         switch self {
@@ -101,7 +103,9 @@ public enum MinMaxValue: Sendable, Hashable, CustomStringConvertible {
 
     /// Largest maximal content contribution
     case maxContent
+}
 
+extension MinMaxValue {
     public var description: String {
         switch self {
         case .auto:

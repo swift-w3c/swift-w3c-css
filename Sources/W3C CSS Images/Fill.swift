@@ -13,8 +13,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/fill)
 public indirect enum Fill: Property, ColorConvertible {
-    public static let property: String = "fill"
-
     /// No fill is painted (transparent)
     case none
 
@@ -35,6 +33,10 @@ public indirect enum Fill: Property, ColorConvertible {
 
     /// Global values
     case global(Global)
+}
+
+extension Fill {
+    public static let property: String = "fill"
 
     public var description: String {
         switch self {

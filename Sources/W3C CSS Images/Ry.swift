@@ -25,8 +25,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on ry](https://developer.mozilla.org/en-US/docs/Web/CSS/ry)
 public enum Ry: Property, LengthPercentageConvertible {
-    public static let property: String = "ry"
-
     /// A length-percentage value for the vertical radius
     case lengthPercentage(LengthPercentage)
 
@@ -35,6 +33,10 @@ public enum Ry: Property, LengthPercentageConvertible {
 
     /// Global value
     case global(Global)
+}
+
+extension Ry {
+    public static let property: String = "ry"
 
     public var description: String {
         switch self {

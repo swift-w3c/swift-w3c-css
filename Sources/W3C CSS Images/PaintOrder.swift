@@ -20,8 +20,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs on paint-order](https://developer.mozilla.org/en-US/docs/Web/CSS/paint-order)
 public enum PaintOrder: Property {
-    public static let property: String = "paint-order"
-
     /// Default painting order (fill, stroke, markers)
     case normal
 
@@ -30,6 +28,10 @@ public enum PaintOrder: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension PaintOrder {
+    public static let property: String = "paint-order"
 
     /// Individual paint layers that can be ordered
     public enum PaintLayer: String, Sendable, Hashable, CaseIterable {

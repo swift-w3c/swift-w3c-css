@@ -24,13 +24,15 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on r](https://developer.mozilla.org/en-US/docs/Web/CSS/r)
 public enum R: Property, LengthPercentageConvertible {
-    public static let property: String = "r"
-
     /// A length-percentage value for the radius
     case lengthPercentage(LengthPercentage)
 
     /// Global value
     case global(Global)
+}
+
+extension R {
+    public static let property: String = "r"
 
     public var description: String {
         switch self {

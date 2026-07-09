@@ -12,7 +12,6 @@ public import W3C_CSS_Shared
 ///
 /// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/fill-rule)
 public enum FillRule: Property {
-    public static let property: String = "fill-rule"
     /// Uses ray crossing algorithm counting intersections; if count is zero, point is outside
     case nonzero
 
@@ -21,6 +20,10 @@ public enum FillRule: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension FillRule {
+    public static let property: String = "fill-rule"
 
     public var description: String {
         switch self {
