@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 public enum ScrollMarginBlock: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "scroll-margin-block"
-
     /// A single length value for both block start and block end
     case all(Length)
 
@@ -32,6 +30,20 @@ public enum ScrollMarginBlock: Property, LengthConvertible, ExpressibleByInteger
 
     /// Global CSS value
     case global(Global)
+
+    /// Creates a ScrollMarginBlock using an integer literal (interpreted as pixels for both edges)
+    public init(integerLiteral value: Int) {
+        self = .all(.px(Double(value)))
+    }
+
+    /// Creates a ScrollMarginBlock using a floating-point literal (interpreted as pixels for both edges)
+    public init(floatLiteral value: Double) {
+        self = .all(.px(value))
+    }
+}
+
+extension ScrollMarginBlock {
+    public static let property: String = "scroll-margin-block"
 
     public var description: String {
         switch self {
@@ -47,15 +59,5 @@ public enum ScrollMarginBlock: Property, LengthConvertible, ExpressibleByInteger
     /// Creates a ScrollMarginBlock from a length value (applies to both start and end)
     public static func length(_ length: Length) -> Self {
         .all(length)
-    }
-
-    /// Creates a ScrollMarginBlock using an integer literal (interpreted as pixels for both edges)
-    public init(integerLiteral value: Int) {
-        self = .all(.px(Double(value)))
-    }
-
-    /// Creates a ScrollMarginBlock using a floating-point literal (interpreted as pixels for both edges)
-    public init(floatLiteral value: Double) {
-        self = .all(.px(value))
     }
 }

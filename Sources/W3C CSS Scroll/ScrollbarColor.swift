@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 /// scrollbar-color: rebeccapurple green; /* thumb color, track color */
 /// ```
 public enum ScrollbarColor: Property {
-    public static let property: String = "scrollbar-color"
-
     /// Default platform rendering for the scrollbar
     case auto
 
@@ -28,6 +26,11 @@ public enum ScrollbarColor: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollbarColor {
+    public static let property: String = "scrollbar-color"
 
     public var description: String {
         switch self {

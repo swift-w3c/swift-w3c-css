@@ -24,7 +24,9 @@
 /// - SeeAlso: `Placeholder` for the standard pseudo-element
 /// - SeeAlso: [MDN Web Docs on ::placeholder](https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder)
 public struct WebkitInputPlaceholder: CSSPseudoElement {
-    @inlinable public static var name: String { "-webkit-input-placeholder" }
-
     public init() {}
+}
+
+extension WebkitInputPlaceholder {
+    @inlinable public static var name: String { "-webkit-input-placeholder" }
 }

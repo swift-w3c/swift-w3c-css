@@ -37,6 +37,9 @@ public enum Overflow: String, Sendable, Hashable, CaseIterable {
     @available(*, deprecated, message: "Use 'auto' instead. The overlay value is deprecated.")
     case overlay
 
+}
+
+extension Overflow {
     /// Returns all non-deprecated overflow values
     public static var allCases: [Overflow] {
         [.visible, .hidden, .clip, .scroll, .auto]

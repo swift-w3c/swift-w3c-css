@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 ///
 /// - SeeAlso: [MDN Web Docs on scrollbar-width](https://developer.mozilla.org/en-US/docs/Web/CSS/scrollbar-width)
 public enum ScrollbarWidth: Property {
-    public static let property: String = "scrollbar-width"
-
     /// The default scrollbar width for the platform
     case auto
 
@@ -32,6 +30,10 @@ public enum ScrollbarWidth: Property {
 
     /// Global values
     case global(Global)
+}
+
+extension ScrollbarWidth {
+    public static let property: String = "scrollbar-width"
 }
 
 /// CSS Output conversion

@@ -18,20 +18,11 @@ public import W3C_CSS_Values
 public enum ScrollMarginInlineStart: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "scroll-margin-inline-start"
-
     /// A length value for the inline start margin
     case length(Length)
 
     /// Global CSS value
     case global(Global)
-
-    public var description: String {
-        switch self {
-        case .length(let length): return length.description
-        case .global(let global): return global.description
-        }
-    }
 
     /// Creates a ScrollMarginInlineStart using an integer literal (interpreted as pixels)
     public init(integerLiteral value: Int) {
@@ -41,5 +32,16 @@ public enum ScrollMarginInlineStart: Property, LengthConvertible, ExpressibleByI
     /// Creates a ScrollMarginInlineStart using a floating-point literal (interpreted as pixels)
     public init(floatLiteral value: Double) {
         self = .length(.px(value))
+    }
+}
+
+extension ScrollMarginInlineStart {
+    public static let property: String = "scroll-margin-inline-start"
+
+    public var description: String {
+        switch self {
+        case .length(let length): return length.description
+        case .global(let global): return global.description
+        }
     }
 }

@@ -21,22 +21,11 @@ public import W3C_CSS_Values
 public enum ScrollMarginBlockEnd: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "scroll-margin-block-end"
-
     /// A length value for the block-end scroll margin
     case length(Length)
 
     /// Global CSS value
     case global(Global)
-
-    public var description: String {
-        switch self {
-        case .length(let length):
-            return length.description
-        case .global(let global):
-            return global.description
-        }
-    }
 
     /// Creates a ScrollMarginBlockEnd using an integer literal (interpreted as pixels)
     public init(integerLiteral value: Int) {
@@ -46,5 +35,18 @@ public enum ScrollMarginBlockEnd: Property, LengthConvertible, ExpressibleByInte
     /// Creates a ScrollMarginBlockEnd using a floating-point literal (interpreted as pixels)
     public init(floatLiteral value: Double) {
         self = .length(.px(value))
+    }
+}
+
+extension ScrollMarginBlockEnd {
+    public static let property: String = "scroll-margin-block-end"
+
+    public var description: String {
+        switch self {
+        case .length(let length):
+            return length.description
+        case .global(let global):
+            return global.description
+        }
     }
 }

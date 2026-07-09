@@ -22,8 +22,6 @@ public import W3C_CSS_Values
 public enum ScrollMargin: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "scroll-margin"
-
     /// A single length value for all four sides
     case all(Length)
 
@@ -38,6 +36,20 @@ public enum ScrollMargin: Property, LengthConvertible, ExpressibleByIntegerLiter
 
     /// Global CSS value
     case global(Global)
+
+    /// Creates a ScrollMargin using an integer literal (interpreted as pixels for all sides)
+    public init(integerLiteral value: Int) {
+        self = .all(.px(Double(value)))
+    }
+
+    /// Creates a ScrollMargin using a floating-point literal (interpreted as pixels for all sides)
+    public init(floatLiteral value: Double) {
+        self = .all(.px(value))
+    }
+}
+
+extension ScrollMargin {
+    public static let property: String = "scroll-margin"
 
     public var description: String {
         switch self {
@@ -58,15 +70,5 @@ public enum ScrollMargin: Property, LengthConvertible, ExpressibleByIntegerLiter
     /// Creates a ScrollMargin from a length value (applies to all sides)
     public static func length(_ length: Length) -> Self {
         .all(length)
-    }
-
-    /// Creates a ScrollMargin using an integer literal (interpreted as pixels for all sides)
-    public init(integerLiteral value: Int) {
-        self = .all(.px(Double(value)))
-    }
-
-    /// Creates a ScrollMargin using a floating-point literal (interpreted as pixels for all sides)
-    public init(floatLiteral value: Double) {
-        self = .all(.px(value))
     }
 }

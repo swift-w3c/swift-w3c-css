@@ -19,6 +19,18 @@ public import W3C_CSS_Values
 /// scroll-snap-align: start end;
 /// ```
 public enum ScrollSnapAlign: Property {
+    /// A single alignment value for both block and inline axes
+    case single(Alignment)
+
+    /// Two alignment values, first for block axis, second for inline axis
+    case blockInline(Alignment, Alignment)
+
+    /// Global CSS value
+    case global(Global)
+
+}
+
+extension ScrollSnapAlign {
     public static let property: String = "scroll-snap-align"
 
     /// The alignment value for both block and inline axes
@@ -35,15 +47,6 @@ public enum ScrollSnapAlign: Property {
         /// The center alignment of this box's scroll snap area is a snap position in this axis
         case center
     }
-
-    /// A single alignment value for both block and inline axes
-    case single(Alignment)
-
-    /// Two alignment values, first for block axis, second for inline axis
-    case blockInline(Alignment, Alignment)
-
-    /// Global CSS value
-    case global(Global)
 
     public var description: String {
         switch self {

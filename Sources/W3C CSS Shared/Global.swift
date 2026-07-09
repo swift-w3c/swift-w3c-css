@@ -18,5 +18,8 @@ public enum Global: String, Sendable, CaseIterable, CustomStringConvertible {
     /// Resets to its natural value (acts like `inherit` or `initial` depending on the property)
     case unset
 
+}
+
+extension Global {
     public var description: String { self.rawValue }
 }

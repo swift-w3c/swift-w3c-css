@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 /// scroll-padding: 10%;
 /// ```
 public enum ScrollPadding: Property, LengthPercentageConvertible, CustomStringConvertible {
-    public static let property: String = "scroll-padding"
-
     /// Keyword values
     case auto
 
@@ -42,6 +40,11 @@ public enum ScrollPadding: Property, LengthPercentageConvertible, CustomStringCo
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollPadding {
+    public static let property: String = "scroll-padding"
 
     public var description: String {
         switch self {

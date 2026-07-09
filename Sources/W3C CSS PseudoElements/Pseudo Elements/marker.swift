@@ -27,7 +27,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on ::marker](https://developer.mozilla.org/en-US/docs/Web/CSS/::marker)
 public struct Marker: CSSPseudoElement {
-    @inlinable public static var name: String { "marker" }
-
     public init() {}
+}
+
+extension Marker {
+    @inlinable public static var name: String { "marker" }
 }

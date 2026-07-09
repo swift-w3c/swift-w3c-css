@@ -22,6 +22,21 @@ public import W3C_CSS_Values
 /// scroll-timeline: --timeline_name;
 /// ```
 public enum ScrollTimeline: Property {
+    /// No named timeline
+    case none
+
+    /// A named timeline with a custom identifier
+    case name(CustomIdent)
+
+    /// A named timeline with a custom identifier and specific axis
+    case nameAndAxis(CustomIdent, ScrollTimelineAxis.Axis)
+
+    /// Global CSS value
+    case global(Global)
+
+}
+
+extension ScrollTimeline {
     public static let property: String = "scroll-timeline"
 
     /// Custom identifier for a timeline name (must start with --)
@@ -36,23 +51,7 @@ public enum ScrollTimeline: Property {
                 self.rawValue = "--" + rawValue
             }
         }
-
-        public var description: String {
-            return rawValue
-        }
     }
-
-    /// No named timeline
-    case none
-
-    /// A named timeline with a custom identifier
-    case name(CustomIdent)
-
-    /// A named timeline with a custom identifier and specific axis
-    case nameAndAxis(CustomIdent, ScrollTimelineAxis.Axis)
-
-    /// Global CSS value
-    case global(Global)
 
     public var description: String {
         switch self {
@@ -81,5 +80,11 @@ public enum ScrollTimeline: Property {
     /// - Returns: A ScrollTimeline with the specified name and axis
     public static func named(_ name: String, axis: ScrollTimelineAxis.Axis) -> Self {
         .nameAndAxis(CustomIdent(rawValue: name), axis)
+    }
+}
+
+extension ScrollTimeline.CustomIdent {
+    public var description: String {
+        return rawValue
     }
 }

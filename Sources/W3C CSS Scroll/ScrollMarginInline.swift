@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 public enum ScrollMarginInline: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "scroll-margin-inline"
-
     /// A single length value for both the start and end inlines
     case all(Length)
 
@@ -29,6 +27,20 @@ public enum ScrollMarginInline: Property, LengthConvertible, ExpressibleByIntege
 
     /// Global CSS value
     case global(Global)
+
+    /// Creates a ScrollMarginInline using an integer literal (interpreted as pixels)
+    public init(integerLiteral value: Int) {
+        self = .all(.px(Double(value)))
+    }
+
+    /// Creates a ScrollMarginInline using a floating-point literal (interpreted as pixels)
+    public init(floatLiteral value: Double) {
+        self = .all(.px(value))
+    }
+}
+
+extension ScrollMarginInline {
+    public static let property: String = "scroll-margin-inline"
 
     public var description: String {
         switch self {
@@ -44,15 +56,5 @@ public enum ScrollMarginInline: Property, LengthConvertible, ExpressibleByIntege
     /// Creates a ScrollMarginInline from a length value
     public static func length(_ length: Length) -> Self {
         .all(length)
-    }
-
-    /// Creates a ScrollMarginInline using an integer literal (interpreted as pixels)
-    public init(integerLiteral value: Int) {
-        self = .all(.px(Double(value)))
-    }
-
-    /// Creates a ScrollMarginInline using a floating-point literal (interpreted as pixels)
-    public init(floatLiteral value: Double) {
-        self = .all(.px(value))
     }
 }

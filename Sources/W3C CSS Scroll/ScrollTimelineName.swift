@@ -18,8 +18,6 @@ public import W3C_CSS_Values
 /// scroll-timeline-name: --custom_name_for_timeline;
 /// ```
 public enum ScrollTimelineName: Property {
-    public static let property: String = "scroll-timeline-name"
-
     /// No named timeline
     case none
 
@@ -28,6 +26,11 @@ public enum ScrollTimelineName: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollTimelineName {
+    public static let property: String = "scroll-timeline-name"
 
     public var description: String {
         switch self {

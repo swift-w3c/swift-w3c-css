@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 /// scroll-behavior: smooth;    /* Enable smooth scrolling for programmatic scrolls */
 /// ```
 public enum ScrollBehavior: Property {
-    public static let property: String = "scroll-behavior"
-
     /// The scrolling box scrolls instantly
     case auto
 
@@ -30,6 +28,11 @@ public enum ScrollBehavior: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollBehavior {
+    public static let property: String = "scroll-behavior"
 
     public var description: String {
         switch self {

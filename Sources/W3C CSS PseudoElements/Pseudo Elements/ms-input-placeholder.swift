@@ -27,7 +27,9 @@
 /// - SeeAlso: `Placeholder` for the standard pseudo-element
 /// - SeeAlso: [MDN Web Docs on ::placeholder](https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder)
 public struct MsInputPlaceholder: CSSPseudoElement {
-    @inlinable public static var name: String { "-ms-input-placeholder" }
-
     public init() {}
+}
+
+extension MsInputPlaceholder {
+    @inlinable public static var name: String { "-ms-input-placeholder" }
 }

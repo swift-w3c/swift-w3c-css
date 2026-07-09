@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 /// scrollbar-gutter: stable both-edges;    /* Reserve space on both edges */
 /// ```
 public enum ScrollbarGutter: Property {
-    public static let property: String = "scrollbar-gutter"
-
     /// Classic scrollbars create a gutter when overflow is scroll, or when overflow is auto
     /// and the box is overflowing. Overlay scrollbars do not consume space.
     case auto
@@ -37,6 +35,11 @@ public enum ScrollbarGutter: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollbarGutter {
+    public static let property: String = "scrollbar-gutter"
 
     public var description: String {
         switch self {

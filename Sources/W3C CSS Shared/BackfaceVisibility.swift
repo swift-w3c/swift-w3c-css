@@ -28,8 +28,6 @@
 ///
 /// - SeeAlso: [MDN Web Docs on backface-visibility](https://developer.mozilla.org/en-US/docs/Web/CSS/backface-visibility)
 public enum BackfaceVisibility: Property {
-    public static let property: String = "backface-visibility"
-
     /// The back face is visible when turned towards the user (default)
     case visible
 
@@ -38,6 +36,10 @@ public enum BackfaceVisibility: Property {
 
     /// Global CSS values
     case global(Global)
+}
+
+extension BackfaceVisibility {
+    public static let property: String = "backface-visibility"
 }
 
 /// Provides string conversion for CSS output

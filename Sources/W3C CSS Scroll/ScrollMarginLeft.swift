@@ -18,20 +18,11 @@ public import W3C_CSS_Values
 public enum ScrollMarginLeft: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    public static let property: String = "scroll-margin-left"
-
     /// A length value for the left margin
     case length(Length)
 
     /// Global CSS value
     case global(Global)
-
-    public var description: String {
-        switch self {
-        case .length(let length): return length.description
-        case .global(let global): return global.description
-        }
-    }
 
     /// Creates a ScrollMarginLeft using an integer literal (interpreted as pixels)
     public init(integerLiteral value: Int) {
@@ -41,5 +32,16 @@ public enum ScrollMarginLeft: Property, LengthConvertible, ExpressibleByIntegerL
     /// Creates a ScrollMarginLeft using a floating-point literal (interpreted as pixels)
     public init(floatLiteral value: Double) {
         self = .length(.px(value))
+    }
+}
+
+extension ScrollMarginLeft {
+    public static let property: String = "scroll-margin-left"
+
+    public var description: String {
+        switch self {
+        case .length(let length): return length.description
+        case .global(let global): return global.description
+        }
     }
 }

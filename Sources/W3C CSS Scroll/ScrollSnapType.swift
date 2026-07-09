@@ -16,6 +16,21 @@ public import W3C_CSS_Values
 /// scroll-snap-type: both proximity;
 /// ```
 public enum ScrollSnapType: Property {
+    /// No snap points
+    case none
+
+    /// Snap points along a specified axis with default proximity strictness
+    case axis(Axis)
+
+    /// Snap points along a specified axis with specified strictness
+    case axisWithStrictness(Axis, Strictness)
+
+    /// Global CSS value
+    case global(Global)
+
+}
+
+extension ScrollSnapType {
     public static let property: String = "scroll-snap-type"
 
     /// The axis along which snapping occurs
@@ -44,18 +59,6 @@ public enum ScrollSnapType: Property {
         /// The scroll container may snap to a snap position based on scroll parameters
         case proximity
     }
-
-    /// No snap points
-    case none
-
-    /// Snap points along a specified axis with default proximity strictness
-    case axis(Axis)
-
-    /// Snap points along a specified axis with specified strictness
-    case axisWithStrictness(Axis, Strictness)
-
-    /// Global CSS value
-    case global(Global)
 
     public var description: String {
         switch self {

@@ -42,7 +42,9 @@
 ///
 /// - SeeAlso: [MDN Web Docs on ::first-letter](https://developer.mozilla.org/en-US/docs/Web/CSS/::first-letter)
 public struct FirstLetter: CSSPseudoElement {
-    @inlinable public static var name: String { "first-letter" }
-
     public init() {}
+}
+
+extension FirstLetter {
+    @inlinable public static var name: String { "first-letter" }
 }

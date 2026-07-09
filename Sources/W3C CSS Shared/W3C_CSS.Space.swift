@@ -19,11 +19,13 @@ public typealias GeometryTypeAlias = Geometry
 /// This space marker enables typed geometry operations that distinguish
 /// between different coordinate systems.
 public enum W3C_CSS {
+}
+
+extension W3C_CSS {
     /// CSS coordinate space marker.
     public enum Space {}
 
     public typealias Geometry = GeometryTypeAlias<Double, W3C_CSS.Space>
-
 }
 
 // MARK: - Shape Type Aliases

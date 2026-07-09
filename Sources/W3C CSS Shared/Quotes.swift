@@ -20,8 +20,6 @@
 ///
 /// - SeeAlso: [MDN Web Docs on quotes](https://developer.mozilla.org/en-US/docs/Web/CSS/quotes)
 public enum Quotes: Property {
-    public static let property: String = "quotes"
-
     /// No quotation marks are produced by `open-quote` and `close-quote`
     case none
 
@@ -32,6 +30,14 @@ public enum Quotes: Property {
     /// Each pair represents a level of nesting, with the first pair for the outermost quotes
     case strings([Pair])
 
+    /// Global value
+    case global(Global)
+
+}
+
+extension Quotes {
+    public static let property: String = "quotes"
+
     public struct Pair: Sendable, Hashable {
         let first: String
         let second: String
@@ -41,9 +47,6 @@ public enum Quotes: Property {
             self.second = second
         }
     }
-
-    /// Global value
-    case global(Global)
 
     public var description: String {
         switch self {

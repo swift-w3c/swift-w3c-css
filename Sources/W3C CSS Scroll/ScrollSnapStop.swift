@@ -12,8 +12,6 @@ public import W3C_CSS_Values
 /// scroll-snap-stop: always;
 /// ```
 public enum ScrollSnapStop: Property {
-    public static let property: String = "scroll-snap-stop"
-
     /// When the visual viewport is scrolled, it may "pass over" possible snap positions
     case normal
 
@@ -22,6 +20,11 @@ public enum ScrollSnapStop: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollSnapStop {
+    public static let property: String = "scroll-snap-stop"
 
     public var description: String {
         switch self {

@@ -21,8 +21,6 @@ public import W3C_CSS_Values
 /// overscroll-behavior: auto none; /* Different behavior for x and y directions */
 /// ```
 public enum OverscrollBehavior: Property {
-    public static let property: String = "overscroll-behavior"
-
     /// A single value applied to both x and y directions
     case single(Value)
 
@@ -31,6 +29,11 @@ public enum OverscrollBehavior: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension OverscrollBehavior {
+    public static let property: String = "overscroll-behavior"
 
     /// Overscroll behavior values
     public enum Value: String, Sendable, Hashable {

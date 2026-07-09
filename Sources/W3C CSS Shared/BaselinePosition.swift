@@ -16,6 +16,14 @@
 ///
 /// - SeeAlso: [MDN Web Docs on baseline-position values](https://developer.mozilla.org/en-US/docs/Web/CSS/baseline-position)
 public struct BaselinePosition: Sendable, Hashable {
+    let firstLast: FirstLast?
+
+    public init(firstLast: FirstLast?) {
+        self.firstLast = firstLast
+    }
+}
+
+extension BaselinePosition {
     public enum FirstLast: String, Sendable, Hashable, CustomStringConvertible {
         /// Aligns to the first baseline (default if just "baseline" is specified)
         ///
@@ -36,14 +44,6 @@ public struct BaselinePosition: Sendable, Hashable {
         /// align-items: last baseline;
         /// ```
         case last
-
-        public var description: String { rawValue }
-    }
-
-    let firstLast: FirstLast?
-
-    public init(firstLast: FirstLast?) {
-        self.firstLast = firstLast
     }
 
     public static let first: Self = .init(firstLast: .first)
@@ -52,6 +52,10 @@ public struct BaselinePosition: Sendable, Hashable {
     public static let lastBaseline: Self = .init(firstLast: .last)
     public static let baseline: Self = .init(firstLast: nil)
     public static func baseline(_ firstLast: FirstLast) -> Self { .init(firstLast: firstLast) }
+}
+
+extension BaselinePosition.FirstLast {
+    public var description: String { rawValue }
 }
 
 /// Provides string conversion for CSS output

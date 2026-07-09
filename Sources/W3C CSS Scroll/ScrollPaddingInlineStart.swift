@@ -17,8 +17,6 @@ public import W3C_CSS_Values
 /// ```
 public enum ScrollPaddingInlineStart: Property, LengthPercentageConvertible, CustomStringConvertible
 {
-    public static let property: String = "scroll-padding-inline-start"
-
     /// Keyword values
     case auto
 
@@ -26,6 +24,11 @@ public enum ScrollPaddingInlineStart: Property, LengthPercentageConvertible, Cus
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension ScrollPaddingInlineStart {
+    public static let property: String = "scroll-padding-inline-start"
 
     public var description: String {
         switch self {

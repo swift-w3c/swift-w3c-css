@@ -39,6 +39,9 @@ public enum SelfPosition: String, Sendable, Hashable, CaseIterable {
     /// Identical to `end` for other layout modes.
     case flexEnd = "flex-end"
 
+}
+
+extension SelfPosition {
     /// The values that can be used in both axes
     public static let allPositions: [SelfPosition] = [
         .center, .start, .end, .selfStart, .selfEnd, .flexStart, .flexEnd,

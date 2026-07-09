@@ -19,8 +19,6 @@ public import W3C_CSS_Values
 /// overscroll-behavior-x: contain;
 /// ```
 public enum OverscrollBehaviorX: Property {
-    public static let property: String = "overscroll-behavior-x"
-
     /// The default scroll overflow behavior occurs as normal
     case auto
 
@@ -34,6 +32,11 @@ public enum OverscrollBehaviorX: Property {
 
     /// Global CSS value
     case global(Global)
+
+}
+
+extension OverscrollBehaviorX {
+    public static let property: String = "overscroll-behavior-x"
 
     public var description: String {
         switch self {

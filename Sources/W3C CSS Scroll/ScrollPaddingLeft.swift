@@ -16,8 +16,6 @@ public import W3C_CSS_Values
 /// scroll-padding-left: 10%;
 /// ```
 public enum ScrollPaddingLeft: Property, LengthPercentageConvertible, CustomStringConvertible {
-    public static let property: String = "scroll-padding-left"
-
     /// Keyword values
     case auto
 
@@ -26,6 +24,11 @@ public enum ScrollPaddingLeft: Property, LengthPercentageConvertible, CustomStri
     /// Global CSS value
     case global(Global)
 
+}
+
+extension ScrollPaddingLeft {
+    public static let property: String = "scroll-padding-left"
+
     public var description: String {
         switch self {
         case .auto: return "auto"
@@ -33,5 +36,4 @@ public enum ScrollPaddingLeft: Property, LengthPercentageConvertible, CustomStri
         case .global(let global): return global.description
         }
     }
-
 }

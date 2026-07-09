@@ -27,7 +27,9 @@
 /// - SeeAlso: `Placeholder` for the standard pseudo-element
 /// - SeeAlso: [MDN Web Docs on ::placeholder](https://developer.mozilla.org/en-US/docs/Web/CSS/::placeholder)
 public struct MozPlaceholder: CSSPseudoElement {
-    @inlinable public static var name: String { "-moz-placeholder" }
-
     public init() {}
+}
+
+extension MozPlaceholder {
+    @inlinable public static var name: String { "-moz-placeholder" }
 }

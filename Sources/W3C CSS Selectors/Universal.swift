@@ -16,6 +16,9 @@ public struct UniversalSelector: Sendable, Hashable {
     /// Creates a universal selector
     public init() {}
 
+}
+
+extension UniversalSelector {
     /// A static convenience property for the universal selector
     public static let universal = UniversalSelector()
 }

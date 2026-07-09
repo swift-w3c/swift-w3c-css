@@ -16,6 +16,9 @@ public struct NestingSelector: Sendable, Hashable {
     /// Creates a nesting selector
     public init() {}
 
+}
+
+extension NestingSelector {
     /// A static convenience property for the nesting selector
     public static let nesting = NestingSelector()
 }

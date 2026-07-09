@@ -13,8 +13,6 @@
 /// CharSet("iso-8859-15")
 /// ```
 public struct CharSet: AtRule {
-    public static let identifier: String = "charset"
-
     public var rawValue: String
 
     public init(rawValue: String) {
@@ -29,6 +27,11 @@ public struct CharSet: AtRule {
     }
 
     // Common character encodings as static properties
+
+}
+
+extension CharSet {
+    public static let identifier: String = "charset"
 
     /// UTF-8 character encoding.
     public static let utf8 = CharSet("UTF-8")

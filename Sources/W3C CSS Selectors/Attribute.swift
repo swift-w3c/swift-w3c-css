@@ -52,6 +52,9 @@ public struct AttributeSelector: Sendable, Hashable {
         self.caseInsensitive = caseInsensitive
     }
 
+}
+
+extension AttributeSelector {
     /// Operators for attribute value matching
     public enum Operator: String, Sendable, Hashable {
         /// Exact match (=)

@@ -21,8 +21,6 @@
 /// - SeeAlso: [MDN Web Docs on unicode-bidi](https://developer.mozilla.org/en-US/docs/Web/CSS/unicode-bidi)
 public enum UnicodeBidi: Property {
 
-    public static let property: String = "unicode-bidi"
-
     /// The element does not offer an additional level of embedding with respect to the bidirectional algorithm.
     /// For inline elements, implicit reordering works across element boundaries.
     case normal
@@ -49,6 +47,11 @@ public enum UnicodeBidi: Property {
 
     /// Global value
     case global(Global)
+
+}
+
+extension UnicodeBidi {
+    public static let property: String = "unicode-bidi"
 
     public var description: String {
         switch self {

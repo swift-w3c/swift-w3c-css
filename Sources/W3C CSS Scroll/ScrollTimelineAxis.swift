@@ -18,6 +18,15 @@ public import W3C_CSS_Values
 /// scroll-timeline-axis: x;
 /// ```
 public enum ScrollTimelineAxis: Property {
+    /// The axis for the scroll timeline
+    case axis(Axis)
+
+    /// Global CSS value
+    case global(Global)
+
+}
+
+extension ScrollTimelineAxis {
     public static let property: String = "scroll-timeline-axis"
 
     /// The axis for scrollbar-driven timeline
@@ -34,12 +43,6 @@ public enum ScrollTimelineAxis: Property {
         /// The horizontal (x) axis
         case x
     }
-
-    /// The axis for the scroll timeline
-    case axis(Axis)
-
-    /// Global CSS value
-    case global(Global)
 
     public var description: String {
         switch self {
