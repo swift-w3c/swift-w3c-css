@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-end-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-style)
 public enum BorderInlineEndStyle: Property {
 
-
     /// A specific line style for the inline-end border
     case lineStyle(LineStyle)
 

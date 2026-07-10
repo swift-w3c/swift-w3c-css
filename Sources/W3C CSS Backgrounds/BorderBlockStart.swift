@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-start](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start)
 public enum BorderBlockStart: Property {
 
-
     /// Specifies border properties (width, style, color)
     /// Note that per CSS spec, these can be specified in any order
     case properties(width: BorderWidth? = nil, style: LineStyle? = nil, color: Color? = nil)

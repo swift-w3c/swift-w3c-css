@@ -22,7 +22,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-timeline-name](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline-name)
 public enum ViewTimelineName: Property {
 
-
     /// The timeline has no name
     case none
 

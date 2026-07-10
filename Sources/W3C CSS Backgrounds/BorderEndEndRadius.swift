@@ -42,7 +42,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-end-end-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-end-end-radius)
 public enum BorderEndEndRadius: Property {
 
-
     /// A single radius applied to both the horizontal and vertical dimensions
     case radius(LengthPercentage)
 

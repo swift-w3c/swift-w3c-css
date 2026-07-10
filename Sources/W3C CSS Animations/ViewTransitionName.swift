@@ -19,7 +19,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-transition-name](https://developer.mozilla.org/en-US/docs/Web/CSS/view-transition-name)
 public enum ViewTransitionName: Property {
 
-
     /// The element will not participate in a view transition
     case none
 

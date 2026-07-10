@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-style)
 public enum BorderBlockEndStyle: Property {
 
-
     /// A specific line style for the block-end border
     case lineStyle(LineStyle)
 

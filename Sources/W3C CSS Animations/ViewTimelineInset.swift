@@ -23,7 +23,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on view-timeline-inset](https://developer.mozilla.org/en-US/docs/Web/CSS/view-timeline-inset)
 public enum ViewTimelineInset: Property {
 
-
     /// A single value for both start and end
     case single(ViewTimelineInsetValue)
 

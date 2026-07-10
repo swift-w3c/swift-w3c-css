@@ -45,7 +45,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-style)
 public enum BorderBottomStyle: Property {
 
-
     /// A specific line style for the bottom border
     case lineStyle(LineStyle)
 

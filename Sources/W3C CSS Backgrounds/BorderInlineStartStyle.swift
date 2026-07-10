@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-start-style](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-style)
 public enum BorderInlineStartStyle: Property {
 
-
     /// A specific line style for the inline-start border
     case lineStyle(LineStyle)
 

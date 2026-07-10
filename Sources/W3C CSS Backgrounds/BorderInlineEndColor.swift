@@ -52,7 +52,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-end-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-color)
 public enum BorderInlineEndColor: Property, ColorConvertible {
 
-
     /// A specific color for the inline-end border
     case color(W3C_CSS_Values.Color)
 

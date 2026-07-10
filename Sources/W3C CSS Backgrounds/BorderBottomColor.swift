@@ -36,7 +36,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-color)
 public enum BorderBottomColor: Property, ColorConvertible {
 
-
     /// A specific color for the bottom border
     case color(W3C_CSS_Values.Color)
 

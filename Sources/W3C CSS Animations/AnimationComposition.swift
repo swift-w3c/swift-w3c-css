@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-composition](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-composition)
 public enum AnimationComposition: Property {
 
-
     /// The effect value overrides the underlying value of the property (default)
     case replace
 

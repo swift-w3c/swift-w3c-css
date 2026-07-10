@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-start-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-width)
 public enum BorderInlineStartWidth: Property {
 
-
     /// Use a specific width value for the inline-start border
     case width(BorderWidth.Width)
 

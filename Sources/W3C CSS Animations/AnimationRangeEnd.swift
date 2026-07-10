@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-range-end](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range-end)
 public enum AnimationRangeEnd: Property, LengthPercentageConvertible {
 
-
     /// Represents the end of the timeline (default)
     case normal
 

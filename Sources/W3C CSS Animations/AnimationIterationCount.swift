@@ -14,7 +14,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-iteration-count](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-iteration-count)
 public enum AnimationIterationCount: Property {
 
-
     /// The animation will repeat forever
     case infinite
 

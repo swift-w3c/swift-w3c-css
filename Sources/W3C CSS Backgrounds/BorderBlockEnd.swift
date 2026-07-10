@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end)
 public enum BorderBlockEnd: Property {
 
-
     /// Specifies border properties (width, style, color)
     /// Note that per CSS spec, these can be specified in any order
     case properties(width: BorderWidth? = nil, style: LineStyle? = nil, color: Color? = nil)

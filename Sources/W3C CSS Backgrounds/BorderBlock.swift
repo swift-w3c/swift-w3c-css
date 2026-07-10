@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block)
 public enum BorderBlock: Property, LineStyleConvertible {
 
-
     /// Only specifies the border style
     case lineStyle(LineStyle)
 

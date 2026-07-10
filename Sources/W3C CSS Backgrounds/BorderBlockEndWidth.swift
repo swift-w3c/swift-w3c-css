@@ -50,7 +50,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-width)
 public enum BorderBlockEndWidth: Property {
 
-
     /// A specific width for the block-end border
     case width(BorderWidth)
 

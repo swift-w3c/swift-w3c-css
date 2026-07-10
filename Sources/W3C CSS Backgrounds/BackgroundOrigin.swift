@@ -40,7 +40,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on background-origin](https://developer.mozilla.org/en-US/docs/Web/CSS/background-origin)
 public enum BackgroundOrigin: Property {
 
-
     /// The background is positioned relative to the border box
     case borderBox
 

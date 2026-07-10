@@ -304,7 +304,10 @@ extension Container.SizeComparison {
     }
 
     /// Creates a range comparison.
-    public static func range(min: LengthPercentage, max: LengthPercentage) -> Container.SizeComparison {
+    public static func range(
+        min: LengthPercentage,
+        max: LengthPercentage
+    ) -> Container.SizeComparison {
         Container.SizeComparison(rawValue: "\(min) <= && <= \(max)")
     }
 }
@@ -326,7 +329,8 @@ extension Container.RatioComparison {
     }
 
     /// Creates a greater than or equal to comparison.
-    public static func greaterThanOrEqual(_ width: Int, _ height: Int) -> Container.RatioComparison {
+    public static func greaterThanOrEqual(_ width: Int, _ height: Int) -> Container.RatioComparison
+    {
         Container.RatioComparison(rawValue: ">= \(width)/\(height)")
     }
 

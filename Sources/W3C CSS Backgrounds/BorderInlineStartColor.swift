@@ -52,7 +52,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-start-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-start-color)
 public enum BorderInlineStartColor: Property, ColorConvertible {
 
-
     /// A specific color for the inline-start border
     case color(W3C_CSS_Values.Color)
 

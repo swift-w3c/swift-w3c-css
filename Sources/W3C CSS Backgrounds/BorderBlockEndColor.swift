@@ -51,7 +51,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-end-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-color)
 public enum BorderBlockEndColor: Property, ColorConvertible {
 
-
     /// A specific color for the block-end border
     case color(W3C_CSS_Values.Color)
 

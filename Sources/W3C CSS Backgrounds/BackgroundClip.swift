@@ -53,7 +53,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on background-clip](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip)
 public enum BackgroundClip: Property {
 
-
     /// The background extends to the outside edge of the border
     case borderBox
 

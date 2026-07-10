@@ -44,7 +44,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)
 public enum BorderColor: Property, ColorConvertible {
 
-
     /// Same color for all four sides
     case all(W3C_CSS_Values.Color)
 

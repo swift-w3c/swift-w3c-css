@@ -15,7 +15,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction)
 public enum AnimationDirection: Property {
 
-
     /// The animation plays forwards each cycle (default)
     case normal
 

@@ -177,7 +177,8 @@ extension Property.SyntaxType {
 
     // Composite types with combinators
     /// Either of the specified types, for example "<length> | <percentage>"
-    public static func either(_ type1: Property.SyntaxType, _ type2: Property.SyntaxType) -> String {
+    public static func either(_ type1: Property.SyntaxType, _ type2: Property.SyntaxType) -> String
+    {
         "\(type1.rawValue) | \(type2.rawValue)"
     }
 

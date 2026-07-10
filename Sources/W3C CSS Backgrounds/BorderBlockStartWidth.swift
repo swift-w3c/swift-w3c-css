@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-block-start-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-start-width)
 public enum BorderBlockStartWidth: Property {
 
-
     /// A specific width for the block-start border
     case width(BorderWidth)
 

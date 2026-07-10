@@ -17,7 +17,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on animation-range-start](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-range-start)
 public enum AnimationRangeStart: Property, LengthPercentageConvertible {
 
-
     /// Represents the start of the timeline (default)
     case normal
 

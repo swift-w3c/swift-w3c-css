@@ -56,7 +56,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-color)
 public enum BorderInlineColor: Property, ColorConvertible {
 
-
     /// A specific color for both inline borders
     case color(W3C_CSS_Values.Color)
 

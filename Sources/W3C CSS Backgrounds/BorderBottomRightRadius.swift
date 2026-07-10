@@ -43,7 +43,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-bottom-right-radius](https://developer.mozilla.org/en-US/docs/Web/CSS/border-bottom-right-radius)
 public enum BorderBottomRightRadius: Property {
 
-
     /// A circular corner with a single radius
     case radius(LengthPercentage)
 

@@ -48,7 +48,6 @@ public import W3C_CSS_Values
 /// - SeeAlso: [MDN Web Docs on border-inline-end-width](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-width)
 public enum BorderInlineEndWidth: Property {
 
-
     /// Use a specific width value for the inline-end border
     case width(BorderWidth.Width)
 
