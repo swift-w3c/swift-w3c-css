@@ -2,4 +2,46 @@ version: 1
 builder:
   configs:
   - documentation_targets:
-    - CSSTypes
+    - W3C CSS Shared
+    - W3C CSS Values
+    - W3C CSS Color
+    - W3C CSS Syntax
+    - W3C CSS Cascade
+    - W3C CSS Selectors
+    - W3C CSS Variables
+    - W3C CSS Display
+    - W3C CSS Flexbox
+    - W3C CSS Grid
+    - W3C CSS Positioning
+    - W3C CSS Multicolumn
+    - W3C CSS BoxModel
+    - W3C CSS Text
+    - W3C CSS Fonts
+    - W3C CSS TextDecoration
+    - W3C CSS WritingModes
+    - W3C CSS Backgrounds
+    - W3C CSS Images
+    - W3C CSS Transforms
+    - W3C CSS Filters
+    - W3C CSS Masking
+    - W3C CSS Compositing
+    - W3C CSS Animations
+    - W3C CSS Transitions
+    - W3C CSS Easing
+    - W3C CSS Conditional
+    - W3C CSS MediaQueries
+    - W3C CSS UI
+    - W3C CSS PseudoElements
+    - W3C CSS PseudoClasses
+    - W3C CSS Containment
+    - W3C CSS Scroll
+    - W3C CSS Logical
+    - W3C CSS Alignment
+    - W3C CSS Lists
+    - W3C CSS CounterStyles
+    - W3C CSS Paged
+    - W3C CSS Layout
+    - W3C CSS Typography
+    - W3C CSS Visual
+    - W3C CSS Animation
+    - W3C CSS

@@ -1,0 +1,46 @@
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
+
+/// The CSS `outline-color` property sets the color of an element's outline.
+///
+/// An outline is a line drawn around an element, outside the border.
+/// This property defines the color of that line.
+///
+/// Example:
+/// ```swift
+/// .outlineColor(.red)                   // outline-color: red
+/// .outlineColor(.hex("#32a1ce"))        // outline-color: #32a1ce
+/// .outlineColor(.rgba(170, 50, 220, 0.6)) // outline-color: rgba(170, 50, 220, 0.6)
+/// .outlineColor(.currentColor)         // outline-color: currentcolor
+/// ```
+///
+/// - SeeAlso: [MDN Web Docs on outline-color](https://developer.mozilla.org/en-US/docs/Web/CSS/outline-color)
+public enum OutlineColor: Property, ColorConvertible {
+
+    /// A specific color value
+    case color(W3C_CSS_Values.Color)
+
+    /// Automatically determined color (typically the inverse of the background)
+    case auto
+
+    /// Global value
+    case global(Global)
+}
+
+/// CSS Output conversion
+extension OutlineColor: CustomStringConvertible {
+    public static let property: String = "outline-color"
+
+    /// Converts the outline-color value to its CSS string representation
+    public var description: String {
+        switch self {
+        case .color(let color):
+            return color.description
+        case .auto:
+            return "auto"
+        case .global(let global):
+            return global.description
+        }
+    }
+}

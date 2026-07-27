@@ -1,0 +1,50 @@
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
+
+//
+//  PositionTryOrder.swift
+//  swift-css
+//
+//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
+//
+
+public enum PositionTryOrder: Property {
+    /// Default value. No position-try fallback options will be tried when the element is first displayed.
+    case normal
+
+    /// Apply the fallback that gives the element's containing block the most height
+    case mostHeight
+
+    /// Apply the fallback that gives the element's containing block the most width
+    case mostWidth
+
+    /// Apply the fallback that gives the element's containing block the largest block size
+    case mostBlockSize
+
+    /// Apply the fallback that gives the element's containing block the largest inline size
+    case mostInlineSize
+
+    /// Global value
+    case global(Global)
+}
+
+extension PositionTryOrder {
+    public static let property: String = "position-try-order"
+
+    public var description: String {
+        switch self {
+        case .normal:
+            return "normal"
+        case .mostHeight:
+            return "most-height"
+        case .mostWidth:
+            return "most-width"
+        case .mostBlockSize:
+            return "most-block-size"
+        case .mostInlineSize:
+            return "most-inline-size"
+        case .global(let global):
+            return global.description
+        }
+    }
+}

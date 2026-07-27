@@ -1,0 +1,156 @@
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
+
+/// Represents the CSS `border-color` shorthand property, which sets the color of an element's borders.
+///
+/// This property is a shorthand that sets the color for all four sides of an element's border.
+/// You can specify from one to four colors to apply to different sides.
+///
+/// Visual Reference:
+/// ```
+/// One color for all sides:         Different colors for each side:
+/// ┌───────────────────────┐        ┌───────────────────────┐
+/// │                       │        │     red border        │
+/// │                       │        │                       │
+/// │                       │        │ g                   b │
+/// │                       │        │ r                   l │
+/// │                       │        │ e                   u │
+/// │                       │        │ e                   e │
+/// │                       │        │ n                     │
+/// │     red border        │        │                       │
+/// └───────────────────────┘        └───────────────────────┘
+///  border-color: red               border-color: red blue green gold
+/// ```
+///
+/// Example:
+/// ```swift
+/// // Same color for all four borders
+/// .borderColor(.red)
+///
+/// // Different colors for top/bottom and left/right
+/// .borderColor(.red, .blue)
+///
+/// // Different colors for top, sides, and bottom
+/// .borderColor(.red, .blue, .green)
+///
+/// // Different color for each side
+/// .borderColor(.red, .blue, .green, .gold)
+/// ```
+///
+/// - Note: This is a shorthand for setting the individual border color properties:
+///         `border-top-color`, `border-right-color`, `border-bottom-color`, and `border-left-color`.
+///
+/// - SeeAlso: [MDN Web Docs on border-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-color)
+public enum BorderColor: Property, ColorConvertible {
+
+    /// Same color for all four sides
+    case all(W3C_CSS_Values.Color)
+
+    /// Different colors for vertical (top/bottom) and horizontal (left/right) sides
+    case verticalHorizontal(W3C_CSS_Values.Color, W3C_CSS_Values.Color)
+
+    /// Different colors for top, horizontal (left/right), and bottom sides
+    case topHorizontalBottom(W3C_CSS_Values.Color, W3C_CSS_Values.Color, W3C_CSS_Values.Color)
+
+    /// Different colors for each side in clockwise order: top, right, bottom, left
+    case topRightBottomLeft(
+        W3C_CSS_Values.Color,
+        W3C_CSS_Values.Color,
+        W3C_CSS_Values.Color,
+        W3C_CSS_Values.Color
+    )
+
+    /// Global CSS values
+    case global(Global)
+
+    /// Creates a border color with the same value for all sides
+    ///
+    /// - Parameter color: The color for all sides
+    public init(_ color: W3C_CSS_Values.Color) {
+        self = .all(color)
+    }
+
+    /// Creates a border color with two values (vertical and horizontal)
+    ///
+    /// - Parameters:
+    ///   - vertical: The color for top and bottom borders
+    ///   - horizontal: The color for left and right borders
+    public init(_ vertical: W3C_CSS_Values.Color, _ horizontal: W3C_CSS_Values.Color) {
+        self = .verticalHorizontal(vertical, horizontal)
+    }
+
+    /// Creates a border color with three values (top, horizontal, bottom)
+    ///
+    /// - Parameters:
+    ///   - top: The color for the top border
+    ///   - horizontal: The color for left and right borders
+    ///   - bottom: The color for the bottom border
+    public init(
+        _ top: W3C_CSS_Values.Color,
+        _ horizontal: W3C_CSS_Values.Color,
+        _ bottom: W3C_CSS_Values.Color
+    ) {
+        self = .topHorizontalBottom(top, horizontal, bottom)
+    }
+
+    /// Creates a border color with four values (one for each side)
+    ///
+    /// - Parameters:
+    ///   - top: The color for the top border
+    ///   - right: The color for the right border
+    ///   - bottom: The color for the bottom border
+    ///   - left: The color for the left border
+    public init(
+        _ top: W3C_CSS_Values.Color,
+        _ right: W3C_CSS_Values.Color,
+        _ bottom: W3C_CSS_Values.Color,
+        _ left: W3C_CSS_Values.Color
+    ) {
+        self = .topRightBottomLeft(top, right, bottom, left)
+    }
+}
+
+extension BorderColor {
+    public static let property: String = "border-color"
+}
+
+/// Provides string conversion for CSS output
+extension BorderColor: CustomStringConvertible {
+    /// Converts the border-color to its CSS string representation
+    ///
+    /// This method generates CSS like:
+    /// ```css
+    /// border-color: red;
+    /// border-color: red blue;
+    /// border-color: red blue green;
+    /// border-color: red blue green gold;
+    /// ```
+    public var description: String {
+        switch self {
+        case .all(let color):
+            return color.description
+        case .verticalHorizontal(let vertical, let horizontal):
+            return "\(vertical.description) \(horizontal.description)"
+        case .topHorizontalBottom(let top, let horizontal, let bottom):
+            return "\(top.description) \(horizontal.description) \(bottom.description)"
+        case .topRightBottomLeft(let top, let right, let bottom, let left):
+            return
+                "\(top.description) \(right.description) \(bottom.description) \(left.description)"
+        case .global(let global):
+            return global.description
+        }
+    }
+}
+
+// MARK: - ColorConvertible
+
+extension BorderColor {
+    /// Creates a border color with the same value for all sides.
+    ///
+    /// This satisfies the `ColorConvertible` protocol requirement,
+    /// mapping to the `all(_:)` case.
+    public static func color(_ color: W3C_CSS_Values.Color) -> Self {
+        .all(color)
+    }
+}

@@ -1,0 +1,46 @@
+//
+//  TextEmphasisColor.swift
+//  swift-css
+//
+//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
+//
+
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
+
+/// The CSS `text-emphasis-color` property sets the color of emphasis marks.
+///
+/// This property is used in conjunction with `text-emphasis-style` to add emphasis marks to text.
+/// It can also be set using the `text-emphasis` shorthand.
+///
+/// - SeeAlso: [MDN Web Docs on text-emphasis-color](https://developer.mozilla.org/en-US/docs/Web/CSS/text-emphasis-color)
+public enum TextEmphasisColor: Property, ColorConvertible {
+
+    /// Defines the color of the emphasis marks.
+    /// If no color is present, it defaults to currentcolor.
+    case color(W3C_CSS_Values.Color)
+
+    /// Global value
+    case global(Global)
+}
+
+extension TextEmphasisColor {
+    public static let property: String = "text-emphasis-color"
+    public var description: String {
+        switch self {
+        case .color(let color):
+            return color.description
+        case .global(let global):
+            return global.description
+        }
+    }
+}
+
+/// Convenience factory for common color values
+extension TextEmphasisColor {
+    /// The default color value (currentColor)
+    public static var currentColor: TextEmphasisColor {
+        .color(.currentColor)
+    }
+}

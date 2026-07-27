@@ -1,0 +1,92 @@
+public import W3C_CSS_Color
+public import W3C_CSS_Shared
+public import W3C_CSS_Values
+
+/// Represents the CSS `border-inline-end-color` property, which defines the color of the logical inline-end
+/// border of an element.
+///
+/// This logical property maps to a physical border color depending on the element's writing mode,
+/// directionality, and text orientation. It corresponds to one of `border-top-color`, `border-right-color`,
+/// `border-bottom-color`, or `border-left-color` properties.
+///
+/// Visual Reference:
+/// ```
+/// horizontal-tb + ltr:          horizontal-tb + rtl:
+/// ┌─────────────────────┐       ┌─────────────────────┐
+/// │                     │       │                     │
+/// │                     │       │                     │
+/// │                     │       │                     │
+/// │                     │       │                     │
+/// └─────────────────────┘       └─────────────────────┘
+///                    ▲         ▲
+///   border-inline-end-color    border-inline-end-color
+///        (right)                     (left)
+///
+/// vertical-rl:                vertical-lr:
+/// ┌─────────────────────┐     ┌─────────────────────┐
+/// │                     │     │                     │
+/// ├─────────────────────┤     ├─────────────────────┤
+/// │                     │     │                     │
+/// │                     │     │                     │
+/// └─────────────────────┘     └─────────────────────┘
+///  ▲                                               ▲
+/// border-inline-end-color              border-inline-end-color
+///     (bottom)                              (top)
+/// ```
+///
+/// Example:
+/// ```swift
+/// // Set the inline-end border color to red
+/// .borderInlineEndColor(.red)
+///
+/// // Set the inline-end border color to a hex value
+/// .borderInlineEndColor(.hex("#32a1ce"))
+///
+/// // Set the inline-end border color to a semi-transparent color
+/// .borderInlineEndColor(.rgba(170, 50, 220, 0.6))
+///
+/// // Use the current text color
+/// .borderInlineEndColor(.currentColor)
+/// ```
+///
+/// - SeeAlso: [MDN Web Docs on border-inline-end-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-end-color)
+public enum BorderInlineEndColor: Property, ColorConvertible {
+
+    /// A specific color for the inline-end border
+    case color(W3C_CSS_Values.Color)
+
+    /// Global CSS values
+    case global(Global)
+
+    /// Creates a border-inline-end-color with a specific color
+    ///
+    /// - Parameter color: The color for the inline-end border
+    public init(_ color: W3C_CSS_Values.Color) {
+        self = .color(color)
+    }
+}
+
+extension BorderInlineEndColor {
+    public static let property: String = "border-inline-end-color"
+}
+
+/// Provides string conversion for CSS output
+extension BorderInlineEndColor: CustomStringConvertible {
+    /// Converts the border-inline-end-color to its CSS string representation
+    ///
+    /// This method generates CSS like:
+    /// ```css
+    /// border-inline-end-color: red;
+    /// border-inline-end-color: #32a1ce;
+    /// border-inline-end-color: rgba(170, 50, 220, 0.6);
+    /// border-inline-end-color: currentcolor;
+    /// ```
+    public var description: String {
+        switch self {
+        case .color(let color):
+            return color.description
+        case .global(let global):
+            return global.description
+        }
+    }
+}
