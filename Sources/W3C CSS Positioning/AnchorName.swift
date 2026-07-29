@@ -70,7 +70,7 @@ extension AnchorName {
 }
 
 extension AnchorName: ExpressibleByStringLiteral {
-    public init(stringLiteral value: StringLiteralType) {
+    public init(stringLiteral value: String) {
         self = .single(.init(value))
     }
 }
