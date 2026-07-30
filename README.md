@@ -15,7 +15,7 @@ Add the package to your `Package.swift` dependencies:
 
 ```swift
 dependencies: [
-    .package(url: "https://github.com/swift-w3c/swift-w3c-css.git", from: "0.3.0")
+    .package(url: "https://github.com/swift-w3c/swift-w3c-css.git", from: "0.1.2")
 ]
 ```
 
