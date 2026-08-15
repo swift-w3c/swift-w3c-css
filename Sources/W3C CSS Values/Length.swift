@@ -207,14 +207,18 @@ extension Length: Hashable {
         switch (lhs, rhs) {
         case (.length(let value1, let unit1), .length(let value2, let unit2)):
             return value1 == value2 && unit1 == unit2
+
         //        case let (.percentage(value1), .percentage(value2)):
         //            return value1 == value2
         case (.keyword(let keyword1), .keyword(let keyword2)):
             return keyword1 == keyword2
+
         case (.calc(let calc1), .calc(let calc2)):
             return calc1 == calc2
+
         case (.global(let global1), .global(let global2)):
             return global1 == global2
+
         default:
             return false
         }
@@ -234,6 +238,7 @@ extension Length: Numeric {
         switch self {
         case .length(let value, _):
             return abs(value)
+
         //        case .percentage(let percentage):
         //            return abs(percentage)
         case .calc, .keyword, .global:
@@ -263,6 +268,7 @@ extension Length: Numeric {
         switch (lhs, rhs) {
         case (.length(let v1, let u1), .length(let v2, let u2)) where u1 == u2:
             return .length(v1 * v2, u1)
+
         default:
             return .calc("\(lhs) * \(rhs)")
         }
@@ -292,6 +298,7 @@ extension Length: Numeric {
         switch (lhs, rhs) {
         case (.length(let v1, let u1), .length(let v2, let u2)) where u1 == u2:
             return .length(v1 + v2, u1)
+
         //        case (.percentage(let v1), .percentage(let v2)):
         //            return .percentage(v1 + v2)
         default:
@@ -323,6 +330,7 @@ extension Length: Numeric {
         switch (lhs, rhs) {
         case (.length(let v1, let u1), .length(let v2, let u2)) where u1 == u2:
             return .length(v1 - v2, u1)
+
         //        case (.percentage(let v1), .percentage(let v2)):
         //            return .percentage(v1 - v2)
         default:
@@ -361,10 +369,12 @@ extension Length: Numeric {
         switch lhs {
         case .length(let value, let unit):
             return .length(value / rhs, unit)
+
         //        case .percentage(let percentage):
         //            return .percentage(percentage / rhs)
         case .calc(let expression):
             return .calc("(\(expression)) / \(rhs)")
+
         case .keyword, .global:
             return lhs  // Keywords and globals cannot be divided
         }
@@ -525,10 +535,13 @@ extension Length: CustomStringConvertible {
         switch self {
         case .length(let value, let unit):
             return "\(value.formatted(.number))\(unit.rawValue)"
+
         case .keyword(let keyword):
             return keyword.rawValue
+
         case .calc(let expression):
             return "calc(\(expression))"
+
         case .global(let global):
             return global.rawValue
         }

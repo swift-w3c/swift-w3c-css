@@ -73,11 +73,11 @@ extension Outline {
         _ style: OutlineStyle,
         _ color: OutlineColor? = nil
     ) -> Self {
-        if let width = width, let color = color {
+        if let width, let color {
             return .widthStyleColor(width, style, color)
-        } else if let width = width {
+        } else if let width {
             return .widthStyle(width, style)
-        } else if let color = color {
+        } else if let color {
             return .styleColor(style, color)
         } else {
             return .style(style)

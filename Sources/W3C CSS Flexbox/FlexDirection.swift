@@ -37,12 +37,16 @@ extension FlexDirection {
         switch self {
         case .row:
             return "row"
+
         case .rowReverse:
             return "row-reverse"
+
         case .column:
             return "column"
+
         case .columnReverse:
             return "column-reverse"
+
         case .global(let value):
             return value.description
         }

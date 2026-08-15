@@ -72,16 +72,22 @@ extension TextDecorationLineValue {
         switch self {
         case .none:
             return "none"
+
         case .underline:
             return "underline"
+
         case .overline:
             return "overline"
+
         case .lineThrough:
             return "line-through"
+
         case .blink:
             return "blink"
+
         case .spellingError:
             return "spelling-error"
+
         case .grammarError:
             return "grammar-error"
         }
@@ -93,8 +99,10 @@ extension TextDecorationLine: CustomStringConvertible {
         switch self {
         case .value(let value):
             return value.description
+
         case .values(let values):
             return values.map { $0.description }.joined(separator: " ")
+
         case .global(let global):
             return global.description
         }

@@ -54,7 +54,7 @@ extension AlignContent {
             return distribution.description
 
         case .position(let overflow, let position):
-            if let overflow = overflow {
+            if let overflow {
                 return "\(overflow) \(position)"
             } else {
                 return position.description

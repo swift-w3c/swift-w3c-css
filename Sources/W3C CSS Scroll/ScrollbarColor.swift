@@ -36,8 +36,10 @@ extension ScrollbarColor {
         switch self {
         case .auto:
             return "auto"
+
         case .colors(let thumb, let track):
             return "\(thumb.description) \(track.description)"
+
         case .global(let global):
             return global.description
         }

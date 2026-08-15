@@ -40,11 +40,13 @@ extension TextEmphasisPosition {
         switch self {
         case .auto:
             return "auto"
+
         case .position(let horizontal, let vertical):
-            if let vertical = vertical {
+            if let vertical {
                 return "\(horizontal.rawValue) \(vertical.rawValue)"
             }
             return horizontal.rawValue
+
         case .global(let global):
             return global.description
         }

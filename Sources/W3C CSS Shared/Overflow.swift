@@ -61,6 +61,7 @@ extension Overflow {
         switch self {
         case .visible:
             return true
+
         default:
             return false
         }
@@ -71,6 +72,7 @@ extension Overflow {
         switch self {
         case .hidden, .clip, .scroll, .auto, .overlay:
             return true
+
         case .visible:
             return false
         }
@@ -81,6 +83,7 @@ extension Overflow {
         switch self {
         case .scroll, .auto, .overlay:
             return true
+
         case .visible, .hidden, .clip:
             return false
         }

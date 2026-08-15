@@ -144,10 +144,13 @@ extension BoxShadow: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .shadow(let shadow):
             return shadow.description
+
         case .multiple(let shadows):
             return shadows.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

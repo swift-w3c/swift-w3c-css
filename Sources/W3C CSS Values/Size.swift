@@ -185,12 +185,16 @@ extension Size: CustomStringConvertible {
         switch self {
         case .single(let length):
             return length.description
+
         case .double(let width, let height):
             return "\(width) \(height)"
+
         case .keyword(let keyword):
             return keyword.rawValue
+
         case .auto:
             return "auto"
+
         case .global(let global):
             return global.description
         }

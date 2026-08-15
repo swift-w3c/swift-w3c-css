@@ -73,12 +73,16 @@ extension AspectRatio: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .ratio(let ratio):
             return ratio.description
+
         case .autoWithFallback(let ratio):
             return "auto \(ratio.description)"
+
         case .ratioWithAuto(let ratio):
             return "\(ratio.description) auto"
+
         case .global(let global):
             return global.description
         }

@@ -53,8 +53,10 @@ extension ColorSchemeValue {
         switch self {
         case .light:
             return "light"
+
         case .dark:
             return "dark"
+
         case .custom(let name):
             return name.description
         }

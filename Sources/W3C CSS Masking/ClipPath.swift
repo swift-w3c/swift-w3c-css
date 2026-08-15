@@ -155,7 +155,7 @@ public struct PolygonShape: Sendable, Hashable {
 /// CSS Output conversion for shapes
 extension CircleShape: CustomStringConvertible {
     public var description: String {
-        if let center = center {
+        if let center {
             return "circle(\(radius) at \(center.x) \(center.y))"
         } else {
             return "circle(\(radius) )"
@@ -165,7 +165,7 @@ extension CircleShape: CustomStringConvertible {
 
 extension EllipseShape: CustomStringConvertible {
     public var description: String {
-        if let center = center {
+        if let center {
             return "ellipse(\(radiusX) \(radiusY) at \(center.x) \(center.y))"
         } else {
             return "ellipse(\(radiusX) \(radiusY) )"
@@ -176,7 +176,7 @@ extension EllipseShape: CustomStringConvertible {
 extension InsetShape: CustomStringConvertible {
     public var description: String {
         let insetPart = "inset(\(top) \(right) \(bottom) \(left))"
-        if let borderRadius = borderRadius {
+        if let borderRadius {
             return "\(insetPart) round \(borderRadius)"
         } else {
             return insetPart

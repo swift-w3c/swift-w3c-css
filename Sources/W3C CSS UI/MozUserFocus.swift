@@ -52,10 +52,13 @@ extension MozUserFocus {
         switch self {
         case .none:
             return "none"
+
         case .normal:
             return "normal"
+
         case .ignore:
             return "ignore"
+
         case .global(let global):
             return global.description
         }

@@ -43,10 +43,13 @@ extension AnimationComposition: CustomStringConvertible {
         switch self {
         case .replace:
             return "replace"
+
         case .add:
             return "add"
+
         case .accumulate:
             return "accumulate"
+
         case .global(let global):
             return global.description
         }

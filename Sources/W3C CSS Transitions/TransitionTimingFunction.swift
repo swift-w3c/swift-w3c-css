@@ -48,6 +48,7 @@ extension TransitionTimingFunction {
         switch self {
         case .list(let functions):
             return functions.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

@@ -87,20 +87,28 @@ extension MarginTrim {
         switch self {
         case .none:
             return "none"
+
         case .block:
             return "block"
+
         case .blockStart:
             return "block-start"
+
         case .blockEnd:
             return "block-end"
+
         case .inline:
             return "inline"
+
         case .inlineStart:
             return "inline-start"
+
         case .inlineEnd:
             return "inline-end"
+
         case .edges(let edges):
             return edges.map { $0.rawValue }.joined(separator: " ")
+
         case .global(let global):
             return global.description
         }

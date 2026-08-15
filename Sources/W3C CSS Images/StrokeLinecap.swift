@@ -46,10 +46,13 @@ extension StrokeLinecap {
         switch self {
         case .butt:
             return "butt"
+
         case .round:
             return "round"
+
         case .square:
             return "square"
+
         case .global(let global):
             return global.description
         }

@@ -54,6 +54,7 @@ extension Marker.MarkerValue {
         switch self {
         case .none:
             return "none"
+
         case .url(let url):
             return url.description
         }
@@ -65,22 +66,24 @@ extension Marker {
         switch self {
         case .all(let value):
             return value.description
+
         case .individual(let start, let mid, let end):
             var parts: [String] = []
 
-            if let start = start {
+            if let start {
                 parts.append(start.description)
             }
 
-            if let mid = mid {
+            if let mid {
                 parts.append(mid.description)
             }
 
-            if let end = end {
+            if let end {
                 parts.append(end.description)
             }
 
             return parts.joined(separator: " ")
+
         case .global(let global):
             return global.description
         }

@@ -51,21 +51,27 @@ extension Image: CustomStringConvertible {
         switch self {
         case .url(let url):
             return url.description
+
         case .gradient(let gradientString):
             return gradientString.description
+
         case .element(let id):
             return "element(#\(id))"
+
         case .crossFade(let percentage, let from, let to):
             return "cross-fade(\(percentage.value.formatted(.number))% \(from), \(to))"
+
         case .imageSet(let images):
             let imageParts = images.map { "\($0.url.description) \($0.resolution)" }
             return "image-set(\(imageParts.joined(separator: ", ")))"
+
         case .paint(let name, let arguments):
             if arguments.isEmpty {
                 return "paint(\(name))"
             } else {
                 return "paint(\(name), \(arguments.joined(separator: ", ")))"
             }
+
         case .none:
             return "none"
         }

@@ -60,24 +60,34 @@ extension OutlineStyle: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .none:
             return "none"
+
         case .dotted:
             return "dotted"
+
         case .dashed:
             return "dashed"
+
         case .solid:
             return "solid"
+
         case .double:
             return "double"
+
         case .groove:
             return "groove"
+
         case .ridge:
             return "ridge"
+
         case .inset:
             return "inset"
+
         case .outset:
             return "outset"
+
         case .global(let global):
             return global.description
         }

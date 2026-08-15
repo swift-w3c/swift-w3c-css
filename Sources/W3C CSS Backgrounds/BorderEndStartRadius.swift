@@ -69,8 +69,10 @@ extension BorderEndStartRadius: CustomStringConvertible {
         switch self {
         case .radius(let radius):
             return radius.description
+
         case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal) \(vertical)"
+
         case .global(let global):
             return global.description
         }

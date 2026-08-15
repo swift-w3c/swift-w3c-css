@@ -48,6 +48,7 @@ extension AnimationDelay: CustomStringConvertible {
         switch self {
         case .time(let time):
             return time.description
+
         case .global(let global):
             return global.description
         }

@@ -73,6 +73,7 @@ extension AnimationTimingFunction: CustomStringConvertible {
         switch self {
         case .function(let function):
             return function.description
+
         case .global(let global):
             return global.description
         }

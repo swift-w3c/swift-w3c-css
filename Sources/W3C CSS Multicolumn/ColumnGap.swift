@@ -33,8 +33,10 @@ extension ColumnGap {
         switch self {
         case .normal:
             return "normal"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .global(let global):
             return global.description
         }

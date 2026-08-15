@@ -103,12 +103,16 @@ extension BackgroundPositionY: CustomStringConvertible {
         switch self {
         case .keyword(let keyword):
             return keyword.rawValue
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .offset(let keyword, let value):
             return "\(keyword.rawValue) \(value)"
+
         case .multiple(let positions):
             return positions.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

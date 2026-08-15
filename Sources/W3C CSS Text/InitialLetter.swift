@@ -35,11 +35,13 @@ extension InitialLetter {
         switch self {
         case .normal:
             return "normal"
+
         case .sized(let size, let sink):
-            if let sink = sink {
+            if let sink {
                 return "\(size) \(sink)"
             }
             return "\(size)"
+
         case .global(let global):
             return global.description
         }

@@ -54,14 +54,19 @@ extension WritingMode {
         switch self {
         case .horizontalTb:
             return "horizontal-tb"
+
         case .verticalLr:
             return "vertical-lr"
+
         case .verticalRl:
             return "vertical-rl"
+
         case .sidewaysLr:
             return "sideways-lr"
+
         case .sidewaysRl:
             return "sideways-rl"
+
         case .global(let global):
             return global.description
         }

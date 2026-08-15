@@ -37,7 +37,7 @@ extension Slotted {
 extension Slotted: CustomStringConvertible {
     /// Converts the ::slotted() pseudo-element to its CSS string representation
     public var description: String {
-        if let selector = selector {
+        if let selector {
             return Self.prefix + "slotted(\(selector))"
         } else {
             return Self.prefix + Self.name

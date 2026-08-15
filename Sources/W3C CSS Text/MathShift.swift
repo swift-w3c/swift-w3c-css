@@ -37,8 +37,10 @@ extension MathShift {
         switch self {
         case .normal:
             return "normal"
+
         case .compact:
             return "compact"
+
         case .global(let global):
             return global.description
         }

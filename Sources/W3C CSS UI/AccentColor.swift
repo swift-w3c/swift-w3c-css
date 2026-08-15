@@ -37,8 +37,10 @@ extension AccentColor {
         switch self {
         case .auto:
             return "auto"
+
         case .color(let color):
             return color.description
+
         case .global(let global):
             return global.description
         }

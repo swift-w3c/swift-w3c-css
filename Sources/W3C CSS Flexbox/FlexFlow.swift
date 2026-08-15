@@ -28,6 +28,7 @@ extension FlexFlow {
         switch self {
         case .flexFlow(let direction, let wrap):
             return "\(direction) \(wrap)"
+
         case .global(let value):
             return value.description
         }

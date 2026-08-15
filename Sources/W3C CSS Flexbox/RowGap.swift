@@ -42,8 +42,10 @@ extension RowGap {
         switch self {
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .normal:
             return "normal"
+
         case .global(let global):
             return global.description
         }

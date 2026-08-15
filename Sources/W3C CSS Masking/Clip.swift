@@ -75,6 +75,7 @@ extension ClipValue: CustomStringConvertible {
         switch self {
         case .length(let length):
             return length.description
+
         case .auto:
             return "auto"
         }

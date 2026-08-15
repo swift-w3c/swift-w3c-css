@@ -45,12 +45,16 @@ extension OffsetRotate: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .angle(let angle):
             return angle.description
+
         case .autoAngle(let angle):
             return "auto \(angle.description)"
+
         case .reverse:
             return "reverse"
+
         case .global(let global):
             return global.description
         }

@@ -103,7 +103,7 @@ extension Color: CustomStringConvertible {
             return "oklch(\(l.formatted(.number)) \(c.formatted(.number)) \(h.formatted(.number)))"
 
         case .mix(let method, let color1, let color2, let percentage):
-            if let percentage = percentage {
+            if let percentage {
                 return
                     "color-mix(\(method), \(color1), \(color2) \(percentage.formatted(.number))%)"
             } else {

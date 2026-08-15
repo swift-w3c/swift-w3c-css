@@ -55,8 +55,10 @@ extension BackfaceVisibility: CustomStringConvertible {
         switch self {
         case .visible:
             return "visible"
+
         case .hidden:
             return "hidden"
+
         case .global(let global):
             return global.description
         }

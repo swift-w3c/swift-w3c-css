@@ -40,8 +40,10 @@ public enum ImageResolution: Property {
         switch source {
         case .fromImage:
             self = .fromImage(snap: snap)
+
         case .resolution(let resolution):
             self = .resolution(resolution, snap: snap)
+
         case .fromImageWithFallback(let resolution):
             self = .fromImageWithFallback(resolution, snap: snap)
         }
@@ -70,10 +72,13 @@ extension ImageResolution {
         switch self {
         case .fromImage:
             return .fromImage(snap: true)
+
         case .resolution(let resolution, _):
             return .resolution(resolution, snap: true)
+
         case .fromImageWithFallback(let resolution, _):
             return .fromImageWithFallback(resolution, snap: true)
+
         case .global:
             return self
         }

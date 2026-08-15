@@ -50,20 +50,26 @@ extension MaxHeight: CustomStringConvertible {
         switch self {
         case .lengthPercentage(let lengthPercentage):
             lengthPercentage.description
+
         case .none:
             "none"
+
         case .maxContent:
             "max-content"
+
         case .minContent:
             "min-content"
+
         case .fitContent(let lengthPercentage):
             if let description = lengthPercentage?.description {
                 "fit-content(\(description)"
             } else {
                 "fit-content"
             }
+
         case .stretch:
             "stretch"
+
         case .global(let global):
             global.description
         }

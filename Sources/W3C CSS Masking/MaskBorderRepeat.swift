@@ -131,8 +131,10 @@ extension MaskBorderRepeat: CustomStringConvertible {
         switch self {
         case .all(let style):
             return style.rawValue
+
         case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal.rawValue) \(vertical.rawValue)"
+
         case .global(let global):
             return global.description
         }

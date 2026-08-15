@@ -52,16 +52,21 @@ extension HyphenateLimitChars {
         switch self {
         case .auto:
             return "auto"
+
         case .minimumWordLength(let length):
             return "\(length)"
+
         case .minimumWordLengthAndBefore(let length, let before):
             return "\(length) \(before)"
+
         case .all(let length, let before, let after):
             return "\(length) \(before) \(after)"
+
         case .mixed(let wordLength, let before, let after):
             let beforeStr = before.description
             let afterStr = after.description
             return "\(wordLength) \(beforeStr) \(afterStr)"
+
         case .global(let global):
             return global.description
         }
@@ -80,6 +85,7 @@ extension HyphenLimit {
         switch self {
         case .auto:
             return "auto"
+
         case .value(let val):
             return "\(val)"
         }

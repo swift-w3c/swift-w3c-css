@@ -169,8 +169,10 @@ extension OffsetPath: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .url(let url):
             return url.description
+
         case .ray(let angle, let size, let contain, let position):
             var result = "ray(\(angle)"
             if let s = size {
@@ -184,12 +186,16 @@ extension OffsetPath: CustomStringConvertible {
             }
             result += ")"
             return result
+
         case .shape(let shape):
             return shape.description
+
         case .coordBox(let box):
             return box.description
+
         case .coordBoxShape(let box, let shape):
             return "\(box.description) \(shape.description)"
+
         case .global(let global):
             return global.description
         }
@@ -203,12 +209,16 @@ extension OffsetPath.RaySize: CustomStringConvertible {
         switch self {
         case .closestSide:
             return "closest-side"
+
         case .closestCorner:
             return "closest-corner"
+
         case .farthestSide:
             return "farthest-side"
+
         case .farthestCorner:
             return "farthest-corner"
+
         case .sides:
             return "sides"
         }
@@ -221,14 +231,19 @@ extension OffsetPath.CoordBox: CustomStringConvertible {
         switch self {
         case .borderBox:
             return "border-box"
+
         case .paddingBox:
             return "padding-box"
+
         case .contentBox:
             return "content-box"
+
         case .fillBox:
             return "fill-box"
+
         case .strokeBox:
             return "stroke-box"
+
         case .viewBox:
             return "view-box"
         }

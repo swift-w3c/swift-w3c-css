@@ -359,25 +359,25 @@ extension MaskBorder.Configuration {
         parts.append(sliceDescription)
 
         // Width and Outset (optional)
-        if let width = width {
+        if let width {
             let widthPart = " / \(widthDescription(width))"
 
-            if let outset = outset {
+            if let outset {
                 parts.append(widthPart + " / \(outsetDescription(outset))")
             } else {
                 parts.append(widthPart)
             }
-        } else if let outset = outset {
+        } else if let outset {
             parts.append(" / / \(outsetDescription(outset))")
         }
 
         // Repeat (optional)
-        if let `repeat` = `repeat` {
+        if let `repeat` {
             parts.append(repeatDescription(`repeat`))
         }
 
         // Mode (optional)
-        if let mode = mode {
+        if let mode {
             parts.append(modeDescription(mode))
         }
 
@@ -388,18 +388,25 @@ extension MaskBorder.Configuration {
         switch source {
         case .none:
             return "none"
+
         case .url(let url):
             return url.description
+
         case .linearGradient(let value):
             return "linear-gradient(\(value))"
+
         case .radialGradient(let value):
             return "radial-gradient(\(value))"
+
         case .conicGradient(let value):
             return "conic-gradient(\(value))"
+
         case .repeatingLinearGradient(let value):
             return "repeating-linear-gradient(\(value))"
+
         case .repeatingRadialGradient(let value):
             return "repeating-radial-gradient(\(value))"
+
         case .repeatingConicGradient(let value):
             return "repeating-conic-gradient(\(value))"
         }
@@ -482,6 +489,7 @@ extension MaskBorder.Configuration {
         switch mode {
         case .alpha: return "alpha"
         case .luminance: return "luminance"
+
         case .global(let global):
             return global.description
         }
@@ -521,6 +529,7 @@ extension MaskBorder.Slice.SliceValue {
         switch self {
         case .number(let number):
             return number.description
+
         case .percentage(let percentage):
             return percentage.description
         }
@@ -566,8 +575,10 @@ extension MaskBorder.Width.WidthValue {
         switch self {
         case .auto:
             return "auto"
+
         case .number(let number):
             return number.description
+
         case .lengthPercentage(let length):
             return length.description
         }
@@ -603,6 +614,7 @@ extension MaskBorder.Outset.OutsetValue {
         switch self {
         case .number(let number):
             return number.description
+
         case .length(let length):
             return length.description
         }
@@ -642,6 +654,7 @@ extension MaskBorder: CustomStringConvertible {
         switch self {
         case .config(let config):
             return config.description
+
         case .global(let global):
             return global.description
         }

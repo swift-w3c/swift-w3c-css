@@ -47,10 +47,13 @@ extension TextDecorationThickness: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .fromFont:
             return "from-font"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .global(let global):
             return global.description
         }

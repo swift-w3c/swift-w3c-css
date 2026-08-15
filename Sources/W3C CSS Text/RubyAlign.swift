@@ -47,12 +47,16 @@ extension RubyAlign {
         switch self {
         case .start:
             return "start"
+
         case .center:
             return "center"
+
         case .spaceBetween:
             return "space-between"
+
         case .spaceAround:
             return "space-around"
+
         case .global(let global):
             return global.description
         }

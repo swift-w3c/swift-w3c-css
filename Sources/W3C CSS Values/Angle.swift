@@ -131,10 +131,13 @@ extension Angle: CustomStringConvertible {
         switch self {
         case .deg(let value):
             return "\(value.formatted(.number))deg"
+
         case .rad(let value):
             return "\(value.formatted(.number))rad"
+
         case .grad(let value):
             return "\(value.formatted(.number))grad"
+
         case .turn(let value):
             return "\(value.formatted(.number))turn"
         }

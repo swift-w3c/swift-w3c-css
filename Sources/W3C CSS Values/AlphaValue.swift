@@ -73,6 +73,7 @@ extension AlphaValue: CustomStringConvertible {
         switch self {
         case .number(let number):
             return number.description
+
         case .percentage(let percentage):
             return percentage.description
         }

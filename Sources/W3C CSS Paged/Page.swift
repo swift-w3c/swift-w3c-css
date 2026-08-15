@@ -206,6 +206,7 @@ extension Page.PageSize {
         switch self {
         case .a3, .a4, .a5, .b4, .b5, .letter, .legal, .ledger, .auto:
             return rawValueEnum
+
         case .custom(let width, let height):
             return "\(width) \(height)"
         }

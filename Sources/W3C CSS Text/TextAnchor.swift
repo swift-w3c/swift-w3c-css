@@ -53,10 +53,13 @@ extension TextAnchor: CustomStringConvertible {
         switch self {
         case .start:
             return "start"
+
         case .middle:
             return "middle"
+
         case .end:
             return "end"
+
         case .global(let global):
             return global.description
         }

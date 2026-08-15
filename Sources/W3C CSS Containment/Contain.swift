@@ -48,22 +48,31 @@ extension Contain {
         switch self {
         case .none:
             return "none"
+
         case .strict:
             return "strict"
+
         case .content:
             return "content"
+
         case .size:
             return "size"
+
         case .inlineSize:
             return "inline-size"
+
         case .layout:
             return "layout"
+
         case .style:
             return "style"
+
         case .paint:
             return "paint"
+
         case .combined(let values):
             return values.map(\.description).joined(separator: " ")
+
         case .global(let value):
             return value.description
         }
@@ -93,12 +102,16 @@ extension ContainValue {
         switch self {
         case .size:
             return "size"
+
         case .inlineSize:
             return "inline-size"
+
         case .layout:
             return "layout"
+
         case .style:
             return "style"
+
         case .paint:
             return "paint"
         }

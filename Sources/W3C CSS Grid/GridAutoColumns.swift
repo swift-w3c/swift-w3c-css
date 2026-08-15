@@ -62,22 +62,31 @@ extension GridAutoColumns {
         switch self {
         case .auto:
             return "auto"
+
         case .px(let value):
             return "\(value.formatted(.number))px"
+
         case .percentage(let percentage):
             return percentage.description
+
         case .fr(let value):
             return "\(value.formatted(.number))fr"
+
         case .minContent:
             return "min-content"
+
         case .maxContent:
             return "max-content"
+
         case .minMax(let min, let max):
             return "minmax(\(min), \(max))"
+
         case .fitContent(let value):
             return "fit-content(\(value))"
+
         case .multiple(let tracks):
             return tracks.map { $0.description }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }
@@ -110,14 +119,19 @@ extension MinMaxValue {
         switch self {
         case .auto:
             return "auto"
+
         case .px(let value):
             return "\(value.formatted(.number))px"
+
         case .percentage(let percentage):
             return percentage.description
+
         case .fr(let value):
             return "\(value.formatted(.number))fr"
+
         case .minContent:
             return "min-content"
+
         case .maxContent:
             return "max-content"
         }

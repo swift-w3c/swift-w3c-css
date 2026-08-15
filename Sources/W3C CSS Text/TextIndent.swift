@@ -49,6 +49,7 @@ extension TextIndent {
             }
 
             return result
+
         case .global(let global):
             return global.description
         }

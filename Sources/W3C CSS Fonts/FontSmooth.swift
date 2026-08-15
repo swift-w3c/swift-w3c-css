@@ -41,12 +41,16 @@ extension FontSmooth {
         switch self {
         case .auto:
             return "auto"
+
         case .never:
             return "never"
+
         case .always:
             return "always"
+
         case .size(let length):
             return length.description
+
         case .global(let value):
             return value.description
         }
@@ -79,12 +83,16 @@ extension WebkitFontSmoothing {
         switch self {
         case .auto:
             return "auto"
+
         case .none:
             return "none"
+
         case .antialiased:
             return "antialiased"
+
         case .subpixelAntialiased:
             return "subpixel-antialiased"
+
         case .global(let value):
             return value.description
         }
@@ -111,8 +119,10 @@ extension MozOsxFontSmoothing {
         switch self {
         case .auto:
             return "auto"
+
         case .grayscale:
             return "grayscale"
+
         case .global(let value):
             return value.description
         }

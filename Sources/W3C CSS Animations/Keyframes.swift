@@ -185,10 +185,13 @@ extension Keyframes.KeyframeSelector {
         switch self {
         case .from:
             return "from"
+
         case .to:
             return "to"
+
         case .percentage(let value):
             return "\(value)%"
+
         case .timelineRange(let name, let value):
             return "\(name) \(value)%"
         }

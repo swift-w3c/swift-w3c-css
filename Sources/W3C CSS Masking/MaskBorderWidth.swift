@@ -159,10 +159,13 @@ extension MaskBorderWidth.WidthValue {
         switch self {
         case .length(let length):
             return length.description
+
         case .percentage(let percentage):
             return percentage.description
+
         case .number(let number):
             return number.description
+
         case .auto:
             return "auto"
         }
@@ -187,13 +190,17 @@ extension MaskBorderWidth: CustomStringConvertible {
         switch self {
         case .all(let value):
             return value.description
+
         case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
+
         case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
+
         case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
+
         case .global(let global):
             return global.description
         }

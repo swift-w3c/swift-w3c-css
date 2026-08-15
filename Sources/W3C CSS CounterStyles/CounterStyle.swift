@@ -272,8 +272,10 @@ extension CounterStyle.Range {
         switch self {
         case .specific(let min, let max):
             return "\(min) \(max)"
+
         case .auto:
             return "auto"
+
         case .infinite:
             return "infinite"
         }

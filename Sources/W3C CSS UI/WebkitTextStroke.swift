@@ -101,11 +101,11 @@ extension WebkitTextStroke {
         case .stroke(let width, let color):
             var parts: [String] = []
 
-            if let width = width {
+            if let width {
                 parts.append(width.description)
             }
 
-            if let color = color {
+            if let color {
                 parts.append(color.description)
             }
 
@@ -122,10 +122,13 @@ extension WebkitTextStroke.StrokeWidth {
         switch self {
         case .thin:
             return "thin"
+
         case .medium:
             return "medium"
+
         case .thick:
             return "thick"
+
         case .length(let length):
             return length.description
         }
@@ -137,6 +140,7 @@ extension WebkitTextStroke.StrokeColor {
         switch self {
         case .color(let color):
             return color.description
+
         case .currentColor:
             return "currentColor"
         }

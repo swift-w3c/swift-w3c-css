@@ -30,6 +30,7 @@ extension ShapeImageThreshold {
             // Ensure the value is clamped between 0.0 and 1.0
             let clampedValue = min(1.0, max(0.0, threshold))
             return String(clampedValue)
+
         case .global(let global):
             return global.description
         }

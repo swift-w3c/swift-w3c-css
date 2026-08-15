@@ -46,12 +46,16 @@ extension FontPalette {
         switch self {
         case .normal:
             return "normal"
+
         case .light:
             return "light"
+
         case .dark:
             return "dark"
+
         case .custom(let identifier):
             return identifier
+
         case .global(let value):
             return value.description
         }

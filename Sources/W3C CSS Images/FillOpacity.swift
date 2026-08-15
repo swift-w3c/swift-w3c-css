@@ -40,8 +40,10 @@ extension FillOpacity {
                 let rounded = (clampedValue * 100).rounded() / 100
                 return String(rounded)
             }
+
         case .percentage(let percentage):
             return percentage.description
+
         case .global(let value):
             return value.description
         }

@@ -96,16 +96,22 @@ extension BackgroundClip: CustomStringConvertible {
         switch self {
         case .borderBox:
             return "border-box"
+
         case .paddingBox:
             return "padding-box"
+
         case .contentBox:
             return "content-box"
+
         case .text:
             return "text"
+
         case .borderArea:
             return "border-area"
+
         case .multiple(let clips):
             return clips.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

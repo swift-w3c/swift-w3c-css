@@ -55,10 +55,13 @@ extension CounterIncrement {
         switch self {
         case .none:
             return "none"
+
         case .counter(let name):
             return name.description
+
         case .counterWithValue(let name, let value):
             return "\(name) \(value)"
+
         case .counters(let counters):
             return counters.map { counter in
                 if let value = counter.value {
@@ -67,6 +70,7 @@ extension CounterIncrement {
                     return counter.name.description
                 }
             }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }

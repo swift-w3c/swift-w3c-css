@@ -39,12 +39,16 @@ extension FontVariant {
         switch self {
         case .normal:
             return "normal"
+
         case .none:
             return "none"
+
         case .smallCaps:
             return "small-caps"
+
         case .combination(let options):
             return options.map { $0.description }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }

@@ -116,22 +116,31 @@ extension MaskClip: CustomStringConvertible {
         switch self {
         case .borderBox:
             return "border-box"
+
         case .paddingBox:
             return "padding-box"
+
         case .contentBox:
             return "content-box"
+
         case .marginBox:
             return "margin-box"
+
         case .fillBox:
             return "fill-box"
+
         case .strokeBox:
             return "stroke-box"
+
         case .viewBox:
             return "view-box"
+
         case .noClip:
             return "no-clip"
+
         case .multiple(let clips):
             return clips.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

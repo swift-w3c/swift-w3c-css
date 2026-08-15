@@ -37,8 +37,10 @@ extension OutlineColor: CustomStringConvertible {
         switch self {
         case .color(let color):
             return color.description
+
         case .auto:
             return "auto"
+
         case .global(let global):
             return global.description
         }

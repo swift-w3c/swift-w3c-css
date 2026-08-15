@@ -81,8 +81,10 @@ extension FeatureValue {
         switch self {
         case .integer(let value):
             return "\(value)"
+
         case .on:
             return "on"
+
         case .off:
             return "off"
         }
@@ -103,7 +105,7 @@ extension FontFeatureSettings: CustomStringConvertible {
             return "normal"
 
         case .features(let features):
-            let featureStrings = features.map { (tag, value) -> String in
+            let featureStrings = features.map { tag, value -> String in
                 let valueStr = value.map { " \($0)" } ?? ""
                 return "\"\(tag)\"\(valueStr)"
             }

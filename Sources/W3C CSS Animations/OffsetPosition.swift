@@ -54,10 +54,13 @@ extension OffsetPosition: CustomStringConvertible {
         switch self {
         case .normal:
             return "normal"
+
         case .auto:
             return "auto"
+
         case .position(let position):
             return position.description
+
         case .global(let global):
             return global.description
         }

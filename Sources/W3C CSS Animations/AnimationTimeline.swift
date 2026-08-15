@@ -75,28 +75,33 @@ extension AnimationTimeline: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .auto:
             return "auto"
+
         case .named(let name):
             return name.description
+
         case .scroll(let scroller, let axis):
             var params: [String] = []
-            if let scroller = scroller {
+            if let scroller {
                 params.append(scroller.rawValue)
             }
-            if let axis = axis {
+            if let axis {
                 params.append(axis.rawValue)
             }
             return "scroll(\(params.joined(separator: " ")))"
+
         case .view(let axis, let inset):
             var params: [String] = []
-            if let axis = axis {
+            if let axis {
                 params.append(axis.rawValue)
             }
-            if let inset = inset {
+            if let inset {
                 params.append(inset.description)
             }
             return "view(\(params.joined(separator: " ")))"
+
         case .global(let global):
             return global.description
         }

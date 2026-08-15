@@ -55,14 +55,19 @@ extension TextDecorationStyle: CustomStringConvertible {
         switch self {
         case .solid:
             return "solid"
+
         case .double:
             return "double"
+
         case .dotted:
             return "dotted"
+
         case .dashed:
             return "dashed"
+
         case .wavy:
             return "wavy"
+
         case .global(let global):
             return global.description
         }

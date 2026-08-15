@@ -81,7 +81,7 @@ extension AttributeSelector {
 extension AttributeSelector: CustomStringConvertible {
     /// Converts the attribute selector to its CSS string representation
     public var description: String {
-        guard let value = value, let op = `operator` else {
+        guard let value, let op = `operator` else {
             return "[\(attribute)]"
         }
 

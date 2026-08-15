@@ -42,14 +42,19 @@ extension LineBreak {
         switch self {
         case .auto:
             return "auto"
+
         case .loose:
             return "loose"
+
         case .normal:
             return "normal"
+
         case .strict:
             return "strict"
+
         case .anywhere:
             return "anywhere"
+
         case .global(let global):
             return global.description
         }

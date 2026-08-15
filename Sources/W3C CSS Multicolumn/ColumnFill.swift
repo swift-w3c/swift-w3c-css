@@ -40,10 +40,13 @@ extension ColumnFill: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .balance:
             return "balance"
+
         case .balanceAll:
             return "balance-all"
+
         case .global(let global):
             return global.description
         }

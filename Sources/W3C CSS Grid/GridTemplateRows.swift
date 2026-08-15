@@ -77,13 +77,13 @@ extension GridTemplateRows.NamedTrack {
     public var description: String {
         var result = ""
 
-        if let before = before {
+        if let before {
             result += "[\(before)] "
         }
 
         result += size.description
 
-        if let after = after {
+        if let after {
             result += " [\(after)]"
         }
 
@@ -96,21 +96,28 @@ extension GridTemplateRows {
         switch self {
         case .none:
             return "none"
+
         case .tracks(let sizes):
             return sizes.map { $0.description }.joined(separator: " ")
+
         case .named(let namedTracks):
             return namedTracks.map { $0.description }.joined(separator: " ")
+
         case .repeat(let count, let sizes):
             let sizeStr = sizes.map { $0.description }.joined(separator: " ")
             return "repeat(\(count), \(sizeStr))"
+
         case .autoFill(let sizes):
             let sizeStr = sizes.map { $0.description }.joined(separator: " ")
             return "repeat(auto-fill, \(sizeStr))"
+
         case .autoFit(let sizes):
             let sizeStr = sizes.map { $0.description }.joined(separator: " ")
             return "repeat(auto-fit, \(sizeStr))"
+
         case .subgrid:
             return "subgrid"
+
         case .global(let value):
             return value.description
         }

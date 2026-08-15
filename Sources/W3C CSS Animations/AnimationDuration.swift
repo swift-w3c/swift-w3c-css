@@ -48,8 +48,10 @@ extension AnimationDuration: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .time(let time):
             return time.description
+
         case .global(let global):
             return global.description
         }

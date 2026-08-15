@@ -107,14 +107,19 @@ extension WebkitMaskRepeatX: CustomStringConvertible {
         switch self {
         case .repeat:
             return "repeat"
+
         case .noRepeat:
             return "no-repeat"
+
         case .space:
             return "space"
+
         case .round:
             return "round"
+
         case .multiple(let repeats):
             return repeats.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

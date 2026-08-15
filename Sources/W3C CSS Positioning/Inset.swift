@@ -154,6 +154,7 @@ extension Inset.Value {
         switch self {
         case .auto:
             return "auto"
+
         case .lengthPercentage(let value):
             return value.description
         }

@@ -55,16 +55,22 @@ extension Resize {
         switch self {
         case .none:
             return "none"
+
         case .both:
             return "both"
+
         case .horizontal:
             return "horizontal"
+
         case .vertical:
             return "vertical"
+
         case .block:
             return "block"
+
         case .inline:
             return "inline"
+
         case .global(let global):
             return global.description
         }

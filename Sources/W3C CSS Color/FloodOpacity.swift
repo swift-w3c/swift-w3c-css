@@ -47,8 +47,10 @@ extension FloodOpacity {
         switch self {
         case .number(let number):
             return max(0, min(1, number.value)).formatted(.number)
+
         case .percentage(let percentage):
             return percentage.description
+
         case .global(let value):
             return value.description
         }

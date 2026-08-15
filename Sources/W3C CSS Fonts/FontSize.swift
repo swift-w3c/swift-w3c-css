@@ -55,12 +55,16 @@ extension FontSize {
         switch self {
         case .absoluteSize(let size):
             return size.description
+
         case .relativeSize(let size):
             return size.description
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .math:
             return "math"
+
         case .global(let value):
             return value.description
         }

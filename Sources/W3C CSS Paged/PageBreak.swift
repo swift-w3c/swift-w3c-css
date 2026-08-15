@@ -147,10 +147,13 @@ extension PageBreak {
         switch self {
         case .after(let after):
             after.rawValue
+
         case .before(let before):
             before.rawValue
+
         case .inside(let inside):
             inside.rawValue
+
         case .global(let global):
             global.description
         }

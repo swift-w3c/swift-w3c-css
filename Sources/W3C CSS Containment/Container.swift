@@ -43,7 +43,7 @@ public struct Container: AtRule {
     ///   - name: Optional container name.
     ///   - condition: The condition to apply.
     public init(_ name: String? = nil, _ condition: Condition) {
-        if let name = name {
+        if let name {
             self.rawValue = "@container \(name) \(condition.rawValue)"
         } else {
             self.rawValue = "@container \(condition.rawValue)"

@@ -65,6 +65,7 @@ extension InsetInline {
                 switch end {
                 case .some(let end):
                     return "\(start.description) \(end.description)"
+
                 case .none:
                     return start.description
                 }
@@ -81,6 +82,7 @@ extension InsetInline.Value {
         switch self {
         case .auto:
             return "auto"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
         }

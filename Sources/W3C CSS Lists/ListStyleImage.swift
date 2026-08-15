@@ -35,8 +35,10 @@ extension ListStyleImage {
         switch self {
         case .none:
             return "none"
+
         case .image(let image):
             return image.description
+
         case .global(let global):
             return global.description
         }

@@ -40,16 +40,22 @@ extension ContainIntrinsicSize {
         switch self {
         case .none:
             return "none"
+
         case .length(let length):
             return length.description
+
         case .widthHeight(let width, let height):
             return "\(width.description) \(height.description)"
+
         case .auto(let length):
             return "auto \(length.description)"
+
         case .autoNone:
             return "auto none"
+
         case .autoWidthHeight(let width, let height):
             return "\(width.description) \(height.description)"
+
         case .global(let value):
             return value.description
         }

@@ -36,10 +36,13 @@ extension MathDepth {
         switch self {
         case .autoAdd:
             return "auto-add"
+
         case .add(let value):
             return "add(\(value))"
+
         case .absolute(let value):
             return "\(value)"
+
         case .global(let global):
             return global.description
         }

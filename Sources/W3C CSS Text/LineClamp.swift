@@ -43,10 +43,12 @@ extension LineClamp {
         switch self {
         case .none:
             return "none"
+
         case .lines(let count):
             // Line count must be greater than 0
             let safeCount = max(1, count)
             return "\(safeCount)"
+
         case .global(let global):
             return global.description
         }

@@ -151,20 +151,20 @@ extension BorderImage.Configuration {
         parts.append(sliceDescription)
 
         // Width and Outset (optional)
-        if let width = width {
+        if let width {
             let widthPart = " / \(widthDescription(width))"
 
-            if let outset = outset {
+            if let outset {
                 parts.append(widthPart + " / \(outsetDescription(outset))")
             } else {
                 parts.append(widthPart)
             }
-        } else if let outset = outset {
+        } else if let outset {
             parts.append(" / / \(outsetDescription(outset))")
         }
 
         // Repeat (optional)
-        if let `repeat` = `repeat` {
+        if let `repeat` {
             parts.append(repeatDescription(`repeat`))
         }
 
@@ -175,20 +175,25 @@ extension BorderImage.Configuration {
         switch source {
         case .none:
             return "none"
+
         case .url(let url):
             return url.description
+
         case .linearGradient(let colors, let angle):
             let angleStr = angle.map { "\($0), " } ?? ""
             let colorsStr = colors.joined(separator: ", ")
             return "linear-gradient(\(angleStr)\(colorsStr))"
+
         case .radialGradient(let colors, let position):
             let positionStr = position.map { "\($0), " } ?? ""
             let colorsStr = colors.joined(separator: ", ")
             return "radial-gradient(\(positionStr)\(colorsStr))"
+
         case .repeatingLinearGradient(let colors, let angle):
             let angleStr = angle.map { "\($0), " } ?? ""
             let colorsStr = colors.joined(separator: ", ")
             return "repeating-linear-gradient(\(angleStr)\(colorsStr))"
+
         case .repeatingRadialGradient(let colors, let position):
             let positionStr = position.map { "\($0), " } ?? ""
             let colorsStr = colors.joined(separator: ", ")
@@ -365,6 +370,7 @@ extension BorderImage.Slice.SliceValue {
         switch self {
         case .number(let number):
             return number.description
+
         case .percentage(let percentage):
             return percentage.description
         }
@@ -457,8 +463,10 @@ extension BorderImage.Width.WidthValue {
         switch self {
         case .auto:
             return "auto"
+
         case .number(let number):
             return number.description
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
         }
@@ -541,6 +549,7 @@ extension BorderImage.Outset.OutsetValue {
         switch self {
         case .number(let number):
             return number.description
+
         case .length(let length):
             return length.description
         }
@@ -631,6 +640,7 @@ extension BorderImage: CustomStringConvertible {
         switch self {
         case .config(let config):
             return config.description
+
         case .global(let global):
             return global.description
         }

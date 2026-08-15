@@ -47,8 +47,10 @@ extension TabSize: CustomStringConvertible {
         switch self {
         case .number(let number):
             return number.description
+
         case .length(let length):
             return length.description
+
         case .global(let global):
             return global.description
         }

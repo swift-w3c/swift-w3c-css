@@ -37,7 +37,7 @@ extension Highlight {
 extension Highlight: CustomStringConvertible {
     /// Converts the ::highlight() pseudo-element to its CSS string representation
     public var description: String {
-        if let identifier = identifier {
+        if let identifier {
             return Self.prefix + "highlight(\(identifier))"
         } else {
             return Self.prefix + Self.name

@@ -52,12 +52,15 @@ extension Quotes {
         switch self {
         case .none:
             return "none"
+
         case .auto:
             return "auto"
+
         case .strings(let pairs):
             return pairs.flatMap { pair in ["\"\([pair.first])\"", "\"\(pair.second)\""] }.joined(
                 separator: " "
             )
+
         case .global(let global):
             return global.description
         }

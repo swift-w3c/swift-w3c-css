@@ -41,16 +41,22 @@ extension ContainerType {
         switch self {
         case .normal:
             return "normal"
+
         case .inlineSize:
             return "inline-size"
+
         case .size:
             return "size"
+
         case .scrollState:
             return "scroll-state"
+
         case .sizeScrollState:
             return "size scroll-state"
+
         case .inlineSizeScrollState:
             return "inline-size scroll-state"
+
         case .global(let value):
             return value.description
         }

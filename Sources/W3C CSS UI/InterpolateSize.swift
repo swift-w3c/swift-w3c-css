@@ -47,8 +47,10 @@ extension InterpolateSize {
         switch self {
         case .numericOnly:
             return "numeric-only"
+
         case .allowKeywords:
             return "allow-keywords"
+
         case .global(let global):
             return global.description
         }

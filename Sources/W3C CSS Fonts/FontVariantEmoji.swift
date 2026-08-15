@@ -48,12 +48,16 @@ extension FontVariantEmoji {
         switch self {
         case .normal:
             return "normal"
+
         case .text:
             return "text"
+
         case .emoji:
             return "emoji"
+
         case .unicode:
             return "unicode"
+
         case .global(let global):
             return global.description
         }

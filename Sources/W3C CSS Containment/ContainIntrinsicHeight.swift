@@ -33,12 +33,16 @@ extension ContainIntrinsicHeight {
         switch self {
         case .none:
             return "none"
+
         case .length(let length):
             return length.description
+
         case .auto(let length):
             return "auto \(length.description)"
+
         case .autoNone:
             return "auto none"
+
         case .global(let value):
             return value.description
         }

@@ -27,6 +27,7 @@ extension ShapeMargin {
         switch self {
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .global(let global):
             return global.description
         }

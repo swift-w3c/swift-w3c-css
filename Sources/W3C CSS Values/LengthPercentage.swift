@@ -95,8 +95,10 @@ extension LengthPercentage: CustomStringConvertible {
         switch self {
         case .length(let length):
             return length.description
+
         case .percentage(let percentage):
             return percentage.description
+
         case .calc(let expression):
             return "calc(\(expression))"
         }

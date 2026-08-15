@@ -104,10 +104,13 @@ extension MaskImage: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .single(let image):
             return image.description
+
         case .multiple(let images):
             return images.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

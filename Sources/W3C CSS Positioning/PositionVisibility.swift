@@ -41,12 +41,16 @@ extension PositionVisibility {
         switch self {
         case .always:
             return "always"
+
         case .anchorsVisible:
             return "anchors-visible"
+
         case .noOverflow:
             return "no-overflow"
+
         case .combined(let conditions):
             return conditions.map { $0.rawValue }.joined(separator: " ")
+
         case .global(let global):
             return global.description
         }

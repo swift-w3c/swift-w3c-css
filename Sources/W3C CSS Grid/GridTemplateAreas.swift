@@ -47,8 +47,10 @@ extension GridTemplateAreas {
         switch self {
         case .none:
             return "none"
+
         case .areas(let areas):
             return areas.map { "\"\($0)\"" }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }

@@ -66,7 +66,7 @@ extension PaddingBlock {
     ///   - end: The optional block-end padding in pixels (if not provided, start is used for both)
     /// - Returns: A PaddingBlock instance
     public static func px(_ start: Double, _ end: Double? = nil) -> PaddingBlock {
-        if let end = end {
+        if let end {
             return .separate(.px(start), .px(end))
         }
         return .uniform(.px(start))
@@ -79,7 +79,7 @@ extension PaddingBlock {
     ///   - end: The optional block-end padding in ems (if not provided, start is used for both)
     /// - Returns: A PaddingBlock instance
     public static func em(_ start: Double, _ end: Double? = nil) -> PaddingBlock {
-        if let end = end {
+        if let end {
             return .separate(.em(start), .em(end))
         }
         return .uniform(.em(start))
@@ -92,7 +92,7 @@ extension PaddingBlock {
     ///   - end: The optional block-end padding as a percentage (if not provided, start is used for both)
     /// - Returns: A PaddingBlock instance
     public static func percentage(_ start: Percentage, _ end: Percentage? = nil) -> PaddingBlock {
-        if let end = end {
+        if let end {
             return .separate(.percentage(start), .percentage(end))
         }
         return .uniform(.percentage(start))

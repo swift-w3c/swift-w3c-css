@@ -39,8 +39,10 @@ extension TransitionBehavior {
         switch self {
         case .allowDiscrete:
             return "allow-discrete"
+
         case .normal:
             return "normal"
+
         case .global(let global):
             return global.description
         }

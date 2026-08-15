@@ -140,10 +140,13 @@ extension BorderWidth.Values {
         switch pattern {
         case .all:
             return top.description
+
         case .verticalHorizontal:
             return "\(top.description) \(right.description)"
+
         case .topHorizontalBottom:
             return "\(top.description) \(right.description) \(bottom.description)"
+
         case .fourSides:
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
@@ -173,10 +176,13 @@ extension BorderWidth.Width {
         switch self {
         case .thin:
             return "thin"
+
         case .medium:
             return "medium"
+
         case .thick:
             return "thick"
+
         case .length(let length):
             return length.description
         }
@@ -248,6 +254,7 @@ extension BorderWidth: CustomStringConvertible {
         switch self {
         case .values(let values):
             return values.description
+
         case .global(let global):
             return global.description
         }

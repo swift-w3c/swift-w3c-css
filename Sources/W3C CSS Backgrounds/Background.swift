@@ -248,15 +248,19 @@ extension Background: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .layer(let layer):
             return layer.description
+
         case .layers(let layers):
             if layers.isEmpty {
                 return "none"
             }
             return layers.map { $0.description }.joined(separator: ", ")
+
         case .color(let color):
             return color.description
+
         case .global(let global):
             return global.description
         }
@@ -275,18 +279,18 @@ extension Background.Layer: CustomStringConvertible {
         var components: [String] = []
 
         // Add image
-        if let image = image {
+        if let image {
             components.append(image.description)
         }
 
         // Add position and size (position/size)
-        if let position = position {
+        if let position {
             var positionStr = position.description
-            if let size = size {
+            if let size {
                 positionStr += "/\(size.description)"
             }
             components.append(positionStr)
-        } else if let size = size {
+        } else if let size {
             // If we have a size but no position, use the default position
             components.append("0% 0%/\(size.description)")
         }
@@ -297,22 +301,22 @@ extension Background.Layer: CustomStringConvertible {
         }
 
         // Add attachment
-        if let attachment = attachment {
+        if let attachment {
             components.append(attachment.description)
         }
 
         // Origin and clip can appear in either order
         // According to the MDN docs, the first is origin, the second is clip
-        if let origin = origin {
+        if let origin {
             components.append(origin.description)
         }
 
-        if let clip = clip {
+        if let clip {
             components.append(clip.description)
         }
 
         // Add color (should only be in the last layer according to spec)
-        if let color = color {
+        if let color {
             components.append(color.description)
         }
 

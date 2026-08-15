@@ -161,14 +161,19 @@ extension BorderRadius.Values {
         switch radii.count {
         case 0:
             return [.px(0), .px(0), .px(0), .px(0)]
+
         case 1:
             return [radii[0], radii[0], radii[0], radii[0]]
+
         case 2:
             return [radii[0], radii[1], radii[0], radii[1]]
+
         case 3:
             return [radii[0], radii[1], radii[2], radii[1]]
+
         case 4:
             return [radii[0], radii[1], radii[2], radii[3]]
+
         default:
             // Truncate to 4 values if more are provided
             return Array(radii.prefix(4))
@@ -177,7 +182,7 @@ extension BorderRadius.Values {
 
     /// String representation of the radius values according to CSS syntax
     public var description: String {
-        guard let vertical = vertical, !vertical.isEmpty else {
+        guard let vertical, !vertical.isEmpty else {
             // Only horizontal values
             return formatCSSValues(horizontal)
         }
@@ -237,20 +242,25 @@ extension BorderRadius {
     ///   - horizontal: The horizontal radii for the corners
     ///   - vertical: The vertical radii for the corners (optional)
     public init(_ horizontal: [LengthPercentage], _ vertical: [LengthPercentage]? = nil) {
-        if let vertical = vertical, !vertical.isEmpty {
+        if let vertical, !vertical.isEmpty {
             self = .values(Values(horizontal: horizontal, vertical: vertical))
         } else {
             switch horizontal.count {
             case 0:
                 self = .values(Values(.px(0)))
+
             case 1:
                 self = .values(Values(horizontal[0]))
+
             case 2:
                 self = .values(Values(horizontal[0], horizontal[1]))
+
             case 3:
                 self = .values(Values(horizontal[0], horizontal[1], horizontal[2]))
+
             case 4:
                 self = .values(Values(horizontal[0], horizontal[1], horizontal[2], horizontal[3]))
+
             default:
                 // Truncate to 4 values if there are more
                 self = .values(Values(horizontal[0], horizontal[1], horizontal[2], horizontal[3]))
@@ -284,6 +294,7 @@ extension BorderRadius: CustomStringConvertible {
         switch self {
         case .values(let values):
             return values.description
+
         case .global(let global):
             return global.description
         }

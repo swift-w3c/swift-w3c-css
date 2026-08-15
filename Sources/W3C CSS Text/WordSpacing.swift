@@ -33,8 +33,10 @@ extension WordSpacing {
         switch self {
         case .normal:
             return "normal"
+
         case .length(let length):
             return length.description
+
         case .global(let global):
             return global.description
         }

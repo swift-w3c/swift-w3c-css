@@ -83,12 +83,16 @@ extension DisplayListitemFactory {
         switch (outer, inner) {
         case (.block, .flow):
             return .blockFlowListItem
+
         case (.block, .flowRoot):
             return .blockFlowRootListItem
+
         case (.inline, .flow):
             return .inlineFlowListItem
+
         case (.inline, .flowRoot):
             return .inlineFlowRootListItem
+
         default:
             // The CSS spec only allows flow or flow-root for listitem,
             // but we'll return a custom string for extensibility

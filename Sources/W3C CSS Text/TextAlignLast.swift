@@ -54,20 +54,28 @@ extension TextAlignLast {
         switch self {
         case .auto:
             return "auto"
+
         case .start:
             return "start"
+
         case .end:
             return "end"
+
         case .left:
             return "left"
+
         case .right:
             return "right"
+
         case .center:
             return "center"
+
         case .justify:
             return "justify"
+
         case .matchParent:
             return "match-parent"
+
         case .global(let global):
             return global.description
         }

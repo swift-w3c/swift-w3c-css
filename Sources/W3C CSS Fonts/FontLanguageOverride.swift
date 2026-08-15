@@ -38,8 +38,10 @@ extension FontLanguageOverride {
         switch self {
         case .normal:
             return "normal"
+
         case .language(let langTag):
             return langTag.description
+
         case .global(let global):
             return global.description
         }

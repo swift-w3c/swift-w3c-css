@@ -60,18 +60,25 @@ extension TextDecorationSkipValue {
         switch self {
         case .none:
             return "none"
+
         case .auto:
             return "auto"
+
         case .objects:
             return "objects"
+
         case .spaces:
             return "spaces"
+
         case .leadingSpaces:
             return "leading-spaces"
+
         case .trailingSpaces:
             return "trailing-spaces"
+
         case .edges:
             return "edges"
+
         case .boxDecoration:
             return "box-decoration"
         }
@@ -99,8 +106,10 @@ extension TextDecorationSkip: CustomStringConvertible {
         switch self {
         case .value(let value):
             return value.description
+
         case .values(let values):
             return values.map { $0.description }.joined(separator: " ")
+
         case .global(let global):
             return global.description
         }

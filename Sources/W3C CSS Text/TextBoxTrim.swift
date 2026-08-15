@@ -51,12 +51,16 @@ extension TextBoxTrim {
         switch self {
         case .none:
             return "none"
+
         case .trimBoth:
             return "trim-both"
+
         case .trimStart:
             return "trim-start"
+
         case .trimEnd:
             return "trim-end"
+
         case .global(let global):
             return global.description
         }

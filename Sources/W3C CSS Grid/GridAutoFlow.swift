@@ -41,12 +41,16 @@ extension GridAutoFlow {
         switch self {
         case .row:
             return "row"
+
         case .column:
             return "column"
+
         case .rowDense:
             return "row dense"
+
         case .columnDense:
             return "column dense"
+
         case .global(let value):
             return value.description
         }

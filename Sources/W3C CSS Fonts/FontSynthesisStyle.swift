@@ -30,8 +30,10 @@ extension FontSynthesisStyle {
         switch self {
         case .auto:
             return "auto"
+
         case .none:
             return "none"
+
         case .global(let value):
             return value.description
         }

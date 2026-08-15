@@ -61,12 +61,16 @@ extension WebkitTextSecurity {
         switch self {
         case .none:
             return "none"
+
         case .disc:
             return "disc"
+
         case .circle:
             return "circle"
+
         case .square:
             return "square"
+
         case .global(let global):
             return global.description
         }

@@ -48,9 +48,11 @@ extension MozImageRegion {
         switch self {
         case .auto:
             return "auto"
+
         case .rect(let top, let right, let bottom, let left):
             return
                 "rect(\(top.description), \(right.description), \(bottom.description), \(left.description))"
+
         case .global(let global):
             return global.description
         }

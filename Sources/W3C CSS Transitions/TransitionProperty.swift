@@ -65,12 +65,16 @@ extension TransitionProperty {
         switch self {
         case .all:
             return "all"
+
         case .none:
             return "none"
+
         case .custom(let property):
             return property.description
+
         case .list(let properties):
             return properties.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

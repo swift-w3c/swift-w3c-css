@@ -80,6 +80,7 @@ extension BorderInlineEndWidth: CustomStringConvertible {
         switch self {
         case .width(let width):
             return width.description
+
         case .global(let global):
             return global.description
         }

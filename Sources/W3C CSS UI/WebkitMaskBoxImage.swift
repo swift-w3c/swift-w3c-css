@@ -121,11 +121,11 @@ extension WebkitMaskBoxImage {
         case .config(let source, let offset, let repeatStyle):
             var parts: [String] = [sourceDescription(source)]
 
-            if let offset = offset {
+            if let offset {
                 parts.append(offsetDescription(offset))
             }
 
-            if let repeatStyle = repeatStyle {
+            if let repeatStyle {
                 parts.append(repeatStyleDescription(repeatStyle))
             }
 
@@ -140,8 +140,10 @@ extension WebkitMaskBoxImage {
         switch source {
         case .url(let url):
             return url.description
+
         case .linearGradient(let value):
             return "linear-gradient(\(value))"
+
         case .radialGradient(let value):
             return "radial-gradient(\(value))"
         }
@@ -193,8 +195,10 @@ extension WebkitMaskBoxImage.EdgeOffset.OffsetValue {
         switch self {
         case .number(let number):
             return number.description
+
         case .length(let length):
             return length.description
+
         case .percentage(let percentage):
             return percentage.description
         }

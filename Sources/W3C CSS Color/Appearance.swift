@@ -88,14 +88,19 @@ extension Appearance: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .auto:
             return "auto"
+
         case .menulistButton:
             return "menulist-button"
+
         case .textfield:
             return "textfield"
+
         case .compat(let compat):
             return compat.rawValue
+
         case .global(let global):
             return global.description
         }

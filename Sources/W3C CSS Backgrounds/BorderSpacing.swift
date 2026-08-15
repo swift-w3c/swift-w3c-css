@@ -87,8 +87,10 @@ extension BorderSpacing {
         switch self {
         case .all(let length):
             return length.description
+
         case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal.description) \(vertical.description)"
+
         case .global(let global):
             return global.description
         }

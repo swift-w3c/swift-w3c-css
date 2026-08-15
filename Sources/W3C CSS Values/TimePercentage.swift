@@ -53,6 +53,7 @@ extension TimePercentage: CustomStringConvertible {
         switch self {
         case .time(let time):
             return time.description
+
         case .percentage(let percentage):
             return percentage.description
         }
@@ -71,6 +72,7 @@ extension TimePercentage {
         switch lhs {
         case .time(let time):
             return .time(time * rhs)
+
         case .percentage(let percentage):
             return .percentage(percentage * rhs)
         }
@@ -86,6 +88,7 @@ extension TimePercentage {
         switch lhs {
         case .time(let time):
             return .time(time / rhs)
+
         case .percentage(let percentage):
             return .percentage(percentage / rhs)
         }

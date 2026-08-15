@@ -35,14 +35,19 @@ extension PositionTryOrder {
         switch self {
         case .normal:
             return "normal"
+
         case .mostHeight:
             return "most-height"
+
         case .mostWidth:
             return "most-width"
+
         case .mostBlockSize:
             return "most-block-size"
+
         case .mostInlineSize:
             return "most-inline-size"
+
         case .global(let global):
             return global.description
         }

@@ -54,6 +54,7 @@ extension Bottom: CustomStringConvertible {
 
         case .lengthPercentage(let value):
             return value.description
+
         case .global(let global):
             return global.description
         }

@@ -171,6 +171,7 @@ extension NamedColor {
         case .whitesmoke: IEC_61966.`2`.`1`.sRGB(r255: 245, g255: 245, b255: 245)
         case .yellow: IEC_61966.`2`.`1`.sRGB(r255: 255, g255: 255, b255: 0)
         case .yellowgreen: IEC_61966.`2`.`1`.sRGB(r255: 154, g255: 205, b255: 50)
+
         case .transparent, .currentColor:
             // Context-dependent values cannot be converted to fixed sRGB
             nil

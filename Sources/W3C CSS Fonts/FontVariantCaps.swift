@@ -58,18 +58,25 @@ extension FontVariantCaps {
         switch self {
         case .normal:
             return "normal"
+
         case .smallCaps:
             return "small-caps"
+
         case .allSmallCaps:
             return "all-small-caps"
+
         case .petiteCaps:
             return "petite-caps"
+
         case .allPetiteCaps:
             return "all-petite-caps"
+
         case .unicase:
             return "unicase"
+
         case .titlingCaps:
             return "titling-caps"
+
         case .global(let value):
             return value.description
         }

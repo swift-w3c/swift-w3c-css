@@ -62,22 +62,31 @@ extension VerticalAlign {
         switch self {
         case .baseline:
             return "baseline"
+
         case .sub:
             return "sub"
+
         case .super:
             return "super"
+
         case .textTop:
             return "text-top"
+
         case .textBottom:
             return "text-bottom"
+
         case .middle:
             return "middle"
+
         case .top:
             return "top"
+
         case .bottom:
             return "bottom"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .global(let global):
             return global.description
         }

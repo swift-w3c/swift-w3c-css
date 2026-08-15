@@ -82,6 +82,7 @@ extension AnglePercentage: CustomStringConvertible {
         switch self {
         case .angle(let angle):
             return angle.description
+
         case .percentage(let percentage):
             return percentage.description
         }

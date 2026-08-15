@@ -30,10 +30,13 @@ extension ContainerName {
         switch self {
         case .none:
             return "none"
+
         case .name(let name):
             return name.description
+
         case .names(let names):
             return names.map { $0.description }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }

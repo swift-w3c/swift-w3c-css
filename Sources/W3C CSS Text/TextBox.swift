@@ -50,8 +50,10 @@ extension TextBox {
         switch self {
         case .normal:
             return "normal"
+
         case .trim(let trimValue, let edgeValue):
             return "\(trimValue) \(edgeValue)"
+
         case .global(let global):
             return global.description
         }

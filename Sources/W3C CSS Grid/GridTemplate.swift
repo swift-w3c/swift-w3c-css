@@ -107,17 +107,17 @@ extension GridTemplate.AreaRow {
     public var description: String {
         var result = ""
 
-        if let lineNamesBefore = lineNamesBefore, !lineNamesBefore.isEmpty {
+        if let lineNamesBefore, !lineNamesBefore.isEmpty {
             result += "[\(lineNamesBefore.joined(separator: " "))] "
         }
 
         result += "\"\(area)\""
 
-        if let size = size {
+        if let size {
             result += " \(size)"
         }
 
-        if let lineNamesAfter = lineNamesAfter, !lineNamesAfter.isEmpty {
+        if let lineNamesAfter, !lineNamesAfter.isEmpty {
             result += " [\(lineNamesAfter.joined(separator: " "))]"
         }
 
@@ -130,19 +130,22 @@ extension GridTemplate {
         switch self {
         case .none:
             return "none"
+
         case .rowsColumns(let rows, let columns):
             let rowsStr = rows.map { $0.description }.joined(separator: " ")
             let columnsStr = columns.map { $0.description }.joined(separator: " ")
             return "\(rowsStr) / \(columnsStr)"
+
         case .namedAreas(let rows, let columns):
             let rowsStr = rows.map { $0.description }.joined(separator: " ")
 
-            if let columns = columns, !columns.isEmpty {
+            if let columns, !columns.isEmpty {
                 let columnsStr = columns.map { $0.description }.joined(separator: " ")
                 return "\(rowsStr) / \(columnsStr)"
             }
 
             return rowsStr
+
         case .global(let value):
             return value.description
         }

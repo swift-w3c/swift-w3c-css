@@ -93,7 +93,7 @@ extension Import {
     private mutating func updateRawValue() {
         var parts: [String] = ["@import", urlString]
 
-        if let layerName = layerName {
+        if let layerName {
             if layerName.isEmpty {
                 parts.append("layer")
             } else {

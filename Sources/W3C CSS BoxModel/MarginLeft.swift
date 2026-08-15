@@ -53,8 +53,10 @@ extension MarginLeft {
         switch self {
         case .lengthPercentage(let value):
             return value.description
+
         case .auto:
             return "auto"
+
         case .global(let global):
             return global.description
         }

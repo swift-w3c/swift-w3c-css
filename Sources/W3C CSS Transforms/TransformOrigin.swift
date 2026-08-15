@@ -209,8 +209,10 @@ extension TransformOrigin.Value: CustomStringConvertible {
         switch self {
         case .horizontalKeyword(let keyword):
             return keyword.description
+
         case .verticalKeyword(let keyword):
             return keyword.description
+
         case .lengthPercentage(let value):
             return value.description
         }
@@ -224,10 +226,13 @@ extension TransformOrigin: CustomStringConvertible {
         switch self {
         case .singleValue(let value):
             return value.description
+
         case .twoValues(let x, let y):
             return "\(x) \(y)"
+
         case .threeValues(let x, let y, let z):
             return "\(x) \(y) \(z)"
+
         case .global(let global):
             return global.description
         }

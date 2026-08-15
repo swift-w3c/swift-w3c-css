@@ -131,11 +131,11 @@ extension TextShadowValue: CustomStringConvertible {
 
         result += "\(offsetX) \(offsetY)"
 
-        if let blurRadius = blurRadius {
+        if let blurRadius {
             result += " \(blurRadius)"
         }
 
-        if let color = color {
+        if let color {
             result += " \(color)"
         }
 

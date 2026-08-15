@@ -36,15 +36,19 @@ extension Hue {
         switch self {
         case .number(let number):
             degrees = number.value
+
         case .angle(let angle):
             // Convert angle to degrees
             switch angle {
             case .deg(let value):
                 degrees = value
+
             case .grad(let value):
                 degrees = value * 0.9  // 1 grad = 0.9 deg
+
             case .rad(let value):
                 degrees = value * 180.0 / .pi
+
             case .turn(let value):
                 degrees = value * 360.0
             }
@@ -76,6 +80,7 @@ extension Hue: CustomStringConvertible {
         switch self {
         case .number(let number):
             return number.value.formatted(.number)
+
         case .angle(let angle):
             return angle.description
         }

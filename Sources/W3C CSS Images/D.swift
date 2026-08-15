@@ -26,8 +26,10 @@ extension D {
         switch self {
         case .none:
             return "none"
+
         case .path(let pathData):
             return "path(\"\(pathData)\")"
+
         case .global(let value):
             return value.description
         }

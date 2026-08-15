@@ -162,6 +162,7 @@ extension MaskBorderSlice.SliceValue {
         switch self {
         case .number(let number):
             return number.description
+
         case .percentage(let percentage):
             return percentage.description
         }
@@ -184,16 +185,20 @@ extension MaskBorderSlice: CustomStringConvertible {
         switch self {
         case .all(let value, let fill):
             return combineWithFill(value.description, fill)
+
         case .verticalHorizontal(let vertical, let horizontal, let fill):
             let values = "\(vertical.description) \(horizontal.description)"
             return combineWithFill(values, fill)
+
         case .topHorizontalBottom(let top, let horizontal, let bottom, let fill):
             let values = "\(top.description) \(horizontal.description) \(bottom.description)"
             return combineWithFill(values, fill)
+
         case .topRightBottomLeft(let top, let right, let bottom, let left, let fill):
             let values =
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
             return combineWithFill(values, fill)
+
         case .global(let global):
             return global.description
         }

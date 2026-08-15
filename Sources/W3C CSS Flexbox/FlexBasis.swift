@@ -60,16 +60,22 @@ extension FlexBasis {
         switch self {
         case .auto:
             return "auto"
+
         case .content:
             return "content"
+
         case .minContent:
             return "min-content"
+
         case .maxContent:
             return "max-content"
+
         case .fitContent:
             return "fit-content"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .global(let value):
             return value.description
         }
