@@ -37,8 +37,10 @@ extension ZIndex {
         switch self {
         case .auto:
             return "auto"
+
         case .integer(let value):
             return "\(value)"
+
         case .global(let global):
             return global.description
         }

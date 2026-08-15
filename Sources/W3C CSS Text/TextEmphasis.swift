@@ -88,7 +88,7 @@ extension TextEmphasis {
 extension TextEmphasis.Configuration {
     /// CSS string representation
     public var description: String {
-        if let color = color {
+        if let color {
             return "\(style) \(color)"
         }
 
@@ -103,6 +103,7 @@ extension TextEmphasis: CustomStringConvertible {
         switch self {
         case .config(let config):
             return config.description
+
         case .global(let global):
             return global.description
         }

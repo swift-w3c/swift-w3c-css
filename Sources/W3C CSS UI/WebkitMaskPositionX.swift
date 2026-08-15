@@ -109,14 +109,19 @@ extension WebkitMaskPositionX: CustomStringConvertible {
         switch self {
         case .left:
             return "left"
+
         case .center:
             return "center"
+
         case .right:
             return "right"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .multiple(let positions):
             return positions.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

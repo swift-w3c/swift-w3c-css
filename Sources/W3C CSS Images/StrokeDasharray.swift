@@ -74,14 +74,19 @@ extension StrokeDasharray {
         switch self {
         case .none:
             return "none"
+
         case .numbers(let values):
             return values.map { String($0) }.joined(separator: ", ")
+
         case .lengths(let values):
             return values.map { $0.description }.joined(separator: ", ")
+
         case .percentages(let values):
             return values.map { $0.description }.joined(separator: ", ")
+
         case .lengthPercentages(let values):
             return values.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

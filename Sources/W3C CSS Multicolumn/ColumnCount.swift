@@ -43,8 +43,10 @@ extension ColumnCount {
         switch self {
         case .auto:
             return "auto"
+
         case .count(let count):
             return "\(count)"
+
         case .global(let global):
             return global.description
         }

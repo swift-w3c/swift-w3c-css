@@ -48,6 +48,7 @@ extension ScrollTimelineAxis {
         switch self {
         case .axis(let axis):
             return axis.rawValue
+
         case .global(let global):
             return global.description
         }

@@ -29,8 +29,10 @@ extension FillRule {
         switch self {
         case .nonzero:
             return "nonzero"
+
         case .evenodd:
             return "evenodd"
+
         case .global(let value):
             return value.description
         }

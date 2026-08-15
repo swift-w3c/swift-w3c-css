@@ -39,8 +39,10 @@ extension MaxInlineSize: CustomStringConvertible {
         switch self {
         case .size(let size):
             return size.description
+
         case .none:
             return "none"
+
         case .global(let global):
             return global.description
         }

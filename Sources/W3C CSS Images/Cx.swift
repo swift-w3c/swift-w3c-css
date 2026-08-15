@@ -30,10 +30,13 @@ extension Cx {
         switch self {
         case .length(let length):
             return length.description
+
         case .percentage(let percentage):
             return percentage.description
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .global(let value):
             return value.description
         }

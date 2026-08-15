@@ -54,16 +54,22 @@ extension WhiteSpace {
         switch self {
         case .normal:
             return "normal"
+
         case .pre:
             return "pre"
+
         case .preWrap:
             return "pre-wrap"
+
         case .preLine:
             return "pre-line"
+
         case .nowrap:
             return "nowrap"
+
         case .breakSpaces:
             return "break-spaces"
+
         case .global(let global):
             return global.description
         }

@@ -51,8 +51,10 @@ extension BorderBlockWidth {
         switch self {
         case .all(let width):
             return width.description
+
         case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
+
         case .global(let global):
             return global.description
         }

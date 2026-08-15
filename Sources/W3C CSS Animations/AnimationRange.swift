@@ -64,8 +64,10 @@ extension AnimationRange: CustomStringConvertible {
         switch self {
         case .single(let value):
             return value.description
+
         case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
+
         case .global(let global):
             return global.description
         }
@@ -79,8 +81,10 @@ extension AnimationRangeValue: CustomStringConvertible {
         switch self {
         case .normal:
             return "normal"
+
         case .lengthPercentage(let lp):
             return lp.description
+
         case .namedRange(let name, let percentage):
             if let percentage {
                 return "\(name.rawValue) \(percentage.description)"

@@ -53,16 +53,22 @@ extension RubyPosition {
         switch self {
         case .over:
             return "over"
+
         case .under:
             return "under"
+
         case .alternate:
             return "alternate"
+
         case .alternateOver:
             return "alternate over"
+
         case .alternateUnder:
             return "alternate under"
+
         case .interCharacter:
             return "inter-character"
+
         case .global(let global):
             return global.description
         }

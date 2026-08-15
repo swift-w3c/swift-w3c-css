@@ -38,8 +38,10 @@ extension TransformStyle: CustomStringConvertible {
         switch self {
         case .flat:
             return "flat"
+
         case .preserve3D:
             return "preserve-3d"
+
         case .global(let global):
             return global.description
         }

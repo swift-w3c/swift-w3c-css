@@ -35,8 +35,10 @@ extension AnimationIterationCount: CustomStringConvertible {
         switch self {
         case .infinite:
             return "infinite"
+
         case .count(let count):
             return count.description
+
         case .global(let global):
             return global.description
         }

@@ -49,14 +49,19 @@ extension ImageRendering {
         switch self {
         case .auto:
             return "auto"
+
         case .smooth:
             return "smooth"
+
         case .crispEdges:
             return "crisp-edges"
+
         case .pixelated:
             return "pixelated"
+
         case .highQuality:
             return "high-quality"
+
         case .global(let global):
             return global.description
         }

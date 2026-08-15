@@ -40,8 +40,10 @@ extension AnimationPlayState: CustomStringConvertible {
         switch self {
         case .running:
             return "running"
+
         case .paused:
             return "paused"
+
         case .global(let global):
             return global.description
         }

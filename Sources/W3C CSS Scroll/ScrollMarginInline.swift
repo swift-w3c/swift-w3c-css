@@ -46,8 +46,10 @@ extension ScrollMarginInline {
         switch self {
         case .all(let length):
             return length.description
+
         case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
+
         case .global(let global):
             return global.description
         }

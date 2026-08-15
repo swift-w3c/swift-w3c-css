@@ -103,8 +103,10 @@ extension BackgroundPosition: CustomStringConvertible {
         switch self {
         case .single(let position):
             return position.description
+
         case .multiple(let positions):
             return positions.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

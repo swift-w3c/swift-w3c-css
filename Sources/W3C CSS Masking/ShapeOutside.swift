@@ -60,14 +60,19 @@ extension ShapeOutside {
         switch self {
         case .none:
             return "none"
+
         case .box(let box):
             return box.rawValue
+
         case .shape(let shape):
             return shape.description
+
         case .shapeWithBox(let shape, let box):
             return "\(shape.description) \(box.rawValue)"
+
         case .image(let url):
             return url.description
+
         case .global(let global):
             return global.description
         }
@@ -108,7 +113,7 @@ extension ShapeOutside {
     ///   - box: Optional reference box
     /// - Returns: A ShapeOutside with the specified polygon shape
     public static func polygon(_ points: [(Double, Double)], box: ShapeBox? = nil) -> Self {
-        let polygonPoints = points.map { (x, y) -> (LengthPercentage, LengthPercentage) in
+        let polygonPoints = points.map { x, y -> (LengthPercentage, LengthPercentage) in
             (
                 LengthPercentage.percentage(.init(floatLiteral: x)),
                 .percentage(.init(floatLiteral: y))

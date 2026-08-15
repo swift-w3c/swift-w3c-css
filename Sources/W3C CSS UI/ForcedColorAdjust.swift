@@ -46,10 +46,13 @@ extension ForcedColorAdjust {
         switch self {
         case .auto:
             return "auto"
+
         case .none:
             return "none"
+
         case .preserveParentColor:
             return "preserve-parent-color"
+
         case .global(let global):
             return global.description
         }

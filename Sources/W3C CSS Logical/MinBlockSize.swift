@@ -36,6 +36,7 @@ extension MinBlockSize: CustomStringConvertible {
         switch self {
         case .size(let size):
             return size.description
+
         case .global(let global):
             return global.description
         }

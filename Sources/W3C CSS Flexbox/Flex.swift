@@ -41,12 +41,16 @@ extension Flex {
         switch self {
         case .initial:
             return "initial"
+
         case .auto:
             return "auto"
+
         case .none:
             return "none"
+
         case .custom(let grow, let shrink, let basis):
             return "\(grow) \(shrink) \(basis)"
+
         case .global(let value):
             return value.description
         }

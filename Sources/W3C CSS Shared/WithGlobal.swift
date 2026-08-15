@@ -46,6 +46,7 @@ public enum WithGlobal<T: Sendable & Hashable>: Sendable, Hashable {
         switch self {
         case .value(let t):
             return .value(transform(t))
+
         case .global(let g):
             return .global(g)
         }
@@ -60,6 +61,7 @@ public enum WithGlobal<T: Sendable & Hashable>: Sendable, Hashable {
         switch self {
         case .value(let t):
             return transform(t)
+
         case .global(let g):
             return .global(g)
         }
@@ -81,6 +83,7 @@ extension WithGlobal: CustomStringConvertible where T: CustomStringConvertible {
         switch self {
         case .value(let t):
             return t.description
+
         case .global(let g):
             return g.description
         }

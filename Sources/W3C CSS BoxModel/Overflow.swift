@@ -91,8 +91,10 @@ extension Overflow {
         switch self {
         case .single(let value):
             return value.rawValue
+
         case .horizontalVertical(let x, let y):
             return "\(x.rawValue) \(y.rawValue)"
+
         case .global(let global):
             return global.description
         }

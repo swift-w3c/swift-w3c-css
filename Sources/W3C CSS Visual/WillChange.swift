@@ -49,12 +49,16 @@ extension WillChange {
         switch self {
         case .auto:
             return "auto"
+
         case .scrollPosition:
             return "scroll-position"
+
         case .contents:
             return "contents"
+
         case .properties(let props):
             return props.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

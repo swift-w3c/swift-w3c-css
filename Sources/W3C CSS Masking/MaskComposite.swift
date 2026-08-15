@@ -107,14 +107,19 @@ extension MaskComposite: CustomStringConvertible {
         switch self {
         case .add:
             return "add"
+
         case .subtract:
             return "subtract"
+
         case .intersect:
             return "intersect"
+
         case .exclude:
             return "exclude"
+
         case .multiple(let operations):
             return operations.map { $0.rawValue }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

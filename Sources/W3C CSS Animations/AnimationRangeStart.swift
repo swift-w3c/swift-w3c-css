@@ -62,14 +62,17 @@ extension AnimationRangeStart: CustomStringConvertible {
         switch self {
         case .normal:
             return "normal"
+
         case .lengthPercentage(let lp):
             return lp.description
+
         case .namedRange(let name, let percentage):
             if let percentage {
                 return "\(name.rawValue) \(percentage)"
             } else {
                 return name.rawValue
             }
+
         case .global(let global):
             return global.description
         }

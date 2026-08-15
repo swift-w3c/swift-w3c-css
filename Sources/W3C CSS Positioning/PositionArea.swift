@@ -238,18 +238,25 @@ extension PositionArea {
         switch self {
         case .none:
             return "none"
+
         case .physical(let v, let h):
             return "\(v.rawValue) \(h.rawValue)"
+
         case .logical(let v, let h):
             return "\(v.rawValue) \(h.rawValue)"
+
         case .selfLogical(let v, let h):
             return "\(v.rawValue) \(h.rawValue)"
+
         case .startEnd(let v, let h):
             return "\(v.rawValue) \(h.rawValue)"
+
         case .selfStartEnd(let v, let h):
             return "\(v.rawValue) \(h.rawValue)"
+
         case .single(let keyword):
             return keyword.rawValue
+
         case .global(let global):
             return global.description
         }

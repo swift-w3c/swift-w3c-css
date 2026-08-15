@@ -48,25 +48,25 @@ extension Font {
         case .style(let style, let variant, let weight, let family, let size, let lineHeight):
             var components: [String] = []
 
-            if let style = style {
+            if let style {
                 components.append(style.description)
             }
 
-            if let variant = variant {
+            if let variant {
                 components.append(variant.rawValue)
             }
 
-            if let weight = weight {
+            if let weight {
                 components.append(weight.description)
             }
 
             components.append(size.description)
 
-            if let lineHeight = lineHeight {
+            if let lineHeight {
                 components[components.count - 1] += "/\(lineHeight)"
             }
 
-            if let family = family {
+            if let family {
                 components.append(family.description)
             }
 
@@ -75,17 +75,17 @@ extension Font {
         case .custom(let family, let size, let weight, let style):
             var components: [String] = []
 
-            if let style = style {
+            if let style {
                 components.append(style.description)
             }
 
-            if let weight = weight {
+            if let weight {
                 components.append(weight.description)
             }
 
             components.append(size.description)
 
-            if let family = family {
+            if let family {
                 components.append(family.description)
             }
 
@@ -93,16 +93,22 @@ extension Font {
 
         case .caption:
             return "caption"
+
         case .icon:
             return "icon"
+
         case .menu:
             return "menu"
+
         case .messageBox:
             return "message-box"
+
         case .smallCaption:
             return "small-caption"
+
         case .statusBar:
             return "status-bar"
+
         case .global(let value):
             return value.description
         }

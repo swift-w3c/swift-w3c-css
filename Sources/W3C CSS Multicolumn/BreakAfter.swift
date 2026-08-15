@@ -90,32 +90,46 @@ extension BreakAfter {
         switch self {
         case .auto:
             return "auto"
+
         case .avoid:
             return "avoid"
+
         case .always:
             return "always"
+
         case .all:
             return "all"
+
         case .avoidPage:
             return "avoid-page"
+
         case .page:
             return "page"
+
         case .left:
             return "left"
+
         case .right:
             return "right"
+
         case .recto:
             return "recto"
+
         case .verso:
             return "verso"
+
         case .avoidColumn:
             return "avoid-column"
+
         case .column:
             return "column"
+
         case .avoidRegion:
             return "avoid-region"
+
         case .region:
             return "region"
+
         case .global(let global):
             return global.description
         }

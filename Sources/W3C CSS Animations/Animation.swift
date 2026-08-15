@@ -194,36 +194,36 @@ extension AnimationProperties: CustomStringConvertible {
 
         // The order matters for certain properties in CSS animations
         // Duration should come before delay
-        if let duration = duration {
+        if let duration {
             components.append(duration.description)
         }
 
-        if let timingFunction = timingFunction {
+        if let timingFunction {
             components.append(timingFunction.description)
         }
 
-        if let delay = delay {
+        if let delay {
             components.append(delay.description)
         }
 
-        if let iterationCount = iterationCount {
+        if let iterationCount {
             components.append(iterationCount.description)
         }
 
-        if let direction = direction {
+        if let direction {
             components.append(direction.description)
         }
 
-        if let fillMode = fillMode {
+        if let fillMode {
             components.append(fillMode.description)
         }
 
-        if let playState = playState {
+        if let playState {
             components.append(playState.description)
         }
 
         // Name should be the last property for clarity
-        if let name = name {
+        if let name {
             components.append(name.description)
         }
 

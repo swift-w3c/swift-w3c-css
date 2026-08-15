@@ -60,6 +60,7 @@ extension Opacity: CustomStringConvertible {
             } else {
                 return String(rounded)
             }
+
         case .global(let global):
             return global.description
         }

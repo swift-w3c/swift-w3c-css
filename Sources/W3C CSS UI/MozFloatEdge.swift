@@ -46,8 +46,10 @@ extension MozFloatEdge {
         switch self {
         case .contentBox:
             return "content-box"
+
         case .marginBox:
             return "margin-box"
+
         case .global(let global):
             return global.description
         }

@@ -313,12 +313,13 @@ extension FontFace.Source {
         switch self {
         case .local(let name):
             return "local(\"\(name)\")"
+
         case .url(let url, let format, let tech):
             var result = "url(\"\(url)\")"
-            if let format = format {
+            if let format {
                 result += " format(\"\(format)\")"
             }
-            if let tech = tech {
+            if let tech {
                 result += " tech(\(tech))"
             }
             return result
@@ -331,10 +332,13 @@ extension FontFace.FontWeight {
         switch self {
         case .value(let value):
             return String(value)
+
         case .range(let min, let max):
             return "\(min) \(max)"
+
         case .normal:
             return "normal"
+
         case .bold:
             return "bold"
         }
@@ -346,13 +350,16 @@ extension FontFace.FontStyle {
         switch self {
         case .normal:
             return "normal"
+
         case .italic:
             return "italic"
+
         case .oblique(let angle):
-            if let angle = angle {
+            if let angle {
                 return "oblique \(angle)deg"
             }
             return "oblique"
+
         case .obliqueRange(let min, let max):
             return "oblique \(min)deg \(max)deg"
         }
@@ -364,24 +371,34 @@ extension FontFace.FontStretch {
         switch self {
         case .value(let value):
             return "\(value)%"
+
         case .range(let min, let max):
             return "\(min)% \(max)%"
+
         case .normal:
             return "normal"
+
         case .ultraCondensed:
             return "ultra-condensed"
+
         case .extraCondensed:
             return "extra-condensed"
+
         case .condensed:
             return "condensed"
+
         case .semiCondensed:
             return "semi-condensed"
+
         case .semiExpanded:
             return "semi-expanded"
+
         case .expanded:
             return "expanded"
+
         case .extraExpanded:
             return "extra-expanded"
+
         case .ultraExpanded:
             return "ultra-expanded"
         }

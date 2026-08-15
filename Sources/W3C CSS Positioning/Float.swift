@@ -46,14 +46,19 @@ extension Float {
         switch self {
         case .none:
             return "none"
+
         case .left:
             return "left"
+
         case .right:
             return "right"
+
         case .inlineStart:
             return "inline-start"
+
         case .inlineEnd:
             return "inline-end"
+
         case .global(let value):
             return value.description
         }

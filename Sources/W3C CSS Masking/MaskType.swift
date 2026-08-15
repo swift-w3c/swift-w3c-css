@@ -56,8 +56,10 @@ extension MaskType: CustomStringConvertible {
         switch self {
         case .luminance:
             return "luminance"
+
         case .alpha:
             return "alpha"
+
         case .global(let global):
             return global.description
         }

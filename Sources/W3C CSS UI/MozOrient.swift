@@ -59,12 +59,16 @@ extension MozOrient {
         switch self {
         case .inline:
             return "inline"
+
         case .block:
             return "block"
+
         case .horizontal:
             return "horizontal"
+
         case .vertical:
             return "vertical"
+
         case .global(let global):
             return global.description
         }

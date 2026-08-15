@@ -43,8 +43,10 @@ extension MaskBorderMode {
         switch self {
         case .alpha:
             return "alpha"
+
         case .luminance:
             return "luminance"
+
         case .global(let global):
             return global.description
         }

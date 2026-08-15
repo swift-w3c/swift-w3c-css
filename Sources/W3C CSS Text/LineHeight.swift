@@ -49,12 +49,15 @@ extension LineHeight {
         switch self {
         case .normal:
             return "normal"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .multiple(let factor):
             // Ensure non-negative value
             let nonNegative = max(0, factor)
             return nonNegative.formatted(.number)
+
         case .global(let value):
             return value.description
         }

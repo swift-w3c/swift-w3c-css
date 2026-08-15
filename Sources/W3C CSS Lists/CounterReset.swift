@@ -64,14 +64,19 @@ extension CounterReset {
         switch self {
         case .none:
             return "none"
+
         case .counter(let name):
             return name.description
+
         case .counterWithValue(let name, let value):
             return "\(name) \(value)"
+
         case .reversedCounter(let name):
             return "reversed(\(name))"
+
         case .reversedCounterWithValue(let name, let value):
             return "reversed(\(name)) \(value)"
+
         case .counters(let counters):
             return counters.map { counter in
                 let nameStr =
@@ -82,6 +87,7 @@ extension CounterReset {
                     return nameStr
                 }
             }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }

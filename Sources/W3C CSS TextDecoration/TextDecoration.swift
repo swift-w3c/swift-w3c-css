@@ -101,18 +101,18 @@ extension TextDecorationValue {
     public var description: String {
         var components: [String] = []
 
-        if let style = style {
+        if let style {
             components.append(style.description)
         }
 
         let linesString = lines.map { $0.description }.joined(separator: " ")
         components.append(linesString)
 
-        if let color = color {
+        if let color {
             components.append(color.description)
         }
 
-        if let thickness = thickness {
+        if let thickness {
             components.append(thickness.description)
         }
 

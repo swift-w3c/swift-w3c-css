@@ -36,10 +36,13 @@ extension TextEmphasisStyle {
         switch self {
         case .none:
             return "none"
+
         case .shape(let shape, let fill):
             return "\(fill.rawValue) \(shape.rawValue)"
+
         case .string(let string):
             return string.description
+
         case .global(let global):
             return global.description
         }

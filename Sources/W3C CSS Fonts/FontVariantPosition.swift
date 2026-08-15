@@ -47,10 +47,13 @@ extension FontVariantPosition {
         switch self {
         case .normal:
             return "normal"
+
         case .sub:
             return "sub"
+
         case .super:
             return "super"
+
         case .global(let global):
             return global.description
         }

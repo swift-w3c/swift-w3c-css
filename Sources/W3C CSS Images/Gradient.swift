@@ -198,15 +198,16 @@ extension Gradient: CustomStringConvertible {
             var result = "linear-gradient("
 
             // Add interpolation method if specified
-            if let interpolation = interpolation {
+            if let interpolation {
                 result += "\(interpolation), "
             }
 
             // Add direction if specified
-            if let direction = direction {
+            if let direction {
                 switch direction {
                 case .angle(let angle):
                     result += "\(angle), "
+
                 case .to(let side):
                     result += "to \(side.rawValue), "
                 }
@@ -221,15 +222,16 @@ extension Gradient: CustomStringConvertible {
             var result = "repeating-linear-gradient("
 
             // Add interpolation method if specified
-            if let interpolation = interpolation {
+            if let interpolation {
                 result += "\(interpolation), "
             }
 
             // Add direction if specified
-            if let direction = direction {
+            if let direction {
                 switch direction {
                 case .angle(let angle):
                     result += "\(angle), "
+
                 case .to(let side):
                     result += "to \(side.rawValue), "
                 }
@@ -244,12 +246,12 @@ extension Gradient: CustomStringConvertible {
             var result = "radial-gradient("
 
             // Add interpolation method if specified
-            if let interpolation = interpolation {
+            if let interpolation {
                 result += "\(interpolation), "
             }
 
             // Add options if specified
-            if let options = options {
+            if let options {
                 var optionsString = ""
 
                 // Add shape if specified
@@ -265,8 +267,10 @@ extension Gradient: CustomStringConvertible {
                     switch size {
                     case .keyword(let keyword):
                         optionsString += keyword.rawValue
+
                     case .explicit(let radius):
                         optionsString += "\(radius)"
+
                     case .elliptical(let radiusX, let radiusY):
                         optionsString += "\(radiusX) \(radiusY)"
                     }
@@ -294,12 +298,12 @@ extension Gradient: CustomStringConvertible {
             var result = "repeating-radial-gradient("
 
             // Add interpolation method if specified
-            if let interpolation = interpolation {
+            if let interpolation {
                 result += "\(interpolation), "
             }
 
             // Add options if specified
-            if let options = options {
+            if let options {
                 var optionsString = ""
 
                 // Add shape if specified
@@ -315,8 +319,10 @@ extension Gradient: CustomStringConvertible {
                     switch size {
                     case .keyword(let keyword):
                         optionsString += keyword.rawValue
+
                     case .explicit(let radius):
                         optionsString += "\(radius)"
+
                     case .elliptical(let radiusX, let radiusY):
                         optionsString += "\(radiusX) \(radiusY)"
                     }
@@ -344,17 +350,17 @@ extension Gradient: CustomStringConvertible {
             var result = "conic-gradient("
 
             // Add interpolation method if specified
-            if let interpolation = interpolation {
+            if let interpolation {
                 result += "\(interpolation), "
             }
 
             // Add angle if specified
-            if let angle = angle {
+            if let angle {
                 result += "from \(angle), "
             }
 
             // Add position if specified
-            if let position = position {
+            if let position {
                 result += "at \(position), "
             }
 
@@ -367,17 +373,17 @@ extension Gradient: CustomStringConvertible {
             var result = "repeating-conic-gradient("
 
             // Add interpolation method if specified
-            if let interpolation = interpolation {
+            if let interpolation {
                 result += "\(interpolation), "
             }
 
             // Add angle if specified
-            if let angle = angle {
+            if let angle {
                 result += "from \(angle), "
             }
 
             // Add position if specified
-            if let position = position {
+            if let position {
                 result += "at \(position), "
             }
 

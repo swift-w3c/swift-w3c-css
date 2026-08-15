@@ -96,6 +96,7 @@ extension FontStretch {
         switch self {
         case .keyword(let keyword):
             return keyword.rawValue
+
         case .percentage(let percentage):
             // Clamp percentage percentage between 50% and 200% as per spec
             return max(50, min(200, percentage)).description

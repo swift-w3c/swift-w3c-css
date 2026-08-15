@@ -62,6 +62,7 @@ extension LineStyle {
         switch self {
         case .groove, .ridge, .inset, .outset:
             return true
+
         default:
             return false
         }
@@ -72,6 +73,7 @@ extension LineStyle {
         switch self {
         case .none, .hidden:
             return false
+
         default:
             return true
         }

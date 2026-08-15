@@ -52,10 +52,13 @@ extension TextDecorationSkipInk: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .none:
             return "none"
+
         case .all:
             return "all"
+
         case .global(let global):
             return global.description
         }

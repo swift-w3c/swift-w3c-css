@@ -53,8 +53,10 @@ extension WebkitTapHighlightColor {
         switch self {
         case .color(let color):
             return color.description
+
         case .transparent:
             return "transparent"
+
         case .global(let global):
             return global.description
         }
@@ -83,6 +85,7 @@ extension WebkitTapHighlightColor {
         switch color {
         case .rgba(let r, let g, let b, _):
             return .color(.rgba(r, g, b, clampedOpacity))
+
         default:
             // For other color types, we'll need to convert or apply the alpha
             // This is a simplification; a real implementation might need more sophisticated color handling

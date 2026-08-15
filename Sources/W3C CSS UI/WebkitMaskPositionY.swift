@@ -109,14 +109,19 @@ extension WebkitMaskPositionY: CustomStringConvertible {
         switch self {
         case .top:
             return "top"
+
         case .center:
             return "center"
+
         case .bottom:
             return "bottom"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .multiple(let positions):
             return positions.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

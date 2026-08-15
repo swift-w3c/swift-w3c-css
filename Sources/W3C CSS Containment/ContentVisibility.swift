@@ -33,10 +33,13 @@ extension ContentVisibility {
         switch self {
         case .visible:
             return "visible"
+
         case .hidden:
             return "hidden"
+
         case .auto:
             return "auto"
+
         case .global(let value):
             return value.description
         }

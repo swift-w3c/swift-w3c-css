@@ -69,12 +69,16 @@ extension FontSizeAdjust {
         switch self {
         case .none:
             return "none"
+
         case .value(let number):
             return String(number)
+
         case .fromFont:
             return "from-font"
+
         case .metric(let metric, let value):
             return "\(metric.description) \(value.description)"
+
         case .global(let value):
             return value.description
         }
@@ -92,6 +96,7 @@ extension FontSizeAdjust.ValueOrFromFont {
         switch self {
         case .value(let number):
             return String(number)
+
         case .fromFont:
             return "from-font"
         }

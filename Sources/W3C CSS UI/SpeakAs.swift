@@ -104,6 +104,7 @@ extension SpeakAs.SpeakingMode {
         switch self {
         case .normal:
             return "normal"
+
         case .spellOut:
             return "spell-out"
         }
@@ -149,6 +150,7 @@ extension SpeakAs: CustomStringConvertible {
         switch self {
         case .options(let options):
             return options.description
+
         case .global(let global):
             return global.description
         }

@@ -87,12 +87,16 @@ extension MaskMode: CustomStringConvertible {
         switch self {
         case .alpha:
             return "alpha"
+
         case .luminance:
             return "luminance"
+
         case .matchSource:
             return "match-source"
+
         case .multiple(let modes):
             return modes.map { $0.rawValue }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

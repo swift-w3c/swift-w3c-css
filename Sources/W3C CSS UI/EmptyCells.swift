@@ -26,8 +26,10 @@ extension EmptyCells {
         switch self {
         case .show:
             return "show"
+
         case .hide:
             return "hide"
+
         case .global(let value):
             return value.description
         }

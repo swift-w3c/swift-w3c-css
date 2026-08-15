@@ -51,14 +51,19 @@ extension ImeMode {
         switch self {
         case .auto:
             return "auto"
+
         case .normal:
             return "normal"
+
         case .active:
             return "active"
+
         case .inactive:
             return "inactive"
+
         case .disabled:
             return "disabled"
+
         case .global(let global):
             return global.description
         }

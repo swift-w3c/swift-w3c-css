@@ -42,8 +42,10 @@ extension Ry {
         switch self {
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .auto:
             return "auto"
+
         case .global(let global):
             return global.description
         }

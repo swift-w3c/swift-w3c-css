@@ -115,11 +115,11 @@ extension Transition.Configuration {
     public var description: String {
         var result = [property.description, duration.description, timingFunction.description]
 
-        if let delay = delay {
+        if let delay {
             result.append(delay.description)
         }
 
-        if let behavior = behavior {
+        if let behavior {
             result.append(behavior.description)
         }
 
@@ -134,6 +134,7 @@ extension Transition: CustomStringConvertible {
         switch self {
         case .config(let config):
             return config.description
+
         case .global(let global):
             return global.description
         }

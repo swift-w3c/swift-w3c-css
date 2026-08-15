@@ -84,6 +84,7 @@ extension BorderInlineStyle: CustomStringConvertible {
         switch self {
         case .lineStyle(let lineStyle):
             return lineStyle.description
+
         case .global(let global):
             return global.description
         }

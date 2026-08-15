@@ -45,6 +45,7 @@ extension StrokeMiterlimit {
             // Ensure the value is at least 1.0
             let clampedValue = max(1.0, limit)
             return String(clampedValue)
+
         case .global(let global):
             return global.description
         }

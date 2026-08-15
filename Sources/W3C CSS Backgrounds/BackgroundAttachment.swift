@@ -85,12 +85,16 @@ extension BackgroundAttachment: CustomStringConvertible {
         switch self {
         case .scroll:
             return "scroll"
+
         case .fixed:
             return "fixed"
+
         case .local:
             return "local"
+
         case .multiple(let attachments):
             return attachments.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

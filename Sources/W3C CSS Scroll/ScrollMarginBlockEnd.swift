@@ -45,6 +45,7 @@ extension ScrollMarginBlockEnd {
         switch self {
         case .length(let length):
             return length.description
+
         case .global(let global):
             return global.description
         }

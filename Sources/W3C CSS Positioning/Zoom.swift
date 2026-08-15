@@ -49,12 +49,16 @@ extension Zoom {
         switch self {
         case .percentage(let percentage):
             return percentage.description
+
         case .number(let number):
             return number.description
+
         case .normal:
             return "normal"
+
         case .reset:
             return "reset"
+
         case .global(let global):
             return global.description
         }

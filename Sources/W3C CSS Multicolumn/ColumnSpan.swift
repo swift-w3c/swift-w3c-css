@@ -33,8 +33,10 @@ extension ColumnSpan {
         switch self {
         case .none:
             return "none"
+
         case .all:
             return "all"
+
         case .global(let global):
             return global.description
         }

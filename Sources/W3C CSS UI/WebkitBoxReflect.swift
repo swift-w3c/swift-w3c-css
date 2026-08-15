@@ -95,11 +95,11 @@ extension WebkitBoxReflect {
     ) -> String {
         var parts = [direction]
 
-        if let offset = offset {
+        if let offset {
             parts.append(offset.description)
         }
 
-        if let mask = mask {
+        if let mask {
             parts.append(maskDescription(mask))
         }
 
@@ -110,8 +110,10 @@ extension WebkitBoxReflect {
         switch mask {
         case .linearGradient(let value):
             return "linear-gradient(\(value))"
+
         case .radialGradient(let value):
             return "radial-gradient(\(value))"
+
         case .url(let url):
             return url.description
         }

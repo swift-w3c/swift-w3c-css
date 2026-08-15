@@ -31,6 +31,7 @@ extension Widows {
         switch self {
         case .integer(let value):
             return "\(value)"
+
         case .global(let global):
             return global.description
         }

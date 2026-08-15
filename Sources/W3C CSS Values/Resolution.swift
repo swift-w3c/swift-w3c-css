@@ -41,7 +41,7 @@ public struct Resolution: Sendable, Hashable {
 
 extension Resolution {
     /// Errors that can occur when creating a Resolution
-    public enum ResolutionError: Error, Sendable {
+    public enum ResolutionError: Swift.Error, Sendable {
         case invalidValue(String)
     }
 
@@ -107,8 +107,10 @@ extension Resolution {
         switch unit {
         case .dpi:
             dpiValue = value
+
         case .dpcm:
             dpiValue = value * 2.54  // 1 dpcm = 2.54 dpi
+
         case .dppx, .x:
             dpiValue = value * 96  // 1 dppx = 96 dpi
         }
@@ -119,10 +121,13 @@ extension Resolution {
         switch targetUnit {
         case .dpi:
             return try! Resolution(dpiValue, unit: .dpi)
+
         case .dpcm:
             return try! Resolution(dpiValue / 2.54, unit: .dpcm)
+
         case .dppx:
             return try! Resolution(dpiValue / 96, unit: .dppx)
+
         case .x:
             return try! Resolution(dpiValue / 96, unit: .x)
         }

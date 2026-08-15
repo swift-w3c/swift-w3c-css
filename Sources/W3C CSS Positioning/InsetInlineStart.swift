@@ -43,8 +43,10 @@ extension InsetInlineStart {
         switch self {
         case .auto:
             return "auto"
+
         case .lengthPercentage(let value):
             return value.description
+
         case .global(let value):
             return value.description
         }

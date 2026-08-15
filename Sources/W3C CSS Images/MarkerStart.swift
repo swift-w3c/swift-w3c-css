@@ -31,8 +31,10 @@ extension MarkerStart {
         switch self {
         case .none:
             return "none"
+
         case .url(let url):
             return url.description
+
         case .global(let value):
             return value.description
         }

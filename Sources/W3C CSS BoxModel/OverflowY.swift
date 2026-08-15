@@ -46,14 +46,19 @@ extension OverflowY {
         switch self {
         case .visible:
             return "visible"
+
         case .hidden:
             return "hidden"
+
         case .clip:
             return "clip"
+
         case .scroll:
             return "scroll"
+
         case .auto:
             return "auto"
+
         case .global(let global):
             return global.description
         }

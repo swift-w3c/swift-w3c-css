@@ -85,6 +85,7 @@ extension BorderInlineEndColor: CustomStringConvertible {
         switch self {
         case .color(let color):
             return color.description
+
         case .global(let global):
             return global.description
         }

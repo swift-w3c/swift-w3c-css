@@ -50,15 +50,20 @@ extension ScrollPadding {
         switch self {
         case .auto:
             return "auto"
+
         case .all(let value):
             return value.description
+
         case .verticalHorizontal(let vertical, let horizontal):
             return "\(vertical.description) \(horizontal.description)"
+
         case .topHorizontalBottom(let top, let horizontal, let bottom):
             return "\(top.description) \(horizontal.description) \(bottom.description)"
+
         case .topRightBottomLeft(let top, let right, let bottom, let left):
             return
                 "\(top.description) \(right.description) \(bottom.description) \(left.description)"
+
         case .global(let global):
             return global.description
         }

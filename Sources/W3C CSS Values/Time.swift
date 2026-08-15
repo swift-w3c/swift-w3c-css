@@ -77,6 +77,7 @@ extension Time {
         switch unit {
         case .second:
             return value
+
         case .millisecond:
             return value / 1000
         }
@@ -87,6 +88,7 @@ extension Time {
         switch unit {
         case .second:
             return value * 1000
+
         case .millisecond:
             return value
         }
@@ -103,6 +105,7 @@ extension Time {
         switch targetUnit {
         case .second:
             return .init(inSeconds, unit: .second)
+
         case .millisecond:
             return .init(inMilliseconds, unit: .ms)
         }

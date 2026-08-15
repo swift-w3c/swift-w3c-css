@@ -78,8 +78,10 @@ extension BackgroundBlendMode: CustomStringConvertible {
         switch self {
         case .single(let mode):
             return mode.description
+
         case .multiple(let modes):
             return modes.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

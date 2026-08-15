@@ -42,10 +42,13 @@ extension TextOverflow: CustomStringConvertible {
         switch self {
         case .clip:
             return "clip"
+
         case .ellipsis:
             return "ellipsis"
+
         case .string(let value):
             return value.description
+
         case .global(let global):
             return global.description
         }

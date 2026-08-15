@@ -30,8 +30,10 @@ extension FieldSizing {
         switch self {
         case .content:
             return "content"
+
         case .fixed:
             return "fixed"
+
         case .global(let value):
             return value.description
         }

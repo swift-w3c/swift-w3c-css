@@ -61,12 +61,16 @@ extension WebkitTextStrokeWidth {
         switch self {
         case .thin:
             return "thin"
+
         case .medium:
             return "medium"
+
         case .thick:
             return "thick"
+
         case .length(let length):
             return length.description
+
         case .global(let global):
             return global.description
         }

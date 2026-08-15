@@ -63,8 +63,10 @@ extension FontFamily {
         switch self {
         case .families(let families):
             return families.map { $0.description }.joined(separator: ", ")
+
         case .family(let family):
             return family.description
+
         case .global(let value):
             return value.description
         }
@@ -95,8 +97,10 @@ extension FontFamily.Family {
                 return "\"\(name)\""
             }
             return name
+
         case .generic(let family):
             return family.description
+
         case .multiple(let families):
             return families.map { $0.description }.joined(separator: ", ")
         }

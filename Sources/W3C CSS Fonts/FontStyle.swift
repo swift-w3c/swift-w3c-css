@@ -40,14 +40,18 @@ extension FontStyle {
         switch self {
         case .normal:
             return "normal"
+
         case .italic:
             return "italic"
+
         case .oblique:
             return "oblique"
+
         case .obliqueAngle(let degrees):
             // Clamp the angle to valid range
             let clampedDegrees = max(-90, min(90, degrees))
             return "oblique \(clampedDegrees)deg"
+
         case .global(let value):
             return value.description
         }

@@ -292,7 +292,7 @@ extension TransformFunction: CustomStringConvertible {
             return "rotateZ(\(angle))"
 
         case .scale(let sx, let sy):
-            if let sy = sy {
+            if let sy {
                 return "scale(\(sx), \(sy))"
             } else {
                 return "scale(\(sx))"
@@ -311,7 +311,7 @@ extension TransformFunction: CustomStringConvertible {
             return "scaleZ(\(factor))"
 
         case .skew(let angleX, let angleY):
-            if let angleY = angleY {
+            if let angleY {
                 return "skew(\(angleX), \(angleY))"
             } else {
                 return "skew(\(angleX))"
@@ -324,7 +324,7 @@ extension TransformFunction: CustomStringConvertible {
             return "skewY(\(angle))"
 
         case .translate(let tx, let ty):
-            if let ty = ty {
+            if let ty {
                 return "translate(\(tx), \(ty))"
             } else {
                 return "translate(\(tx))"

@@ -47,6 +47,7 @@ extension FrequencyPercentage: CustomStringConvertible {
         switch self {
         case .frequency(let frequency):
             return frequency.description
+
         case .percentage(let percentage):
             return percentage.description
         }

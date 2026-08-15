@@ -45,14 +45,19 @@ extension WhiteSpaceCollapse {
         switch self {
         case .collapse:
             return "collapse"
+
         case .preserve:
             return "preserve"
+
         case .preserveBreaks:
             return "preserve-breaks"
+
         case .preserveSpaces:
             return "preserve-spaces"
+
         case .breakSpaces:
             return "break-spaces"
+
         case .global(let global):
             return global.description
         }

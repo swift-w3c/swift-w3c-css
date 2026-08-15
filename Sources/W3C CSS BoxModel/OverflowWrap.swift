@@ -50,10 +50,13 @@ extension OverflowWrap {
         switch self {
         case .normal:
             return "normal"
+
         case .anywhere:
             return "anywhere"
+
         case .breakWord:
             return "break-word"
+
         case .global(let global):
             return global.description
         }

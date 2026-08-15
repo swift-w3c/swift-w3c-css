@@ -70,7 +70,7 @@ public struct Ratio: Sendable, Hashable, Comparable {
 
 extension Ratio {
     /// Errors that can occur when creating a Ratio
-    public enum RatioError: Error, Sendable {
+    public enum RatioError: Swift.Error, Sendable {
         case invalidValue(String)
     }
 

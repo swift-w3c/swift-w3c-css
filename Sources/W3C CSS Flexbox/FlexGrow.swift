@@ -40,6 +40,7 @@ extension FlexGrow {
         switch self {
         case .number(let number):
             return number.description
+
         case .global(let value):
             return value.description
         }

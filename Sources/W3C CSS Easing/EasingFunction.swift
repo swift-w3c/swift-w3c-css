@@ -133,7 +133,7 @@ extension EasingFunction: CustomStringConvertible {
             return "step-end"
 
         case .steps(let steps, let position):
-            if let position = position {
+            if let position {
                 return "steps(\(steps), \(position))"
             } else {
                 return "steps(\(steps))"

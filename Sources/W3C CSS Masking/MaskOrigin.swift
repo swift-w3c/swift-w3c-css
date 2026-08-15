@@ -116,18 +116,25 @@ extension MaskOrigin: CustomStringConvertible {
         switch self {
         case .borderBox:
             return "border-box"
+
         case .paddingBox:
             return "padding-box"
+
         case .contentBox:
             return "content-box"
+
         case .fillBox:
             return "fill-box"
+
         case .strokeBox:
             return "stroke-box"
+
         case .viewBox:
             return "view-box"
+
         case .multiple(let origins):
             return origins.map { $0.rawValue }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

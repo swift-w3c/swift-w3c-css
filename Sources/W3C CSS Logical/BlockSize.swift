@@ -100,16 +100,22 @@ extension BlockSize: CustomStringConvertible {
         switch self {
         case .auto:
             return "auto"
+
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .minContent:
             return "min-content"
+
         case .maxContent:
             return "max-content"
+
         case .fitContent:
             return "fit-content"
+
         case .fitContentLength(let length):
             return "fit-content(\(length))"
+
         case .global(let global):
             return global.description
         }

@@ -58,7 +58,7 @@ public enum BorderTopLeftRadius: Property {
     ///   - horizontal: The horizontal radius of the corner
     ///   - vertical: The vertical radius of the corner (optional, defaults to same as horizontal)
     public init(_ horizontal: LengthPercentage, _ vertical: LengthPercentage? = nil) {
-        if let vertical = vertical {
+        if let vertical {
             self = .elliptical(horizontal, vertical)
         } else {
             self = .radius(horizontal)
@@ -109,8 +109,10 @@ extension BorderTopLeftRadius: CustomStringConvertible {
         switch self {
         case .radius(let radius):
             return radius.description
+
         case .elliptical(let horizontal, let vertical):
             return "\(horizontal.description) \(vertical.description)"
+
         case .global(let global):
             return global.description
         }

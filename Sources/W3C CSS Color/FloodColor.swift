@@ -35,8 +35,10 @@ extension FloodColor: CustomStringConvertible {
         switch self {
         case .color(let color):
             return color.description
+
         case .currentColor:
             return "currentcolor"
+
         case .global(let value):
             return value.description
         }

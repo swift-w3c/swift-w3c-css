@@ -36,8 +36,10 @@ extension ScrollTimelineName {
         switch self {
         case .none:
             return "none"
+
         case .name(let name):
             return name.description
+
         case .global(let global):
             return global.description
         }

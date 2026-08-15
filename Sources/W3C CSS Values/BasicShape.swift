@@ -162,8 +162,10 @@ extension BasicShape.ShapeRadius: CustomStringConvertible {
         switch self {
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .closestSide:
             return "closest-side"
+
         case .farthestSide:
             return "farthest-side"
         }

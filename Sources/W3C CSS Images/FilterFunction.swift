@@ -118,11 +118,11 @@ extension FilterFunction: CustomStringConvertible {
         case .dropShadow(let offsetX, let offsetY, let blurRadius, let color):
             var shadow = "\(offsetX) \(offsetY)"
 
-            if let blurRadius = blurRadius {
+            if let blurRadius {
                 shadow += " \(blurRadius)"
             }
 
-            if let color = color {
+            if let color {
                 shadow += " \(color)"
             }
 

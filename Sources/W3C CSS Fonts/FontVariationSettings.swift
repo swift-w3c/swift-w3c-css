@@ -57,7 +57,7 @@ extension FontVariationSettings: CustomStringConvertible {
             return "normal"
 
         case .axes(let axes):
-            let axisStrings = axes.map { (axis, value) -> String in
+            let axisStrings = axes.map { axis, value -> String in
                 return "\"\(axis)\" \(value)"
             }
             return axisStrings.joined(separator: ", ")

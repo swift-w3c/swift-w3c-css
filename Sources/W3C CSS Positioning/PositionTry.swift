@@ -193,6 +193,7 @@ extension PositionTry.AnchorValue {
         switch self {
         case .anchor(let edge):
             return "anchor(\(edge))"
+
         case .calc(let expression):
             return "calc(\(expression))"
         }

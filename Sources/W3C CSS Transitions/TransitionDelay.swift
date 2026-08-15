@@ -64,8 +64,10 @@ extension TransitionDelay {
         switch self {
         case .time(let time):
             return time.description
+
         case .list(let times):
             return times.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

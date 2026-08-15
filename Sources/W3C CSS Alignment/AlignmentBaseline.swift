@@ -85,32 +85,46 @@ extension AlignmentBaseline {
         switch self {
         case .baseline:
             return "baseline"
+
         case .alphabetic:
             return "alphabetic"
+
         case .central:
             return "central"
+
         case .ideographic:
             return "ideographic"
+
         case .mathematical:
             return "mathematical"
+
         case .middle:
             return "middle"
+
         case .textBottom:
             return "text-bottom"
+
         case .textTop:
             return "text-top"
+
         case .global(let global):
             return global.description
+
         case .auto:
             return "auto"
+
         case .beforeEdge:
             return "before-edge"
+
         case .afterEdge:
             return "after-edge"
+
         case .hanging:
             return "hanging"
+
         case .textBeforeEdge:
             return "text-before-edge"
+
         case .textAfterEdge:
             return "text-after-edge"
         }

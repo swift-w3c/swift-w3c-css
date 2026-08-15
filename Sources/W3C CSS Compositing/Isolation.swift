@@ -30,8 +30,10 @@ extension Isolation {
         switch self {
         case .auto:
             return "auto"
+
         case .isolate:
             return "isolate"
+
         case .global(let global):
             return global.description
         }

@@ -43,6 +43,7 @@ extension AnimationName.KeyFramesName {
         switch self {
         case .customIdent(let ident):
             ident.description
+
         case .string(let cSSString):
             cSSString.description
         }
@@ -56,8 +57,10 @@ extension AnimationName: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .keyframes(let name):
             return name.description
+
         case .global(let global):
             return global.description
         }

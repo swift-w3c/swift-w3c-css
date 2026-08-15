@@ -46,14 +46,19 @@ extension WordBreak {
         switch self {
         case .normal:
             return "normal"
+
         case .breakAll:
             return "break-all"
+
         case .keepAll:
             return "keep-all"
+
         case .autoPhrase:
             return "auto-phrase"
+
         case .breakWord:
             return "break-word"
+
         case .global(let global):
             return global.description
         }

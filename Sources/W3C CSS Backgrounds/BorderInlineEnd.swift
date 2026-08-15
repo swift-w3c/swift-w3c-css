@@ -145,15 +145,15 @@ extension BorderInlineEnd: CustomStringConvertible {
         case .properties(let width, let style, let color):
             var parts: [String] = []
 
-            if let width = width {
+            if let width {
                 parts.append(width.description)
             }
 
-            if let style = style {
+            if let style {
                 parts.append(style.description)
             }
 
-            if let color = color {
+            if let color {
                 parts.append(color.description)
             }
 

@@ -73,7 +73,7 @@ extension JustifyItems: CustomStringConvertible {
             return position.description
 
         case .position(let overflow, let position):
-            if let overflow = overflow {
+            if let overflow {
                 return "\(overflow) \(position)"
             } else {
                 return position.description
@@ -86,7 +86,7 @@ extension JustifyItems: CustomStringConvertible {
             return "right"
 
         case .legacy(let position):
-            if let position = position {
+            if let position {
                 return "legacy \(position)"
             } else {
                 return "legacy"

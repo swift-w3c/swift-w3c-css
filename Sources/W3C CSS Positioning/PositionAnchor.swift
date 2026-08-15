@@ -70,8 +70,10 @@ extension PositionAnchor {
         switch self {
         case .auto:
             return "auto"
+
         case .anchorName(let name):
             return name.description
+
         case .global(let global):
             return global.description
         }

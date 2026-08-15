@@ -62,16 +62,22 @@ extension PositionTryFallbacks {
         switch self {
         case .none:
             return "none"
+
         case .tactic(let tactic):
             return tactic.rawValue
+
         case .tactics(let tactics):
             return tactics.map { $0.rawValue }.joined(separator: ", ")
+
         case .positionArea(let area):
             return area.description
+
         case .customOption(let option):
             return option.description
+
         case .combined(let options):
             return options.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }
@@ -89,8 +95,10 @@ extension PositionTryFallbacks.FallbackOption {
         switch self {
         case .tactic(let tactic):
             return tactic.rawValue
+
         case .positionArea(let area):
             return area.description
+
         case .customOption(let option):
             return option.description
         }

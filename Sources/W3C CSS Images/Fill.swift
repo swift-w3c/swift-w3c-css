@@ -42,16 +42,22 @@ extension Fill {
         switch self {
         case .none:
             return "none"
+
         case .contextFill:
             return "context-fill"
+
         case .contextStroke:
             return "context-stroke"
+
         case .color(let color):
             return color.description
+
         case .url(let url):
             return url.description
+
         case .urlWithFallback(let url, let fallback):
             return "url(\(url)) \(fallback)"
+
         case .global(let value):
             return value.description
         }

@@ -69,22 +69,31 @@ extension FontVariantAlternates {
         switch self {
         case .normal:
             return "normal"
+
         case .historicalForms:
             return "historical-forms"
+
         case .stylistic(let name):
             return "stylistic(\(name))"
+
         case .styleset(let name):
             return "styleset(\(name))"
+
         case .characterVariant(let name):
             return "character-variant(\(name))"
+
         case .swash(let name):
             return "swash(\(name))"
+
         case .ornaments(let name):
             return "ornaments(\(name))"
+
         case .annotation(let name):
             return "annotation(\(name))"
+
         case .combination(let options):
             return options.map { $0.description }.joined(separator: " ")
+
         case .global(let value):
             return value.description
         }
@@ -120,16 +129,22 @@ extension AlternateOption {
         switch self {
         case .historicalForms:
             return "historical-forms"
+
         case .stylistic(let name):
             return "stylistic(\(name))"
+
         case .styleset(let name):
             return "styleset(\(name))"
+
         case .characterVariant(let name):
             return "character-variant(\(name))"
+
         case .swash(let name):
             return "swash(\(name))"
+
         case .ornaments(let name):
             return "ornaments(\(name))"
+
         case .annotation(let name):
             return "annotation(\(name))"
         }

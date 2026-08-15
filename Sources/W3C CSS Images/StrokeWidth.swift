@@ -45,8 +45,10 @@ extension StrokeWidth {
         switch self {
         case .lengthPercentage(let lengthPercentage):
             return lengthPercentage.description
+
         case .number(let number):
             return number.description
+
         case .global(let global):
             return global.description
         }

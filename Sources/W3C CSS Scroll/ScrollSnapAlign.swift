@@ -52,8 +52,10 @@ extension ScrollSnapAlign {
         switch self {
         case .single(let alignment):
             return alignment.rawValue
+
         case .blockInline(let block, let inline):
             return "\(block.rawValue) \(inline.rawValue)"
+
         case .global(let global):
             return global.description
         }

@@ -27,8 +27,10 @@ extension PrintColorAdjust {
         switch self {
         case .economy:
             return "economy"
+
         case .exact:
             return "exact"
+
         case .global(let global):
             return global.description
         }

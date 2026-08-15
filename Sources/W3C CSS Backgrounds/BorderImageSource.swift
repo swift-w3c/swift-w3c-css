@@ -88,6 +88,7 @@ extension BorderImageSource: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .url(let path):
             // If path already contains url(), use it as is
             if path.value.hasPrefix("url(") {
@@ -99,18 +100,25 @@ extension BorderImageSource: CustomStringConvertible {
             }
             // Otherwise, add quotes
             return "url(\"\(path)\")"
+
         case .linearGradient(let value):
             return "linear-gradient(\(value))"
+
         case .radialGradient(let value):
             return "radial-gradient(\(value))"
+
         case .conicGradient(let value):
             return "conic-gradient(\(value))"
+
         case .repeatingLinearGradient(let value):
             return "repeating-linear-gradient(\(value))"
+
         case .repeatingRadialGradient(let value):
             return "repeating-radial-gradient(\(value))"
+
         case .repeatingConicGradient(let value):
             return "repeating-conic-gradient(\(value))"
+
         case .global(let global):
             return global.description
         }

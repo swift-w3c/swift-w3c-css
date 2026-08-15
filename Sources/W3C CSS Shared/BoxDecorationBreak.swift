@@ -40,8 +40,10 @@ extension BoxDecorationBreak {
         switch self {
         case .slice:
             return "slice"
+
         case .clone:
             return "clone"
+
         case .global(let global):
             return global.description
         }

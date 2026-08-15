@@ -46,10 +46,13 @@ extension ImageOrientation {
         switch self {
         case .none:
             return "none"
+
         case .fromImage:
             return "from-image"
+
         case .angle(let angle, let flip):
             return flip ? "\(angle) flip" : angle.description
+
         case .global(let global):
             return global.description
         }

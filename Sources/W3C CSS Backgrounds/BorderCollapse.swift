@@ -66,8 +66,10 @@ extension BorderCollapse: CustomStringConvertible {
         switch self {
         case .collapse:
             return "collapse"
+
         case .separate:
             return "separate"
+
         case .global(let global):
             return global.description
         }

@@ -183,6 +183,7 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                             if let end = bez.controlPoints.last {
                                 d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
+
                         case 3:  // Quadratic
                             if bez.controlPoints.count >= 3 {
                                 let cp = bez.controlPoints[1]
@@ -190,6 +191,7 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                                 d += " Q \(cp.x.formatted(.number)) \(cp.y.formatted(.number))"
                                 d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
+
                         case 4:  // Cubic
                             if bez.controlPoints.count >= 4 {
                                 let cp1 = bez.controlPoints[1]
@@ -199,6 +201,7 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                                 d += " \(cp2.x.formatted(.number)) \(cp2.y.formatted(.number))"
                                 d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
                             }
+
                         default:
                             // Higher-degree beziers: approximate with cubic segments
                             // For now, just draw to end point

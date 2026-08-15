@@ -102,8 +102,10 @@ extension WebkitMaskComposite {
         switch self {
         case .operation(let operation):
             return operation.rawValue
+
         case .multiple(let operations):
             return operations.map { $0.rawValue }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

@@ -121,15 +121,20 @@ extension BackdropFilter: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .filter(let filter):
             return filter.description
+
         case .filters(let filters):
             return filters.map { $0.description }.joined(separator: " ")
+
         case .url(let url):
             return url.description
+
         case .combined(let url, let filters):
             let filterString = filters.map { $0.description }.joined(separator: " ")
             return "\(url.description) \(filterString)"
+
         case .global(let global):
             return global.description
         }

@@ -42,12 +42,16 @@ extension Translate {
         switch self {
         case .none:
             return "none"
+
         case .x(let x):
             return x.description
+
         case .xy(let x, let y):
             return "\(x.description) \(y.description)"
+
         case .xyz(let x, let y, let z):
             return "\(x.description) \(y.description) \(z.description)"
+
         case .global(let global):
             return global.description
         }

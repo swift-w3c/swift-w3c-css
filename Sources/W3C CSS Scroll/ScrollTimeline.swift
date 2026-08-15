@@ -57,10 +57,13 @@ extension ScrollTimeline {
         switch self {
         case .none:
             return "none"
+
         case .name(let name):
             return name.description
+
         case .nameAndAxis(let name, let axis):
             return "\(name.description) \(axis.rawValue)"
+
         case .global(let global):
             return global.description
         }

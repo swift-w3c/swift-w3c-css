@@ -84,17 +84,21 @@ extension ColumnRule {
     public var description: String {
         switch self {
         case .full(let style, let width, let color):
-            if let color = color {
+            if let color {
                 return "\(style.description) \(width.description) \(color.description)"
             } else {
                 return "\(style.description) \(width.description)"
             }
+
         case .styleWidth(let style, let width):
             return "\(style.description) \(width.description)"
+
         case .styleColor(let style, let color):
             return "\(style.description) \(color.description)"
+
         case .lineStyle(let lineStyle):
             return lineStyle.description
+
         case .global(let global):
             return global.description
         }

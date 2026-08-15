@@ -64,10 +64,13 @@ extension ScrollSnapType {
         switch self {
         case .none:
             return "none"
+
         case .axis(let axis):
             return axis.rawValue
+
         case .axisWithStrictness(let axis, let strictness):
             return "\(axis.rawValue) \(strictness.rawValue)"
+
         case .global(let global):
             return global.description
         }

@@ -37,10 +37,13 @@ extension ScrollPaddingInline {
         switch self {
         case .auto:
             return "auto"
+
         case .lengthPercentage(let value):
             return value.description
+
         case .startEnd(let start, let end):
             return "\(start.description) \(end.description)"
+
         case .global(let global):
             return global.description
         }

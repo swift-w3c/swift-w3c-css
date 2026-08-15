@@ -46,10 +46,13 @@ extension Hyphens {
         switch self {
         case .none:
             return "none"
+
         case .manual:
             return "manual"
+
         case .auto:
             return "auto"
+
         case .global(let global):
             return global.description
         }

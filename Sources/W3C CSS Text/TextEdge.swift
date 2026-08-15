@@ -96,6 +96,7 @@ extension TextEdge: CustomStringConvertible {
         switch self {
         case .single(let value):
             return value.rawValue
+
         case .pair(let overValue, let underValue):
             return "\(overValue.rawValue) \(underValue.rawValue)"
         }

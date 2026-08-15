@@ -34,10 +34,13 @@ extension FlexWrap {
         switch self {
         case .nowrap:
             return "nowrap"
+
         case .wrap:
             return "wrap"
+
         case .wrapReverse:
             return "wrap-reverse"
+
         case .global(let value):
             return value.description
         }

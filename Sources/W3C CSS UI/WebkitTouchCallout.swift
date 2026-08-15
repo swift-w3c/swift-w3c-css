@@ -48,8 +48,10 @@ extension WebkitTouchCallout {
         switch self {
         case .default:
             return "default"
+
         case .none:
             return "none"
+
         case .global(let global):
             return global.description
         }

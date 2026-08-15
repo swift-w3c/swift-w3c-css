@@ -77,14 +77,19 @@ extension FontWeight {
             // Ensure the number is between 1 and 1000
             let clampedValue = max(1, min(1000, number))
             return "\(clampedValue)"
+
         case .normal:
             return "normal"
+
         case .bold:
             return "bold"
+
         case .lighter:
             return "lighter"
+
         case .bolder:
             return "bolder"
+
         case .global(let value):
             return value.description
         }

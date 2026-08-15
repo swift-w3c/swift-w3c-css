@@ -38,10 +38,13 @@ extension FontKerning {
         switch self {
         case .auto:
             return "auto"
+
         case .normal:
             return "normal"
+
         case .none:
             return "none"
+
         case .global(let value):
             return value.description
         }

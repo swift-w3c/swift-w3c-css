@@ -45,12 +45,16 @@ extension GridArea {
         switch self {
         case .auto:
             return "auto"
+
         case .name(let name):
             return name
+
         case .area(let area):
             return area.description
+
         case .span(let name):
             return "span \(name)"
+
         case .global(let value):
             return value.description
         }
@@ -119,7 +123,7 @@ public struct GridAreaCoordinates: Sendable, Hashable, CustomStringConvertible {
 
 extension GridAreaCoordinates {
     public var description: String {
-        if let rowEnd = rowEnd, let columnEnd = columnEnd {
+        if let rowEnd, let columnEnd {
             return "\(rowStart) / \(columnStart) / \(rowEnd) / \(columnEnd)"
         } else {
             return "\(rowStart) / \(columnStart)"
@@ -183,12 +187,16 @@ extension GridLine {
         switch type {
         case .number(let number):
             return number.description
+
         case .name(let name):
             return name
+
         case .span(let span):
             return "span \(span)"
+
         case .spanName(let name):
             return "span \(name)"
+
         case .auto:
             return "auto"
         }

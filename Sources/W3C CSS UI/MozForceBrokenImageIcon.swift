@@ -47,8 +47,10 @@ extension MozForceBrokenImageIcon {
         switch self {
         case .off:
             return "0"
+
         case .on:
             return "1"
+
         case .global(let global):
             return global.description
         }

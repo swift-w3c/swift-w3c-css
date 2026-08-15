@@ -37,7 +37,7 @@ extension Part {
 extension Part: CustomStringConvertible {
     /// Converts the ::part() pseudo-element to its CSS string representation
     public var description: String {
-        if let partName = partName {
+        if let partName {
             return Self.prefix + "part(\(partName))"
         } else {
             return Self.prefix + Self.name

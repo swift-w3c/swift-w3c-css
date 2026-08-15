@@ -296,31 +296,31 @@ extension Mask.Configuration {
         parts.append(reference.description)
 
         // Masking mode
-        if let mode = mode {
+        if let mode {
             parts.append(modeDescription(mode))
         }
 
         // Position and size
-        if let position = position {
+        if let position {
             let positionPart = positionDescription(position)
 
-            if let size = size {
+            if let size {
                 parts.append("\(positionPart) / \(sizeDescription(size))")
             } else {
                 parts.append(positionPart)
             }
-        } else if let size = size {
+        } else if let size {
             parts.append("0% 0% / \(sizeDescription(size))")
         }
 
         // Repeat
-        if let `repeat` = `repeat` {
+        if let `repeat` {
             parts.append(repeatDescription(`repeat`))
         }
 
         // Geometry boxes (clip and origin)
-        if let origin = origin {
-            if let clip = clip {
+        if let origin {
+            if let clip {
                 // If both are provided and different
                 if clip != origin {
                     parts.append(geometryBoxDescription(origin))
@@ -332,12 +332,12 @@ extension Mask.Configuration {
             } else {
                 parts.append(geometryBoxDescription(origin))
             }
-        } else if let clip = clip {
+        } else if let clip {
             parts.append(clipDescription(clip))
         }
 
         // Composite
-        if let composite = composite {
+        if let composite {
             parts.append(compositeDescription(composite))
         }
 
@@ -348,16 +348,22 @@ extension Mask.Configuration {
         switch position {
         case .keywords(let horizontal, let vertical):
             return "\(horizontal.rawValue) \(vertical.rawValue)"
+
         case .custom(let x, let y):
             return "\(x) \(y)"
+
         case .center:
             return "center"
+
         case .top:
             return "top"
+
         case .bottom:
             return "bottom"
+
         case .left:
             return "left"
+
         case .right:
             return "right"
         }
@@ -367,10 +373,13 @@ extension Mask.Configuration {
         switch size {
         case .dimensions(let width, let height):
             return "\(width) \(height)"
+
         case .cover:
             return "cover"
+
         case .contain:
             return "contain"
+
         case .auto:
             return "auto"
         }
@@ -380,16 +389,22 @@ extension Mask.Configuration {
         switch `repeat` {
         case .repeatX:
             return "repeat-x"
+
         case .repeatY:
             return "repeat-y"
+
         case .repeat:
             return "repeat"
+
         case .space:
             return "space"
+
         case .round:
             return "round"
+
         case .noRepeat:
             return "no-repeat"
+
         case .horizontalVertical(let horizontal, let vertical):
             return "\(horizontal.rawValue) \(vertical.rawValue)"
         }
@@ -399,18 +414,25 @@ extension Mask.Configuration {
         switch box {
         case .contentBox:
             return "content-box"
+
         case .paddingBox:
             return "padding-box"
+
         case .borderBox:
             return "border-box"
+
         case .marginBox:
             return "margin-box"
+
         case .fillBox:
             return "fill-box"
+
         case .strokeBox:
             return "stroke-box"
+
         case .viewBox:
             return "view-box"
+
         case .noClip:
             return "no-clip"
         }
@@ -428,10 +450,13 @@ extension Mask.Configuration {
         switch composite {
         case .add:
             return "add"
+
         case .subtract:
             return "subtract"
+
         case .intersect:
             return "intersect"
+
         case .exclude:
             return "exclude"
         }
@@ -441,8 +466,10 @@ extension Mask.Configuration {
         switch mode {
         case .alpha:
             return "alpha"
+
         case .luminance:
             return "luminance"
+
         case .matchSource:
             return "match-source"
         }
@@ -455,6 +482,7 @@ extension Mask.MaskReference {
         switch self {
         case .none:
             return "none"
+
         case .url(let url):
             // If url already contains url(), use it as is
             if url.value.hasPrefix("url(") {
@@ -466,16 +494,22 @@ extension Mask.MaskReference {
             }
             // Otherwise, add quotes
             return "url(\"\(url)\")"
+
         case .linearGradient(let value):
             return "linear-gradient(\(value))"
+
         case .radialGradient(let value):
             return "radial-gradient(\(value))"
+
         case .conicGradient(let value):
             return "conic-gradient(\(value))"
+
         case .repeatingLinearGradient(let value):
             return "repeating-linear-gradient(\(value))"
+
         case .repeatingRadialGradient(let value):
             return "repeating-radial-gradient(\(value))"
+
         case .repeatingConicGradient(let value):
             return "repeating-conic-gradient(\(value))"
         }
@@ -524,10 +558,13 @@ extension Mask: CustomStringConvertible {
         switch self {
         case .none:
             return "none"
+
         case .configuration(let config):
             return config.description
+
         case .layers(let configs):
             return configs.map { $0.description }.joined(separator: ", ")
+
         case .global(let global):
             return global.description
         }

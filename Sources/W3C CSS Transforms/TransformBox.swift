@@ -64,14 +64,19 @@ extension TransformBox: CustomStringConvertible {
         switch self {
         case .contentBox:
             return "content-box"
+
         case .borderBox:
             return "border-box"
+
         case .fillBox:
             return "fill-box"
+
         case .strokeBox:
             return "stroke-box"
+
         case .viewBox:
             return "view-box"
+
         case .global(let global):
             return global.description
         }

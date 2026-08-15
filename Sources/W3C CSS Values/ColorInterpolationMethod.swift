@@ -155,7 +155,7 @@ extension ColorInterpolationMethod {
     ///
     /// This method formats the interpolation method for use in CSS functions.
     public var description: String {
-        if let hueMethod = hueMethod {
+        if let hueMethod {
             return "in \(colorSpace) \(hueMethod)"
         } else {
             return "in \(colorSpace)"

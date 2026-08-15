@@ -44,6 +44,7 @@ public enum TextBoxEdge: Property {
         switch textEdge {
         case .single(let value):
             self = .edge(value)
+
         case .pair(let overValue, let underValue):
             self = .edgePair(overValue, underValue)
         }
@@ -72,10 +73,13 @@ extension TextBoxEdge {
         switch self {
         case .auto:
             return "auto"
+
         case .edge(let value):
             return value.rawValue
+
         case .edgePair(let overValue, let underValue):
             return "\(overValue.rawValue) \(underValue.rawValue)"
+
         case .global(let global):
             return global.description
         }

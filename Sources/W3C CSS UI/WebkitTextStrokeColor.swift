@@ -61,8 +61,10 @@ extension WebkitTextStrokeColor {
         switch self {
         case .color(let color):
             return color.description
+
         case .currentColor:
             return "currentColor"
+
         case .global(let global):
             return global.description
         }

@@ -58,7 +58,7 @@ extension Cue {
 extension Cue: CustomStringConvertible {
     /// Converts the ::cue pseudo-element to its CSS string representation
     public var description: String {
-        if let selector = selector {
+        if let selector {
             return Self.prefix + "cue(\(selector))"
         } else {
             return Self.prefix + Self.name

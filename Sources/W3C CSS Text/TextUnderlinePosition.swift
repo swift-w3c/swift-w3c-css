@@ -59,12 +59,16 @@ public enum TextUnderlinePosition: Property {
             switch value {
             case .auto:
                 self = .auto
+
             case .fromFont:
                 self = .fromFont
+
             case .under:
                 self = .under
+
             case .left:
                 self = .left
+
             case .right:
                 self = .right
             }
