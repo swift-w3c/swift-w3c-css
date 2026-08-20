@@ -1,11 +1,9 @@
-// swift-tools-version: 6.3.3
+// swift-tools-version: 6.4
 // The swift-tools-version declares the minimum version of Swift required to build this package.
 
 import PackageDescription
 
 // MARK: - String Extensions for Module Names
-
-
 
 extension String {
     // Core Modules
@@ -146,11 +144,11 @@ extension Target.Dependency {
 let package = Package(
     name: "swift-w3c-css",
     platforms: [
-        .macOS("27"),
-        .iOS("27"),
-        .tvOS("27"),
-        .watchOS("27"),
-        .macCatalyst(.v26)
+        .macOS(.v27),
+        .iOS(.v27),
+        .tvOS(.v27),
+        .watchOS(.v27),
+        .visionOS(.v27),
     ],
     products: [
         // Core Modules
@@ -214,16 +212,25 @@ let package = Package(
         .library(name: "W3C CSS Typography", targets: ["W3C CSS Typography"]),
         .library(name: "W3C CSS Visual", targets: ["W3C CSS Visual"]),
         .library(name: "W3C CSS Animation", targets: ["W3C CSS Animation"]),
-        .library(name: "W3C CSS", targets: ["W3C CSS"])
+        .library(name: "W3C CSS", targets: ["W3C CSS"]),
     ],
     dependencies: [
         .package(url: "https://github.com/swift-w3c/swift-w3c-cssom.git", branch: "main"),
-        .package(url: "https://github.com/swift-primitives/swift-format-primitives.git", branch: "main"),
-        .package(url: "https://github.com/swift-primitives/swift-geometry-primitives.git", branch: "main"),
+        .package(
+            url: "https://github.com/swift-primitives/swift-format-primitives.git",
+            branch: "main"
+        ),
+        .package(
+            url: "https://github.com/swift-primitives/swift-geometry-primitives.git",
+            branch: "main"
+        ),
         .package(url: "https://github.com/swift-ieee/swift-ieee-754.git", branch: "main"),
         .package(url: "https://github.com/swift-iec/swift-iec-61966.git", branch: "main"),
-        .package(url: "https://github.com/swift-primitives/swift-ascii-primitives.git", branch: "main"),
-        .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main")
+        .package(
+            url: "https://github.com/swift-primitives/swift-ascii-primitives.git",
+            branch: "main"
+        ),
+        .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
     ],
     targets: [
         // MARK: - Core Modules
@@ -234,8 +241,8 @@ let package = Package(
                 .product(name: "W3C CSSOM", package: "swift-w3c-cssom"),
                 .product(name: "ASCII Primitives", package: "swift-ascii-primitives"),
                 .product(name: "Format Primitives", package: "swift-format-primitives"),
-                .product(name: "Geometry Primitives", package: "swift-geometry-primitives")
-    ]
+                .product(name: "Geometry Primitives", package: "swift-geometry-primitives"),
+            ]
         ),
 
         .target(
@@ -244,8 +251,8 @@ let package = Package(
                 .w3cCSSShared,
                 .product(name: "IEEE 754", package: "swift-ieee-754"),
                 .product(name: "IEC 61966", package: "swift-iec-61966"),
-                .product(name: "RFC 4648", package: "swift-rfc-4648")
-    ]
+                .product(name: "RFC 4648", package: "swift-rfc-4648"),
+            ]
         ),
 
         .target(
@@ -368,7 +375,9 @@ let package = Package(
 
         .target(
             name: "W3C CSS Transitions",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSEasing, .w3cCSSColor, .w3cCSSSyntax]
+            dependencies: [
+                .w3cCSSShared, .w3cCSSValues, .w3cCSSEasing, .w3cCSSColor, .w3cCSSSyntax,
+            ]
         ),
 
         .target(
@@ -455,7 +464,7 @@ let package = Package(
                 .w3cCSSPositioning,
                 .w3cCSSMulticolumn,
                 .w3cCSSBoxModel,
-                .w3cCSSAlignment
+                .w3cCSSAlignment,
             ]
         ),
 
@@ -465,7 +474,7 @@ let package = Package(
                 .w3cCSSText,
                 .w3cCSSFonts,
                 .w3cCSSTextDecoration,
-                .w3cCSSWritingModes
+                .w3cCSSWritingModes,
             ]
         ),
 
@@ -478,7 +487,7 @@ let package = Package(
                 .w3cCSSFilters,
                 .w3cCSSMasking,
                 .w3cCSSCompositing,
-                .w3cCSSPositioning
+                .w3cCSSPositioning,
             ]
         ),
 
@@ -488,7 +497,7 @@ let package = Package(
                 .w3cCSSAnimations,
                 .w3cCSSTransitions,
                 .w3cCSSEasing,
-                .w3cCSSPositioning
+                .w3cCSSPositioning,
             ]
         ),
 
@@ -525,7 +534,7 @@ let package = Package(
                 // Specialized
                 .w3cCSSLists,
                 .w3cCSSCounterStyles,
-                .w3cCSSPaged
+                .w3cCSSPaged,
             ]
         ),
         .testTarget(
@@ -730,7 +739,7 @@ let package = Package(
         .testTarget(
             name: "W3C CSS Shared Tests",
             dependencies: [
-                "W3C CSS Shared",
+                "W3C CSS Shared"
             ]
         ),
         .testTarget(
