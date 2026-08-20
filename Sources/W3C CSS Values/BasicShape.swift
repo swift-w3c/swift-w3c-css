@@ -1,4 +1,4 @@
-public import W3C_CSS_Shared
+import W3C_CSS_Shared
 
 /// Represents CSS basic shape values used for clipping and wrapping content.
 ///

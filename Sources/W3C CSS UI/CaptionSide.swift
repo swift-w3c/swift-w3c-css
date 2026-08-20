@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `caption-side` property puts the content of a table's `<caption>` on the specified side.
 /// The values are relative to the writing-mode of the table.

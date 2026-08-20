@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The non-standard `-webkit-mask-composite` property specifies the manner in which
 /// multiple mask images applied to the same element are composited with one another.

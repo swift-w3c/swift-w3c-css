@@ -2,7 +2,7 @@
 // ShapeImageThreshold.swift
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The `shape-image-threshold` CSS property sets the alpha channel threshold used to extract the shape using
 /// an image as the value for `shape-outside`. Any pixels whose alpha component's value is greater than the

@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `outline` shorthand property sets all the outline properties in a single declaration.
 ///

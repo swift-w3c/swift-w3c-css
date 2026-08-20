@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `-webkit-touch-callout` property controls the display of the default callout shown
 /// when you touch and hold a touch target on iOS devices.

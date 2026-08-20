@@ -1,5 +1,5 @@
-public import ASCII_Primitives
-public import W3C_CSS_Shared
+import ASCII_Primitives
+import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 public import W3C_CSS_Values
 

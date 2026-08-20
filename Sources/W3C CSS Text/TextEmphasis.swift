@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `text-emphasis` property applies emphasis marks to text (except spaces and control characters).
 ///

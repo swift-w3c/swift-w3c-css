@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `column-fill` property controls how an element's contents are balanced when broken into columns.
 ///

@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// Represents the CSS `mask-mode` property, which sets whether the mask image is treated as a luminance or alpha mask.
 ///

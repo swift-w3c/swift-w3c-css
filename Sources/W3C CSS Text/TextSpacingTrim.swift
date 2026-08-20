@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `text-spacing-trim` property controls the internal spacing set on
 /// Chinese/Japanese/Korean (CJK) punctuation characters between adjacent characters (kerning)

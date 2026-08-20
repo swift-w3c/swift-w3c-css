@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `punctuation-wrap` property determines whether punctuation marks should hang
 /// at the start or end of a line or be placed within the line box.

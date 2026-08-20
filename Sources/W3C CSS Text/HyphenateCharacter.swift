@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `hyphenate-character` property sets the character (or string) used at the end of a line
 /// before a hyphenation break.

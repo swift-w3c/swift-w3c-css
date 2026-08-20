@@ -1,4 +1,4 @@
-public import W3C_CSS_Shared
+import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 public import W3C_CSS_Values
 

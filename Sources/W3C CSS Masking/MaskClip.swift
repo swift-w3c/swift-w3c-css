@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// Represents the CSS `mask-clip` property, which determines the area which is affected by the mask.
 ///

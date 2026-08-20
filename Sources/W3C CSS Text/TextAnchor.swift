@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// Aligns a box containing a string of text relative to the anchor point of the element in SVG.
 ///

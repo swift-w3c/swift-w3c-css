@@ -5,7 +5,7 @@
 //  Created by Coen ten Thije Boonkkamp on 26/03/2025.
 //
 
-public import W3C_CSS_Color
+import W3C_CSS_Color
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 

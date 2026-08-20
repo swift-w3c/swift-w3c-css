@@ -5,7 +5,7 @@
 //  Context wrappers that convert geometry types to CSS value strings.
 //
 
-public import Format_Primitives
+import Format_Primitives
 public import Geometry_Primitives
 
 // MARK: - Circle Context

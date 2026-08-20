@@ -1,4 +1,4 @@
-public import ASCII_Primitives
+import ASCII_Primitives
 public import W3C_CSS_Shared
 
 /// Represents a CSS @import at-rule.

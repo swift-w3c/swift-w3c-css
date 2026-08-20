@@ -1,4 +1,4 @@
-public import W3C_CSS_Shared
+import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 public import W3C_CSS_Values
 
@@ -43,7 +43,7 @@ extension Media {
     public static let identifier: String = "media"
 
     /// Helper to create a media feature query
-    private static func feature(_ name: String, _ value: CustomStringConvertible) -> Media {
+    private static func feature(_ name: String, _ value: any CustomStringConvertible) -> Media {
         Media(rawValue: "@media (\(name): \(value))")
     }
 

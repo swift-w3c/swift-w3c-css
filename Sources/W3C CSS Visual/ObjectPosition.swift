@@ -1,4 +1,4 @@
-public import W3C_CSS_Positioning
+import W3C_CSS_Positioning
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 

@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The non-standard CSS `-moz-orient` property specifies the orientation of the element to which it's applied.
 ///

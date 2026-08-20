@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The `container-name` CSS property specifies a list of query container names used by
 /// the `@container` at-rule in a container query.

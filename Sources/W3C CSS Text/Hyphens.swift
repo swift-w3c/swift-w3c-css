@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `hyphens` property specifies how words should be hyphenated when text wraps across multiple lines.
 ///

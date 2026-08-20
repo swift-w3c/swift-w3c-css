@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `line-break` property sets how to break lines of Chinese, Japanese, or Korean (CJK) text
 /// when working with punctuation and symbols.

@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The non-standard CSS `-webkit-mask-repeat-x` property specifies whether and how
 /// a mask image is repeated (tiled) horizontally.

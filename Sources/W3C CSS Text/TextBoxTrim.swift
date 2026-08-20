@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `text-box-trim` property specifies which of the over and under edges of text content
 /// to trim from a text element's block container.

@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `text-underline-position` property specifies the position of the underline which is set using
 /// the text-decoration property's underline value.

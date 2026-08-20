@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The `overlay` CSS property specifies whether an element appearing in the top layer
 /// (for example, a shown popover or modal dialog element) is actually rendered in the top layer.

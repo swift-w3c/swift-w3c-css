@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The `field-sizing` CSS property controls the sizing behavior of form control elements
 /// that have a default preferred size.

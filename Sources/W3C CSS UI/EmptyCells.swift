@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The `empty-cells` CSS property controls whether borders and backgrounds are displayed
 /// around table cells that have no visible content.

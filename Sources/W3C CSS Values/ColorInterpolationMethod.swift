@@ -1,4 +1,4 @@
-public import W3C_CSS_Shared
+import W3C_CSS_Shared
 
 /// Represents CSS color interpolation methods used in gradients and color mixing.
 ///

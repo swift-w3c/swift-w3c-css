@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// Represents the CSS `mask-border-source` property, which specifies the source image
 /// used to create an element's mask border.

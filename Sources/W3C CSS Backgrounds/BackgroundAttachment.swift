@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// Represents the CSS `background-attachment` property, which determines how a background image is attached to the viewport.
 ///

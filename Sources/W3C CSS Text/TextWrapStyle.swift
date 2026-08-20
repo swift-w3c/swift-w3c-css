@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The CSS `text-wrap-style` property controls how text inside an element is wrapped.
 /// The different values provide alternate ways of wrapping the content of a block element.

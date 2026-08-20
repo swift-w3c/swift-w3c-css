@@ -1,7 +1,7 @@
-public import ASCII_Primitives
+import ASCII_Primitives
 public import W3C_CSS_Shared
 public import W3C_CSS_Syntax
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// Represents a CSS @color-profile at-rule.
 ///

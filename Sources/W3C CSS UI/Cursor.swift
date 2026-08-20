@@ -1,5 +1,5 @@
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The `cursor` CSS property sets the type of cursor to be displayed when pointing over an element.
 ///

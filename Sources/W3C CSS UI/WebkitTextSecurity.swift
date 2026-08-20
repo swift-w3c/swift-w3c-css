@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The non-standard CSS `-webkit-text-security` property is used to obscure text content by
 /// replacing each character with a shape.

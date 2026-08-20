@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The non-standard CSS `-moz-user-focus` property is used to indicate whether an element can have the focus.
 ///

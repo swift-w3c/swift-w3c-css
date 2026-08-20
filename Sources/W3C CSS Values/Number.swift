@@ -1,5 +1,5 @@
 import Format_Primitives
-public import IEEE_754
+import IEEE_754
 
 /// Represents a CSS number value.
 ///

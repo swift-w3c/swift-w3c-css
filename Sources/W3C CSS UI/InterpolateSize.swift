@@ -6,7 +6,7 @@
 //
 
 public import W3C_CSS_Shared
-public import W3C_CSS_Values
+import W3C_CSS_Values
 
 /// The interpolate-size CSS property allows you to enable animations and
 /// transitions between a <length-percentage> value and an intrinsic size value
