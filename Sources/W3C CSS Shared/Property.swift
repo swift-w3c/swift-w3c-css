@@ -1,21 +1,7 @@
-//
-//  Property.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 27/03/2025.
-//
-
-/// A protocol that all CSS properties conform to
-///
-/// This protocol represents a CSS property in the Swift-CSS library.
-/// It provides the core requirements for all CSS properties including
-/// being thread-safe (Sendable), comparable (Hashable), string-convertible
-/// (CustomStringConvertible), and supporting global CSS values (GlobalConvertible).
 public protocol Property: Sendable, Hashable, CustomStringConvertible, GlobalConvertible {
 
     static var property: String { get }
 
-    /// The CSS declaration (property:value) for this property
     var declaration: Declaration { get }
 }
 
@@ -28,7 +14,6 @@ extension Property {
 public struct Declaration: Sendable, Hashable, CustomStringConvertible {
     public let description: String
 
-    /// Create a declaration from a raw string (for testing or special cases)
     public init(description: String) {
         self.description = description
     }

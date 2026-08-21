@@ -3,52 +3,6 @@ import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 import W3C_CSS_Values
 
-/// Represents a CSS @keyframes at-rule.
-///
-/// The @keyframes CSS at-rule controls the intermediate steps in a CSS animation
-/// sequence by defining styles for keyframes (or waypoints) along the animation sequence.
-///
-/// Examples:
-/// ```swift
-/// // Simple slide-in animation
-/// Keyframes("slide-in")
-///     .keyframe(.from, [
-///         "transform": "translateX(0%)"
-///     ])
-///     .keyframe(.to, [
-///         "transform": "translateX(100%)"
-///     ])
-///
-/// // Fade animation with multiple keyframes
-/// Keyframes("fade-in-out")
-///     .keyframe(.percentage(0), [
-///         "opacity": "0"
-///     ])
-///     .keyframe(.percentage(50), [
-///         "opacity": "1"
-///     ])
-///     .keyframe(.percentage(100), [
-///         "opacity": "0"
-///     ])
-///
-/// // Complex animation with multiple properties
-/// Keyframes("bounce")
-///     .keyframe(.from, [
-///         "transform": "translateY(0)",
-///         "animation-timing-function": "ease-out"
-///     ])
-///     .keyframe(.percentage(40), [
-///         "transform": "translateY(-30px)",
-///         "animation-timing-function": "ease-in"
-///     ])
-///     .keyframe([.percentage(60), .percentage(80)], [
-///         "transform": "translateY(0)",
-///         "animation-timing-function": "ease-out"
-///     ])
-///     .keyframe(.percentage(100), [
-///         "transform": "translateY(0)"
-///     ])
-/// ```
 public struct Keyframes: AtRule {
     public var rawValue: String
     private var name: String
@@ -57,18 +11,14 @@ public struct Keyframes: AtRule {
     public init(rawValue: String) {
         self.rawValue = rawValue
 
-        // Extract name from rawValue using standard utilities
-        // Parse "@keyframes name {" to extract "name"
         var cleaned = rawValue
         if cleaned.hasPrefix("@keyframes") {
             cleaned = String(cleaned.dropFirst(10))
         }
 
-        // Trim ASCII whitespace
         while cleaned.first?.isWhitespace == true { cleaned.removeFirst() }
         while cleaned.last?.isWhitespace == true { cleaned.removeLast() }
 
-        // Extract name until whitespace or '{'
         if let endIndex = cleaned.firstIndex(where: { $0.isWhitespace || $0 == "{" }) {
             self.name = String(cleaned[..<endIndex])
         } else {
@@ -76,9 +26,6 @@ public struct Keyframes: AtRule {
         }
     }
 
-    /// Creates a keyframes rule with the specified name.
-    ///
-    /// - Parameter name: The name of the animation.
     public init(_ name: String) {
         self.name = name
         self.rawValue = "@keyframes \(name) {}"
@@ -90,7 +37,7 @@ extension Keyframes {
 }
 
 extension Keyframes {
-    /// Updates the raw value based on the current keyframes.
+
     private mutating func updateRawValue() {
         var sections: [String] = []
 
@@ -117,36 +64,23 @@ extension Keyframes {
         }
     }
 
-    /// Adds a keyframe to the animation.
-    ///
-    /// - Parameters:
-    ///   - selector: The keyframe selector.
-    ///   - styles: The styles to apply at this keyframe.
-    /// - Returns: An updated Keyframes instance.
     public func keyframe(_ selector: KeyframeSelector, _ styles: [String: String]) -> Keyframes {
         return keyframe([selector], styles)
     }
 
-    /// Adds a keyframe with multiple selectors to the animation.
-    ///
-    /// - Parameters:
-    ///   - selectors: The keyframe selectors.
-    ///   - styles: The styles to apply at this keyframe.
-    /// - Returns: An updated Keyframes instance.
     public func keyframe(_ selectors: [KeyframeSelector], _ styles: [String: String]) -> Keyframes {
         var keyframes = self
         let frame = Keyframe(selectors: selectors, styles: styles)
 
-        // Check if we already have a keyframe with the same selectors
         if let index = keyframes.keyframes.firstIndex(where: { $0.selectors == frame.selectors }) {
-            // Merge the styles
+
             var updatedFrame = keyframes.keyframes[index]
             for (key, value) in frame.styles {
                 updatedFrame.styles[key] = value
             }
             keyframes.keyframes[index] = updatedFrame
         } else {
-            // Add a new keyframe
+
             keyframes.keyframes.append(frame)
         }
 
@@ -155,27 +89,21 @@ extension Keyframes {
     }
 }
 
-// MARK: - Keyframe Types
-
 extension Keyframes {
-    /// Represents a single keyframe.
+
     fileprivate struct Keyframe: Sendable, Hashable {
         var selectors: [KeyframeSelector]
         var styles: [String: String]
     }
 
-    /// Represents a keyframe selector.
     public enum KeyframeSelector: Sendable, Hashable {
-        /// Starting keyframe (0%).
+
         case from
 
-        /// Ending keyframe (100%).
         case to
 
-        /// Percentage-based keyframe.
         case percentage(Int)
 
-        /// Named timeline range keyframe.
         case timelineRange(String, Int)
     }
 }

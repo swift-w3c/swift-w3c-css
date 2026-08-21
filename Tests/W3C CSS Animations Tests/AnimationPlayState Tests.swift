@@ -1,14 +1,7 @@
-// AnimationPlayState Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationPlayState type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationPlayState - Declaration` {
@@ -32,8 +25,6 @@ struct `AnimationPlayState - Basic Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AnimationPlayState - Global Values` {
@@ -73,8 +64,6 @@ struct `AnimationPlayState - CaseIterable` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationPlayState - Edge Cases` {
     @Test func `running and paused are distinct`() {
@@ -89,8 +78,6 @@ struct `AnimationPlayState - Edge Cases` {
         #expect(AnimationPlayState.paused.description == "paused")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `AnimationPlayState - CSS Property Usage` {
@@ -113,8 +100,6 @@ struct `AnimationPlayState - CSS Property Usage` {
     }
 }
 
-// MARK: - Semantic Validation
-
 @Suite
 struct `AnimationPlayState - Semantic Validation` {
     @Test func `running allows animation to play`() {
@@ -133,8 +118,6 @@ struct `AnimationPlayState - Semantic Validation` {
         #expect(initial != changed)
     }
 }
-
-// MARK: - Interactive Scenarios
 
 @Suite
 struct `AnimationPlayState - Interactive Scenarios` {
@@ -159,8 +142,6 @@ struct `AnimationPlayState - Interactive Scenarios` {
         #expect(defaultState.description == "running")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

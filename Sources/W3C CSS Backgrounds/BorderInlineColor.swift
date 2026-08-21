@@ -2,69 +2,12 @@ public import W3C_CSS_Color
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// Represents the CSS `border-inline-color` property, which sets the color of the logical inline borders.
-///
-/// This logical property sets the color for the inline borders of an element. The actual physical
-/// borders it affects depend on the element's writing mode, directionality, and text orientation.
-/// For example, in horizontal top-to-bottom writing mode, `border-inline-color` sets the color
-/// of the left and right borders.
-///
-/// Visual Reference:
-/// ```
-/// horizontal-tb writing mode:
-/// ┌─────┬─────────────────┬─────┐
-/// │     │                 │     │
-/// │     │                 │     │
-/// │     │                 │     │
-/// │     │                 │     │
-/// │     │                 │     │
-/// └─────┴─────────────────┴─────┘
-///   ↑                       ↑
-///   border-inline-start-    border-inline-end-
-///   color (left)            color (right)
-///
-/// vertical-rl writing mode:
-/// ┌─────────────────────────────┐
-/// │                             │   ← border-inline-start-color (top)
-/// ├─────────────────────────────┤
-/// │                             │
-/// │                             │
-/// │                             │
-/// ├─────────────────────────────┤
-/// │                             │   ← border-inline-end-color (bottom)
-/// └─────────────────────────────┘
-/// ```
-///
-/// Example:
-/// ```swift
-/// // Set the inline border color to red
-/// .borderInlineColor(.red)
-///
-/// // Set the inline border color to a semi-transparent blue
-/// .borderInlineColor(.rgba(0, 0, 255, 0.5))
-///
-/// // Set the inline border color to a hex value
-/// .borderInlineColor(.hex("#32a1ce"))
-///
-/// // Use the current text color
-/// .borderInlineColor(.currentColor)
-/// ```
-///
-/// - Note: This logical property adapts to the writing mode of the document,
-///         making layout more flexible for different writing systems.
-///
-/// - SeeAlso: [MDN Web Docs on border-inline-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-inline-color)
 public enum BorderInlineColor: Property, ColorConvertible {
 
-    /// A specific color for both inline borders
     case color(W3C_CSS_Values.Color)
 
-    /// Global CSS values
     case global(Global)
 
-    /// Creates a border-inline-color with a specific color
-    ///
-    /// - Parameter color: The color for both inline borders
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
@@ -74,17 +17,8 @@ extension BorderInlineColor {
     public static let property: String = "border-inline-color"
 }
 
-/// Provides string conversion for CSS output
 extension BorderInlineColor: CustomStringConvertible {
-    /// Converts the border-inline-color to its CSS string representation
-    ///
-    /// This method generates CSS like:
-    /// ```css
-    /// border-inline-color: red;
-    /// border-inline-color: #32a1ce;
-    /// border-inline-color: rgba(0, 0, 255, 0.5);
-    /// border-inline-color: currentcolor;
-    /// ```
+
     public var description: String {
         switch self {
         case .color(let color):

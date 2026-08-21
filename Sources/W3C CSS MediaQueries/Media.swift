@@ -2,30 +2,6 @@ import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 public import W3C_CSS_Values
 
-/// Represents a CSS @media at-rule.
-///
-/// The @media CSS at-rule can be used to apply part of a style sheet based
-/// on the result of one or more media queries.
-///
-/// Examples:
-/// ```swift
-/// // Using media type
-/// Media.screen
-///
-/// // Using direct feature initialization
-/// Media.prefersColorScheme(.dark)
-///
-/// // Combining media queries with logical operators
-/// Media.screen.and(Media.maxWidth(.px(500)))
-///
-/// // More concise approach with direct feature methods
-/// Media.screen
-///     .and(Media.maxWidth(.px(500)))
-///     .and(Media.prefersColorScheme(.dark))
-///
-/// // Using operator overloads
-/// Media.screen & Media.maxWidth(.px(500)) & Media.prefersColorScheme(.dark)
-/// ```
 public struct Media: AtRule {
     public var rawValue: String
 
@@ -33,7 +9,6 @@ public struct Media: AtRule {
         self.rawValue = rawValue
     }
 
-    /// Creates a new media query with the specified type.
     public init(_ type: MediaType) {
         self.rawValue = "@media \(type.rawValue)"
     }
@@ -42,39 +17,32 @@ public struct Media: AtRule {
 extension Media {
     public static let identifier: String = "media"
 
-    /// Helper to create a media feature query
     private static func feature(_ name: String, _ value: any CustomStringConvertible) -> Media {
         Media(rawValue: "@media (\(name): \(value))")
     }
 
-    /// Returns true if this media query is a feature query
     private var isFeatureQuery: Bool {
         rawValue.starts(with: "@media (") && rawValue.hasSuffix(")")
     }
 
-    /// Extracts the feature part from a feature query
     private var featureString: String? {
         guard isFeatureQuery else { return nil }
         return String(rawValue.dropFirst(8).dropLast(1))
     }
 
-    /// Combines this media query with another using the 'and' operator.
     public func and(_ other: Media?) -> Media {
         guard let other else { return self }
 
-        // Extract the media query content (without @media prefix)
-        let selfContent = String(rawValue.dropFirst(7))  // Remove "@media "
-        let otherContent = String(other.rawValue.dropFirst(7))  // Remove "@media "
+        let selfContent = String(rawValue.dropFirst(7))
+        let otherContent = String(other.rawValue.dropFirst(7))
 
         return Media(rawValue: "@media \(selfContent) and \(otherContent)")
     }
 
-    /// Negates the media query.
     public func not() -> Media {
         Media(rawValue: "@media not \(rawValue.dropFirst(7))")
     }
 
-    /// Applies the 'only' operator to the media query.
     public func only() -> Media {
         if rawValue.starts(with: "@media ") {
             return Media(rawValue: "@media only \(rawValue.dropFirst(7))")
@@ -82,102 +50,60 @@ extension Media {
         return self
     }
 
-    /// Combines this media query with another using the 'or' operator (comma in CSS).
     public func or(_ other: Media?) -> Media {
         guard let other else { return self }
         return Media(rawValue: "\(rawValue), \(other.rawValue.dropFirst(7))")
     }
 
-    // Predefined media types
     public static let all = Media(.all)
     public static let print = Media(.print)
     public static let screen = Media(.screen)
 
-    // Predefined media queries for common use cases
-
-    /// Targets devices in dark mode.
     public static let dark = Media(rawValue: "@media (prefers-color-scheme: dark)")
 
-    /// Targets desktop devices (min-width: 832px).
     public static let desktop = Media(rawValue: "@media only screen and (min-width: 832px)")
 
-    /// Targets mobile devices (max-width: 831px).
     public static let mobile = Media(rawValue: "@media only screen and (max-width: 831px)")
 
-    /// Targets tablet devices (768px - 1024px).
     public static let tablet = Media(
         rawValue: "@media only screen and (min-width: 768px) and (max-width: 1024px)"
     )
 
-    /// Targets devices in landscape orientation.
     public static let landscape = Media(rawValue: "@media (orientation: landscape)")
 
-    /// Targets devices in portrait orientation.
     public static let portrait = Media(rawValue: "@media (orientation: portrait)")
 
-    /// Targets retina displays (2x pixel density).
     public static let retina = Media(
         rawValue: "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
     )
 
-    /// Targets very small mobile devices (max-width: 320px).
     public static let smallMobile = Media(rawValue: "@media only screen and (max-width: 320px)")
 
-    /// Targets large mobile devices (321px - 767px).
     public static let largeMobile = Media(
         rawValue: "@media only screen and (min-width: 321px) and (max-width: 767px)"
     )
 
-    /// Targets large desktop displays (min-width: 1200px).
     public static let largeDesktop = Media(rawValue: "@media only screen and (min-width: 1200px)")
 
-    /// Targets devices with hover capability.
     public static let hover = Media(rawValue: "@media (hover: hover)")
 
-    /// Targets devices with reduced motion preference.
     public static let reducedMotion = Media(rawValue: "@media (prefers-reduced-motion: reduce)")
 }
 
-// extension W3C_CSS_MediaQueries.Media {
-//    public static let desktop = Self(rawValue: "@media only screen and (min-width: 832px)")
-//    public static let mobile = Self(rawValue: "@media only screen and (max-width: 831px)")
-//    public static let tablet = Self(
-//        rawValue: "@media only screen and (min-width: 768px) and (max-width: 1024px)"
-//    )
-//    public static let landscape = Self(rawValue: "@media (orientation: landscape)")
-//    public static let portrait = Self(rawValue: "@media (orientation: portrait)")
-//    public static let retina = Self(
-//        rawValue: "@media (-webkit-min-device-pixel-ratio: 2), (min-resolution: 192dpi)"
-//    )
-//    public static let smallMobile = Self(rawValue: "@media only screen and (max-width: 320px)")
-//    public static let largeMobile = Self(
-//        rawValue: "@media only screen and (min-width: 321px) and (max-width: 767px)"
-//    )
-//    public static let largeDesktop = Self(rawValue: "@media only screen and (min-width: 1200px)")
-//    public static let hover = Self(rawValue: "@media (hover: hover)")
-//    public static let reducedMotion = Self(rawValue: "@media (prefers-reduced-motion: reduce)")
-// }
-
-// MARK: - Media Type
-
 extension Media {
-    /// Represents media types in a CSS @media query.
+
     public enum MediaType: String, Hashable, Sendable {
-        /// Suitable for all devices.
+
         case all
 
-        /// Intended for paged material and documents viewed on a screen in print preview mode.
         case print
 
-        /// Intended primarily for screens.
         case screen
     }
 }
 
-// MARK: - Direct Feature Methods
-
 extension Media {
-    // Width-related features
+
     public static func width(_ value: LengthPercentage) -> Media {
         feature("width", value)
     }
@@ -190,7 +116,6 @@ extension Media {
         feature("max-width", value)
     }
 
-    // Height-related features
     public static func height(_ value: LengthPercentage) -> Media {
         feature("height", value)
     }
@@ -203,7 +128,6 @@ extension Media {
         feature("max-height", value)
     }
 
-    // Aspect ratio
     public static func aspectRatio(_ width: Int, _ height: Int) -> Media {
         feature("aspect-ratio", "\(width)/\(height)")
     }
@@ -216,32 +140,26 @@ extension Media {
         feature("max-aspect-ratio", "\(width)/\(height)")
     }
 
-    // Orientation
     public static func orientation(_ value: Orientation) -> Media {
         feature("orientation", value.rawValue)
     }
 
-    // Color features
     public static func prefersColorScheme(_ value: ColorScheme) -> Media {
         feature("prefers-color-scheme", value.rawValue)
     }
 
-    // Motion preferences
     public static func prefersReducedMotion(_ value: ReducedMotion = .reduce) -> Media {
         feature("prefers-reduced-motion", value.rawValue)
     }
 
-    // Contrast preferences
     public static func prefersContrast(_ value: Contrast) -> Media {
         feature("prefers-contrast", value.rawValue)
     }
 
-    // Reduced data
     public static func prefersReducedData(_ value: ReducedData = .reduce) -> Media {
         feature("prefers-reduced-data", value.rawValue)
     }
 
-    // Hover capability
     public static func hover(_ value: HoverCapability) -> Media {
         feature("hover", value.rawValue)
     }
@@ -250,7 +168,6 @@ extension Media {
         feature("any-hover", value.rawValue)
     }
 
-    // Pointer capabilities
     public static func pointer(_ value: PointerCapability) -> Media {
         feature("pointer", value.rawValue)
     }
@@ -259,12 +176,10 @@ extension Media {
         feature("any-pointer", value.rawValue)
     }
 
-    // Display mode
     public static func displayMode(_ value: DisplayMode) -> Media {
         feature("display-mode", value.rawValue)
     }
 
-    // Resolution
     public static func resolution(_ value: Resolution) -> Media {
         feature("resolution", value)
     }
@@ -277,39 +192,32 @@ extension Media {
         feature("max-resolution", value)
     }
 
-    // Scripting
     public static func scripting(_ value: ScriptingState) -> Media {
         feature("scripting", value.rawValue)
     }
 
-    // Update frequency
     public static func update(_ value: UpdateFrequency) -> Media {
         feature("update", value.rawValue)
     }
 }
 
-// MARK: - Media Feature Value Types
-
 extension Media {
-    /// Orientation values for media queries
+
     public enum Orientation: String, Hashable, Sendable {
         case portrait
         case landscape
     }
 
-    /// Color scheme values for media queries
     public enum ColorScheme: String, Hashable, Sendable {
         case light
         case dark
     }
 
-    /// Reduced motion preference values for media queries
     public enum ReducedMotion: String, Hashable, Sendable {
         case reduce
         case noPreference = "no-preference"
     }
 
-    /// Contrast preference values for media queries
     public enum Contrast: String, Hashable, Sendable {
         case more
         case less
@@ -317,26 +225,22 @@ extension Media {
         case noPreference = "no-preference"
     }
 
-    /// Reduced data preference values for media queries
     public enum ReducedData: String, Hashable, Sendable {
         case reduce
         case noPreference = "no-preference"
     }
 
-    /// Hover capability values for media queries
     public enum HoverCapability: String, Hashable, Sendable {
         case hover
         case none
     }
 
-    /// Pointer capability values for media queries
     public enum PointerCapability: String, Hashable, Sendable {
         case none
         case coarse
         case fine
     }
 
-    /// Display mode values for media queries
     public enum DisplayMode: String, Hashable, Sendable {
         case fullscreen
         case standalone
@@ -345,14 +249,12 @@ extension Media {
         case pictureInPicture = "picture-in-picture"
     }
 
-    /// Scripting state values for media queries
     public enum ScriptingState: String, Hashable, Sendable {
         case enabled
         case initialOnly = "initial-only"
         case none
     }
 
-    /// Update frequency values for media queries
     public enum UpdateFrequency: String, Hashable, Sendable {
         case none
         case slow
@@ -360,35 +262,16 @@ extension Media {
     }
 }
 
-// MARK: - Operator Overloads
-
 extension Media {
-    /// Operator for combining media queries with the 'and' operator.
-    ///
-    /// Example:
-    /// ```swift
-    /// let query = Media.screen & Media.prefersColorScheme(.dark)
-    /// ```
+
     public static func && (lhs: Media, rhs: Media?) -> Media {
         lhs.and(rhs)
     }
 
-    /// Operator for combining media queries with the 'or' operator (comma in CSS).
-    ///
-    /// Example:
-    /// ```swift
-    /// let query = Media.screen || Media.print
-    /// ```
     public static func || (lhs: Media, rhs: Media?) -> Media {
         lhs.or(rhs)
     }
 
-    /// Operator for negating a media query.
-    ///
-    /// Example:
-    /// ```swift
-    /// let query = !Media.print // @media not print
-    /// ```
     public static prefix func ! (query: Media) -> Media {
         query.not()
     }

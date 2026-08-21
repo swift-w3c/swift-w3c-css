@@ -1,97 +1,43 @@
-//
-//  WebkitTextStroke.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 28/03/2025.
-//
-
 public import W3C_CSS_Color
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The CSS `-webkit-text-stroke` property is a shorthand that sets the width and color of strokes
-/// for text characters in a single declaration.
-///
-/// This property is a shorthand for `-webkit-text-stroke-width` and `-webkit-text-stroke-color`,
-/// allowing you to set both properties at once. It's used to create outlined text effects.
-///
-/// Example:
-/// ```swift
-/// // Set a 2px red stroke
-/// .webkitTextStroke(.width(.px(2)), .color(.red))
-///
-/// // Set a thin black stroke
-/// .webkitTextStroke(.width(.thin), .color(.black))
-///
-/// // Set a medium stroke with current text color
-/// .webkitTextStroke(.width(.medium))
-///
-/// // Set a stroke with just a color (uses default width)
-/// .webkitTextStroke(.color(.blue))
-/// ```
-///
-/// - Note: While this is a non-standard WebKit property, it's widely supported across modern browsers
-///         and commonly used to create outlined text effects. There's currently no standard CSS
-///         alternative for creating text outlines.
-///
-/// - SeeAlso: [MDN Web Docs on -webkit-text-stroke](https://developer.mozilla.org/en-US/docs/Web/CSS/-webkit-text-stroke)
 public enum WebkitTextStroke: Property {
-    /// Specifies both width and color for the text stroke
+
     case stroke(width: StrokeWidth? = nil, color: StrokeColor? = nil)
 
-    /// Global CSS value
     case global(Global)
 }
 
 extension WebkitTextStroke {
     public static let property: String = "-webkit-text-stroke"
 
-    /// Width value for the text stroke
     public enum StrokeWidth: Sendable, Hashable, CustomStringConvertible {
-        /// Thin stroke width
+
         case thin
 
-        /// Medium stroke width
         case medium
 
-        /// Thick stroke width
         case thick
 
-        /// Custom length value
         case length(Length)
     }
 
-    /// Color value for the text stroke
     public enum StrokeColor: Sendable, Hashable, CustomStringConvertible, ColorConvertible {
-        /// Specific color value
+
         case color(W3C_CSS_Values.Color)
 
-        /// Current text color
         case currentColor
     }
 
-    /// Creates a WebkitTextStroke with just a width
-    ///
-    /// - Parameter width: The stroke width
-    /// - Returns: A WebkitTextStroke with the specified width
     public static func width(_ width: StrokeWidth) -> WebkitTextStroke {
         .stroke(width: width)
     }
 
-    /// Creates a WebkitTextStroke with just a color
-    ///
-    /// - Parameter color: The stroke color
-    /// - Returns: A WebkitTextStroke with the specified color
     public static func color(_ color: W3C_CSS_Values.Color) -> WebkitTextStroke {
         .stroke(color: .color(color))
     }
 
-    /// Creates a WebkitTextStroke with a width and color
-    ///
-    /// - Parameters:
-    ///   - width: The stroke width
-    ///   - color: The stroke color
-    /// - Returns: A WebkitTextStroke with the specified width and color
     public static func stroke(_ width: StrokeWidth, _ color: StrokeColor) -> WebkitTextStroke {
         .stroke(width: width, color: color)
     }

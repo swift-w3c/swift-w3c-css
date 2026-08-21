@@ -1,15 +1,8 @@
-// AnimationDelay Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationDelay type
-
 import Testing
 import W3C_CSS_Shared
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationDelay - Declaration` {
@@ -59,8 +52,6 @@ struct `AnimationDelay - Time Objects` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `AnimationDelay - Global Values` {
     @Test(arguments: [
@@ -85,8 +76,6 @@ struct `AnimationDelay - Property Protocol` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationDelay - Edge Cases` {
     @Test func `handles very large delays`() {
@@ -110,8 +99,6 @@ struct `AnimationDelay - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AnimationDelay - CSS Property Usage` {
     @Test func `renders correctly in CSS rule`() {
@@ -129,8 +116,6 @@ struct `AnimationDelay - CSS Property Usage` {
         #expect(css == "animation-delay: -0.5s")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,50 +1,20 @@
-//
-//  Resize.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
-//
-
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// The CSS `resize` property sets whether an element is resizable, and if so, in which directions.
-///
-/// This property applies to elements with `overflow` other than `visible` or `clip`,
-/// and optionally to replaced elements (like images, videos) and iframes.
-///
-/// Example:
-/// ```swift
-/// .resize(.both)        // resize: both
-/// .resize(.horizontal)  // resize: horizontal
-/// .resize(.vertical)    // resize: vertical
-/// .resize(.none)        // resize: none
-/// ```
-///
-/// - Note: This property doesn't apply to inline elements or block elements with `overflow: visible` or `overflow: clip`.
-///
-/// - SeeAlso: [MDN Web Docs on resize](https://developer.mozilla.org/en-US/docs/Web/CSS/resize)
 public enum Resize: Property {
 
-    /// Element can't be resized by the user
     case none
 
-    /// Element can be resized both horizontally and vertically
     case both
 
-    /// Element can only be resized horizontally
     case horizontal
 
-    /// Element can only be resized vertically
     case vertical
 
-    /// Element can be resized in the block direction (depends on writing mode)
     case block
 
-    /// Element can be resized in the inline direction (depends on writing mode)
     case inline
 
-    /// Global value
     case global(Global)
 }
 

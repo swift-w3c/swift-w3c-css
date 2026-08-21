@@ -1,13 +1,6 @@
-// DisplayBox Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS DisplayBox type
-
 import Testing
 
 @testable import W3C_CSS_Display
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `DisplayBox - Initialization` {
@@ -37,8 +30,6 @@ struct `DisplayBox - Raw Value Initialization` {
         #expect(DisplayBox(rawValue: "block") == nil)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `DisplayBox - Hashable Conformance` {
@@ -71,8 +62,6 @@ struct `DisplayBox - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `DisplayBox - CSS Property Usage` {
     @Test func `renders correctly in display property`() {
@@ -84,45 +73,41 @@ struct `DisplayBox - CSS Property Usage` {
     }
 
     @Test func `none removes element from rendering`() {
-        // Verify that 'none' has the expected CSS behavior semantics
+
         #expect(DisplayBox.none.description == "none")
     }
 
     @Test func `contents unwraps element box`() {
-        // Verify that 'contents' has the expected CSS behavior semantics
+
         #expect(DisplayBox.contents.description == "contents")
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `DisplayBox - CSS Specification` {
     @Test func `none matches CSS specification`() {
-        // The element and its descendants generate no boxes
+
         #expect(DisplayBox.none.rawValue == "none")
         #expect(DisplayBox.none.description == "none")
     }
 
     @Test func `contents matches CSS specification`() {
-        // The element itself doesn't generate boxes, but children do
+
         #expect(DisplayBox.contents.rawValue == "contents")
         #expect(DisplayBox.contents.description == "contents")
     }
 
     @Test func `all specification values are present`() {
-        // Ensure we have all spec-defined display-box values
+
         let allValues: Set<DisplayBox> = [.none, .contents]
         #expect(allValues.count == 2)
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `DisplayBox - Edge Cases` {
     @Test func `case insensitive raw value lookup fails`() {
-        // Raw value initialization is case-sensitive in Swift enums
+
         #expect(DisplayBox(rawValue: "NONE") == nil)
         #expect(DisplayBox(rawValue: "None") == nil)
         #expect(DisplayBox(rawValue: "CONTENTS") == nil)
@@ -140,8 +125,6 @@ struct `DisplayBox - Edge Cases` {
         #expect(DisplayBox(rawValue: "none;") == nil)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

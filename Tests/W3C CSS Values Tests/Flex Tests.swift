@@ -1,13 +1,6 @@
-// Flex Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Flex type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Flex - Initialization with Number` {
@@ -42,8 +35,6 @@ struct `Flex - Initialization with Integer` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Flex - Integer Literal` {
     @Test func `integer literal creates flex`() {
@@ -69,8 +60,6 @@ struct `Flex - Float Literal` {
         #expect(flex.description == "2.25fr")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Flex - Hashable Conformance` {
@@ -99,8 +88,6 @@ struct `Flex - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Flex - Grid Layout Usage` {
     @Test func `flex renders correctly in grid-template-columns`() {
@@ -124,8 +111,6 @@ struct `Flex - Grid Layout Usage` {
     }
 }
 
-// MARK: - Common Grid Patterns
-
 @Suite
 struct `Flex - Common Grid Patterns` {
     @Test func `equal columns pattern`() {
@@ -143,8 +128,6 @@ struct `Flex - Common Grid Patterns` {
         #expect(layout == "1fr 2fr 1fr")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Flex - Edge Cases` {
@@ -178,8 +161,6 @@ struct `Flex - Edge Cases` {
         #expect(flex.description == "1.123456fr")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

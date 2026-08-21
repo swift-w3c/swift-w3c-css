@@ -1,14 +1,7 @@
-// AlignmentBaseline Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS alignment-baseline property
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Alignment
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AlignmentBaseline - Property Protocol` {
@@ -34,16 +27,12 @@ struct `AlignmentBaseline - Declaration Rendering` {
     }
 }
 
-// MARK: - Basic Values
-
 @Suite
 struct `AlignmentBaseline - Baseline Value` {
     @Test func `baseline value renders correctly`() {
         #expect(AlignmentBaseline.baseline.description == "baseline")
     }
 }
-
-// MARK: - Text Edge Values
 
 @Suite
 struct `AlignmentBaseline - Text Edge Values` {
@@ -58,8 +47,6 @@ struct `AlignmentBaseline - Text Edge Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Main Alignment Values
 
 @Suite
 struct `AlignmentBaseline - Main Alignment Values` {
@@ -77,8 +64,6 @@ struct `AlignmentBaseline - Main Alignment Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Deprecated Values
 
 @Suite
 struct `AlignmentBaseline - Deprecated Values` {
@@ -98,8 +83,6 @@ struct `AlignmentBaseline - Deprecated Values` {
     }
 }
 
-// MARK: - Global Values
-
 @Suite
 struct `AlignmentBaseline - Global Values` {
     @Test(arguments: [
@@ -116,8 +99,6 @@ struct `AlignmentBaseline - Global Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AlignmentBaseline - Edge Cases` {
@@ -149,8 +130,6 @@ struct `AlignmentBaseline - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AlignmentBaseline - CSS Property Usage` {
     @Test func `alignment-baseline renders correctly in SVG context`() {
@@ -173,8 +152,6 @@ struct `AlignmentBaseline - CSS Property Usage` {
         #expect(css == "alignment-baseline: hanging")
     }
 }
-
-// MARK: - Categorization
 
 @Suite
 struct `AlignmentBaseline - Value Categories` {
@@ -219,8 +196,6 @@ struct `AlignmentBaseline - Value Categories` {
         }
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

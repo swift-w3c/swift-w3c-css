@@ -1,13 +1,6 @@
-// Position Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Position type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Position - Single Keyword` {
@@ -103,8 +96,6 @@ struct `Position - Offsets` {
     }
 }
 
-// MARK: - Static Constants
-
 @Suite
 struct `Position - Static Constants` {
     @Test(arguments: [
@@ -126,8 +117,6 @@ struct `Position - Static Constants` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Position - Hashable Conformance` {
     @Test func `equal positions are equal`() {
@@ -145,8 +134,6 @@ struct `Position - Hashable Conformance` {
         #expect(Position.values(.px(10), .px(20)) != Position.values(.px(10), .px(30)))
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `Position - CSS Property Usage` {
@@ -166,8 +153,6 @@ struct `Position - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Position - Edge Cases` {
     @Test func `zero pixel values`() {
@@ -185,8 +170,6 @@ struct `Position - Edge Cases` {
         #expect(Position.values(.percentage(0), .percentage(100)).description == "0% 100%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

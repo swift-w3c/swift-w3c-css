@@ -1,34 +1,14 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// The CSS anchor-name property enables defining an element as an anchor element by
-/// giving it one or more identifying anchor names.
-///
-/// Each name can then be set as the value of a positioned element's position-anchor
-/// property to associate it with the anchor.
-///
-/// Example:
-/// ```swift
-/// .anchorName(.none)                        // anchor-name: none
-/// .anchorName(.custom("--myAnchor"))        // anchor-name: --myAnchor
-/// .anchorName([.custom("--a"), .custom("--b")])  // anchor-name: --a, --b
-/// ```
-///
-/// - Note: This is an experimental property and browser support may be limited.
-///
-/// - SeeAlso: [MDN Web Docs on anchor-name](https://developer.mozilla.org/en-US/docs/Web/CSS/anchor-name)
 public enum AnchorName: Property {
 
-    /// No anchor name defined (default)
     case none
 
-    /// A single anchor name identifier
     case single(DashedIdent)
 
-    /// Multiple anchor name identifiers
     case multiple([DashedIdent])
 
-    /// Global values
     case global(Global)
 }
 
@@ -36,9 +16,8 @@ extension AnchorName {
     public static let property: String = "anchor-name"
 }
 
-/// CSS Output conversion
 extension AnchorName: CustomStringConvertible {
-    /// Converts the anchor name to its CSS string representation
+
     public var description: String {
         switch self {
         case .none:
@@ -56,14 +35,12 @@ extension AnchorName: CustomStringConvertible {
     }
 }
 
-// Convenience initializers
 extension AnchorName {
-    /// Creates a single custom anchor name
+
     public static func custom(_ name: String) -> Self {
         return .single(DashedIdent(name))
     }
 
-    /// Creates multiple custom anchor names
     public static func customs(_ names: [String]) -> Self {
         return .multiple(names.map { DashedIdent($0) })
     }

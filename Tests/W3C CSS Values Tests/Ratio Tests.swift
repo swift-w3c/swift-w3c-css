@@ -1,13 +1,6 @@
-// Ratio Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Ratio type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Ratio - Two Value Initialization` {
@@ -52,8 +45,6 @@ struct `Ratio - Single Value Initialization` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Ratio - Integer Literal` {
     @Test func `integer literal creates ratio`() {
@@ -73,8 +64,6 @@ struct `Ratio - Float Literal` {
         #expect(floatRatio.height == 1)
     }
 }
-
-// MARK: - Predefined Aspect Ratios
 
 @Suite
 struct `Ratio - Predefined Constants` {
@@ -114,8 +103,6 @@ struct `Ratio - Predefined Constants` {
         #expect(Ratio.cinemascope.height == 100)
     }
 }
-
-// MARK: - Calculated Properties
 
 @Suite
 struct `Ratio - Quotient` {
@@ -184,13 +171,11 @@ struct `Ratio - Simplification` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Ratio - Comparable Conformance` {
     @Test func `comparison works correctly based on quotient`() throws {
-        let ratio1 = try Ratio(4, 3)  // ~1.33
-        let ratio2 = try Ratio(16, 9)  // ~1.78
+        let ratio1 = try Ratio(4, 3)
+        let ratio2 = try Ratio(16, 9)
 
         #expect(ratio1 < ratio2)
         #expect(ratio2 > ratio1)
@@ -203,8 +188,6 @@ struct `Ratio - Comparable Conformance` {
         #expect(ratio1 == ratio3)
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `Ratio - CSS Property Usage` {
@@ -223,8 +206,6 @@ struct `Ratio - CSS Property Usage` {
         #expect(aspectRatio == "aspect-ratio: 16 / 9")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Ratio - Edge Cases` {
@@ -253,8 +234,6 @@ struct `Ratio - Edge Cases` {
         #expect(ratio.description == "2")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite
@@ -292,11 +271,9 @@ extension `Performance Tests` {
     }
 }
 
-// MARK: - Helper Extensions
-
 extension Double {
     func rounded(toPlaces places: Int) -> Double {
-        // Compute 10^places using simple multiplication
+
         var divisor = 1.0
         for _ in 0..<places {
             divisor *= 10.0

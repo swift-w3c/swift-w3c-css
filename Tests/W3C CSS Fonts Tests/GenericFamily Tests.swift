@@ -1,13 +1,6 @@
-// GenericFamily Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS GenericFamily type
-
 import Testing
 
 @testable import W3C_CSS_Fonts
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `GenericFamily - Traditional Families` {
@@ -61,8 +54,6 @@ struct `GenericFamily - Special Purpose Families` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `GenericFamily - Hashable Conformance` {
     @Test func `equal generic families are equal`() {
@@ -97,47 +88,43 @@ struct `GenericFamily - RawRepresentable Conformance` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `GenericFamily - CSS Specification` {
     @Test func `traditional families match CSS specification`() {
-        // Fonts with serifs
+
         #expect(GenericFamily.serif.description == "serif")
-        // Fonts without serifs
+
         #expect(GenericFamily.sansSerif.description == "sans-serif")
-        // Fixed-width fonts
+
         #expect(GenericFamily.monospace.description == "monospace")
-        // Handwriting fonts
+
         #expect(GenericFamily.cursive.description == "cursive")
-        // Decorative fonts
+
         #expect(GenericFamily.fantasy.description == "fantasy")
     }
 
     @Test func `UI families match CSS specification`() {
-        // System UI font
+
         #expect(GenericFamily.systemUi.description == "system-ui")
-        // System serif font
+
         #expect(GenericFamily.uiSerif.description == "ui-serif")
-        // System sans-serif font
+
         #expect(GenericFamily.uiSansSerif.description == "ui-sans-serif")
-        // System monospace font
+
         #expect(GenericFamily.uiMonospace.description == "ui-monospace")
-        // System rounded font
+
         #expect(GenericFamily.uiRounded.description == "ui-rounded")
     }
 
     @Test func `special purpose families match CSS specification`() {
-        // Mathematical fonts
+
         #expect(GenericFamily.math.description == "math")
-        // Emoji fonts
+
         #expect(GenericFamily.emoji.description == "emoji")
-        // Chinese Fangsong fonts
+
         #expect(GenericFamily.fangsong.description == "fangsong")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `GenericFamily - CSS Property Usage` {
@@ -161,8 +148,6 @@ struct `GenericFamily - CSS Property Usage` {
         #expect(systemStack == "font-family: system-ui, sans-serif")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `GenericFamily - Edge Cases` {
@@ -209,30 +194,26 @@ struct `GenericFamily - Edge Cases` {
     }
 }
 
-// MARK: - Font Stack Patterns
-
 @Suite
 struct `GenericFamily - Common Font Stacks` {
     @Test func `modern system font stack`() {
-        // Modern approach using system-ui
+
         let modernStack = "\(GenericFamily.systemUi), \(GenericFamily.sansSerif)"
         #expect(modernStack == "system-ui, sans-serif")
     }
 
     @Test func `monospace code font stack`() {
-        // Common monospace stack for code
+
         let codeStack = "\(GenericFamily.uiMonospace), \(GenericFamily.monospace)"
         #expect(codeStack == "ui-monospace, monospace")
     }
 
     @Test func `serif reading font stack`() {
-        // Traditional serif stack for body text
+
         let serifStack = "\(GenericFamily.uiSerif), \(GenericFamily.serif)"
         #expect(serifStack == "ui-serif, serif")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

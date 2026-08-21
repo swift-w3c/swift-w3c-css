@@ -2,101 +2,38 @@ import W3C_CSS_Positioning
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// Represents the CSS `mask` shorthand property, which hides an element (partially or fully) by masking
-/// or clipping the image at specific points.
-///
-/// This property allows you to specify which parts of an element should be visible by using an image
-/// as a mask. The mask hides portions of the element where the mask is transparent or semi-transparent.
-///
-/// Example:
-/// ```swift
-/// // No mask
-/// .mask(.none)
-///
-/// // Use an SVG as a mask
-/// .mask(.url("mask.svg#element"))
-///
-/// // Use a gradient as a mask
-/// .mask(.linearGradient("to right, rgba(0,0,0,1), rgba(0,0,0,0)"))
-///
-/// // Complex mask with position, size, and repeat
-/// .mask(.configuration(
-///    .url("mask.svg"),
-///    position: .center,
-///    size: .cover,
-///    repeat: .noRepeat,
-///    clip: .borderBox,
-///    origin: .borderBox,
-///    composite: .add,
-///    mode: .alpha
-/// ))
-///
-/// // Multiple layer mask
-/// .mask(.layers([
-///    .configuration(.url("mask1.svg"), position: .top),
-///    .configuration(.url("mask2.svg"), position: .bottom)
-/// ]))
-/// ```
-///
-/// - Note: The mask property is a shorthand that also resets `mask-border` to its initial value.
-///         Therefore, it's recommended to use the mask shorthand rather than individual properties
-///         to ensure a clean state.
-///
-/// - SeeAlso: [MDN Web Docs on mask](https://developer.mozilla.org/en-US/docs/Web/CSS/mask)
 public enum Mask: Property {
-    /// No mask
+
     case none
 
-    /// A single mask layer configuration
     case configuration(Configuration)
 
-    /// Multiple mask layers
     case layers([Configuration])
 
-    /// Global CSS values
     case global(Global)
 }
 
 extension Mask {
     public static let property: String = "mask"
 
-    /// Configuration for a mask layer
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
-        /// The mask reference (image or source)
+
         public let reference: MaskReference
 
-        /// The position of the mask
         public let position: Position?
 
-        /// The size of the mask
         public let size: Size?
 
-        /// The repeat style of the mask
         public let `repeat`: RepeatStyle?
 
-        /// The clipping box of the mask
         public let clip: GeometryBox?
 
-        /// The origin box of the mask
         public let origin: GeometryBox?
 
-        /// The composite operation of the mask
         public let composite: Composite?
 
-        /// The masking mode
         public let mode: MaskingMode?
 
-        /// Creates a mask configuration
-        ///
-        /// - Parameters:
-        ///   - reference: The mask reference
-        ///   - position: The position of the mask (optional)
-        ///   - size: The size of the mask (optional)
-        ///   - repeat: The repeat style of the mask (optional)
-        ///   - clip: The clipping box of the mask (optional)
-        ///   - origin: The origin box of the mask (optional)
-        ///   - composite: The composite operation of the mask (optional)
-        ///   - mode: The masking mode (optional)
         public init(
             _ reference: MaskReference,
             position: Position? = nil,
@@ -118,189 +55,133 @@ extension Mask {
         }
     }
 
-    /// Represents a mask reference
     public enum MaskReference: Sendable, Hashable, CustomStringConvertible {
-        /// No mask
+
         case none
 
-        /// URL to an image or SVG element
         case url(Url)
 
-        /// Linear gradient
         case linearGradient(CSSString)
 
-        /// Radial gradient
         case radialGradient(CSSString)
 
-        /// Conic gradient
         case conicGradient(CSSString)
 
-        /// Repeating linear gradient
         case repeatingLinearGradient(CSSString)
 
-        /// Repeating radial gradient
         case repeatingRadialGradient(CSSString)
 
-        /// Repeating conic gradient
         case repeatingConicGradient(CSSString)
     }
 
-    /// Position of a mask
     public enum Position: Sendable, Hashable {
-        /// Keywords for horizontal and vertical position
+
         case keywords(Horizontal, Vertical)
 
-        /// Custom position with specific values
         case custom(LengthPercentage, LengthPercentage)
 
-        /// Center position (shorthand for center center)
         case center
 
-        /// Top position (shorthand for center top)
         case top
 
-        /// Bottom position (shorthand for center bottom)
         case bottom
 
-        /// Left position (shorthand for left center)
         case left
 
-        /// Right position (shorthand for right center)
         case right
     }
 
-    /// Size of a mask
     public enum Size: Sendable, Hashable {
-        /// Explicit width and height dimensions
+
         case dimensions(LengthPercentage, LengthPercentage)
 
-        /// Scale mask to cover the entire element, possibly cropping the mask
         case cover
 
-        /// Scale mask to fit within the element, possibly leaving uncovered areas
         case contain
 
-        /// Use the mask's intrinsic size
         case auto
     }
 
-    /// Repeat style for a mask
     public enum RepeatStyle: Sendable, Hashable {
-        /// Repeat horizontally only (shorthand for repeat no-repeat)
+
         case repeatX
 
-        /// Repeat vertically only (shorthand for no-repeat repeat)
         case repeatY
 
-        /// Repeat in both directions
         case `repeat`
 
-        /// Repeat with space between each tile
         case space
 
-        /// Repeat and scale to fit an exact number of tiles
         case round
 
-        /// No repetition
         case noRepeat
 
-        /// Different values for horizontal and vertical
         case horizontalVertical(Value, Value)
     }
 
-    /// Geometry box for mask origin and clip
     public enum GeometryBox: Sendable, Hashable {
-        /// The content box
+
         case contentBox
 
-        /// The padding box
         case paddingBox
 
-        /// The border box
         case borderBox
 
-        /// The margin box
         case marginBox
 
-        /// The fill box (SVG)
         case fillBox
 
-        /// The stroke box (SVG)
         case strokeBox
 
-        /// The view box (SVG)
         case viewBox
 
-        /// Special value for no-clip (only valid for mask-clip)
         case noClip
     }
 
-    /// Compositing operation for mask layers
     public enum Composite: String, Sendable, Hashable {
-        /// Add the current mask layer to the previous layers
+
         case add
 
-        /// Subtract the current mask layer from the previous layers
         case subtract
 
-        /// Intersect the current mask layer with the previous layers
         case intersect
 
-        /// Areas covered by both the current mask layer and previous layers are excluded
         case exclude
     }
 
-    /// Masking mode
     public enum MaskingMode: Sendable, Hashable {
-        /// Use alpha channel for masking
+
         case alpha
 
-        /// Use luminance values for masking
         case luminance
 
-        /// Use the mask source's native format
         case matchSource
     }
 
-    /// Creates a mask with URL reference
-    ///
-    /// - Parameter url: The URL to the mask image
-    /// - Returns: A mask using the URL
     public static func url(_ url: Url) -> Mask {
         return .configuration(Configuration(.url(url)))
     }
 
-    /// Creates a mask with a linear gradient
-    ///
-    /// - Parameter gradient: The linear gradient definition
-    /// - Returns: A mask using the linear gradient
     public static func linearGradient(_ gradient: CSSString) -> Mask {
         return .configuration(Configuration(.linearGradient(gradient)))
     }
 
-    /// Creates a mask with a radial gradient
-    ///
-    /// - Parameter gradient: The radial gradient definition
-    /// - Returns: A mask using the radial gradient
     public static func radialGradient(_ gradient: CSSString) -> Mask {
         return .configuration(Configuration(.radialGradient(gradient)))
     }
 }
 
 extension Mask.Configuration {
-    /// CSS string representation
+
     public var description: String {
         var parts: [String] = []
 
-        // Mask reference
         parts.append(reference.description)
 
-        // Masking mode
         if let mode {
             parts.append(modeDescription(mode))
         }
 
-        // Position and size
         if let position {
             let positionPart = positionDescription(position)
 
@@ -313,20 +194,18 @@ extension Mask.Configuration {
             parts.append("0% 0% / \(sizeDescription(size))")
         }
 
-        // Repeat
         if let `repeat` {
             parts.append(repeatDescription(`repeat`))
         }
 
-        // Geometry boxes (clip and origin)
         if let origin {
             if let clip {
-                // If both are provided and different
+
                 if clip != origin {
                     parts.append(geometryBoxDescription(origin))
                     parts.append(clipDescription(clip))
                 } else {
-                    // If both are the same, just use one value
+
                     parts.append(geometryBoxDescription(origin))
                 }
             } else {
@@ -336,7 +215,6 @@ extension Mask.Configuration {
             parts.append(clipDescription(clip))
         }
 
-        // Composite
         if let composite {
             parts.append(compositeDescription(composite))
         }
@@ -477,22 +355,22 @@ extension Mask.Configuration {
 }
 
 extension Mask.MaskReference {
-    /// CSS string representation
+
     public var description: String {
         switch self {
         case .none:
             return "none"
 
         case .url(let url):
-            // If url already contains url(), use it as is
+
             if url.value.hasPrefix("url(") {
                 return url.description
             }
-            // If url contains quotes, use it as is inside url()
+
             if url.value.contains("\"") || url.value.contains("'") {
                 return "url(\(url))"
             }
-            // Otherwise, add quotes
+
             return "url(\"\(url)\")"
 
         case .linearGradient(let value):
@@ -517,14 +395,13 @@ extension Mask.MaskReference {
 }
 
 extension Mask.Position {
-    /// Horizontal position keywords
+
     public enum Horizontal: String, Sendable {
         case left
         case center
         case right
     }
 
-    /// Vertical position keywords
     public enum Vertical: String, Sendable {
         case top
         case center
@@ -533,7 +410,7 @@ extension Mask.Position {
 }
 
 extension Mask.RepeatStyle {
-    /// Repeat value
+
     public enum Value: String, Sendable {
         case `repeat`
         case space
@@ -542,18 +419,8 @@ extension Mask.RepeatStyle {
     }
 }
 
-/// Provides string conversion for CSS output
 extension Mask: CustomStringConvertible {
-    /// Converts the mask to its CSS string representation
-    ///
-    /// This method generates CSS like:
-    /// ```css
-    /// mask: none;
-    /// mask: url(mask.svg#element);
-    /// mask: url(mask.svg) luminance;
-    /// mask: url(mask.svg) center / cover no-repeat border-box content-box add alpha;
-    /// mask: url(mask1.svg) top, url(mask2.svg) bottom;
-    /// ```
+
     public var description: String {
         switch self {
         case .none:

@@ -1,13 +1,6 @@
-// Number Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Number type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Number - Initialization` {
@@ -40,8 +33,6 @@ struct `Number - Initialization` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Number - Integer Literal` {
     @Test func `integer literal creates number`() {
@@ -72,8 +63,6 @@ struct `Number - Float Literal` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Number - Comparable Conformance` {
     @Test func `smaller value is less than larger value`() {
@@ -89,8 +78,6 @@ struct `Number - Comparable Conformance` {
         #expect(!(Number(5) < Number(5)))
     }
 }
-
-// MARK: - Arithmetic Operations
 
 @Suite
 struct `Number - Addition` {
@@ -167,8 +154,6 @@ struct `Number - Negation` {
     }
 }
 
-// MARK: - Manipulation Methods
-
 @Suite
 struct `Number - Absolute Value` {
     @Test func `absolute value of positive number is unchanged`() {
@@ -232,8 +217,6 @@ struct `Number - Ceiling` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Number - CSS Property Usage` {
     @Test func `number renders correctly in opacity property`() {
@@ -251,8 +234,6 @@ struct `Number - CSS Property Usage` {
         #expect(iterations == "animation-iteration-count: 3")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Number - Edge Cases` {
@@ -281,8 +262,6 @@ struct `Number - Edge Cases` {
         #expect(Number(100.0).description == "100")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,8 +1,3 @@
-// BoxSizing Tests.swift
-// swift-w3c-css
-//
-// Smoke tests for the CSS box-sizing property (W3C CSS BoxModel target)
-
 import Testing
 
 @testable import W3C_CSS_BoxModel

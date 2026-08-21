@@ -1,14 +1,7 @@
-// EasingFunction Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS EasingFunction type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Easing
-
-// MARK: - Predefined Easing Functions
 
 @Suite
 struct `EasingFunction - Predefined Values` {
@@ -28,8 +21,6 @@ struct `EasingFunction - Predefined Values` {
         #expect(easing.description == expected)
     }
 }
-
-// MARK: - Cubic Bezier
 
 @Suite
 struct `EasingFunction - Cubic Bezier` {
@@ -59,8 +50,6 @@ struct `EasingFunction - Cubic Bezier` {
         #expect(bezier.description == expected)
     }
 }
-
-// MARK: - Steps Function
 
 @Suite
 struct `EasingFunction - Steps Basic` {
@@ -117,8 +106,6 @@ struct `EasingFunction - Steps with Position` {
     }
 }
 
-// MARK: - Linear Points Function
-
 @Suite
 struct `EasingFunction - Linear Points` {
     @Test func `linear points with simple values`() {
@@ -166,8 +153,6 @@ struct `EasingFunction - Linear Points` {
     }
 }
 
-// MARK: - Step Position Enum
-
 @Suite
 struct `EasingFunction - Step Position Values` {
     @Test(arguments: [
@@ -185,8 +170,6 @@ struct `EasingFunction - Step Position Values` {
         #expect(position.description == expected)
     }
 }
-
-// MARK: - Linear Point Struct
 
 @Suite
 struct `EasingFunction - Linear Point` {
@@ -219,8 +202,6 @@ struct `EasingFunction - Linear Point` {
         #expect(point.percentage?.value == percentageValue.map(Double.init))
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `EasingFunction - Hashable Conformance` {
@@ -264,8 +245,6 @@ struct `EasingFunction - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `EasingFunction - CSS Property Usage` {
     @Test func `easing in transition-timing-function property`() {
@@ -292,8 +271,6 @@ struct `EasingFunction - CSS Property Usage` {
         #expect(animation == "animation-timing-function: linear(0, 1)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `EasingFunction - Edge Cases` {
@@ -353,8 +330,6 @@ struct `EasingFunction - Edge Cases` {
         #expect(point.percentage?.value == 100)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

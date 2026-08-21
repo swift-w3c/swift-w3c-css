@@ -1,13 +1,6 @@
-// Overflow Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Overflow type
-
 import Testing
 
 @testable import W3C_CSS_Shared
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Overflow - Enum Cases` {
@@ -44,8 +37,6 @@ struct `Overflow - Description` {
         #expect(overflow.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Overflow - Hashable Conformance` {
@@ -106,8 +97,6 @@ struct `Overflow - RawValue Initialization` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Overflow - CSS Property Usage` {
     @Test func `overflow renders correctly in overflow property`() {
@@ -139,8 +128,6 @@ struct `Overflow - CSS Property Usage` {
     }
 }
 
-// MARK: - CSS Specification
-
 @Suite
 struct `Overflow - CSS Specification Compliance` {
     @Test func `visible means content is not clipped`() {
@@ -168,8 +155,6 @@ struct `Overflow - CSS Specification Compliance` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Overflow - Edge Cases` {
     @Test func `all non-deprecated cases iterate correctly`() {
@@ -186,8 +171,6 @@ struct `Overflow - Edge Cases` {
         #expect(overlay.rawValue == "overlay")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

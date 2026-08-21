@@ -1,13 +1,6 @@
-// DisplayListitem Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS DisplayListitem type
-
 import Testing
 
 @testable import W3C_CSS_Display
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `DisplayListitem - Initialization` {
@@ -51,8 +44,6 @@ struct `DisplayListitem - Raw Value Initialization` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `DisplayListitem - Hashable Conformance` {
     @Test func `equal values are equal`() {
@@ -89,8 +80,6 @@ struct `DisplayListitem - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `DisplayListitem - CSS Property Usage` {
     @Test(arguments: [
@@ -120,8 +109,6 @@ struct `DisplayListitem - CSS Property Usage` {
         #expect(DisplayListitem.inlineFlowListItem.description == "inline flow list-item")
     }
 }
-
-// MARK: - Factory Method
 
 @Suite
 struct `DisplayListitem - Factory Creation` {
@@ -175,42 +162,40 @@ struct `DisplayListitem - Factory Creation` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `DisplayListitem - CSS Specification` {
     @Test func `listItem matches CSS specification`() {
-        // Simple list item
+
         #expect(DisplayListitem.listItem.rawValue == "list-item")
         #expect(DisplayListitem.listItem.description == "list-item")
     }
 
     @Test func `blockFlowListItem matches CSS specification`() {
-        // Block flow list item
+
         #expect(DisplayListitem.blockFlowListItem.rawValue == "block flow list-item")
         #expect(DisplayListitem.blockFlowListItem.description == "block flow list-item")
     }
 
     @Test func `blockFlowRootListItem matches CSS specification`() {
-        // Block flow-root list item
+
         #expect(DisplayListitem.blockFlowRootListItem.rawValue == "block flow-root list-item")
         #expect(DisplayListitem.blockFlowRootListItem.description == "block flow-root list-item")
     }
 
     @Test func `inlineFlowListItem matches CSS specification`() {
-        // Inline flow list item
+
         #expect(DisplayListitem.inlineFlowListItem.rawValue == "inline flow list-item")
         #expect(DisplayListitem.inlineFlowListItem.description == "inline flow list-item")
     }
 
     @Test func `inlineFlowRootListItem matches CSS specification`() {
-        // Inline flow-root list item
+
         #expect(DisplayListitem.inlineFlowRootListItem.rawValue == "inline flow-root list-item")
         #expect(DisplayListitem.inlineFlowRootListItem.description == "inline flow-root list-item")
     }
 
     @Test func `all specification values are present`() {
-        // Ensure we have all important spec-defined display-listitem values
+
         let allValues: Set<DisplayListitem> = [
             .listItem, .blockFlowListItem, .blockFlowRootListItem,
             .inlineFlowListItem, .inlineFlowRootListItem,
@@ -218,8 +203,6 @@ struct `DisplayListitem - CSS Specification` {
         #expect(allValues.count == 5)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `DisplayListitem - Edge Cases` {
@@ -257,8 +240,6 @@ struct `DisplayListitem - Edge Cases` {
         #expect(DisplayListitem(rawValue: "inline flow-root") == nil)
     }
 }
-
-// MARK: - Semantic Grouping
 
 @Suite
 struct `DisplayListitem - Semantic Categories` {
@@ -310,12 +291,10 @@ struct `DisplayListitem - Semantic Categories` {
     }
 }
 
-// MARK: - List Item Marker Behavior
-
 @Suite
 struct `DisplayListitem - Marker Semantics` {
     @Test func `all values generate list markers`() {
-        // All display-listitem values should generate list markers
+
         let allValues: [DisplayListitem] = [
             .listItem, .blockFlowListItem, .blockFlowRootListItem,
             .inlineFlowListItem, .inlineFlowRootListItem,
@@ -326,12 +305,10 @@ struct `DisplayListitem - Marker Semantics` {
     }
 
     @Test func `simple listItem is default`() {
-        // listItem is the simplest form
+
         #expect(DisplayListitem.listItem.description == "list-item")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

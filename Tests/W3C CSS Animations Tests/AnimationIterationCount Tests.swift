@@ -1,15 +1,8 @@
-// AnimationIterationCount Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationIterationCount type
-
 import Testing
 import W3C_CSS_Shared
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationIterationCount - Declaration` {
@@ -43,8 +36,6 @@ struct `AnimationIterationCount - Count Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Literal Initialization
 
 @Suite
 struct `AnimationIterationCount - Integer Literals` {
@@ -80,8 +71,6 @@ struct `AnimationIterationCount - Float Literals` {
     }
 }
 
-// MARK: - Non-Positive Values
-
 @Suite
 struct `AnimationIterationCount - Non-Positive Values` {
     @Test(arguments: [
@@ -109,8 +98,6 @@ struct `AnimationIterationCount - Non-Positive Values` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `AnimationIterationCount - Global Values` {
     @Test(arguments: [
@@ -134,8 +121,6 @@ struct `AnimationIterationCount - Property Protocol` {
         #expect(AnimationIterationCount.property == "animation-iteration-count")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AnimationIterationCount - Edge Cases` {
@@ -161,8 +146,6 @@ struct `AnimationIterationCount - Edge Cases` {
         #expect(minCount.description == "0.001")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `AnimationIterationCount - CSS Property Usage` {
@@ -190,8 +173,6 @@ struct `AnimationIterationCount - CSS Property Usage` {
         #expect(css == "1, 2, infinite")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

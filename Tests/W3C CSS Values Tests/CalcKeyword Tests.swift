@@ -1,13 +1,6 @@
-// CalcKeyword Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS CalcKeyword type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `CalcKeyword - Enum Cases` {
@@ -48,8 +41,6 @@ struct `CalcKeyword - Raw Values` {
         #expect(CalcKeyword.NaN.rawValue == "NaN")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `CalcKeyword - Hashable Conformance` {
@@ -103,8 +94,6 @@ struct `CalcKeyword - CustomStringConvertible` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `CalcKeyword - CSS Property Usage` {
     @Test func `e renders correctly in calc expression`() {
@@ -133,8 +122,6 @@ struct `CalcKeyword - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `CalcKeyword - All Keywords Coverage` {
     @Test func `all keywords can be constructed`() {
@@ -153,8 +140,6 @@ struct `CalcKeyword - All Keywords Coverage` {
         #expect(rawValues.count == 5)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

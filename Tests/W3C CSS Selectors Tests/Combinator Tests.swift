@@ -1,13 +1,6 @@
-// Combinator Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Combinator types
-
 import Testing
 
 @testable import W3C_CSS_Selectors
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Combinator - Descendant` {
@@ -114,8 +107,6 @@ struct `Combinator - Column` {
     }
 }
 
-// MARK: - Complex Combinations
-
 @Suite
 struct `Combinator - Mixed Combinations` {
     @Test func `descendant and child combined`() {
@@ -208,8 +199,6 @@ struct `Combinator - With Pseudo Elements` {
     }
 }
 
-// MARK: - Spacing Variations
-
 @Suite
 struct `Combinator - Spacing` {
     @Test func `child combinator without spaces`() {
@@ -243,8 +232,6 @@ struct `Combinator - Spacing` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Combinator - Edge Cases` {
     @Test func `combinator with universal selector`() {
@@ -277,8 +264,6 @@ struct `Combinator - Edge Cases` {
         #expect(selector == "& > .child")
     }
 }
-
-// MARK: - Real World Patterns
 
 @Suite
 struct `Combinator - Common Patterns` {
@@ -349,8 +334,6 @@ struct `Combinator - Grid and Flexbox Patterns` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Combinator - Hashable Conformance` {
     @Test func `equal child combinators are equal`() {
@@ -385,12 +368,10 @@ struct `Combinator - Sendable Conformance` {
     }
 }
 
-// MARK: - Specificity Context
-
 @Suite
 struct `Combinator - Specificity` {
     @Test func `combinators do not affect specificity`() {
-        // Both should have same specificity (2 elements)
+
         let descendant = "div p"
         let child = "div > p"
         #expect(descendant != child)
@@ -404,8 +385,6 @@ struct `Combinator - Specificity` {
         #expect(selector.contains(">"))
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `Combinator - CSS Rule Usage` {
@@ -434,8 +413,6 @@ struct `Combinator - CSS Rule Usage` {
         #expect(rule == "nav > ul li + li { margin-left: 10px; }")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

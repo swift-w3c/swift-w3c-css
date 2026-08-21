@@ -1,14 +1,7 @@
-// Shape Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Shape type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Masking
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Shape - Rect Initialization` {
@@ -51,8 +44,6 @@ struct `Shape - Static Properties` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Shape - Hashable Conformance` {
     @Test func `equal shapes are equal`() {
@@ -68,20 +59,14 @@ struct `Shape - Hashable Conformance` {
     }
 }
 
-// MARK: - Deprecation
-
 @Suite
 struct `Shape - Deprecation` {
     @Test func `shape is marked as deprecated`() {
-        // This test documents that Shape is correctly marked as deprecated.
-        // The compiler will generate warnings when Shape is used outside of
-        // the @_spi(SuppressDeprecationWarnings) context.
+
         let shape = Shape.rect(all: 10)
         #expect(shape.description.contains("rect"))
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Shape - Edge Cases` {
@@ -100,12 +85,7 @@ struct `Shape - Edge Cases` {
         #expect(shape.description == "rect(10000px, 10000px, 10000px, 10000px)")
     }
 
-    // Note: The CSS clip property's rect() function does NOT support percentages
-    // per W3C CSS 2.1 spec - only <length> and 'auto' are valid
-    // See: https://www.w3.org/TR/CSS2/visufx.html#clipping
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

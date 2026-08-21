@@ -1,33 +1,16 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// The CSS animation-direction property sets whether an animation should play
-/// forward, backward, or alternate back and forth between playing the sequence forward and backward.
-///
-/// Example:
-/// ```swift
-/// .animationDirection(.normal)            // animation-direction: normal
-/// .animationDirection(.reverse)           // animation-direction: reverse
-/// .animationDirection(.alternate)         // animation-direction: alternate
-/// .animationDirection(.alternateReverse)  // animation-direction: alternate-reverse
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on animation-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-direction)
 public enum AnimationDirection: Property {
 
-    /// The animation plays forwards each cycle (default)
     case normal
 
-    /// The animation plays backwards each cycle
     case reverse
 
-    /// The animation reverses direction each cycle, with the first iteration being played forwards
     case alternate
 
-    /// The animation reverses direction each cycle, with the first iteration being played backwards
     case alternateReverse
 
-    /// Global value
     case global(Global)
 }
 
@@ -45,9 +28,8 @@ extension AnimationDirection {
         ] + Global.allCases.map(AnimationDirection.global)
 }
 
-/// CSS Output conversion
 extension AnimationDirection: CustomStringConvertible {
-    /// Converts the animation direction to its CSS string representation
+
     public var description: String {
         switch self {
         case .normal: return "normal"

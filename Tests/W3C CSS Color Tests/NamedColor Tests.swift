@@ -1,14 +1,7 @@
-// NamedColor Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS NamedColor type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
-
-// MARK: - Basic Named Colors
 
 @Suite
 struct `NamedColor - Basic Colors` {
@@ -43,8 +36,6 @@ struct `NamedColor - Extended Colors` {
     }
 }
 
-// MARK: - Special Color Values
-
 @Suite
 struct `NamedColor - Special Values` {
     @Test(arguments: [
@@ -63,8 +54,6 @@ struct `NamedColor - Special Values` {
         #expect(NamedColor.current == NamedColor.currentColor)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `NamedColor - CaseIterable Conformance` {
@@ -101,8 +90,6 @@ struct `NamedColor - Hashable Conformance` {
     }
 }
 
-// MARK: - Raw Value
-
 @Suite
 struct `NamedColor - Raw Value` {
     @Test func `description matches raw value for all cases`() {
@@ -111,8 +98,6 @@ struct `NamedColor - Raw Value` {
         }
     }
 }
-
-// MARK: - Usage in CSS Context
 
 @Suite
 struct `NamedColor - CSS Context Usage` {
@@ -131,8 +116,6 @@ struct `NamedColor - CSS Context Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `NamedColor - Edge Cases` {
     @Test func `transparent color value`() {
@@ -149,8 +132,6 @@ struct `NamedColor - Edge Cases` {
         #expect(allCases.count == uniqueCases.count)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite
@@ -176,7 +157,7 @@ extension `Performance Tests` {
         func `iterate over all cases 1000 times`() {
             for _ in 0..<1000 {
                 for _ in NamedColor.allCases {
-                    // Iterate through all cases
+
                 }
             }
         }

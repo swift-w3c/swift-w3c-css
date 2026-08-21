@@ -1,32 +1,12 @@
-/// Represents CSS named color values.
-///
-/// The `NamedColor` type represents color names that can be used in CSS properties
-/// that accept color values. These include the basic colors like `red` and `blue`,
-/// as well as extended colors like `cornflowerblue` and `rebeccapurple`.
-///
-/// Example:
-/// ```swift
-/// .color(.named(.red))                 // red
-/// .color(.named(.rebeccapurple))       // rebeccapurple
-/// .backgroundColor(.named(.transparent)) // transparent
-/// ```
-///
-/// - Note: All named colors represent solid colors in the sRGB color space without transparency,
-///         except for the special `transparent` value.
-///
-/// - SeeAlso: [MDN Web Docs on named colors](https://developer.mozilla.org/en-US/docs/Web/CSS/named-color)
 public enum NamedColor: String, Sendable, Hashable, CaseIterable {
-    // Basic colors (CSS Level 1)
+
     case black, silver, gray, white, maroon, red, purple, fuchsia
     case green, lime, olive, yellow, navy, blue, teal, aqua
 
-    // CSS Level 2
     case orange
 
-    // CSS Colors Level 4 (added in honor of Eric Meyer)
     case rebeccapurple
 
-    // Extended colors (X11/SVG colors)
     case aliceblue, antiquewhite, aquamarine, azure, beige, bisque, blanchedalmond
     case blueviolet, brown, burlywood, cadetblue, chartreuse, chocolate, coral
     case cornflowerblue, cornsilk, crimson, cyan, darkblue, darkcyan, darkgoldenrod
@@ -48,22 +28,19 @@ public enum NamedColor: String, Sendable, Hashable, CaseIterable {
     case slateblue, slategray, slategrey, snow, springgreen, steelblue, tan, thistle
     case tomato, turquoise, violet, wheat, whitesmoke, yellowgreen
 
-    // Special keyword
     case transparent
-    // swiftlint:disable:next redundant_string_enum_value
+
     case currentColor = "currentColor"
 }
 
-/// Provides string conversion for CSS output
 extension NamedColor: CustomStringConvertible {
-    /// Converts the named color to its CSS string representation
+
     public var description: String {
         return rawValue
     }
 }
 
-/// Convenience properties for named colors
 extension NamedColor {
-    /// Other aliases
+
     public static let current = NamedColor.currentColor
 }

@@ -1,13 +1,6 @@
-// NumberPercentage Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS NumberPercentage type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `NumberPercentage - Number Values` {
@@ -45,8 +38,6 @@ struct `NumberPercentage - Percentage Values` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `NumberPercentage - Integer Literal` {
     @Test func `integer literal creates number`() {
@@ -80,8 +71,6 @@ struct `NumberPercentage - Float Literal` {
         }
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `NumberPercentage - Hashable Conformance` {
@@ -122,8 +111,6 @@ struct `NumberPercentage - Hashable Conformance` {
     }
 }
 
-// MARK: - Convertible Protocols
-
 @Suite
 struct `NumberPercentage - Number and Percentage Convertible` {
     @Test func `number convertible works correctly`() {
@@ -136,8 +123,6 @@ struct `NumberPercentage - Number and Percentage Convertible` {
         #expect(percentage.description == "80%")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `NumberPercentage - CSS Property Usage` {
@@ -161,8 +146,6 @@ struct `NumberPercentage - CSS Property Usage` {
         #expect(scale == "transform: scale(120%)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `NumberPercentage - Edge Cases` {
@@ -191,8 +174,6 @@ struct `NumberPercentage - Edge Cases` {
         #expect(NumberPercentage.percentage(Percentage(33.333333)).description == "33.333333%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

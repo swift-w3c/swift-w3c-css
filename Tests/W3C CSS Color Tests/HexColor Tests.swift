@@ -1,15 +1,8 @@
-// HexColor Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS HexColor type
-
 import Foundation
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
-
-// MARK: - Basic Hex Colors
 
 @Suite
 struct `HexColor - Basic Values` {
@@ -45,8 +38,6 @@ struct `HexColor - Short Format` {
     }
 }
 
-// MARK: - Hex Colors with Alpha
-
 @Suite
 struct `HexColor - With Alpha` {
     @Test(arguments: [
@@ -74,8 +65,6 @@ struct `HexColor - With Alpha` {
     }
 }
 
-// MARK: - Prefix Handling
-
 @Suite
 struct `HexColor - Prefix Handling` {
     @Test(arguments: [
@@ -89,8 +78,6 @@ struct `HexColor - Prefix Handling` {
         #expect(HexColor(input).description == expected)
     }
 }
-
-// MARK: - RGB Constructor
 
 @Suite
 struct `HexColor - RGB Constructor` {
@@ -121,8 +108,6 @@ struct `HexColor - RGB Constructor` {
     }
 }
 
-// MARK: - RGBA Constructor
-
 @Suite
 struct `HexColor - RGBA Constructor` {
     @Test(arguments: [
@@ -151,8 +136,6 @@ struct `HexColor - RGBA Constructor` {
         #expect(negativeAlpha.description == "#00FF0000")
     }
 }
-
-// MARK: - Validation
 
 @Suite
 struct `HexColor - Validation` {
@@ -183,8 +166,6 @@ struct `HexColor - Validation` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `HexColor - Hashable Conformance` {
     @Test func `equal hex colors are equal`() {
@@ -205,8 +186,6 @@ struct `HexColor - Hashable Conformance` {
         #expect(redLowercase != redUppercase)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `HexColor - Edge Cases` {
@@ -234,8 +213,6 @@ struct `HexColor - Edge Cases` {
         #expect(HexColor("#fff").description == "#fff")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -2,64 +2,12 @@ public import W3C_CSS_Color
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// Represents the CSS `border-block-end-color` property, which sets the color of the logical block-end border.
-///
-/// This logical property sets the color for the block-end border of an element. The actual physical
-/// border it affects depends on the element's writing mode, directionality, and text orientation.
-/// For example, in horizontal top-to-bottom writing mode, `border-block-end-color` sets the color
-/// of the bottom border.
-///
-/// Visual Reference:
-/// ```
-/// horizontal-tb writing mode:
-/// ┌───────────────────────────┐
-/// │                           │
-/// │                           │
-/// │                           │
-/// │                           │
-/// └───────────────────────────┘   ← border-block-end-color (bottom)
-///
-/// vertical-rl writing mode:
-/// ┌───────────────────────────┐
-/// │                           │
-/// │                           │
-/// │                           │
-/// │                           │
-/// └───────────────────────────┘
-///   ↑
-///   border-block-end-color (left)
-/// ```
-///
-/// Example:
-/// ```swift
-/// // Set the block-end border color to red
-/// .borderBlockEndColor(.red)
-///
-/// // Set the block-end border color to a semi-transparent blue
-/// .borderBlockEndColor(.rgba(0, 0, 255, 0.5))
-///
-/// // Set the block-end border color to a hex value
-/// .borderBlockEndColor(.hex("#32a1ce"))
-///
-/// // Use the current text color
-/// .borderBlockEndColor(.currentColor)
-/// ```
-///
-/// - Note: This logical property adapts to the writing mode of the document,
-///         making layout more flexible for different writing systems.
-///
-/// - SeeAlso: [MDN Web Docs on border-block-end-color](https://developer.mozilla.org/en-US/docs/Web/CSS/border-block-end-color)
 public enum BorderBlockEndColor: Property, ColorConvertible {
 
-    /// A specific color for the block-end border
     case color(W3C_CSS_Values.Color)
 
-    /// Global CSS values
     case global(Global)
 
-    /// Creates a border-block-end-color with a specific color
-    ///
-    /// - Parameter color: The color for the block-end border
     public init(_ color: W3C_CSS_Values.Color) {
         self = .color(color)
     }
@@ -69,17 +17,8 @@ extension BorderBlockEndColor {
     public static let property: String = "border-block-end-color"
 }
 
-/// Provides string conversion for CSS output
 extension BorderBlockEndColor: CustomStringConvertible {
-    /// Converts the border-block-end-color to its CSS string representation
-    ///
-    /// This method generates CSS like:
-    /// ```css
-    /// border-block-end-color: red;
-    /// border-block-end-color: #32a1ce;
-    /// border-block-end-color: rgba(0, 0, 255, 0.5);
-    /// border-block-end-color: currentcolor;
-    /// ```
+
     public var description: String {
         switch self {
         case .color(let color):

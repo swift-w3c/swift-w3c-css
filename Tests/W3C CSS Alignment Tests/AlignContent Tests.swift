@@ -1,14 +1,7 @@
-// AlignContent Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS align-content property
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Alignment
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AlignContent - Property Protocol` {
@@ -33,8 +26,6 @@ struct `AlignContent - Declaration Rendering` {
         #expect(value.declaration.description == expected)
     }
 }
-
-// MARK: - Value Types
 
 @Suite
 struct `AlignContent - Normal Value` {
@@ -109,8 +100,6 @@ struct `AlignContent - Overflow Position` {
     }
 }
 
-// MARK: - Global Values
-
 @Suite
 struct `AlignContent - Global Values` {
     @Test(arguments: [
@@ -127,8 +116,6 @@ struct `AlignContent - Global Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AlignContent - Edge Cases` {
@@ -161,8 +148,6 @@ struct `AlignContent - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AlignContent - CSS Property Usage` {
     @Test func `align-content renders correctly in flexbox context`() {
@@ -180,8 +165,6 @@ struct `AlignContent - CSS Property Usage` {
         #expect(css == "align-content: safe center")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

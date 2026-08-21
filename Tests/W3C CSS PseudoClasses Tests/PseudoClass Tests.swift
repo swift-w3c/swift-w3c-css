@@ -1,13 +1,6 @@
-// PseudoClass Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS PseudoClass types
-
 import Testing
 
 @testable import W3C_CSS_PseudoClasses
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `PseudoClass - Basic Initialization` {
@@ -189,8 +182,6 @@ struct `PseudoClass - Nth Last Of Type` {
     }
 }
 
-// MARK: - Form States
-
 @Suite
 struct `PseudoClass - Form States` {
     @Test func `checked pseudo class`() {
@@ -257,8 +248,6 @@ struct `PseudoClass - Validation States` {
     }
 }
 
-// MARK: - UI States
-
 @Suite
 struct `PseudoClass - UI States` {
     @Test func `default pseudo class`() {
@@ -281,8 +270,6 @@ struct `PseudoClass - UI States` {
         #expect(empty.description == ":empty")
     }
 }
-
-// MARK: - Logical Pseudo Classes
 
 @Suite
 struct `PseudoClass - Not` {
@@ -351,8 +338,6 @@ struct `PseudoClass - Has` {
     }
 }
 
-// MARK: - Location Pseudo Classes
-
 @Suite
 struct `PseudoClass - Location` {
     @Test func `target pseudo class`() {
@@ -376,8 +361,6 @@ struct `PseudoClass - Location` {
     }
 }
 
-// MARK: - User Action Pseudo Classes
-
 @Suite
 struct `PseudoClass - User Actions` {
     @Test func `focus visible pseudo class`() {
@@ -391,8 +374,6 @@ struct `PseudoClass - User Actions` {
     }
 }
 
-// MARK: - Root and Scope
-
 @Suite
 struct `PseudoClass - Document Structure` {
     @Test func `root pseudo class`() {
@@ -405,8 +386,6 @@ struct `PseudoClass - Document Structure` {
         #expect(scope.description == ":scope")
     }
 }
-
-// MARK: - Language
 
 @Suite
 struct `PseudoClass - Language` {
@@ -430,8 +409,6 @@ struct `PseudoClass - Language` {
     }
 }
 
-// MARK: - Directionality
-
 @Suite
 struct `PseudoClass - Directionality` {
     @Test func `dir ltr pseudo class`() {
@@ -444,8 +421,6 @@ struct `PseudoClass - Directionality` {
         #expect(dir.description == ":dir(rtl)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `PseudoClass - Edge Cases` {
@@ -475,8 +450,6 @@ struct `PseudoClass - Edge Cases` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `PseudoClass - Hashable Conformance` {
     @Test func `equal pseudo classes are equal`() {
@@ -502,8 +475,6 @@ struct `PseudoClass - Sendable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `PseudoClass - CSS Rule Usage` {
     @Test func `hover in css rule`() {
@@ -526,8 +497,6 @@ struct `PseudoClass - CSS Rule Usage` {
         #expect(rule == "input:not([type='submit']) { border: 1px solid; }")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

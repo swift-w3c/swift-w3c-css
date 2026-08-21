@@ -1,14 +1,7 @@
-// Media Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Media type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_MediaQueries
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Media - Initialization` {
@@ -128,8 +121,6 @@ struct `Media - Resolution Queries` {
     }
 }
 
-// MARK: - Logical Operators
-
 @Suite
 struct `Media - AND Operator` {
     @Test func `combines media query with feature correctly`() {
@@ -222,8 +213,6 @@ struct `Media - Operator Overloads` {
     }
 }
 
-// MARK: - Complex Combinations
-
 @Suite
 struct `Media - Complex Queries` {
     @Test func `complex queries with functions`() {
@@ -282,8 +271,6 @@ struct `Media - Complex Queries` {
     }
 }
 
-// MARK: - Predefined Media Queries
-
 @Suite
 struct `Media - Predefined Queries` {
     @Test func `predefined viewport queries`() {
@@ -320,8 +307,6 @@ struct `Media - Predefined Queries` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Media - Edge Cases` {
     @Test func `empty raw value initialization`() {
@@ -345,8 +330,6 @@ struct `Media - Edge Cases` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Media - Hashable Conformance` {
     @Test func `equal media queries are equal`() {
@@ -366,8 +349,6 @@ struct `Media - Hashable Conformance` {
         #expect(set.count == 2)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

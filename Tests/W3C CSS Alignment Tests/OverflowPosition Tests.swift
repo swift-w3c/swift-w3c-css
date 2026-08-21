@@ -1,13 +1,6 @@
-// OverflowPosition Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS OverflowPosition type
-
 import Testing
 
 @testable import W3C_CSS_Shared
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `OverflowPosition - Initialization` {
@@ -32,8 +25,6 @@ struct `OverflowPosition - Initialization` {
         #expect(unsafe.description == "unsafe")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `OverflowPosition - Hashable Conformance` {
@@ -109,8 +100,6 @@ struct `OverflowPosition - RawRepresentable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `OverflowPosition - CSS Property Usage` {
     @Test func `safe overflow position renders correctly in align-items property`() {
@@ -144,8 +133,6 @@ struct `OverflowPosition - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `OverflowPosition - Edge Cases` {
     @Test func `safe ensures content remains visible during overflow`() {
@@ -168,48 +155,39 @@ struct `OverflowPosition - Edge Cases` {
     }
 
     @Test func `overflow position modifies alignment behavior`() {
-        // Safe overflow position ensures content visibility
+
         let safeAlignment = "align-items: \(OverflowPosition.safe) center"
         #expect(safeAlignment.contains("safe"))
         #expect(safeAlignment.contains("center"))
 
-        // Unsafe overflow position honors alignment even if content overflows
         let unsafeAlignment = "align-items: \(OverflowPosition.unsafe) center"
         #expect(unsafeAlignment.contains("unsafe"))
         #expect(unsafeAlignment.contains("center"))
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `OverflowPosition - CSS Specification` {
     @Test func `safe prevents data loss on overflow`() {
-        // Safe overflow position specification:
-        // If the alignment would cause overflow that would result in data loss,
-        // align as if the alignment mode were start
+
         let safe = OverflowPosition.safe
         #expect(safe.description == "safe")
     }
 
     @Test func `unsafe allows data loss on overflow`() {
-        // Unsafe overflow position specification:
-        // Honor the alignment even if it causes overflow that results in data loss
+
         let unsafe = OverflowPosition.unsafe
         #expect(unsafe.description == "unsafe")
     }
 
     @Test func `overflow position is optional in alignment properties`() {
-        // Overflow position can be omitted in which case it defaults to unsafe
-        // This test verifies that both safe and unsafe are valid values
+
         let allCases = OverflowPosition.allCases
         #expect(allCases.count == 2)
         #expect(allCases.contains(.safe))
         #expect(allCases.contains(.unsafe))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite
@@ -241,7 +219,7 @@ extension `Performance Tests` {
         func `overflow position iteration 100K times`() {
             for _ in 0..<100_000 {
                 for _ in OverflowPosition.allCases {
-                    // Iterate through all cases
+
                 }
             }
         }

@@ -1,108 +1,61 @@
 public import W3C_CSS_Shared
 
-/// The `display` CSS property sets how an element is treated in the layout flow
-/// and how its children are laid out.
-///
-/// This property defines both the element's inner and outer display types:
-/// - The outer type determines the element's participation in flow layout
-/// - The inner type determines the layout of the element's children
-///
-/// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/display)
 public enum Display: Property {
-    // MARK: - Precomposed values
 
-    /// Creates a block box that generates line breaks before and after
     case block
 
-    /// Creates an inline box that doesn't generate line breaks
     case inline
 
-    /// Creates a block box that flows with surrounding content as if it were a single inline box
     case inlineBlock
 
-    /// Lays out contents using CSS Flexbox model with block-level behavior
     case flex
 
-    /// Lays out contents using CSS Flexbox model with inline-level behavior
     case inlineFlex
 
-    /// Lays out contents using CSS Grid model with block-level behavior
     case grid
 
-    /// Lays out contents using CSS Grid model with inline-level behavior
     case inlineGrid
 
-    /// Creates a block box that establishes a new block formatting context
     case flowRoot
 
-    // MARK: - Box generation
-
-    /// Removes the element from rendering (as if it didn't exist in the DOM)
     case none
 
-    /// Element itself is not rendered, but its children are
     case contents
 
-    // MARK: - Multi-keyword syntax
-
-    /// Represents explicit outer and inner display types
     case multiKeyword(outer: DisplayOutside, inner: DisplayInside)
 
-    /// Represents list item display with optional outer and inner types
     case listItem(outer: DisplayOutside? = nil, inner: DisplayInside? = nil)
 
-    // MARK: - Table display values
-
-    /// Behaves like an HTML table element
     case table
 
-    /// Behaves like an HTML inline table element
     case inlineTable
 
-    /// Behaves like a <tbody> HTML element
     case tableRowGroup
 
-    /// Behaves like a <thead> HTML element
     case tableHeaderGroup
 
-    /// Behaves like a <tfoot> HTML element
     case tableFooterGroup
 
-    /// Behaves like a <tr> HTML element
     case tableRow
 
-    /// Behaves like a <td> HTML element
     case tableCell
 
-    /// Behaves like a <colgroup> HTML element
     case tableColumnGroup
 
-    /// Behaves like a <col> HTML element
     case tableColumn
 
-    /// Behaves like a <caption> HTML element
     case tableCaption
 
-    // MARK: - Ruby display values
-
-    /// Lays out content according to the ruby formatting model
     case ruby
 
-    /// Behaves like an <rb> HTML element
     case rubyBase
 
-    /// Behaves like an <rt> HTML element
     case rubyText
 
-    /// Generated as anonymous boxes
     case rubyBaseContainer
 
-    /// Behaves like an <rtc> HTML element
     case rubyTextContainer
 
-    // MARK: - Global values
-
-    /// Global values
     case global(Global)
 }
 

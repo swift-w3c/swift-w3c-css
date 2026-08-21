@@ -1,28 +1,9 @@
-//
-//  X.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
-//
-
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The CSS `x` property defines the x-axis coordinate of the top left corner of an SVG element.
-///
-/// This property applies to SVG `<rect>`, `<image>`, `<foreignObject>`, and nested `<svg>` elements,
-/// relative to the nearest `<svg>` ancestor's user coordinate system. If present, it overrides the
-/// element's `x` attribute.
-///
-/// - Note: The x property only applies to specific SVG elements nested in an `<svg>`.
-///         It has no effect on outermost `<svg>` elements and does not apply to other SVG elements,
-///         HTML elements, or pseudo-elements.
-///
-/// - SeeAlso: [MDN Web Docs on x](https://developer.mozilla.org/en-US/docs/Web/CSS/x)
 public enum X: Property, LengthPercentageConvertible {
     case lengthPercentage(LengthPercentage)
 
-    /// Global value
     case global(Global)
 }
 

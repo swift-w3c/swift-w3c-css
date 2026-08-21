@@ -1,25 +1,14 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The `cx` CSS property defines the x-axis coordinate of the center point of SVG circle and ellipse elements.
-///
-/// This property overrides the SVG `cx` attribute if present. It only applies to `<circle>` and `<ellipse>`
-/// elements nested in an `<svg>` element, not to other SVG elements or HTML elements.
-///
-/// - Note: For percentage values, the percentage is relative to the width of the current SVG viewport.
-///
-/// - SeeAlso: [MDN Web Docs](https://developer.mozilla.org/en-US/docs/Web/CSS/cx)
 public enum Cx: Property {
-    /// A specific length value
+
     case length(Length)
 
-    /// A percentage of the SVG viewport width
     case percentage(Percentage)
 
-    /// A combination of length and percentage
     case lengthPercentage(LengthPercentage)
 
-    /// Global values
     case global(Global)
 }
 

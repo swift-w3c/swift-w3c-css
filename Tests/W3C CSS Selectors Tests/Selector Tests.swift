@@ -1,13 +1,6 @@
-// Selector Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Selector types
-
 import Testing
 
 @testable import W3C_CSS_Selectors
-
-// MARK: - Universal Selector
 
 @Suite
 struct `Universal Selector - Initialization` {
@@ -20,8 +13,6 @@ struct `Universal Selector - Initialization` {
         #expect(UniversalSelector.universal.description == "*")
     }
 }
-
-// MARK: - Type Selector
 
 @Suite
 struct `Type Selector - Initialization` {
@@ -45,8 +36,6 @@ struct `Type Selector - Initialization` {
         #expect(selector.description == "div")
     }
 }
-
-// MARK: - Class Selector
 
 @Suite
 struct `Class Selector - Initialization` {
@@ -75,8 +64,6 @@ struct `Class Selector - Initialization` {
     }
 }
 
-// MARK: - ID Selector
-
 @Suite
 struct `ID Selector - Initialization` {
     @Test(arguments: [
@@ -103,8 +90,6 @@ struct `ID Selector - Initialization` {
         #expect(selector.description == "#header")
     }
 }
-
-// MARK: - Attribute Selector
 
 @Suite
 struct `Attribute Selector - Existence` {
@@ -200,8 +185,6 @@ struct `Attribute Selector - Case Sensitivity` {
     }
 }
 
-// MARK: - Nesting Selector
-
 @Suite
 struct `Nesting Selector - Basic` {
     @Test func `nesting selector creates ampersand`() {
@@ -213,8 +196,6 @@ struct `Nesting Selector - Basic` {
         #expect(NestingSelector.nesting.description == "&")
     }
 }
-
-// MARK: - Selector Combinations
 
 @Suite
 struct `Selector - Compound Selectors` {
@@ -238,8 +219,6 @@ struct `Selector - Compound Selectors` {
         #expect(selector == "input.form-control[type=\"text\"]")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Selector - Edge Cases` {
@@ -272,8 +251,6 @@ struct `Selector - Edge Cases` {
         #expect(selector.description.contains("title"))
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Selector - Hashable Conformance` {
@@ -312,8 +289,6 @@ struct `Selector - Sendable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Selector - CSS Rule Usage` {
     @Test func `type selector in css rule`() {
@@ -337,8 +312,6 @@ struct `Selector - CSS Rule Usage` {
         #expect(rule.contains("[type=\"text\"]"))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

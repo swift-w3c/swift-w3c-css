@@ -1,29 +1,11 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The CSS `min-height` property sets the minimum height of an element. It prevents
-/// the used value of the height property from becoming smaller than the value specified for min-height.
-///
-/// Example:
-/// ```swift
-/// .minHeight(.px(150))       // min-height: 150px
-/// .minHeight(.em(20))        // min-height: 20em
-/// .minHeight(.percentage(75))   // min-height: 75%
-/// .minHeight(.ch(40))        // min-height: 40ch
-/// .minHeight(.auto)          // min-height: auto
-/// .minHeight(.maxContent)    // min-height: max-content
-/// ```
-///
-/// - Note: The element's height is set to the value of min-height whenever min-height is larger
-///         than max-height or height.
-///
-/// - SeeAlso: [MDN Web Docs on min-height](https://developer.mozilla.org/en-US/docs/Web/CSS/min-height)
 public enum MinHeight: Property, LengthPercentageConvertible {
     case lengthPercentage(LengthPercentage)
 
     case auto
 
-    /// No maximum width constraint
     case none
 
     case maxContent
@@ -34,7 +16,6 @@ public enum MinHeight: Property, LengthPercentageConvertible {
 
     case stretch
 
-    /// A global CSS value
     case global(Global)
 }
 
@@ -44,9 +25,8 @@ extension MinHeight {
     public static let fitContent: Self = .fitContent(nil)
 }
 
-/// CSS Output conversion
 extension MinHeight: CustomStringConvertible {
-    /// Converts the min-height value to its CSS string representation
+
     public var description: String {
         switch self {
         case .lengthPercentage(let lengthPercentage):
@@ -80,18 +60,12 @@ extension MinHeight: CustomStringConvertible {
     }
 }
 
-/// Allow for numeric literals to be used directly
 extension MinHeight: ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
-    /// Creates a min-height with a pixel value from an integer literal
-    ///
-    /// - Parameter value: The pixel value as an integer
+
     public init(integerLiteral value: Int) {
         self = .px(Double(value))
     }
 
-    /// Creates a min-height with a pixel value from a floating-point literal
-    ///
-    /// - Parameter value: The pixel value as a double
     public init(floatLiteral value: Double) {
         self = .px(value)
     }

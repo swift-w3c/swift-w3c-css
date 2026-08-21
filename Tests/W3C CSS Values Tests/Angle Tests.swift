@@ -1,13 +1,6 @@
-// Angle Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Angle type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Angle - Degree Values` {
@@ -93,8 +86,6 @@ struct `Angle - Turn Values` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Angle - Integer Literal` {
     @Test func `integer literal creates degree angle`() {
@@ -122,8 +113,6 @@ struct `Angle - Float Literal` {
         }
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Angle - Hashable Conformance` {
@@ -158,8 +147,6 @@ struct `Angle - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Angle - CSS Property Usage` {
     @Test func `angle renders correctly in transform rotate property`() {
@@ -182,8 +169,6 @@ struct `Angle - CSS Property Usage` {
         #expect(transform == "transform: rotate(0.25turn)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Angle - Edge Cases` {
@@ -216,8 +201,6 @@ struct `Angle - Edge Cases` {
         #expect(Angle.turn(1.0).description == "1turn")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

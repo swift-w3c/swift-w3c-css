@@ -1,39 +1,16 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The CSS `grid` property is a shorthand property that sets all of the explicit and implicit grid properties in a single declaration.
-///
-/// Using `grid` you specify one axis using `grid-template-rows` or `grid-template-columns`,
-/// you then specify how content should auto-repeat in the other axis using the implicit grid properties:
-/// `grid-auto-rows`, `grid-auto-columns`, and `grid-auto-flow`.
-///
-/// Example:
-/// ```swift
-/// .grid(.none)                                           // grid: none
-/// .grid(.template([.px(100), .fr(1)], [.auto, .fr(2)])) // grid: 100px 1fr / auto 2fr
-/// .grid(.autoFlow(.row))                                // grid: auto-flow / auto
-/// .grid(.autoFlow(.row, .dense, .fr(1)))               // grid: auto-flow dense / 1fr
-/// .grid(.explicit([.px(100)], .autoFlow(.column)))     // grid: 100px / auto-flow
-/// .grid(.explicit([.px(100)], .autoFlow(.column, .dense, .percentage(40)))) // grid: 100px / auto-flow dense 40%
-/// .grid(.global(.inherit))                              // grid: inherit
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on grid](https://developer.mozilla.org/en-US/docs/Web/CSS/grid)
 public enum Grid: Property {
 
-    /// Sets all grid values to their initial value
     case none
 
-    /// Defines grid template with rows and columns
     case template([GridTrackSize], [GridTrackSize])
 
-    /// Defines an auto-flow grid with columns
     case autoFlow(AutoFlowDirection, AutoFlowDensity? = nil, GridTrackSize? = nil)
 
-    /// Defines rows with auto-flow columns
     case explicit([GridTrackSize], AutoFlow)
 
-    /// Global values
     case global(Global)
 }
 
@@ -71,38 +48,31 @@ extension Grid {
     }
 }
 
-/// Direction for auto-flow grid layout
 public enum AutoFlowDirection: Sendable, Hashable {
-    /// Row direction
+
     case row
 
-    /// Column direction
     case column
 }
 
-/// Density for auto-flow grid layout
 public enum AutoFlowDensity: Sendable, Hashable {
-    /// Normal density
+
     case normal
 
-    /// Dense packing algorithm
     case dense
 }
 
-/// Auto-flow configuration for explicit grid tracks
 public struct AutoFlow: Sendable, Hashable, CustomStringConvertible {
-    /// Direction of auto-flow
+
     let direction: AutoFlowDirection
 
-    /// Density of auto-flow
     let density: AutoFlowDensity
 
-    /// Auto track size
     let trackSize: GridTrackSize?
 }
 
 extension AutoFlow {
-    /// Creates an auto-flow configuration
+
     public static func autoFlow(
         _ direction: AutoFlowDirection,
         _ density: AutoFlowDensity = .normal,
@@ -123,30 +93,22 @@ extension AutoFlow {
     }
 }
 
-/// Represents a CSS grid track size
 public enum GridTrackSize: Sendable, Hashable, CustomStringConvertible {
-    /// Auto sizing
+
     case auto
 
-    /// Fixed length value
     case px(Double)
 
-    /// Percentage value
     case percentage(Percentage)
 
-    /// Flexible length
     case fr(Double)
 
-    /// Minimum content size
     case minContent
 
-    /// Maximum content size
     case maxContent
 
-    /// Min-max value range
     case minMax(MinMaxValue, MinMaxValue)
 
-    /// Fit content to argument
     case fitContent(LengthPercentage)
 }
 

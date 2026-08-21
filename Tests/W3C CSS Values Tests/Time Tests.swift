@@ -1,13 +1,6 @@
-// Time Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Time type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Time - Initialization` {
@@ -58,8 +51,6 @@ struct `Time - Factory Methods` {
     }
 }
 
-// MARK: - Unit Conversion
-
 @Suite
 struct `Time - Unit Conversion` {
     @Test func `seconds to milliseconds conversion`() {
@@ -99,8 +90,6 @@ struct `Time - Unit Conversion` {
         #expect(backAgain.unit == .s)
     }
 }
-
-// MARK: - Arithmetic Operations
 
 @Suite
 struct `Time - Addition` {
@@ -199,8 +188,6 @@ struct `Time - Negation` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Time - Comparable Conformance` {
     @Test func `comparison with same units`() {
@@ -233,8 +220,6 @@ struct `Time - Comparable Conformance` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Time - Integer Literal` {
     @Test func `integer literal creates seconds time`() {
@@ -253,8 +238,6 @@ struct `Time - Float Literal` {
     }
 }
 
-// MARK: - Unit Hashable
-
 @Suite
 struct `Time - Unit Hashable` {
     @Test func `time units conform to hashable`() {
@@ -263,8 +246,6 @@ struct `Time - Unit Hashable` {
         #expect(Time.Unit.s != Time.Unit.ms)
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `Time - CSS Property Usage` {
@@ -283,8 +264,6 @@ struct `Time - CSS Property Usage` {
         #expect(delay == "transition-delay: 0.1s")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Time - Edge Cases` {
@@ -314,8 +293,6 @@ struct `Time - Edge Cases` {
         #expect(Time.ms(500.0).description == "500ms")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

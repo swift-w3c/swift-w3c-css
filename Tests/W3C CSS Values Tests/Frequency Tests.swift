@@ -1,13 +1,6 @@
-// Frequency Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Frequency type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Frequency - Hertz Values` {
@@ -45,8 +38,6 @@ struct `Frequency - Kilohertz Values` {
     }
 }
 
-// MARK: - Integer Constructor Convenience
-
 @Suite
 struct `Frequency - Integer Constructors` {
     @Test func `integer hz constructor works correctly`() {
@@ -63,8 +54,6 @@ struct `Frequency - Integer Constructors` {
         #expect(intKhz.description == doubleKhz.description)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Frequency - Hashable Conformance` {
@@ -87,8 +76,6 @@ struct `Frequency - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Frequency - CSS Property Usage` {
     @Test func `frequency renders correctly in audio properties`() {
@@ -106,8 +93,6 @@ struct `Frequency - CSS Property Usage` {
         #expect(media == "@media (min-frequency: 500Hz)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Frequency - Edge Cases` {
@@ -138,8 +123,6 @@ struct `Frequency - Edge Cases` {
         #expect(Frequency.khz(20).description == "20kHz")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,14 +1,7 @@
-// ContentPosition Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS ContentPosition type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Alignment
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `ContentPosition - Initialization` {
@@ -63,8 +56,6 @@ struct `ContentPosition - Initialization` {
         #expect(right.description == "right")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `ContentPosition - Hashable Conformance` {
@@ -150,8 +141,6 @@ struct `ContentPosition - RawRepresentable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `ContentPosition - CSS Property Usage` {
     @Test func `content position renders correctly in justify-content property`() {
@@ -184,8 +173,6 @@ struct `ContentPosition - CSS Property Usage` {
         #expect(justifyContent == "justify-content: right")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `ContentPosition - Edge Cases` {
@@ -220,8 +207,6 @@ struct `ContentPosition - Edge Cases` {
     }
 }
 
-// MARK: - Performance
-
 extension `Performance Tests` {
     @Suite
     struct `ContentPosition - Performance` {
@@ -252,7 +237,7 @@ extension `Performance Tests` {
         func `content position iteration 100K times`() {
             for _ in 0..<100_000 {
                 for _ in ContentPosition.allCases {
-                    // Iterate through all cases
+
                 }
             }
         }

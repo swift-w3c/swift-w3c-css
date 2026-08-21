@@ -1,14 +1,7 @@
-// Gradient Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Gradient type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Images
-
-// MARK: - Linear Gradients
 
 @Suite
 struct `Gradient - Linear with Direction` {
@@ -139,8 +132,6 @@ struct `Gradient - Repeating Linear` {
     }
 }
 
-// MARK: - Radial Gradients
-
 @Suite
 struct `Gradient - Radial Basic` {
     @Test func `radial gradient without options`() {
@@ -253,8 +244,6 @@ struct `Gradient - Repeating Radial` {
     }
 }
 
-// MARK: - Conic Gradients
-
 @Suite
 struct `Gradient - Conic Basic` {
     @Test func `conic gradient without options`() {
@@ -351,8 +340,6 @@ struct `Gradient - Repeating Conic` {
     }
 }
 
-// MARK: - Color Interpolation
-
 @Suite
 struct `Gradient - Color Interpolation` {
     @Test func `linear gradient with rectangular color space`() {
@@ -392,8 +379,6 @@ struct `Gradient - Color Interpolation` {
         #expect(gradient.description == "conic-gradient(in lab, red, blue)")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Gradient - Hashable Conformance` {
@@ -451,8 +436,6 @@ struct `Gradient - Hashable Conformance` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Gradient - Edge Cases` {
     @Test func `gradient with single color stop`() {
@@ -497,7 +480,7 @@ struct `Gradient - Edge Cases` {
                     Gradient.ColorStop(.named(.blue)),
                 ]
             )
-            // Just verify it contains the keyword
+
             #expect(gradient.description.contains(keyword.rawValue))
         }
     }
@@ -526,8 +509,6 @@ struct `Gradient - Edge Cases` {
         #expect(gradient.description == "conic-gradient(from 360deg, red, blue)")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

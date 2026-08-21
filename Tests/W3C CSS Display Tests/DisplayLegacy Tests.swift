@@ -1,13 +1,6 @@
-// DisplayLegacy Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS DisplayLegacy type
-
 import Testing
 
 @testable import W3C_CSS_Display
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `DisplayLegacy - Initialization` {
@@ -50,8 +43,6 @@ struct `DisplayLegacy - Raw Value Initialization` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `DisplayLegacy - Hashable Conformance` {
     @Test func `equal values are equal`() {
@@ -88,8 +79,6 @@ struct `DisplayLegacy - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `DisplayLegacy - CSS Property Usage` {
     @Test(arguments: [
@@ -119,36 +108,34 @@ struct `DisplayLegacy - CSS Property Usage` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `DisplayLegacy - CSS Specification` {
     @Test func `inlineBlock matches CSS specification`() {
-        // Inline-level block container
+
         #expect(DisplayLegacy.inlineBlock.rawValue == "inline-block")
         #expect(DisplayLegacy.inlineBlock.description == "inline-block")
     }
 
     @Test func `inlineTable matches CSS specification`() {
-        // Inline-level table
+
         #expect(DisplayLegacy.inlineTable.rawValue == "inline-table")
         #expect(DisplayLegacy.inlineTable.description == "inline-table")
     }
 
     @Test func `inlineFlex matches CSS specification`() {
-        // Inline-level flex container
+
         #expect(DisplayLegacy.inlineFlex.rawValue == "inline-flex")
         #expect(DisplayLegacy.inlineFlex.description == "inline-flex")
     }
 
     @Test func `inlineGrid matches CSS specification`() {
-        // Inline-level grid container
+
         #expect(DisplayLegacy.inlineGrid.rawValue == "inline-grid")
         #expect(DisplayLegacy.inlineGrid.description == "inline-grid")
     }
 
     @Test func `all specification values are present`() {
-        // Ensure we have all important spec-defined display-legacy values
+
         let allValues: Set<DisplayLegacy> = [
             .inlineBlock, .inlineTable, .inlineFlex, .inlineGrid,
         ]
@@ -156,12 +143,10 @@ struct `DisplayLegacy - CSS Specification` {
     }
 }
 
-// MARK: - Legacy vs Modern Equivalence
-
 @Suite
 struct `DisplayLegacy - Modern Equivalence` {
     @Test func `inlineBlock equivalent to inline flow-root`() {
-        // inline-block ≈ inline flow-root
+
         let legacy = DisplayLegacy.inlineBlock.description
         let modern = "\(DisplayOutside.inline) \(DisplayInside.flowRoot)"
         #expect(legacy == "inline-block")
@@ -169,7 +154,7 @@ struct `DisplayLegacy - Modern Equivalence` {
     }
 
     @Test func `inlineFlex equivalent to inline flex`() {
-        // inline-flex ≈ inline flex
+
         let legacy = DisplayLegacy.inlineFlex.description
         let modern = "\(DisplayOutside.inline) \(DisplayInside.flex)"
         #expect(legacy == "inline-flex")
@@ -177,7 +162,7 @@ struct `DisplayLegacy - Modern Equivalence` {
     }
 
     @Test func `inlineGrid equivalent to inline grid`() {
-        // inline-grid ≈ inline grid
+
         let legacy = DisplayLegacy.inlineGrid.description
         let modern = "\(DisplayOutside.inline) \(DisplayInside.grid)"
         #expect(legacy == "inline-grid")
@@ -185,15 +170,13 @@ struct `DisplayLegacy - Modern Equivalence` {
     }
 
     @Test func `inlineTable equivalent to inline table`() {
-        // inline-table ≈ inline table
+
         let legacy = DisplayLegacy.inlineTable.description
         let modern = "\(DisplayOutside.inline) \(DisplayInside.table)"
         #expect(legacy == "inline-table")
         #expect(modern == "inline table")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `DisplayLegacy - Edge Cases` {
@@ -223,14 +206,12 @@ struct `DisplayLegacy - Edge Cases` {
     }
 
     @Test func `non-inline variants fail`() {
-        // These legacy values are all inline variants
+
         #expect(DisplayLegacy(rawValue: "block") == nil)
         #expect(DisplayLegacy(rawValue: "flex") == nil)
         #expect(DisplayLegacy(rawValue: "grid") == nil)
     }
 }
-
-// MARK: - Semantic Grouping
 
 @Suite
 struct `DisplayLegacy - Layout Categories` {
@@ -256,12 +237,10 @@ struct `DisplayLegacy - Layout Categories` {
     }
 }
 
-// MARK: - Backward Compatibility
-
 @Suite
 struct `DisplayLegacy - Backward Compatibility` {
     @Test func `widely supported legacy values`() {
-        // These values have wide browser support
+
         let widelySupported: [DisplayLegacy] = [
             .inlineBlock, .inlineTable, .inlineFlex, .inlineGrid,
         ]
@@ -269,14 +248,12 @@ struct `DisplayLegacy - Backward Compatibility` {
     }
 
     @Test func `legacy values remain valid CSS`() {
-        // All legacy values are still valid in modern CSS
+
         for value in [DisplayLegacy.inlineBlock, .inlineTable, .inlineFlex, .inlineGrid] {
             #expect(!value.description.isEmpty)
         }
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

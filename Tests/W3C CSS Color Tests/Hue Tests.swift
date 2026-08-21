@@ -1,14 +1,7 @@
-// Hue Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Hue type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
-
-// MARK: - Number Hue
 
 @Suite
 struct `Hue - Number Format` {
@@ -27,8 +20,6 @@ struct `Hue - Number Format` {
     }
 }
 
-// MARK: - Angle Hue
-
 @Suite
 struct `Hue - Angle Format` {
     @Test(arguments: [
@@ -45,8 +36,6 @@ struct `Hue - Angle Format` {
         #expect(hue.description == expected)
     }
 }
-
-// MARK: - Normalization
 
 @Suite
 struct `Hue - Normalization` {
@@ -104,8 +93,6 @@ struct `Hue - Angle Unit Normalization` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Hue - Hashable Conformance` {
     @Test func `equal number hues are equal`() {
@@ -133,8 +120,6 @@ struct `Hue - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Color Functions
-
 @Suite
 struct `Hue - Color Function Usage` {
     @Test(arguments: [
@@ -150,13 +135,10 @@ struct `Hue - Color Function Usage` {
         let hwbResult = "hwb(\(hue) 20% 0%)"
         let lchResult = "lch(50% 50 \(hue))"
 
-        // Check if any match the expected format
         let results = [hslResult, hwbResult, lchResult]
         #expect(results.contains(expected))
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Hue - Edge Cases` {
@@ -190,8 +172,6 @@ struct `Hue - Edge Cases` {
         #expect(Hue.number(Number(240.75)).description == "240.75")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,14 +1,7 @@
-// ContentDistribution Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS ContentDistribution type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Alignment
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `ContentDistribution - Initialization` {
@@ -45,8 +38,6 @@ struct `ContentDistribution - Initialization` {
         #expect(stretch.description == "stretch")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `ContentDistribution - Hashable Conformance` {
@@ -117,8 +108,6 @@ struct `ContentDistribution - RawRepresentable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `ContentDistribution - CSS Property Usage` {
     @Test func `content distribution renders correctly in align-content property`() {
@@ -141,8 +130,6 @@ struct `ContentDistribution - CSS Property Usage` {
         #expect(justifyContent == "justify-content: stretch")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `ContentDistribution - Edge Cases` {
@@ -170,8 +157,6 @@ struct `ContentDistribution - Edge Cases` {
         #expect(stretch.rawValue == "stretch")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite
@@ -203,7 +188,7 @@ extension `Performance Tests` {
         func `content distribution iteration 100K times`() {
             for _ in 0..<100_000 {
                 for _ in ContentDistribution.allCases {
-                    // Iterate through all cases
+
                 }
             }
         }

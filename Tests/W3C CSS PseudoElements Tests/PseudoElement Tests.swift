@@ -1,13 +1,6 @@
-// PseudoElement Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS PseudoElement types
-
 import Testing
 
 @testable import W3C_CSS_PseudoElements
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `PseudoElement - Generated Content` {
@@ -111,8 +104,6 @@ struct `PseudoElement - Highlight` {
     }
 }
 
-// MARK: - Web Components
-
 @Suite
 struct `PseudoElement - Shadow DOM` {
     @Test(arguments: [
@@ -144,8 +135,6 @@ struct `PseudoElement - Shadow DOM` {
     }
 }
 
-// MARK: - Media Elements
-
 @Suite
 struct `PseudoElement - Media` {
     @Test func `cue pseudo element without selector`() {
@@ -166,8 +155,6 @@ struct `PseudoElement - Media` {
     }
 }
 
-// MARK: - Experimental and Upcoming
-
 @Suite
 struct `PseudoElement - Experimental` {
     @Test func `details content pseudo element`() {
@@ -185,8 +172,6 @@ struct `PseudoElement - Experimental` {
         #expect(column.description == "::column")
     }
 }
-
-// MARK: - Double vs Single Colon
 
 @Suite
 struct `PseudoElement - Syntax Variants` {
@@ -210,8 +195,6 @@ struct `PseudoElement - Syntax Variants` {
         #expect(firstLetter.description.hasPrefix("::"))
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `PseudoElement - Edge Cases` {
@@ -245,8 +228,6 @@ struct `PseudoElement - Edge Cases` {
         #expect(cue.description == "::cue(.speaker[data-active='true'])")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `PseudoElement - Hashable Conformance` {
@@ -292,8 +273,6 @@ struct `PseudoElement - Sendable Conformance` {
         }.value
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `PseudoElement - CSS Rule Usage` {
@@ -361,8 +340,6 @@ struct `PseudoElement - Combined with Pseudo Classes` {
     }
 }
 
-// MARK: - Specificity
-
 @Suite
 struct `PseudoElement - Specificity Context` {
     @Test func `pseudo element in compound selector`() {
@@ -381,8 +358,6 @@ struct `PseudoElement - Specificity Context` {
     }
 }
 
-// MARK: - Browser Vendor Prefixes
-
 @Suite
 struct `PseudoElement - Vendor Specific` {
     @Test func `webkit input placeholder`() {
@@ -400,8 +375,6 @@ struct `PseudoElement - Vendor Specific` {
         #expect(placeholder.description == "::-ms-input-placeholder")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

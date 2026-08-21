@@ -1,26 +1,7 @@
-// NamedColor+sRGB.swift
-// W3C CSS Color Level 4 named color to sRGB mapping
-//
-// CSS Color Level 4 defines named colors in the sRGB color space
-// per IEC 61966-2-1.
-//
-// Reference: https://www.w3.org/TR/css-color-4/#named-colors
-
 public import IEC_61966
 
 extension NamedColor {
-    /// The sRGB color value for this named color.
-    ///
-    /// Returns `nil` for `transparent` and `currentColor` which are
-    /// context-dependent and cannot be converted to a fixed sRGB value.
-    ///
-    /// All other named colors have W3C-standardized sRGB values defined
-    /// in CSS Color Level 4, Section 6.1.
-    ///
-    /// ## Reference
-    ///
-    /// - CSS Color Level 4: https://www.w3.org/TR/css-color-4/#named-colors
-    /// - IEC 61966-2-1:1999 — sRGB standard
+
     public var sRGB: IEC_61966.`2`.`1`.sRGB? {
         switch self {
         case .aliceblue: IEC_61966.`2`.`1`.sRGB(r255: 240, g255: 248, b255: 255)
@@ -173,7 +154,7 @@ extension NamedColor {
         case .yellowgreen: IEC_61966.`2`.`1`.sRGB(r255: 154, g255: 205, b255: 50)
 
         case .transparent, .currentColor:
-            // Context-dependent values cannot be converted to fixed sRGB
+
             nil
         }
     }

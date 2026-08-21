@@ -1,32 +1,15 @@
 public import W3C_CSS_Shared
 
-/// The CSS `flex-direction` property sets how flex items are placed in the flex container by defining the main axis and direction.
-///
-/// It determines the direction in which flex items are laid out in the flex container.
-///
-/// Example:
-/// ```swift
-/// .flexDirection(.row)                // flex-direction: row
-/// .flexDirection(.rowReverse)         // flex-direction: row-reverse
-/// .flexDirection(.column)             // flex-direction: column
-/// .flexDirection(.global(.inherit))   // flex-direction: inherit
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on flex-direction](https://developer.mozilla.org/en-US/docs/Web/CSS/flex-direction)
 public enum FlexDirection: Property {
-    /// Default value. The flex container's main axis has the same orientation as the text direction.
+
     case row
 
-    /// Same as `row` but in the opposite direction
     case rowReverse
 
-    /// The flex container's main axis is vertical, items are placed from top to bottom
     case column
 
-    /// Same as `column` but in the opposite direction
     case columnReverse
 
-    /// Global values
     case global(Global)
 }
 

@@ -1,13 +1,6 @@
-// FrequencyPercentage Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS FrequencyPercentage type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `FrequencyPercentage - Frequency Values` {
@@ -60,8 +53,6 @@ struct `FrequencyPercentage - Percentage Values` {
     }
 }
 
-// MARK: - Factory Methods
-
 @Suite
 struct `FrequencyPercentage - Integer and Double Constructors` {
     @Test func `hz factory with int equals hz factory with double`() {
@@ -82,8 +73,6 @@ struct `FrequencyPercentage - Integer and Double Constructors` {
         #expect(intPercent == doublePercent)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `FrequencyPercentage - Hashable Conformance` {
@@ -118,8 +107,6 @@ struct `FrequencyPercentage - Hashable Conformance` {
     }
 }
 
-// MARK: - Floating Point Values
-
 @Suite
 struct `FrequencyPercentage - Floating Point Rendering` {
     @Test func `floating point hz renders correctly`() {
@@ -143,8 +130,6 @@ struct `FrequencyPercentage - Floating Point Rendering` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `FrequencyPercentage - CSS Property Usage` {
     @Test func `hz renders correctly in audio property`() {
@@ -162,8 +147,6 @@ struct `FrequencyPercentage - CSS Property Usage` {
         #expect(audio == "pitch: 75%")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `FrequencyPercentage - Edge Cases` {
@@ -193,8 +176,6 @@ struct `FrequencyPercentage - Edge Cases` {
         #expect(FrequencyPercentage.percentage(33.333333).description == "33.333333%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

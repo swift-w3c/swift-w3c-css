@@ -1,13 +1,6 @@
-// DisplayInternal Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS DisplayInternal type
-
 import Testing
 
 @testable import W3C_CSS_Display
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `DisplayInternal - Table Values Initialization` {
@@ -46,8 +39,6 @@ struct `DisplayInternal - Ruby Values Initialization` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Raw Value Initialization
 
 @Suite
 struct `DisplayInternal - Table Raw Value Initialization` {
@@ -92,8 +83,6 @@ struct `DisplayInternal - Ruby Raw Value Initialization` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `DisplayInternal - Hashable Conformance` {
     @Test func `equal table values are equal`() {
@@ -136,8 +125,6 @@ struct `DisplayInternal - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `DisplayInternal - Table CSS Usage` {
     @Test(arguments: [
@@ -175,8 +162,6 @@ struct `DisplayInternal - Ruby CSS Usage` {
         #expect(display == expected)
     }
 }
-
-// MARK: - CSS Specification Compliance
 
 @Suite
 struct `DisplayInternal - Table Specification` {
@@ -244,7 +229,7 @@ struct `DisplayInternal - Ruby Specification` {
     }
 
     @Test func `all specification values are present`() {
-        // Ensure we have all spec-defined display-internal values
+
         let allValues: Set<DisplayInternal> = [
             .tableRowGroup, .tableHeaderGroup, .tableFooterGroup,
             .tableRow, .tableCell, .tableColumnGroup, .tableColumn,
@@ -254,8 +239,6 @@ struct `DisplayInternal - Ruby Specification` {
         #expect(allValues.count == 12)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `DisplayInternal - Edge Cases` {
@@ -286,8 +269,6 @@ struct `DisplayInternal - Edge Cases` {
         )
     }
 }
-
-// MARK: - Semantic Grouping
 
 @Suite
 struct `DisplayInternal - Semantic Categories` {
@@ -326,8 +307,6 @@ struct `DisplayInternal - Semantic Categories` {
         }
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

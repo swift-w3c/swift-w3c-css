@@ -1,13 +1,6 @@
-// RelativeSize Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS RelativeSize type
-
 import Testing
 
 @testable import W3C_CSS_Fonts
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `RelativeSize - Values and Descriptions` {
@@ -27,8 +20,6 @@ struct `RelativeSize - Values and Descriptions` {
         #expect(size.rawValue == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `RelativeSize - CaseIterable Conformance` {
@@ -79,8 +70,6 @@ struct `RelativeSize - RawRepresentable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `RelativeSize - CSS Property Usage` {
     @Test func `smaller renders correctly in font-size property`() {
@@ -103,33 +92,26 @@ struct `RelativeSize - CSS Property Usage` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `RelativeSize - CSS Specification` {
     @Test func `smaller makes font one step smaller`() {
-        // According to CSS spec, 'smaller' makes the font size one step smaller
-        // relative to the parent element's font size
+
         #expect(RelativeSize.smaller.description == "smaller")
     }
 
     @Test func `larger makes font one step larger`() {
-        // According to CSS spec, 'larger' makes the font size one step larger
-        // relative to the parent element's font size
+
         #expect(RelativeSize.larger.description == "larger")
     }
 
     @Test func `relative sizes are context-dependent`() {
-        // Unlike absolute sizes, relative sizes depend on the parent context
-        // This test documents that behavior
+
         let smaller = RelativeSize.smaller
         let larger = RelativeSize.larger
         #expect(smaller.description == "smaller")
         #expect(larger.description == "larger")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `RelativeSize - Edge Cases` {
@@ -141,7 +123,7 @@ struct `RelativeSize - Edge Cases` {
     }
 
     @Test func `case sensitivity in raw value initialization`() {
-        // CSS is case-insensitive, but our type expects lowercase
+
         #expect(RelativeSize(rawValue: "Smaller") == nil)
         #expect(RelativeSize(rawValue: "LARGER") == nil)
         #expect(RelativeSize(rawValue: "smaller") == .smaller)
@@ -155,12 +137,10 @@ struct `RelativeSize - Edge Cases` {
     }
 }
 
-// MARK: - Semantic Meaning
-
 @Suite
 struct `RelativeSize - Semantic Meaning` {
     @Test func `smaller and larger are semantic opposites`() {
-        // These sizes represent opposite directions on the size scale
+
         let smaller = RelativeSize.smaller
         let larger = RelativeSize.larger
 
@@ -169,12 +149,10 @@ struct `RelativeSize - Semantic Meaning` {
     }
 
     @Test func `relative sizes modify inherited size`() {
-        // This test documents that relative sizes are relative to the parent
-        // They don't specify absolute values like px or pt
+
         let smaller = RelativeSize.smaller
         let larger = RelativeSize.larger
 
-        // Both should be simple keywords without units
         #expect(!smaller.description.contains("px"))
         #expect(!smaller.description.contains("pt"))
         #expect(!larger.description.contains("px"))
@@ -182,23 +160,19 @@ struct `RelativeSize - Semantic Meaning` {
     }
 }
 
-// MARK: - Comparison with Absolute Sizes
-
 @Suite
 struct `RelativeSize - Comparison with Absolute Sizes` {
     @Test func `relative sizes are distinct from absolute sizes`() {
-        // Unlike AbsoluteSize (small, medium, large), RelativeSize uses comparative forms
+
         #expect(RelativeSize.smaller.description != "small")
         #expect(RelativeSize.larger.description != "large")
     }
 
     @Test func `only two relative size options exist`() {
-        // CSS only defines two relative size keywords
+
         #expect(RelativeSize.allCases.count == 2)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

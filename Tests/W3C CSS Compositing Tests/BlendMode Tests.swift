@@ -1,13 +1,6 @@
-// BlendMode Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS BlendMode type
-
 import Testing
 
 @testable import W3C_CSS_Compositing
-
-// MARK: - Basic Blend Modes
 
 @Suite
 struct `BlendMode - Basic Values` {
@@ -27,8 +20,6 @@ struct `BlendMode - Basic Values` {
     }
 }
 
-// MARK: - Compound Blend Modes
-
 @Suite
 struct `BlendMode - Compound Values` {
     @Test(arguments: [
@@ -44,8 +35,6 @@ struct `BlendMode - Compound Values` {
         #expect(mode.description == expected)
     }
 }
-
-// MARK: - Special Blend Modes
 
 @Suite
 struct `BlendMode - Special Values` {
@@ -64,8 +53,6 @@ struct `BlendMode - Special Values` {
         #expect(mode.description == expected)
     }
 }
-
-// MARK: - Raw Value Initialization
 
 @Suite
 struct `BlendMode - Raw Value` {
@@ -102,8 +89,6 @@ struct `BlendMode - Raw Value` {
         #expect(invalid2 == nil)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `BlendMode - Hashable Conformance` {
@@ -150,8 +135,6 @@ struct `BlendMode - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `BlendMode - CSS Property Usage` {
     @Test func `blend mode in mix-blend-mode property`() {
@@ -177,8 +160,6 @@ struct `BlendMode - CSS Property Usage` {
         #expect(property == expected)
     }
 }
-
-// MARK: - All Blend Modes
 
 @Suite
 struct `BlendMode - Complete List` {
@@ -226,8 +207,6 @@ struct `BlendMode - Complete List` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `BlendMode - Edge Cases` {
     @Test func `normal blend mode is default`() {
@@ -255,12 +234,10 @@ struct `BlendMode - Edge Cases` {
     }
 }
 
-// MARK: - Blend Mode Categories
-
 @Suite
 struct `BlendMode - Categorization` {
     @Test func `separable blend modes`() {
-        // Separable blend modes treat color components independently
+
         let separableModes: [BlendMode] = [
             .normal, .multiply, .screen, .overlay,
             .darken, .lighten, .colorDodge, .colorBurn,
@@ -271,7 +248,7 @@ struct `BlendMode - Categorization` {
     }
 
     @Test func `non-separable blend modes`() {
-        // Non-separable blend modes consider all color components together
+
         let nonSeparableModes: [BlendMode] = [
             .hue, .saturation, .color, .luminosity,
         ]
@@ -279,8 +256,6 @@ struct `BlendMode - Categorization` {
         #expect(nonSeparableModes.count == 4)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

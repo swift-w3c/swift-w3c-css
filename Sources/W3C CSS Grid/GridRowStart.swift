@@ -1,40 +1,19 @@
 public import W3C_CSS_Shared
 
-/// The CSS `grid-row-start` property specifies a grid item's start position within the
-/// grid row by contributing a line, a span, or nothing (automatic) to its grid placement.
-///
-/// Example:
-/// ```swift
-/// .gridRowStart(.auto)          // grid-row-start: auto
-/// .gridRowStart(.line(1))       // grid-row-start: 1
-/// .gridRowStart(.name("header")) // grid-row-start: header
-/// .gridRowStart(.span(2))       // grid-row-start: span 2
-/// .gridRowStart(.lineEnd(-1))   // grid-row-start: -1
-/// .gridRowStart(.global(.inherit)) // grid-row-start: inherit
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on grid-row-start](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-row-start)
 public enum GridRowStart: Property {
 
-    /// Auto placement
     case auto
 
-    /// A specific numbered grid line
     case line(Int)
 
-    /// A specific line from the end (negative values)
     case lineEnd(Int)
 
-    /// A named grid line
     case name(String)
 
-    /// A span of tracks
     case span(Int)
 
-    /// A span to a named line
     case spanTo(String)
 
-    /// Global values
     case global(Global)
 }
 
@@ -50,7 +29,7 @@ extension GridRowStart {
             return "\(lineNum)"
 
         case .lineEnd(let lineNum):
-            // lineEnd values are expected to be negative, but we'll handle positive values too
+
             let value = lineNum > 0 ? -lineNum : lineNum
             return "\(value)"
 

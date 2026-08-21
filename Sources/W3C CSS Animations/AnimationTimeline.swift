@@ -1,39 +1,18 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// The CSS animation-timeline property specifies the timeline that is used to control
-/// the progress of a CSS animation.
-///
-/// Example:
-/// ```swift
-/// .animationTimeline(.none)                // animation-timeline: none
-/// .animationTimeline(.auto)                // animation-timeline: auto
-/// .animationTimeline(.named("--timeline")) // animation-timeline: --timeline
-/// .animationTimeline(.scroll())            // animation-timeline: scroll()
-/// .animationTimeline(.scroll(.nearest, .block)) // animation-timeline: scroll(nearest block)
-/// .animationTimeline(.view())             // animation-timeline: view()
-/// ```
-///
-/// - Note: This is an experimental property and browser support may be limited.
-///
-/// - SeeAlso: [MDN Web Docs on animation-timeline](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-timeline)
 public enum AnimationTimeline: Property {
-    /// Animation is not associated with a timeline
+
     case none
 
-    /// The animation's timeline is the document's default DocumentTimeline
     case auto
 
-    /// A named timeline previously declared with scroll-timeline-name or view-timeline-name
     case named(DashedIdent)
 
-    /// An anonymous scroll progress timeline
     case scroll(ScrollerValue? = nil, ScrollAxis? = nil)
 
-    /// An anonymous view progress timeline
     case view(ScrollAxis? = nil, ViewTimelineInset? = nil)
 
-    /// Global values
     case global(Global)
 }
 
@@ -41,36 +20,28 @@ extension AnimationTimeline {
     public static let property: String = "animation-timeline"
 }
 
-/// Scroller values for anonymous scroll progress timelines
 public enum ScrollerValue: String, Sendable, Hashable, CaseIterable {
-    /// Document root as a scroller
+
     case root
 
-    /// Nearest scrollable ancestor
     case nearest
 
-    /// The element itself
     case `self`
 }
 
-/// Scroll axis options for timelines
 public enum ScrollAxis: String, Sendable, Hashable, CaseIterable {
-    /// Block direction (typically vertical)
+
     case block
 
-    /// Inline direction (typically horizontal)
     case inline
 
-    /// Horizontal (x-axis)
     case x
 
-    /// Vertical (y-axis)
     case y
 }
 
-/// CSS Output conversion
 extension AnimationTimeline: CustomStringConvertible {
-    /// Converts the animation timeline to its CSS string representation
+
     public var description: String {
         switch self {
         case .none:

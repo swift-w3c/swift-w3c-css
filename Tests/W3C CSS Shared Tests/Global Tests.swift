@@ -1,13 +1,6 @@
-// Global Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Global type
-
 import Testing
 
 @testable import W3C_CSS_Shared
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Global - Enum Cases` {
@@ -25,8 +18,6 @@ struct `Global - Enum Cases` {
         #expect(global.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Global - Hashable Conformance` {
@@ -60,8 +51,6 @@ struct `Global - CaseIterable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Global - CSS Property Usage` {
     @Test func `inherit renders correctly in any property`() {
@@ -90,8 +79,6 @@ struct `Global - CSS Property Usage` {
     }
 }
 
-// MARK: - CSS Specification
-
 @Suite
 struct `Global - CSS Specification Compliance` {
     @Test func `inherit inherits from parent element`() {
@@ -115,8 +102,6 @@ struct `Global - CSS Specification Compliance` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Global - Edge Cases` {
     @Test func `all global values are distinct`() {
@@ -130,8 +115,6 @@ struct `Global - Edge Cases` {
         #expect(!Global.revertLayer.description.contains("_"))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,13 +1,6 @@
-// BaselinePosition Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS BaselinePosition type
-
 import Testing
 
 @testable import W3C_CSS_Shared
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `BaselinePosition - Initialization` {
@@ -38,8 +31,6 @@ struct `BaselinePosition - Initialization` {
         #expect(lastBaseline.description == "last baseline")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `BaselinePosition - Hashable Conformance` {
@@ -72,8 +63,6 @@ struct `BaselinePosition - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `BaselinePosition - CSS Property Usage` {
     @Test func `baseline position renders correctly in align-items property`() {
@@ -102,8 +91,6 @@ struct `BaselinePosition - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `BaselinePosition - Edge Cases` {
     @Test func `baseline is the default baseline alignment`() {
@@ -123,8 +110,6 @@ struct `BaselinePosition - Edge Cases` {
         #expect(lastBaseline.description.contains("last"))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

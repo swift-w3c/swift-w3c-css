@@ -1,32 +1,14 @@
-//
-//  MathDepth.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
-//
-
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// The CSS `math-depth` property describes a notion of depth for each element of a mathematical formula,
-/// with respect to the top-level container of that formula.
-///
-/// This is used to scale the computed value of the font-size of elements when `font-size: math` is applied.
-/// Font-size: math is the default for MathML <math> elements in the MathML Core User Agent Stylesheet.
-///
-/// - SeeAlso: [MDN Web Docs on math-depth](https://developer.mozilla.org/en-US/docs/Web/CSS/math-depth)
 public enum MathDepth: Property {
 
-    /// Set to the inherited math-depth plus 1 when inherited math-style is compact.
     case autoAdd
 
-    /// Set to the inherited math-depth plus the specified integer.
     case add(Int)
 
-    /// Set to the specified integer.
     case absolute(Int)
 
-    /// Global value
     case global(Global)
 }
 
@@ -49,19 +31,16 @@ extension MathDepth {
     }
 }
 
-/// Convenience factory methods for common math depth values
 extension MathDepth {
-    /// Set math depth to 0 (root level)
+
     public static var zero: MathDepth {
         .absolute(0)
     }
 
-    /// Increase math depth by 1 (go one level deeper)
     public static var increaseByOne: MathDepth {
         .add(1)
     }
 
-    /// Decrease math depth by 1 (go one level up)
     public static var decreaseByOne: MathDepth {
         .add(-1)
     }

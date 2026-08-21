@@ -1,13 +1,6 @@
-// SystemColor Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS SystemColor type
-
 import Testing
 
 @testable import W3C_CSS_Color
-
-// MARK: - Basic System Colors
 
 @Suite
 struct `SystemColor - Basic Colors` {
@@ -26,8 +19,6 @@ struct `SystemColor - Basic Colors` {
     }
 }
 
-// MARK: - Highlight and Selection Colors
-
 @Suite
 struct `SystemColor - Highlight Colors` {
     @Test(arguments: [
@@ -44,8 +35,6 @@ struct `SystemColor - Highlight Colors` {
     }
 }
 
-// MARK: - Link and Text Colors
-
 @Suite
 struct `SystemColor - Link Colors` {
     @Test(arguments: [
@@ -61,8 +50,6 @@ struct `SystemColor - Link Colors` {
     }
 }
 
-// MARK: - Input Field Colors
-
 @Suite
 struct `SystemColor - Field Colors` {
     @Test(arguments: [
@@ -76,8 +63,6 @@ struct `SystemColor - Field Colors` {
         #expect(color.description == expected)
     }
 }
-
-// MARK: - Accent Colors
 
 @Suite
 struct `SystemColor - Accent Colors` {
@@ -93,8 +78,6 @@ struct `SystemColor - Accent Colors` {
     }
 }
 
-// MARK: - Mark Colors
-
 @Suite
 struct `SystemColor - Mark Colors` {
     @Test(arguments: [
@@ -108,8 +91,6 @@ struct `SystemColor - Mark Colors` {
         #expect(color.description == expected)
     }
 }
-
-// MARK: - Deprecated System Colors
 
 @Suite
 struct `SystemColor - Deprecated Colors` {
@@ -129,8 +110,6 @@ struct `SystemColor - Deprecated Colors` {
         #expect(color.description == expected)
     }
 }
-
-// MARK: - Raw Value Initialization
 
 @Suite
 struct `SystemColor - Raw Value Initialization` {
@@ -154,8 +133,6 @@ struct `SystemColor - Raw Value Initialization` {
         #expect(customColor.description == "CustomSystemColor")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `SystemColor - Hashable Conformance` {
@@ -184,8 +161,6 @@ struct `SystemColor - Hashable Conformance` {
         #expect(color1 != color2)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `SystemColor - Edge Cases` {
@@ -225,8 +200,6 @@ struct `SystemColor - Edge Cases` {
         }
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

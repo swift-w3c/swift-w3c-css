@@ -1,14 +1,7 @@
-// TransformFunction Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS TransformFunction type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Transforms
-
-// MARK: - Matrix Transformations
 
 @Suite
 struct `TransformFunction - Matrix` {
@@ -27,7 +20,7 @@ struct `TransformFunction - Matrix` {
         (2, 0, 0, 2, 0, 0, "matrix(2, 0, 0, 2, 0, 0)"),
         (1, 0, 0, 1, 100, 50, "matrix(1, 0, 0, 1, 100, 50)"),
     ])
-    // swiftlint:disable:next function_parameter_count
+
     func `various 2D matrices render correctly`(
         a: Double,
         b: Double,
@@ -66,8 +59,6 @@ struct `TransformFunction - Matrix 3D` {
     }
 }
 
-// MARK: - Perspective
-
 @Suite
 struct `TransformFunction - Perspective` {
     @Test(arguments: [
@@ -84,8 +75,6 @@ struct `TransformFunction - Perspective` {
         #expect(perspective.description == expected)
     }
 }
-
-// MARK: - Rotation Transformations
 
 @Suite
 struct `TransformFunction - Rotate 2D` {
@@ -173,8 +162,6 @@ struct `TransformFunction - Rotate Axes` {
     }
 }
 
-// MARK: - Scaling Transformations
-
 @Suite
 struct `TransformFunction - Scale` {
     @Test func `uniform scale renders correctly`() {
@@ -243,8 +230,6 @@ struct `TransformFunction - Scale Axes` {
     }
 }
 
-// MARK: - Skewing Transformations
-
 @Suite
 struct `TransformFunction - Skew` {
     @Test func `skew with single angle renders correctly`() {
@@ -298,8 +283,6 @@ struct `TransformFunction - Skew Axes` {
         #expect(TransformFunction.skewY(angle).description == expectedY)
     }
 }
-
-// MARK: - Translation Transformations
 
 @Suite
 struct `TransformFunction - Translate 2D` {
@@ -398,8 +381,6 @@ struct `TransformFunction - Translate Axes` {
     }
 }
 
-// MARK: - Convenience Constructors
-
 @Suite
 struct `TransformFunction - Convenience Methods` {
     @Test func `uniform scale convenience method`() {
@@ -420,8 +401,6 @@ struct `TransformFunction - Convenience Methods` {
         #expect(percentTranslate.description == "translate(25%, 75%)")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `TransformFunction - Hashable Conformance` {
@@ -466,8 +445,6 @@ struct `TransformFunction - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `TransformFunction - CSS Property Usage` {
     @Test func `single transform in transform property`() {
@@ -490,8 +467,6 @@ struct `TransformFunction - CSS Property Usage` {
         )
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `TransformFunction - Edge Cases` {
@@ -542,8 +517,6 @@ struct `TransformFunction - Edge Cases` {
         #expect(identity.description == explicitIdentity.description)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

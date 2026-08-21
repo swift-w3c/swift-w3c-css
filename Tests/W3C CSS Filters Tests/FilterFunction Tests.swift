@@ -1,14 +1,7 @@
-// FilterFunction Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS FilterFunction type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Filters
-
-// MARK: - Blur Filter
 
 @Suite
 struct `FilterFunction - Blur` {
@@ -26,8 +19,6 @@ struct `FilterFunction - Blur` {
         #expect(blur.description == expected)
     }
 }
-
-// MARK: - Brightness Filter
 
 @Suite
 struct `FilterFunction - Brightness` {
@@ -63,8 +54,6 @@ struct `FilterFunction - Brightness` {
     }
 }
 
-// MARK: - Contrast Filter
-
 @Suite
 struct `FilterFunction - Contrast` {
     @Test(arguments: [
@@ -81,8 +70,6 @@ struct `FilterFunction - Contrast` {
         #expect(contrast.description == expected)
     }
 }
-
-// MARK: - Drop Shadow Filter
 
 @Suite
 struct `FilterFunction - Drop Shadow` {
@@ -137,8 +124,6 @@ struct `FilterFunction - Drop Shadow` {
     }
 }
 
-// MARK: - Grayscale Filter
-
 @Suite
 struct `FilterFunction - Grayscale` {
     @Test(arguments: [
@@ -155,8 +140,6 @@ struct `FilterFunction - Grayscale` {
         #expect(grayscale.description == expected)
     }
 }
-
-// MARK: - Hue Rotate Filter
 
 @Suite
 struct `FilterFunction - Hue Rotate` {
@@ -190,8 +173,6 @@ struct `FilterFunction - Hue Rotate` {
     }
 }
 
-// MARK: - Invert Filter
-
 @Suite
 struct `FilterFunction - Invert` {
     @Test(arguments: [
@@ -209,8 +190,6 @@ struct `FilterFunction - Invert` {
     }
 }
 
-// MARK: - Opacity Filter
-
 @Suite
 struct `FilterFunction - Opacity` {
     @Test(arguments: [
@@ -227,8 +206,6 @@ struct `FilterFunction - Opacity` {
         #expect(opacity.description == expected)
     }
 }
-
-// MARK: - Saturate Filter
 
 @Suite
 struct `FilterFunction - Saturate` {
@@ -255,8 +232,6 @@ struct `FilterFunction - Saturate` {
     }
 }
 
-// MARK: - Sepia Filter
-
 @Suite
 struct `FilterFunction - Sepia` {
     @Test(arguments: [
@@ -273,8 +248,6 @@ struct `FilterFunction - Sepia` {
         #expect(sepia.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `FilterFunction - Hashable Conformance` {
@@ -345,8 +318,6 @@ struct `FilterFunction - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `FilterFunction - CSS Property Usage` {
     @Test func `single filter in filter property`() {
@@ -371,8 +342,6 @@ struct `FilterFunction - CSS Property Usage` {
         #expect(filter == "filter: blur(5px) brightness(80%) contrast(1.2) grayscale(50%)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `FilterFunction - Edge Cases` {
@@ -433,8 +402,6 @@ struct `FilterFunction - Edge Cases` {
         #expect(shadow.description.contains("2em"))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

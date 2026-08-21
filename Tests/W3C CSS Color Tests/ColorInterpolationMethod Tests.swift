@@ -1,14 +1,7 @@
-// ColorInterpolationMethod Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS ColorInterpolationMethod type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
-
-// MARK: - Rectangular Color Spaces
 
 @Suite
 struct `ColorInterpolationMethod - Rectangular Spaces` {
@@ -32,8 +25,6 @@ struct `ColorInterpolationMethod - Rectangular Spaces` {
         #expect(ColorInterpolationMethod.rectangular(space).description == expected)
     }
 }
-
-// MARK: - Polar Color Spaces
 
 @Suite
 struct `ColorInterpolationMethod - Polar Spaces Without Hue` {
@@ -71,8 +62,6 @@ struct `ColorInterpolationMethod - Polar Spaces With Hue` {
     }
 }
 
-// MARK: - Custom Color Profile
-
 @Suite
 struct `ColorInterpolationMethod - Custom Profile` {
     @Test(arguments: [
@@ -87,8 +76,6 @@ struct `ColorInterpolationMethod - Custom Profile` {
         #expect(ColorInterpolationMethod.custom(profileName).description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `ColorInterpolationMethod - Hashable Conformance` {
@@ -159,8 +146,6 @@ struct `ColorInterpolationMethod - Hashable Conformance` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `ColorInterpolationMethod - Edge Cases` {
     @Test func `all rectangular color spaces are distinct`() {
@@ -205,8 +190,6 @@ struct `ColorInterpolationMethod - Edge Cases` {
         #expect(method.description == #"in "my-profile-2.0""#)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

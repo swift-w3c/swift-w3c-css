@@ -1,14 +1,7 @@
-// AnimationName Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationName type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationName - Declaration` {
@@ -40,8 +33,6 @@ struct `AnimationName - Keyframe Names` {
     }
 }
 
-// MARK: - Literal Initialization
-
 @Suite
 struct `AnimationName - String Literals` {
     @Test(arguments: [
@@ -58,8 +49,6 @@ struct `AnimationName - String Literals` {
         #expect(name.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AnimationName - Global Values` {
@@ -84,8 +73,6 @@ struct `AnimationName - Property Protocol` {
         #expect(AnimationName.property == "animation-name")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AnimationName - Edge Cases` {
@@ -117,8 +104,6 @@ struct `AnimationName - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AnimationName - CSS Property Usage` {
     @Test func `renders correctly in CSS rule`() {
@@ -142,8 +127,6 @@ struct `AnimationName - CSS Property Usage` {
         #expect(css == "slide-in, fade-out, bounce")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,80 +1,20 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// Represents the CSS `background-clip` property, which determines the area within which the background is painted.
-///
-/// The background-clip property sets whether an element's background extends underneath its border box,
-/// padding box, content box, or even just the foreground text.
-///
-/// Visual Reference:
-/// ```
-/// ┌───────────────────────────┐  ┌───────────────────────────┐
-/// │     ┌─────────────┐       │  │     ┌─────────────┐       │
-/// │     │             │       │  │     │             │       │
-/// │     │  content    │       │  │     │  padding    │       │
-/// │     │             │       │  │     │             │       │
-/// │     └─────────────┘       │  │     └─────────────┘       │
-/// │          border           │  │          border           │
-/// └───────────────────────────┘  └───────────────────────────┘
-///     background-clip:              background-clip:
-///     border-box                    padding-box
-///
-/// ┌───────────────────────────┐  ┌───────────────────────────┐
-/// │     ┌─────────────┐       │  │     ┌─────────────┐       │
-/// │     │ ▓▓▓▓▓▓▓▓▓▓▓ │       │  │     │             │       │
-/// │     │ ▓content▓▓▓ │       │  │     │   TEXTEXT   │       │
-/// │     │ ▓▓▓▓▓▓▓▓▓▓▓ │       │  │     │             │       │
-/// │     └─────────────┘       │  │     └─────────────┘       │
-/// │          border           │  │          border           │
-/// └───────────────────────────┘  └───────────────────────────┘
-///     background-clip:              background-clip:
-///     content-box                   text
-/// ```
-///
-/// Example:
-/// ```swift
-/// // Clip background to the padding box (default)
-/// .backgroundClip(.paddingBox)
-///
-/// // Clip background to the border box
-/// .backgroundClip(.borderBox)
-///
-/// // Clip background to the content box
-/// .backgroundClip(.contentBox)
-///
-/// // Clip background to text (for text effect)
-/// .backgroundClip(.text)
-/// .color(.transparent) // Make text transparent
-/// ```
-///
-/// - Note: When using `background-clip: text`, make sure to set a text color with some transparency
-///         to see the effect, and provide a fallback for browsers that don't support it.
-///
-/// - SeeAlso: [MDN Web Docs on background-clip](https://developer.mozilla.org/en-US/docs/Web/CSS/background-clip)
 public enum BackgroundClip: Property {
 
-    /// The background extends to the outside edge of the border
     case borderBox
 
-    /// The background extends to the outside edge of the padding (default)
     case paddingBox
 
-    /// The background is painted within the content box
     case contentBox
 
-    /// The background is painted within the foreground text
     case text
 
-    /// The background is painted within the area painted by the border
-    ///
-    /// Takes border-width and border-style into account but ignores any
-    /// transparency introduced by border-color.
     case borderArea
 
-    /// Multiple clip values for multiple backgrounds
     case multiple([BackgroundClip])
 
-    /// Global CSS values
     case global(Global)
 }
 
@@ -82,16 +22,8 @@ extension BackgroundClip {
     public static let property: String = "background-clip"
 }
 
-/// Provides string conversion for CSS output
 extension BackgroundClip: CustomStringConvertible {
-    /// Converts the background-clip value to its CSS string representation
-    ///
-    /// This method generates CSS like:
-    /// ```css
-    /// background-clip: border-box;
-    /// background-clip: content-box;
-    /// background-clip: text;
-    /// ```
+
     public var description: String {
         switch self {
         case .borderBox:
@@ -118,15 +50,10 @@ extension BackgroundClip: CustomStringConvertible {
     }
 }
 
-/// Default value and convenience methods
 extension BackgroundClip {
-    /// The default value for background-clip (`border-box`)
+
     public static let `default` = BackgroundClip.borderBox
 
-    /// Creates a background-clip with multiple values
-    ///
-    /// - Parameter clips: The background clip values
-    /// - Returns: A background-clip with multiple values
     public static func values(_ clips: [BackgroundClip]) -> BackgroundClip {
         if clips.count == 1, case let clip = clips[0] {
             return clip
@@ -134,10 +61,6 @@ extension BackgroundClip {
         return .multiple(clips)
     }
 
-    /// Creates a background-clip with multiple values
-    ///
-    /// - Parameter clips: The background clip values
-    /// - Returns: A background-clip with multiple values
     public static func values(_ clips: BackgroundClip...) -> BackgroundClip {
         values(clips)
     }

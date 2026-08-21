@@ -1,14 +1,7 @@
-// Color Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Color type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
-
-// MARK: - Named Colors
 
 @Suite
 struct `Color - Named Colors` {
@@ -36,8 +29,6 @@ struct `Color - Named Colors` {
     }
 }
 
-// MARK: - Hex Colors
-
 @Suite
 struct `Color - Hex Format` {
     @Test func `6-digit hex color renders correctly`() {
@@ -52,8 +43,6 @@ struct `Color - Hex Format` {
         #expect(W3C_CSS_Values.Color.hex("#ff0000").description == "#ff0000")
     }
 }
-
-// MARK: - RGB Colors
 
 @Suite
 struct `Color - RGB Format` {
@@ -104,8 +93,6 @@ struct `Color - RGBA Format` {
     }
 }
 
-// MARK: - HSL Colors
-
 @Suite
 struct `Color - HSL Format` {
     @Test func `hsl with degrees renders correctly`() {
@@ -146,8 +133,6 @@ struct `Color - HSLA Format` {
     }
 }
 
-// MARK: - HWB Colors
-
 @Suite
 struct `Color - HWB Format` {
     @Test func `hwb with degrees renders correctly`() {
@@ -158,8 +143,6 @@ struct `Color - HWB Format` {
         #expect(W3C_CSS_Values.Color.hwb(.turn(0.5), 25, 25).description == "hwb(0.5turn 25% 25%)")
     }
 }
-
-// MARK: - Modern Color Spaces
 
 @Suite
 struct `Color - LAB Format` {
@@ -189,8 +172,6 @@ struct `Color - OKLCH Format` {
     }
 }
 
-// MARK: - Color Mixing
-
 @Suite
 struct `Color - Color Mix` {
     @Test func `color-mix with rectangular color space`() {
@@ -204,16 +185,12 @@ struct `Color - Color Mix` {
     }
 }
 
-// MARK: - System Colors
-
 @Suite
 struct `Color - System Colors` {
     @Test func `system color renders correctly`() {
         #expect(W3C_CSS_Values.Color.system(.canvas).description == "Canvas")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `Color - Hashable Conformance` {
@@ -229,8 +206,6 @@ struct `Color - Hashable Conformance` {
         #expect(W3C_CSS_Values.Color.rgba(0, 0, 255, 1.0) != Color.rgba(0, 0, 255, 0.9))
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Color - Edge Cases` {
@@ -264,8 +239,6 @@ struct `Color - Edge Cases` {
         #expect(W3C_CSS_Values.Color.hsl(.deg(360), 50, 50).description == "hsl(360deg, 50%, 50%)")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

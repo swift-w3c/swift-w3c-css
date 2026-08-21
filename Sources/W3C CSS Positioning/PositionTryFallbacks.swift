@@ -1,60 +1,41 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-//
-//  PositionTryFallbacks.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
-//
-
 public enum PositionTryFallbacks: Property {
-    /// No position try fallback options
+
     case none
 
-    /// A single predefined tactic
     case tactic(TryTactic)
 
-    /// Multiple predefined tactics as separate options
     case tactics([TryTactic])
 
-    /// A position area value
     case positionArea(CSSString)
 
-    /// A custom option name
     case customOption(CSSString)
 
-    /// A combination of different fallback options
     case combined([FallbackOption])
 
-    /// Global value
     case global(Global)
 }
 
 extension PositionTryFallbacks {
     public static let property: String = "position-try-fallbacks"
 
-    /// Predefined position fallback tactics
     public enum TryTactic: String, Sendable, Hashable {
-        /// Flips the element's position along the block axis
+
         case flipBlock = "flip-block"
 
-        /// Flips the element's position along the inline axis
         case flipInline = "flip-inline"
 
-        /// Flips the element's position in both the inline and block directions
         case flipStart = "flip-start"
     }
 
-    /// A single fallback option (can be a tactic, position area, or custom option)
     public enum FallbackOption: Sendable, Hashable {
-        /// A predefined tactic
+
         case tactic(TryTactic)
 
-        /// A position area value
         case positionArea(CSSString)
 
-        /// A custom option name
         case customOption(CSSString)
     }
 
@@ -83,14 +64,13 @@ extension PositionTryFallbacks {
         }
     }
 
-    /// Create a combined fallback with tactics and position areas
     public static func combine(_ options: FallbackOption...) -> PositionTryFallbacks {
         .combined(options)
     }
 }
 
 extension PositionTryFallbacks.FallbackOption {
-    /// String representation of the fallback option
+
     var description: String {
         switch self {
         case .tactic(let tactic):

@@ -1,13 +1,6 @@
-// CalcSum Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS CalcSum type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `CalcSum - Initialization` {
@@ -25,8 +18,6 @@ struct `CalcSum - Initialization` {
         #expect(calcExpression.description == expected)
     }
 }
-
-// MARK: - Factory Methods
 
 @Suite
 struct `CalcSum - Calc Factory` {
@@ -90,8 +81,6 @@ struct `CalcSum - Clamp Factory` {
     }
 }
 
-// MARK: - Nested Math Functions
-
 @Suite
 struct `CalcSum - Nested Functions` {
     @Test func `calc inside another calc`() {
@@ -120,8 +109,6 @@ struct `CalcSum - Nested Functions` {
     }
 }
 
-// MARK: - CSS Keywords
-
 @Suite
 struct `CalcSum - CSS Keywords` {
     @Test(arguments: [
@@ -137,8 +124,6 @@ struct `CalcSum - CSS Keywords` {
         #expect(withKeyword.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `CalcSum - Hashable Conformance` {
@@ -166,8 +151,6 @@ struct `CalcSum - Hashable Conformance` {
         #expect(min != max)
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `CalcSum - CSS Property Usage` {
@@ -197,8 +180,6 @@ struct `CalcSum - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `CalcSum - Edge Cases` {
     @Test func `simple expression without operators`() {
@@ -221,8 +202,6 @@ struct `CalcSum - Edge Cases` {
         #expect(withSpaces.description == "calc(100%  -  20px)")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

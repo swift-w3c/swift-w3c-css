@@ -1,13 +1,6 @@
-// TimePercentage Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS TimePercentage type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `TimePercentage - Time Values` {
@@ -55,8 +48,6 @@ struct `TimePercentage - Percentage Values` {
     }
 }
 
-// MARK: - Factory Methods
-
 @Suite
 struct `TimePercentage - Factory Methods` {
     @Test func `s factory creates correct time`() {
@@ -89,8 +80,6 @@ struct `TimePercentage - Factory Methods` {
     }
 }
 
-// MARK: - Predefined Constants
-
 @Suite
 struct `TimePercentage - Predefined Constants` {
     @Test func `zero constant renders correctly`() {
@@ -105,8 +94,6 @@ struct `TimePercentage - Predefined Constants` {
         #expect(TimePercentage.full.description == "100%")
     }
 }
-
-// MARK: - Arithmetic Operations
 
 @Suite
 struct `TimePercentage - Multiplication` {
@@ -138,8 +125,6 @@ struct `TimePercentage - Division` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `TimePercentage - Integer Literal` {
     @Test func `integer literal creates seconds`() {
@@ -155,8 +140,6 @@ struct `TimePercentage - Float Literal` {
         #expect(floatLiteral.description == "1.5s")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `TimePercentage - Hashable Conformance` {
@@ -191,8 +174,6 @@ struct `TimePercentage - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `TimePercentage - CSS Property Usage` {
     @Test func `time renders correctly in transition property`() {
@@ -210,8 +191,6 @@ struct `TimePercentage - CSS Property Usage` {
         #expect(animation == "animation-delay: 50%")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `TimePercentage - Edge Cases` {
@@ -241,8 +220,6 @@ struct `TimePercentage - Edge Cases` {
         #expect(TimePercentage.percentage(33.333333).description == "33.333333%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

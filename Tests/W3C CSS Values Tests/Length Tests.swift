@@ -1,19 +1,12 @@
-// Length Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Length type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Values
 
-// MARK: - Basic Functionality
-
 @Suite
 struct `Length - Unit Creation` {
     @Test(arguments: [
-        // Absolute units
+
         (10.0.px, "10px"),
         (2.5.cm, "2.5cm"),
         (5.0.mm, "5mm"),
@@ -21,14 +14,14 @@ struct `Length - Unit Creation` {
         (12.0.pt, "12pt"),
         (2.0.pc, "2pc"),
         (5.0.q, "5q"),
-        // Relative font units
+
         (1.5.em, "1.5em"),
         (2.0.rem, "2rem"),
         (3.0.ex, "3ex"),
         (4.0.ch, "4ch"),
         (2.0.cap, "2cap"),
         (3.0.lh, "3lh"),
-        // Viewport units
+
         (50.0.vw, "50vw"),
         (100.0.vh, "100vh"),
         (10.0.vmin, "10vmin"),
@@ -98,8 +91,6 @@ struct `Length - Factory Methods` {
     }
 }
 
-// MARK: - Calc Expressions
-
 @Suite
 struct `Length - Calc` {
     @Test func `calc with percentage and length`() {
@@ -110,8 +101,6 @@ struct `Length - Calc` {
         #expect(Length.calc("50vh + 10em").description == "calc(50vh + 10em)")
     }
 }
-
-// MARK: - Global Values
 
 @Suite
 struct `Length - Global Values` {
@@ -128,8 +117,6 @@ struct `Length - Global Values` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Length - Integer Literal` {
     @Test func `integer literal creates px length`() {
@@ -145,8 +132,6 @@ struct `Length - Float Literal` {
         #expect(length.description == "10.5px")
     }
 }
-
-// MARK: - Numeric Extensions
 
 @Suite
 struct `Length - Int Extensions` {
@@ -182,8 +167,6 @@ struct `Length - Double Extensions` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Length - Hashable Conformance` {
     @Test func `equal values are equal`() {
@@ -207,8 +190,6 @@ struct `Length - Hashable Conformance` {
         #expect(Length.px(10.5) == 10.5)
     }
 }
-
-// MARK: - Arithmetic Operations
 
 @Suite
 struct `Length - Addition` {
@@ -273,8 +254,6 @@ struct `Length - Division` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Length - CSS Property Usage` {
     @Test func `length renders correctly in width property`() {
@@ -297,8 +276,6 @@ struct `Length - CSS Property Usage` {
         #expect(padding == "padding: calc(10% + 20px)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Length - Edge Cases` {
@@ -326,8 +303,6 @@ struct `Length - Edge Cases` {
         #expect(Length.px(10.123456).description == "10.123456px")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,14 +1,7 @@
-// AlignSelf Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS align-self property
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Alignment
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AlignSelf - Property Protocol` {
@@ -33,8 +26,6 @@ struct `AlignSelf - Declaration Rendering` {
         #expect(value.declaration.description == expected)
     }
 }
-
-// MARK: - Basic Values
 
 @Suite
 struct `AlignSelf - Auto Value` {
@@ -64,8 +55,6 @@ struct `AlignSelf - Anchor Center Value` {
     }
 }
 
-// MARK: - Baseline Positions
-
 @Suite
 struct `AlignSelf - Baseline Positions` {
     @Test(arguments: [
@@ -80,8 +69,6 @@ struct `AlignSelf - Baseline Positions` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Self Position Values
 
 @Suite
 struct `AlignSelf - Self Position Values` {
@@ -101,8 +88,6 @@ struct `AlignSelf - Self Position Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Overflow Position
 
 @Suite
 struct `AlignSelf - Overflow Position with Safe` {
@@ -140,8 +125,6 @@ struct `AlignSelf - Overflow Position with Unsafe` {
     }
 }
 
-// MARK: - Global Values
-
 @Suite
 struct `AlignSelf - Global Values` {
     @Test(arguments: [
@@ -158,8 +141,6 @@ struct `AlignSelf - Global Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AlignSelf - Edge Cases` {
@@ -202,8 +183,6 @@ struct `AlignSelf - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AlignSelf - CSS Property Usage` {
     @Test func `align-self renders correctly in flexbox context`() {
@@ -231,8 +210,6 @@ struct `AlignSelf - CSS Property Usage` {
         #expect(css == "align-self: anchor-center")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,13 +1,6 @@
-// DisplayOutside Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS DisplayOutside type
-
 import Testing
 
 @testable import W3C_CSS_Display
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `DisplayOutside - Initialization` {
@@ -47,8 +40,6 @@ struct `DisplayOutside - Raw Value Initialization` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `DisplayOutside - Hashable Conformance` {
     @Test func `equal values are equal`() {
@@ -83,8 +74,6 @@ struct `DisplayOutside - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `DisplayOutside - CSS Property Usage` {
     @Test(arguments: [
@@ -112,8 +101,6 @@ struct `DisplayOutside - CSS Property Usage` {
         #expect(DisplayOutside.runIn.description == "run-in")
     }
 }
-
-// MARK: - Combination with DisplayInside
 
 @Suite
 struct `DisplayOutside - Combination Behavior` {
@@ -144,36 +131,32 @@ struct `DisplayOutside - Combination Behavior` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `DisplayOutside - CSS Specification` {
     @Test func `block matches CSS specification`() {
-        // Block-level element
+
         #expect(DisplayOutside.block.rawValue == "block")
         #expect(DisplayOutside.block.description == "block")
     }
 
     @Test func `inline matches CSS specification`() {
-        // Inline element
+
         #expect(DisplayOutside.inline.rawValue == "inline")
         #expect(DisplayOutside.inline.description == "inline")
     }
 
     @Test func `runIn matches CSS specification`() {
-        // Run-in element (conditional block/inline)
+
         #expect(DisplayOutside.runIn.rawValue == "run-in")
         #expect(DisplayOutside.runIn.description == "run-in")
     }
 
     @Test func `all specification values are present`() {
-        // Ensure we have all spec-defined display-outside values
+
         let allValues: Set<DisplayOutside> = [.block, .inline, .runIn]
         #expect(allValues.count == 3)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `DisplayOutside - Edge Cases` {
@@ -197,36 +180,32 @@ struct `DisplayOutside - Edge Cases` {
     }
 
     @Test func `hyphenated values are parsed correctly`() {
-        // Ensure hyphenated values like "run-in" work
+
         #expect(DisplayOutside(rawValue: "run-in") == DisplayOutside.runIn)
         #expect(DisplayOutside.runIn.rawValue == "run-in")
     }
 }
 
-// MARK: - Box Level Semantics
-
 @Suite
 struct `DisplayOutside - Box Semantics` {
     @Test func `block creates new line`() {
-        // Block-level boxes start on a new line
+
         let blockElements: [DisplayOutside] = [.block]
         #expect(blockElements.contains(.block))
     }
 
     @Test func `inline flows with text`() {
-        // Inline-level boxes flow within text
+
         let inlineElements: [DisplayOutside] = [.inline]
         #expect(inlineElements.contains(.inline))
     }
 
     @Test func `runIn is conditional`() {
-        // Run-in boxes are conditionally block or inline
+
         let conditionalElements: [DisplayOutside] = [.runIn]
         #expect(conditionalElements.contains(.runIn))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

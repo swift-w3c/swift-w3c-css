@@ -1,14 +1,7 @@
-// AnimationFillMode Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationFillMode type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationFillMode - Declaration` {
@@ -32,8 +25,6 @@ struct `AnimationFillMode - Basic Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AnimationFillMode - Global Values` {
@@ -75,8 +66,6 @@ struct `AnimationFillMode - CaseIterable` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationFillMode - Edge Cases` {
     @Test func `all fill mode values are distinct`() {
@@ -93,8 +82,6 @@ struct `AnimationFillMode - Edge Cases` {
         #expect(AnimationFillMode.none.description == "none")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `AnimationFillMode - CSS Property Usage` {
@@ -116,8 +103,6 @@ struct `AnimationFillMode - CSS Property Usage` {
         #expect(css == "forwards, backwards, both")
     }
 }
-
-// MARK: - Semantic Validation
 
 @Suite
 struct `AnimationFillMode - Semantic Validation` {
@@ -141,8 +126,6 @@ struct `AnimationFillMode - Semantic Validation` {
         #expect(mode.description == "none")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

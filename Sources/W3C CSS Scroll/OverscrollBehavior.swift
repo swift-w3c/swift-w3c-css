@@ -1,33 +1,12 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-//
-//  OverscrollBehavior.swift
-//  swift-css
-//
-//  Created by Claude on 28/03/2025.
-//
-
-/// The `overscroll-behavior` CSS property sets what a browser does when reaching
-/// the boundary of a scrolling area.
-///
-/// This property allows controlling scroll chaining behavior (where scrolling propagates
-/// to parent elements when a scrollable element's boundaries are reached) and overscroll
-/// effects like bounce effects or refresh gestures.
-///
-/// Example:
-/// ```css
-/// overscroll-behavior: contain;
-/// overscroll-behavior: auto none; /* Different behavior for x and y directions */
-/// ```
 public enum OverscrollBehavior: Property {
-    /// A single value applied to both x and y directions
+
     case single(Value)
 
-    /// Different values for horizontal (x) and vertical (y) directions
     case horizontalVertical(Value, Value)
 
-    /// Global CSS value
     case global(Global)
 
 }
@@ -35,16 +14,12 @@ public enum OverscrollBehavior: Property {
 extension OverscrollBehavior {
     public static let property: String = "overscroll-behavior"
 
-    /// Overscroll behavior values
     public enum Value: String, Sendable, Hashable {
-        /// The default scroll overflow behavior occurs as normal
+
         case auto
 
-        /// Default scroll overflow behavior is observed inside the element, but no scroll
-        /// chaining occurs to neighboring scrolling areas
         case contain
 
-        /// No scroll chaining occurs and default scroll overflow behavior is prevented
         case none
     }
 

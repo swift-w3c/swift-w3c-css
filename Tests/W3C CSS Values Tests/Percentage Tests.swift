@@ -1,13 +1,6 @@
-// Percentage Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Percentage type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Percentage - Initialization` {
@@ -45,8 +38,6 @@ struct `Percentage - Initialization` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `Percentage - Integer Literal` {
     @Test func `integer literal creates percentage`() {
@@ -65,8 +56,6 @@ struct `Percentage - Float Literal` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Percentage - Comparable Conformance` {
     @Test func `smaller value is less than larger value`() {
@@ -82,8 +71,6 @@ struct `Percentage - Comparable Conformance` {
         #expect(!(Percentage(50) < Percentage(50)))
     }
 }
-
-// MARK: - Arithmetic Operations
 
 @Suite
 struct `Percentage - Addition` {
@@ -126,8 +113,6 @@ struct `Percentage - Division` {
     }
 }
 
-// MARK: - Special Methods
-
 @Suite
 struct `Percentage - Fraction Method` {
     @Test(arguments: [
@@ -146,8 +131,6 @@ struct `Percentage - Fraction Method` {
     }
 }
 
-// MARK: - Numeric Extensions
-
 @Suite
 struct `Percentage - Int Extensions` {
     @Test func `int percentage extension creates correct percentage`() {
@@ -163,8 +146,6 @@ struct `Percentage - Double Extensions` {
         #expect(33.3.percent.description == "33.3%")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `Percentage - CSS Property Usage` {
@@ -183,8 +164,6 @@ struct `Percentage - CSS Property Usage` {
         #expect(fontSize == "font-size: 150%")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Percentage - Edge Cases` {
@@ -218,8 +197,6 @@ struct `Percentage - Edge Cases` {
         #expect(Percentage(100.0).description == "100%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,56 +1,12 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// Represents the CSS `border-image` shorthand property, which draws an image around an element instead of the regular border.
-///
-/// This property allows you to use an image as the border of an element instead of
-/// the traditional border styles. It's a shorthand for setting the border image source,
-/// slice, width, outset, and repeat properties.
-///
-/// Example:
-/// ```swift
-/// // Basic border image with a URL
-/// .borderImage(.config(.url("border.png"), .slice(27)))
-///
-/// // Border image with width and repeat
-/// .borderImage(.config(.url("border.png"), .slice(27), width: .px(20), repeat: .round))
-///
-/// // Complex border image with all properties
-/// .borderImage(.config(
-///     .url("border.png"),
-///     .slice(27, 27, 27, 27, fill: true),
-///     width: .px(20),
-///     outset: .px(10),
-///     repeat: .init(.round, .space)
-/// ))
-///
-/// // Gradient as border image
-/// .borderImage(.config(.linearGradient(["red", "blue"], "45deg"), .slice(20), repeat: .round))
-///
-/// // Use a global value
-/// .borderImage(.global(.inherit))
-/// ```
-///
-/// - Note: For the border image to be visible, the element should have a border width set.
-///         Some browsers don't render the border image if `border-style` is `none` or
-///         `border-width` is `0`.
-///
-/// - SeeAlso: [MDN Web Docs on border-image](https://developer.mozilla.org/en-US/docs/Web/CSS/border-image)
 public enum BorderImage: Property {
-    /// Configuration for a border image
+
     case config(Configuration)
 
-    /// Global CSS values
     case global(Global)
 
-    /// Creates a border image with specified properties
-    ///
-    /// - Parameters:
-    ///   - source: The source of the border image
-    ///   - slice: The slice values for dividing the border image
-    ///   - width: The width of the border image (optional)
-    ///   - outset: The outset value of the border image (optional)
-    ///   - repeat: The repeat behavior of the border image (optional)
     public init(
         _ source: Source,
         _ slice: Slice,
@@ -69,13 +25,6 @@ public enum BorderImage: Property {
         )
     }
 
-    /// Creates a border image with simple parameters
-    ///
-    /// - Parameters:
-    ///   - source: The source image (URL or gradient)
-    ///   - slice: The slice value (single number for all sides)
-    ///   - width: The width of the border image (optional)
-    ///   - repeat: The repeat behavior of the border image (optional)
     public init(
         source: Source,
         slice: Slice,
@@ -98,31 +47,19 @@ extension BorderImage {
 }
 
 extension BorderImage {
-    /// Configuration for a border image
+
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
-        /// The source of the border image
+
         public let source: Source
 
-        /// The slice values for dividing the border image
         public let slice: Slice
 
-        /// The width of the border image
         public let width: Width?
 
-        /// The outset value of the border image
         public let outset: Outset?
 
-        /// The repeat behavior of the border image
         public let `repeat`: Repeat?
 
-        /// Creates a border image configuration with specified properties
-        ///
-        /// - Parameters:
-        ///   - source: The source of the border image
-        ///   - slice: The slice values for dividing the border image
-        ///   - width: The width of the border image (optional)
-        ///   - outset: The outset value of the border image (optional)
-        ///   - repeat: The repeat behavior of the border image (optional)
         public init(
             source: Source,
             slice: Slice,
@@ -140,17 +77,14 @@ extension BorderImage {
 }
 
 extension BorderImage.Configuration {
-    /// CSS string representation
+
     public var description: String {
         var parts: [String] = []
 
-        // Source
         parts.append(sourceDescription)
 
-        // Slice (required)
         parts.append(sliceDescription)
 
-        // Width and Outset (optional)
         if let width {
             let widthPart = " / \(widthDescription(width))"
 
@@ -163,7 +97,6 @@ extension BorderImage.Configuration {
             parts.append(" / / \(outsetDescription(outset))")
         }
 
-        // Repeat (optional)
         if let `repeat` {
             parts.append(repeatDescription(`repeat`))
         }
@@ -276,51 +209,37 @@ extension BorderImage.Configuration {
 }
 
 extension BorderImage {
-    /// The source of the border image
+
     public enum Source: Sendable, Hashable {
-        /// No border image
+
         case none
 
-        /// URL to the border image
         case url(Url)
 
-        /// Linear gradient as border image
         case linearGradient([String], String?)
 
-        /// Radial gradient as border image
         case radialGradient([String], String?)
 
-        /// Repeating linear gradient as border image
         case repeatingLinearGradient([String], String?)
 
-        /// Repeating radial gradient as border image
         case repeatingRadialGradient([String], String?)
     }
 }
 
 extension BorderImage {
-    /// The slice values for dividing the border image
+
     public struct Slice: Sendable, Hashable {
-        /// The top slice value
+
         public let top: SliceValue
 
-        /// The right slice value
         public let right: SliceValue?
 
-        /// The bottom slice value
         public let bottom: SliceValue?
 
-        /// The left slice value
         public let left: SliceValue?
 
-        /// Whether to fill the middle part
         public let fill: Bool
 
-        /// Creates a slice with the same value for all sides
-        ///
-        /// - Parameters:
-        ///   - value: The slice value for all sides
-        ///   - fill: Whether to fill the middle part (default: false)
         public init(_ value: SliceValue, fill: Bool = false) {
             self.top = value
             self.right = nil
@@ -329,14 +248,6 @@ extension BorderImage {
             self.fill = fill
         }
 
-        /// Creates a slice with different values for each side
-        ///
-        /// - Parameters:
-        ///   - top: The top slice value
-        ///   - right: The right slice value
-        ///   - bottom: The bottom slice value
-        ///   - left: The left slice value
-        ///   - fill: Whether to fill the middle part (default: false)
         public init(
             _ top: SliceValue,
             _ right: SliceValue,
@@ -354,18 +265,17 @@ extension BorderImage {
 }
 
 extension BorderImage.Slice {
-    /// Slice value type
+
     public enum SliceValue: Sendable, Hashable, CustomStringConvertible {
-        /// Number value for slice
+
         case number(Number)
 
-        /// Percentage value for slice
         case percentage(Percentage)
     }
 }
 
 extension BorderImage.Slice.SliceValue {
-    /// Returns string representation of the slice value
+
     public var description: String {
         switch self {
         case .number(let number):
@@ -378,41 +288,28 @@ extension BorderImage.Slice.SliceValue {
 }
 
 extension BorderImage.Slice {
-    /// Creates a slice value from a number
-    ///
-    /// - Parameter value: The number value
-    /// - Returns: A slice with the number value
+
     public static func slice(_ value: Number) -> BorderImage.Slice {
         return BorderImage.Slice(.number(value))
     }
 
-    /// Creates a slice value as a percentage
-    ///
-    /// - Parameter value: The percentage value
-    /// - Returns: A slice with the percentage value
     public static func percentage(_ value: Percentage) -> BorderImage.Slice {
         return BorderImage.Slice(.percentage(value))
     }
 }
 
 extension BorderImage {
-    /// The width of the border image
+
     public struct Width: Sendable, Hashable {
-        /// The top width value
+
         public let top: WidthValue
 
-        /// The right width value
         public let right: WidthValue?
 
-        /// The bottom width value
         public let bottom: WidthValue?
 
-        /// The left width value
         public let left: WidthValue?
 
-        /// Creates a width with the same value for all sides
-        ///
-        /// - Parameter value: The width value for all sides
         public init(_ value: WidthValue) {
             self.top = value
             self.right = nil
@@ -420,13 +317,6 @@ extension BorderImage {
             self.left = nil
         }
 
-        /// Creates a width with different values for each side
-        ///
-        /// - Parameters:
-        ///   - top: The top width value
-        ///   - right: The right width value
-        ///   - bottom: The bottom width value
-        ///   - left: The left width value
         public init(
             _ top: WidthValue,
             _ right: WidthValue,
@@ -442,23 +332,21 @@ extension BorderImage {
 }
 
 extension BorderImage.Width {
-    /// Width value type
+
     public enum WidthValue: Sendable, Hashable, CustomStringConvertible,
         LengthPercentageConvertible
     {
-        /// Auto width
+
         case auto
 
-        /// Number multiplier
         case number(Number)
 
-        /// Length value
         case lengthPercentage(LengthPercentage)
     }
 }
 
 extension BorderImage.Width.WidthValue {
-    /// Returns string representation of the width value
+
     public var description: String {
         switch self {
         case .auto:
@@ -474,36 +362,26 @@ extension BorderImage.Width.WidthValue {
 }
 
 extension BorderImage.Width {
-    /// Creates a width with a number multiplier
-    ///
-    /// - Parameter number: The number multiplier
-    /// - Returns: A width with the specified number
+
     public static func number(_ number: Number) -> BorderImage.Width {
         return BorderImage.Width(.number(number))
     }
 
-    /// Creates a width with auto value
     public static let auto = BorderImage.Width(.auto)
 }
 
 extension BorderImage {
-    /// The outset value of the border image
+
     public struct Outset: Sendable, Hashable {
-        /// The top outset value
+
         public let top: OutsetValue
 
-        /// The right outset value
         public let right: OutsetValue?
 
-        /// The bottom outset value
         public let bottom: OutsetValue?
 
-        /// The left outset value
         public let left: OutsetValue?
 
-        /// Creates an outset with the same value for all sides
-        ///
-        /// - Parameter value: The outset value for all sides
         public init(_ value: OutsetValue) {
             self.top = value
             self.right = nil
@@ -511,13 +389,6 @@ extension BorderImage {
             self.left = nil
         }
 
-        /// Creates an outset with different values for each side
-        ///
-        /// - Parameters:
-        ///   - top: The top outset value
-        ///   - right: The right outset value
-        ///   - bottom: The bottom outset value
-        ///   - left: The left outset value
         public init(
             _ top: OutsetValue,
             _ right: OutsetValue,
@@ -533,18 +404,17 @@ extension BorderImage {
 }
 
 extension BorderImage.Outset {
-    /// Outset value type
+
     public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-        /// Number multiplier
+
         case number(Number)
 
-        /// Length value
         case length(Length)
     }
 }
 
 extension BorderImage.Outset.OutsetValue {
-    /// Returns string representation of the outset value
+
     public var description: String {
         switch self {
         case .number(let number):
@@ -557,37 +427,25 @@ extension BorderImage.Outset.OutsetValue {
 }
 
 extension BorderImage.Outset {
-    /// Creates an outset with a number multiplier
-    ///
-    /// - Parameter number: The number multiplier
-    /// - Returns: An outset with the specified number
+
     public static func number(_ number: Number) -> BorderImage.Outset {
         return BorderImage.Outset(.number(number))
     }
 }
 
 extension BorderImage {
-    /// The repeat behavior of the border image
+
     public struct Repeat: Sendable, Hashable {
-        /// The horizontal repeat value
+
         public let horizontal: RepeatValue
 
-        /// The vertical repeat value (optional)
         public let vertical: RepeatValue?
 
-        /// Creates a repeat with the same value for horizontal and vertical
-        ///
-        /// - Parameter value: The repeat value for both directions
         public init(_ value: RepeatValue) {
             self.horizontal = value
             self.vertical = nil
         }
 
-        /// Creates a repeat with different values for horizontal and vertical
-        ///
-        /// - Parameters:
-        ///   - horizontal: The horizontal repeat value
-        ///   - vertical: The vertical repeat value
         public init(_ horizontal: RepeatValue, _ vertical: RepeatValue) {
             self.horizontal = horizontal
             self.vertical = vertical
@@ -596,18 +454,15 @@ extension BorderImage {
 }
 
 extension BorderImage.Repeat {
-    /// Repeat value type
+
     public enum RepeatValue: Sendable, Hashable {
-        /// Stretch the image to fill the space
+
         case stretch
 
-        /// Repeat the image to fill the space
         case `repeat`
 
-        /// Scale the image to fit the space evenly
         case round
 
-        /// Repeat the image with spacing to fit evenly
         case space
     }
 }
@@ -624,18 +479,8 @@ extension BorderImage.Width: LengthConvertible {
     }
 }
 
-/// Provides string conversion for CSS output
 extension BorderImage: CustomStringConvertible {
-    /// Converts the border-image to its CSS string representation
-    ///
-    /// This method generates CSS like:
-    /// ```css
-    /// border-image: url("border.png") 27;
-    /// border-image: url("border.png") 27 / 20px round;
-    /// border-image: url("border.png") 27 fill / 20px 30px / 10px round space;
-    /// border-image: linear-gradient(45deg, red, blue) 20 round;
-    /// border-image: inherit;
-    /// ```
+
     public var description: String {
         switch self {
         case .config(let config):

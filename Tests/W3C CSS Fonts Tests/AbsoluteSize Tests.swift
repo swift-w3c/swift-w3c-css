@@ -1,13 +1,6 @@
-// AbsoluteSize Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AbsoluteSize type
-
 import Testing
 
 @testable import W3C_CSS_Fonts
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AbsoluteSize - Values and Descriptions` {
@@ -39,8 +32,6 @@ struct `AbsoluteSize - Values and Descriptions` {
         #expect(size.rawValue == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AbsoluteSize - RawRepresentable Conformance` {
@@ -80,8 +71,6 @@ struct `AbsoluteSize - Hashable Conformance` {
     }
 }
 
-// MARK: - Size Ordering
-
 @Suite
 struct `AbsoluteSize - Logical Ordering` {
     @Test func `sizes follow logical progression from smallest to largest`() {
@@ -96,7 +85,6 @@ struct `AbsoluteSize - Logical Ordering` {
             .xxxLarge,
         ]
 
-        // Verify array is in the expected order
         #expect(sizes[0] == .xxSmall)
         #expect(sizes[1] == .xSmall)
         #expect(sizes[2] == .small)
@@ -120,8 +108,6 @@ struct `AbsoluteSize - Logical Ordering` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AbsoluteSize - CSS Property Usage` {
     @Test func `absolute size renders correctly in font-size property`() {
@@ -140,17 +126,15 @@ struct `AbsoluteSize - CSS Property Usage` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `AbsoluteSize - CSS Specification` {
     @Test func `medium is the default baseline size`() {
-        // Medium is typically the default font size in browsers
+
         #expect(AbsoluteSize.medium.description == "medium")
     }
 
     @Test func `size values use hyphenated format`() {
-        // CSS uses hyphenated format for multi-word values
+
         #expect(AbsoluteSize.xxSmall.description.contains("-"))
         #expect(AbsoluteSize.xSmall.description.contains("-"))
         #expect(AbsoluteSize.xLarge.description.contains("-"))
@@ -159,14 +143,12 @@ struct `AbsoluteSize - CSS Specification` {
     }
 
     @Test func `single word sizes have no hyphens`() {
-        // Single word sizes should not contain hyphens
+
         #expect(!AbsoluteSize.small.description.contains("-"))
         #expect(!AbsoluteSize.medium.description.contains("-"))
         #expect(!AbsoluteSize.large.description.contains("-"))
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AbsoluteSize - Edge Cases` {
@@ -189,23 +171,20 @@ struct `AbsoluteSize - Edge Cases` {
     }
 
     @Test func `case sensitivity in raw value initialization`() {
-        // CSS is case-insensitive, but our type expects lowercase
+
         #expect(AbsoluteSize(rawValue: "Medium") == nil)
         #expect(AbsoluteSize(rawValue: "SMALL") == nil)
         #expect(AbsoluteSize(rawValue: "medium") == .medium)
     }
 }
 
-// MARK: - Size Scale Relationships
-
 @Suite
 struct `AbsoluteSize - Size Scale` {
     @Test func `progression uses x prefix for extra sizes`() {
-        // Smaller than small: x-small, xx-small
+
         #expect(AbsoluteSize.xSmall.description == "x-small")
         #expect(AbsoluteSize.xxSmall.description == "xx-small")
 
-        // Larger than large: x-large, xx-large, xxx-large
         #expect(AbsoluteSize.xLarge.description == "x-large")
         #expect(AbsoluteSize.xxLarge.description == "xx-large")
         #expect(AbsoluteSize.xxxLarge.description == "xxx-large")
@@ -217,8 +196,6 @@ struct `AbsoluteSize - Size Scale` {
         #expect(AbsoluteSize.large.description == "large")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

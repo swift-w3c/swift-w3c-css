@@ -1,13 +1,6 @@
-// PositionArea Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS PositionArea type
-
 import Testing
 
 @testable import W3C_CSS_Positioning
-
-// MARK: - None Value
 
 @Suite
 struct `PositionArea - None` {
@@ -15,8 +8,6 @@ struct `PositionArea - None` {
         #expect(PositionArea.none.description == "none")
     }
 }
-
-// MARK: - Single Keyword Values
 
 @Suite
 struct `PositionArea - Single Keywords` {
@@ -41,8 +32,6 @@ struct `PositionArea - Single Keywords` {
         #expect(area.description == expected)
     }
 }
-
-// MARK: - Physical Position Pairs
 
 @Suite
 struct `PositionArea - Physical Pairs` {
@@ -101,8 +90,6 @@ struct `PositionArea - Physical Self Coordinates` {
     }
 }
 
-// MARK: - Logical Position Pairs
-
 @Suite
 struct `PositionArea - Logical Pairs` {
     @Test(arguments: [
@@ -124,8 +111,6 @@ struct `PositionArea - Logical Pairs` {
         #expect(area.description == expected)
     }
 }
-
-// MARK: - Self-Logical Position Pairs
 
 @Suite
 struct `PositionArea - Self-Logical Pairs` {
@@ -154,8 +139,6 @@ struct `PositionArea - Self-Logical Pairs` {
     }
 }
 
-// MARK: - Start/End Position Pairs
-
 @Suite
 struct `PositionArea - StartEnd Pairs` {
     @Test(arguments: [
@@ -175,8 +158,6 @@ struct `PositionArea - StartEnd Pairs` {
     }
 }
 
-// MARK: - Self-Start/End Position Pairs
-
 @Suite
 struct `PositionArea - SelfStartEnd Pairs` {
     @Test(arguments: [
@@ -194,8 +175,6 @@ struct `PositionArea - SelfStartEnd Pairs` {
         #expect(area.description == expected)
     }
 }
-
-// MARK: - Vertical/Horizontal Convenience Method
 
 @Suite
 struct `PositionArea - Vertical and Horizontal` {
@@ -217,8 +196,6 @@ struct `PositionArea - Vertical and Horizontal` {
         #expect(area.description == expected)
     }
 }
-
-// MARK: - Enum Raw Values
 
 @Suite
 struct `PositionArea - Physical Enum Raw Values` {
@@ -368,8 +345,6 @@ struct `PositionArea - AreaKeyword Enum Raw Values` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `PositionArea - Hashable Conformance` {
     @Test func `equal position areas are equal`() {
@@ -389,8 +364,6 @@ struct `PositionArea - Hashable Conformance` {
         #expect(PositionArea.none != PositionArea.single(.center))
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `PositionArea - CSS Property Usage` {
@@ -415,8 +388,6 @@ struct `PositionArea - CSS Property Usage` {
         #expect(positionAreaVertical == "position-area: top left")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `PositionArea - Edge Cases` {
@@ -456,8 +427,6 @@ struct `PositionArea - Edge Cases` {
         #expect(PositionArea.selfStartEnd(.center, .center).description == "center center")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

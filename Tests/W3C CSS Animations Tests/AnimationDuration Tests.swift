@@ -1,15 +1,8 @@
-// AnimationDuration Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationDuration type
-
 import Testing
 import W3C_CSS_Shared
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationDuration - Declaration` {
@@ -80,8 +73,6 @@ struct `AnimationDuration - Time Objects` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `AnimationDuration - Global Values` {
     @Test(arguments: [
@@ -105,8 +96,6 @@ struct `AnimationDuration - Property Protocol` {
         #expect(AnimationDuration.property == "animation-duration")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AnimationDuration - Edge Cases` {
@@ -135,8 +124,6 @@ struct `AnimationDuration - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AnimationDuration - CSS Property Usage` {
     @Test func `renders correctly in CSS rule`() {
@@ -154,8 +141,6 @@ struct `AnimationDuration - CSS Property Usage` {
         #expect(css == "animation-duration: auto")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

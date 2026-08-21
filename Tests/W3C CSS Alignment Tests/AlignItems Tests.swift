@@ -1,14 +1,7 @@
-// AlignItems Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS align-items property
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Alignment
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AlignItems - Property Protocol` {
@@ -34,8 +27,6 @@ struct `AlignItems - Declaration Rendering` {
     }
 }
 
-// MARK: - Basic Values
-
 @Suite
 struct `AlignItems - Basic Values` {
     @Test(arguments: [
@@ -50,8 +41,6 @@ struct `AlignItems - Basic Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Baseline Positions
 
 @Suite
 struct `AlignItems - Baseline Positions` {
@@ -69,8 +58,6 @@ struct `AlignItems - Baseline Positions` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Self Position Values
 
 @Suite
 struct `AlignItems - Self Position Values` {
@@ -90,8 +77,6 @@ struct `AlignItems - Self Position Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Overflow Position
 
 @Suite
 struct `AlignItems - Overflow Position with Safe` {
@@ -143,8 +128,6 @@ struct `AlignItems - Overflow Position with Function Syntax` {
     }
 }
 
-// MARK: - Global Values
-
 @Suite
 struct `AlignItems - Global Values` {
     @Test(arguments: [
@@ -161,8 +144,6 @@ struct `AlignItems - Global Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AlignItems - Edge Cases` {
@@ -204,8 +185,6 @@ struct `AlignItems - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AlignItems - CSS Property Usage` {
     @Test func `align-items renders correctly in flexbox context`() {
@@ -228,8 +207,6 @@ struct `AlignItems - CSS Property Usage` {
         #expect(css == "align-items: anchor-center")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

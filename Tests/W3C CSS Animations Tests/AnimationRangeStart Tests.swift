@@ -1,15 +1,8 @@
-// AnimationRangeStart Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationRangeStart type
-
 import Testing
 import W3C_CSS_Shared
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationRangeStart - Declaration` {
@@ -75,8 +68,6 @@ struct `AnimationRangeStart - Named Range with Percentage` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `AnimationRangeStart - Global Values` {
     @Test(arguments: [
@@ -100,8 +91,6 @@ struct `AnimationRangeStart - Property Protocol` {
         #expect(AnimationRangeStart.property == "animation-range-start")
     }
 }
-
-// MARK: - TimelineRangeName Validation
 
 @Suite
 struct `AnimationRangeStart - TimelineRangeName` {
@@ -131,8 +120,6 @@ struct `AnimationRangeStart - TimelineRangeName` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationRangeStart - Edge Cases` {
     @Test func `named ranges with hyphens render correctly`() {
@@ -156,8 +143,6 @@ struct `AnimationRangeStart - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AnimationRangeStart - CSS Property Usage` {
     @Test func `renders correctly in CSS rule`() {
@@ -175,8 +160,6 @@ struct `AnimationRangeStart - CSS Property Usage` {
         #expect(css == "animation-range-start: entry 10%")
     }
 }
-
-// MARK: - Semantic Validation
 
 @Suite
 struct `AnimationRangeStart - Semantic Validation` {
@@ -200,8 +183,6 @@ struct `AnimationRangeStart - Semantic Validation` {
         #expect(start.description == "entry 25%")
     }
 }
-
-// MARK: - Interaction with AnimationRangeEnd
 
 @Suite
 struct `AnimationRangeStart - Interaction with AnimationRangeEnd` {
@@ -238,8 +219,6 @@ struct `AnimationRangeStart - Interaction with AnimationRangeEnd` {
     }
 }
 
-// MARK: - Complete Range Scenarios
-
 @Suite
 struct `AnimationRangeStart - Complete Range Scenarios` {
     @Test func `cover range from start to end`() {
@@ -266,8 +245,6 @@ struct `AnimationRangeStart - Complete Range Scenarios` {
         #expect(end.description == "contain 80%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,13 +1,6 @@
-// TextEdge Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS TextEdge type
-
 import Testing
 
 @testable import W3C_CSS_Text
-
-// MARK: - Single Value Text Edge
 
 @Suite
 struct `TextEdge - Single Values` {
@@ -28,8 +21,6 @@ struct `TextEdge - Single Values` {
         #expect(ideographicEdge.description == "ideographic")
     }
 }
-
-// MARK: - Paired Value Text Edge
 
 @Suite
 struct `TextEdge - Paired Values` {
@@ -64,8 +55,6 @@ struct `TextEdge - Paired Values` {
         #expect(edge.description == expected)
     }
 }
-
-// MARK: - Value Enum Tests
 
 @Suite
 struct `TextEdge - Value Enum` {
@@ -133,8 +122,6 @@ struct `TextEdge - UnderValue Enum` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `TextEdge - Hashable Conformance` {
     @Test func `equal single value text edges are equal`() {
@@ -168,45 +155,41 @@ struct `TextEdge - Hashable Conformance` {
     }
 }
 
-// MARK: - CSS Specification Compliance
-
 @Suite
 struct `TextEdge - CSS Specification` {
     @Test func `text value represents text edge`() {
-        // 'text' uses the text-over and text-under metrics
+
         #expect(TextEdge.text.description == "text")
     }
 
     @Test func `ideographic value represents ideographic baseline`() {
-        // 'ideographic' uses the ideographic baseline
+
         #expect(TextEdge.ideographic.description == "ideographic")
     }
 
     @Test func `ideographic-ink represents ink bounds`() {
-        // 'ideographic-ink' uses the actual ink bounds
+
         #expect(TextEdge.ideographicInk.description == "ideographic-ink")
     }
 
     @Test func `cap represents capital letter height`() {
-        // 'cap' uses the cap-height metric
+
         let capEdge = TextEdge.pair(.cap, .alphabetic)
         #expect(capEdge.description.contains("cap"))
     }
 
     @Test func `ex represents x-height`() {
-        // 'ex' uses the x-height metric
+
         let exEdge = TextEdge.pair(.ex, .alphabetic)
         #expect(exEdge.description.contains("ex"))
     }
 
     @Test func `alphabetic represents alphabetic baseline`() {
-        // 'alphabetic' uses the alphabetic baseline
+
         let alphabeticEdge = TextEdge.pair(.cap, .alphabetic)
         #expect(alphabeticEdge.description.contains("alphabetic"))
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `TextEdge - CSS Property Usage` {
@@ -231,8 +214,6 @@ struct `TextEdge - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `TextEdge - Edge Cases` {
     @Test func `same value used for both over and under`() {
@@ -244,7 +225,7 @@ struct `TextEdge - Edge Cases` {
     }
 
     @Test func `all OverValue cases can pair with all UnderValue cases`() {
-        // Test that the API allows all combinations
+
         for over in TextEdge.OverValue.allCases {
             for under in TextEdge.UnderValue.allCases {
                 let edge = TextEdge.pair(over, under)
@@ -263,12 +244,10 @@ struct `TextEdge - Edge Cases` {
     }
 }
 
-// MARK: - Value Set Relationships
-
 @Suite
 struct `TextEdge - Value Set Relationships` {
     @Test func `OverValue is superset of Value`() {
-        // OverValue includes all Value cases plus cap and ex
+
         let valueSet = Set(TextEdge.Value.allCases.map { $0.rawValue })
         let overValueSet = Set(TextEdge.OverValue.allCases.map { $0.rawValue })
 
@@ -278,7 +257,7 @@ struct `TextEdge - Value Set Relationships` {
     }
 
     @Test func `UnderValue is superset of Value`() {
-        // UnderValue includes all Value cases plus alphabetic
+
         let valueSet = Set(TextEdge.Value.allCases.map { $0.rawValue })
         let underValueSet = Set(TextEdge.UnderValue.allCases.map { $0.rawValue })
 
@@ -298,8 +277,6 @@ struct `TextEdge - Value Set Relationships` {
         #expect(!overValueSet.contains("alphabetic"))
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

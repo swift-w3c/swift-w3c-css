@@ -1,26 +1,12 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-/// The CSS animation-play-state property sets whether an animation is running or paused.
-///
-/// Resuming a paused animation will start the animation from where it left off at the time it was paused,
-/// rather than starting over from the beginning of the animation sequence.
-///
-/// Example:
-/// ```swift
-/// .animationPlayState(.running)      // animation-play-state: running
-/// .animationPlayState(.paused)       // animation-play-state: paused
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on animation-play-state](https://developer.mozilla.org/en-US/docs/Web/CSS/animation-play-state)
 public enum AnimationPlayState: Property {
-    /// The animation is currently playing (default)
+
     case running
 
-    /// The animation is currently paused
     case paused
 
-    /// Global value
     case global(Global)
 }
 
@@ -33,9 +19,8 @@ extension AnimationPlayState: CaseIterable {
         [.running, .paused] + Global.allCases.map { AnimationPlayState.global($0) }
 }
 
-/// CSS Output conversion
 extension AnimationPlayState: CustomStringConvertible {
-    /// Converts the animation play state to its CSS string representation
+
     public var description: String {
         switch self {
         case .running:

@@ -1,14 +1,7 @@
-// LineStyle Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS LineStyle type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Backgrounds
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `LineStyle - Enum Cases and Raw Values` {
@@ -44,8 +37,6 @@ struct `LineStyle - Enum Cases and Raw Values` {
         #expect(style.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `LineStyle - Hashable Conformance` {
@@ -102,8 +93,6 @@ struct `LineStyle - RawRepresentable Conformance` {
         #expect(LineStyle(rawValue: "invalid") == nil)
     }
 }
-
-// MARK: - Properties
 
 @Suite
 struct `LineStyle - Is3D Property` {
@@ -185,8 +174,6 @@ struct `LineStyle - Opposite3D Property` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `LineStyle - CSS Property Usage` {
     @Test func `line style renders correctly in border-style property`() {
@@ -210,8 +197,6 @@ struct `LineStyle - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `LineStyle - Edge Cases` {
     @Test func `all visible 3D styles have opposites`() {
@@ -229,7 +214,7 @@ struct `LineStyle - Edge Cases` {
 
     @Test func `all case iteration order`() {
         let allCases = LineStyle.allCases
-        // Verify order matches definition
+
         #expect(allCases[0] == .none)
         #expect(allCases[1] == .hidden)
         #expect(allCases[2] == .dotted)
@@ -242,8 +227,6 @@ struct `LineStyle - Edge Cases` {
         #expect(allCases[9] == .outset)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

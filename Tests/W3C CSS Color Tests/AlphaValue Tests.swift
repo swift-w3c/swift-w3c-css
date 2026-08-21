@@ -1,14 +1,7 @@
-// AlphaValue Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AlphaValue type
-
 import Testing
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
-
-// MARK: - Number Values
 
 @Suite
 struct `AlphaValue - Number Format` {
@@ -28,8 +21,6 @@ struct `AlphaValue - Number Format` {
     }
 }
 
-// MARK: - Percentage Values
-
 @Suite
 struct `AlphaValue - Percentage Format` {
     @Test(arguments: [
@@ -48,8 +39,6 @@ struct `AlphaValue - Percentage Format` {
         #expect(alpha.description == expected)
     }
 }
-
-// MARK: - Literal Conversion
 
 @Suite
 struct `AlphaValue - Integer Literal Conversion` {
@@ -76,7 +65,7 @@ struct `AlphaValue - Integer Literal Conversion` {
     @Test func `integer literal creates number case`() {
         let alpha: AlphaValue = 1
         if case .number = alpha {
-            // Success
+
         } else {
             #expect(Bool(false), "Expected .number case")
         }
@@ -108,14 +97,12 @@ struct `AlphaValue - Float Literal Conversion` {
     @Test func `float literal creates number case`() {
         let alpha: AlphaValue = 0.5
         if case .number = alpha {
-            // Success
+
         } else {
             #expect(Bool(false), "Expected .number case")
         }
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AlphaValue - Hashable Conformance` {
@@ -149,8 +136,6 @@ struct `AlphaValue - Hashable Conformance` {
         #expect(number != percent)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AlphaValue - Edge Cases` {
@@ -204,8 +189,6 @@ struct `AlphaValue - Edge Cases` {
         #expect(alpha.description == "33.333333%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

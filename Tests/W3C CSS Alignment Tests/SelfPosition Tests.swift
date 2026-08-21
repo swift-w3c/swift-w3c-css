@@ -1,13 +1,6 @@
-// SelfPosition Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS SelfPosition type
-
 import Testing
 
 @testable import W3C_CSS_Shared
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `SelfPosition - Initialization` {
@@ -62,8 +55,6 @@ struct `SelfPosition - Initialization` {
         #expect(flexEnd.description == "flex-end")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `SelfPosition - Hashable Conformance` {
@@ -180,8 +171,6 @@ struct `SelfPosition - RawRepresentable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `SelfPosition - CSS Property Usage` {
     @Test func `self position renders correctly in align-self property`() {
@@ -214,8 +203,6 @@ struct `SelfPosition - CSS Property Usage` {
         #expect(justifySelf == "justify-self: end")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `SelfPosition - Edge Cases` {
@@ -262,8 +249,6 @@ struct `SelfPosition - Edge Cases` {
     }
 }
 
-// MARK: - Performance
-
 extension `Performance Tests` {
     @Suite
     struct `SelfPosition - Performance` {
@@ -294,7 +279,7 @@ extension `Performance Tests` {
         func `self position iteration 100K times`() {
             for _ in 0..<100_000 {
                 for _ in SelfPosition.allCases {
-                    // Iterate through all cases
+
                 }
             }
         }

@@ -1,13 +1,6 @@
-// AnglePercentage Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnglePercentage type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnglePercentage - Angle Values` {
@@ -44,8 +37,6 @@ struct `AnglePercentage - Percentage Values` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `AnglePercentage - Integer Literal` {
     @Test func `integer literal creates deg angle`() {
@@ -79,8 +70,6 @@ struct `AnglePercentage - Float Literal` {
         }
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AnglePercentage - Hashable Conformance` {
@@ -116,7 +105,7 @@ struct `AnglePercentage - Hashable Conformance` {
 
     @Test func `different angle types with equivalent values are not equal`() {
         let angle1 = AnglePercentage.angle(.deg(45))
-        let turn = AnglePercentage.angle(.turn(0.125))  // 45 degrees as turn
+        let turn = AnglePercentage.angle(.turn(0.125))
         #expect(angle1 != turn)
     }
 
@@ -126,8 +115,6 @@ struct `AnglePercentage - Hashable Conformance` {
         #expect(literal == angle1)
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `AnglePercentage - CSS Property Usage` {
@@ -151,8 +138,6 @@ struct `AnglePercentage - CSS Property Usage` {
         #expect(transform == "transform: rotate(0.25turn)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `AnglePercentage - Edge Cases` {
@@ -181,8 +166,6 @@ struct `AnglePercentage - Edge Cases` {
         #expect(AnglePercentage.percentage(33.333333).description == "33.333333%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

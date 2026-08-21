@@ -1,15 +1,8 @@
-// AnimationRangeEnd Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationRangeEnd type
-
 import Testing
 import W3C_CSS_Shared
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationRangeEnd - Declaration` {
@@ -74,8 +67,6 @@ struct `AnimationRangeEnd - Named Range with Percentage` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `AnimationRangeEnd - Global Values` {
     @Test(arguments: [
@@ -100,8 +91,6 @@ struct `AnimationRangeEnd - Property Protocol` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationRangeEnd - Edge Cases` {
     @Test func `named ranges with hyphens render correctly`() {
@@ -125,8 +114,6 @@ struct `AnimationRangeEnd - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AnimationRangeEnd - CSS Property Usage` {
     @Test func `renders correctly in CSS rule`() {
@@ -144,8 +131,6 @@ struct `AnimationRangeEnd - CSS Property Usage` {
         #expect(css == "animation-range-end: exit 90%")
     }
 }
-
-// MARK: - Semantic Validation
 
 @Suite
 struct `AnimationRangeEnd - Semantic Validation` {
@@ -169,8 +154,6 @@ struct `AnimationRangeEnd - Semantic Validation` {
         #expect(end.description == "exit 75%")
     }
 }
-
-// MARK: - Interaction with AnimationRangeStart
 
 @Suite
 struct `AnimationRangeEnd - Interaction with AnimationRangeStart` {
@@ -198,8 +181,6 @@ struct `AnimationRangeEnd - Interaction with AnimationRangeStart` {
         #expect(end.description == "exit 90%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

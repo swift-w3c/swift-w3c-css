@@ -1,25 +1,11 @@
 public import W3C_CSS_Values
 
-//
-//  File.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 01/04/2025.
-//
-
 public protocol ColorConvertible {
     static func color(_ color: W3C_CSS_Values.Color) -> Self
 }
 
 extension ColorConvertible {
 
-    /// Creates a color from RGB values
-    ///
-    /// - Parameters:
-    ///   - red: The red component (0-255)
-    ///   - green: The green component (0-255)
-    ///   - blue: The blue component (0-255)
-    /// - Returns: A Color in RGB format
     public static func rgb(_ red: Int, _ green: Int, _ blue: Int) -> Self {
         return .color(
             .rgb(
@@ -30,14 +16,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from RGBA values
-    ///
-    /// - Parameters:
-    ///   - red: The red component (0-255)
-    ///   - green: The green component (0-255)
-    ///   - blue: The blue component (0-255)
-    ///   - alpha: The alpha component (0.0-1.0)
-    /// - Returns: A Color in RGBA format
     public static func rgba(_ red: Int, _ green: Int, _ blue: Int, _ alpha: Double) -> Self {
         return .color(
             .rgba(
@@ -49,13 +27,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from HSL values
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - saturation: The saturation component (0-100)
-    ///   - lightness: The lightness component (0-100)
-    /// - Returns: A Color in HSL format
     public static func hsl(_ hue: Hue, _ saturation: Double, _ lightness: Double) -> Self {
         return .color(
             .hsl(
@@ -66,14 +37,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from HSLA values
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - saturation: The saturation component (0-100)
-    ///   - lightness: The lightness component (0-100)
-    ///   - alpha: The alpha component (0.0-1.0)
-    /// - Returns: A Color in HSLA format
     public static func hsla(
         _ hue: Hue,
         _ saturation: Double,
@@ -90,13 +53,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from HWB values
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - whiteness: The whiteness component (0-100)
-    ///   - blackness: The blackness component (0-100)
-    /// - Returns: A Color in HWB format
     public static func hwb(_ hue: Hue, _ whiteness: Double, _ blackness: Double) -> Self {
         return .color(
             .hwb(
@@ -107,13 +63,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from LAB values
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - whiteness: The whiteness component (0-100)
-    ///   - blackness: The blackness component (0-100)
-    /// - Returns: A Color in HWB format
     public static func lab(_ lightness: Double, _ aAxis: Double, _ bAxis: Double) -> Self {
         return .color(
             .lab(
@@ -124,13 +73,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from LAB values
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - whiteness: The whiteness component (0-100)
-    ///   - blackness: The blackness component (0-100)
-    /// - Returns: A Color in HWB format
     public static func lch(
         _ lightness: Double,
         _ chroma: Double,
@@ -145,13 +87,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from Oklch values
-    ///
-    /// - Parameters:
-    ///   - lightness: The perceptual lightness (0-1)
-    ///   - chroma: The chroma (colorfulness)
-    ///   - hue: The hue angle (0-360)
-    /// - Returns: A Color in Oklch format
     public static func oklch(_ lightness: Double, _ chroma: Double, _ hue: Double) -> Self {
         return .color(
             .oklch(
@@ -162,13 +97,6 @@ extension ColorConvertible {
         )
     }
 
-    /// Creates a color from Oklch values
-    ///
-    /// - Parameters:
-    ///   - lightness: The perceptual lightness (0-1)
-    ///   - chroma: The chroma (colorfulness)
-    ///   - hue: The hue angle (0-360)
-    /// - Returns: A Color in Oklch format
     public static func oklab(_ lightness: Double, _ aAxis: Double, _ bAxis: Double) -> Self {
         return .color(
             .oklab(
@@ -193,110 +121,44 @@ extension ColorConvertible {
 }
 
 extension ColorConvertible {
-    /// Creates a color from RGB values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - red: The red component (0-255)
-    ///   - green: The green component (0-255)
-    ///   - blue: The blue component (0-255)
-    /// - Returns: A color in RGB format
+
     public static func rgb(red: Int, green: Int, blue: Int) -> Self {
         .rgb(red, green, blue)
     }
 
-    /// Creates a color from RGBA values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - red: The red component (0-255)
-    ///   - green: The green component (0-255)
-    ///   - blue: The blue component (0-255)
-    ///   - alpha: The alpha component (0.0-1.0)
-    /// - Returns: A color in RGBA format
     public static func rgba(red: Int, green: Int, blue: Int, alpha: Double) -> Self {
         .rgba(red, green, blue, alpha)
     }
 
-    /// Creates a color from HSL values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - saturation: The saturation component (0-100)
-    ///   - lightness: The lightness component (0-100)
-    /// - Returns: A color in HSL format
     public static func hsl(hue: Hue, saturation: Double, lightness: Double) -> Self {
         .hsl(hue, saturation, lightness)
     }
 
-    /// Creates a color from HSLA values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - saturation: The saturation component (0-100)
-    ///   - lightness: The lightness component (0-100)
-    ///   - alpha: The alpha component (0.0-1.0)
-    /// - Returns: A color in HSLA format
     public static func hsla(hue: Hue, saturation: Double, lightness: Double, alpha: Double) -> Self
     {
         .hsla(hue, saturation, lightness, alpha)
     }
 
-    /// Creates a color from HWB values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - hue: The hue component (0-360)
-    ///   - whiteness: The whiteness component (0-100)
-    ///   - blackness: The blackness component (0-100)
-    /// - Returns: A color in HWB format
     public static func hwb(hue: Hue, whiteness: Double, blackness: Double) -> Self {
         .hwb(hue, whiteness, blackness)
     }
 
-    /// Creates a color from LAB values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - lightness: The lightness component (0-100)
-    ///   - aAxis: The a-axis component
-    ///   - bAxis: The b-axis component
-    /// - Returns: A color in LAB format
     public static func lab(lightness: Double, aAxis: Double, bAxis: Double) -> Self {
         .lab(lightness, aAxis, bAxis)
     }
 
-    /// Creates a color from LCH values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - lightness: The lightness component (0-100)
-    ///   - chroma: The chroma component
-    ///   - hue: The hue component (0-360)
-    /// - Returns: A color in LCH format
     public static func lch(lightness: Double, chroma: Double, hue: Double) -> Self {
         .lch(lightness, chroma, hue)
     }
 
-    /// Creates a color from Oklab values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - lightness: The lightness component (0-1)
-    ///   - aAxis: The a-axis component
-    ///   - bAxis: The b-axis component
-    /// - Returns: A color in Oklab format
     public static func oklab(lightness: Double, aAxis: Double, bAxis: Double) -> Self {
         .oklab(lightness, aAxis, bAxis)
     }
 
-    /// Creates a color from Oklch values with labeled parameters
-    ///
-    /// - Parameters:
-    ///   - lightness: The lightness component (0-1)
-    ///   - chroma: The chroma component
-    ///   - hue: The hue component (0-360)
-    /// - Returns: A color in Oklch format
     public static func oklch(lightness: Double, chroma: Double, hue: Double) -> Self {
         .oklch(lightness, chroma, hue)
     }
 }
-
-// Basic colors (CSS Level 1)
 
 extension ColorConvertible {
     public static var black: Self { .color(.named(.black)) }

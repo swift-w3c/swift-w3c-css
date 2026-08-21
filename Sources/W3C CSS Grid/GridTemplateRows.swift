@@ -1,69 +1,35 @@
 public import W3C_CSS_Shared
 
-/// The CSS `grid-template-rows` property defines the line names and track sizing functions of the grid rows.
-///
-/// This property specifies the size of rows in the grid, and assigns a name to each line that forms the rows.
-///
-/// Example:
-/// ```swift
-/// .gridTemplateRows(.none)                                // grid-template-rows: none
-/// .gridTemplateRows(.tracks([.px(40), .fr(1)]))          // grid-template-rows: 40px 1fr
-/// .gridTemplateRows(.tracks([.auto, .fr(2)]))            // grid-template-rows: auto 2fr
-/// .gridTemplateRows(.tracks([.minContent, .maxContent])) // grid-template-rows: min-content max-content
-/// .gridTemplateRows(.named([
-///     NamedTrack(before: "header", size: .px(50)),
-///     NamedTrack(size: .fr(1), after: "main"),
-///     NamedTrack(before: "footer", size: .px(50))
-/// ]))                                                    // grid-template-rows: [header] 50px [main] 1fr [footer] 50px
-/// .gridTemplateRows(.repeat(3, [.px(100)]))             // grid-template-rows: repeat(3, 100px)
-/// .gridTemplateRows(.autoFill([.px(100)]))              // grid-template-rows: repeat(auto-fill, 100px)
-/// .gridTemplateRows(.autoFit([.px(100)]))               // grid-template-rows: repeat(auto-fit, 100px)
-/// .gridTemplateRows(.subgrid)                            // grid-template-rows: subgrid
-/// .gridTemplateRows(.global(.inherit))                   // grid-template-rows: inherit
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on grid-template-rows](https://developer.mozilla.org/en-US/docs/Web/CSS/grid-template-rows)
 public enum GridTemplateRows: Property {
-    /// No explicit grid. Rows will be implicitly generated.
+
     case none
 
-    /// Specifies track sizes for rows without naming grid lines
     case tracks([GridTrackSize])
 
-    /// Specifies named grid lines with track sizes
     case named([NamedTrack])
 
-    /// Specifies track list with explicit repeat
     case `repeat`(Int, [GridTrackSize])
 
-    /// Auto-fill: Repeat as many rows as will fit
     case autoFill([GridTrackSize])
 
-    /// Auto-fit: Like auto-fill but collapses empty tracks
     case autoFit([GridTrackSize])
 
-    /// Subgrid: Adopts the row definition from parent grid
     case subgrid
 
-    /// Global values (inherit, initial, and similar CSS-wide keywords)
     case global(Global)
 }
 
 extension GridTemplateRows {
     public static let property: String = "grid-template-rows"
 
-    /// Represents a grid track with optional line names before and after
     public struct NamedTrack: Sendable, Hashable {
-        /// Line name before the track (optional)
+
         public let before: String?
 
-        /// Track size
         public let size: GridTrackSize
 
-        /// Line name after the track (optional)
         public let after: String?
 
-        /// Creates a named track with optional before and after line names
         public init(before: String? = nil, size: GridTrackSize, after: String? = nil) {
             self.before = before
             self.size = size
@@ -73,7 +39,7 @@ extension GridTemplateRows {
 }
 
 extension GridTemplateRows.NamedTrack {
-    /// Generates the CSS string representation of the named track
+
     public var description: String {
         var result = ""
 

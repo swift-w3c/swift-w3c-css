@@ -1,68 +1,30 @@
-//
-//  WebkitBoxReflect.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 28/03/2025.
-//
-
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The non-standard `-webkit-box-reflect` CSS property lets you reflect the content of an element
-/// in one specific direction.
-///
-/// This property creates a reflection of an element's content in a specified direction with an
-/// optional offset between the element and its reflection and an optional mask to create a gradient
-/// fade effect.
-///
-/// Example:
-/// ```swift
-/// // Basic reflection below the element
-/// .webkitBoxReflect(.below)
-///
-/// // Reflection to the right with 10px offset
-/// .webkitBoxReflect(.right(.px(10)))
-///
-/// // Reflection below with gradient mask for fading effect
-/// .webkitBoxReflect(.below(.px(5), mask: .linearGradient("to bottom, rgba(0,0,0,0.5), transparent")))
-/// ```
-///
-/// - Note: This is a non-standard property and may not be supported by all browsers.
-///         Consider using alternative techniques like CSS transforms for production sites.
-///
 public enum WebkitBoxReflect: Property {
 
-    /// No reflection (default)
     case none
 
-    /// Reflection appears above the element
     case above(Length? = nil, mask: ReflectionMask? = nil)
 
-    /// Reflection appears below the element
     case below(Length? = nil, mask: ReflectionMask? = nil)
 
-    /// Reflection appears to the left of the element
     case left(Length? = nil, mask: ReflectionMask? = nil)
 
-    /// Reflection appears to the right of the element
     case right(Length? = nil, mask: ReflectionMask? = nil)
 
-    /// Global CSS values
     case global(Global)
 }
 
 extension WebkitBoxReflect {
     public static let property: String = "-webkit-box-reflect"
 
-    /// Types of reflection masks
     public enum ReflectionMask: Sendable, Hashable {
-        /// Linear gradient mask
+
         case linearGradient(CSSString)
 
-        /// Radial gradient mask
         case radialGradient(CSSString)
 
-        /// URL to an image used as mask
         case url(Url)
     }
 

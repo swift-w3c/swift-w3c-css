@@ -1,13 +1,6 @@
-// Integer Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Integer type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Integer - Initialization` {
@@ -53,8 +46,6 @@ struct `Integer - Literal Initialization` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Integer - Hashable Conformance` {
     @Test func `equal values are equal`() {
@@ -93,8 +84,6 @@ struct `Integer - Comparable Conformance` {
     }
 }
 
-// MARK: - Arithmetic Operations
-
 @Suite
 struct `Integer - Arithmetic` {
     @Test func `addition produces correct result`() {
@@ -130,8 +119,6 @@ struct `Integer - Arithmetic` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Integer - CSS Property Usage` {
     @Test func `integer renders correctly in z-index property`() {
@@ -155,8 +142,6 @@ struct `Integer - CSS Property Usage` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `Integer - Edge Cases` {
     @Test func `maximum integer value`() {
@@ -177,8 +162,6 @@ struct `Integer - Edge Cases` {
         #expect(zero.absolute == zero)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

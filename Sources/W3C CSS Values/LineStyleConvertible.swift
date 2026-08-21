@@ -1,15 +1,7 @@
-//
-//  LineStyleConvertible.swift
-//  swift-css
-//
-//  Created on 03/23/2025.
-//
-
 public protocol LineStyleConvertible {
     static func lineStyle(_ lineStyle: LineStyle) -> Self
 }
 
-/// Default initializer for LineStyleConvertible types
 extension LineStyleConvertible {
 
     public init(_ lineStyle: LineStyle) {
@@ -17,7 +9,6 @@ extension LineStyleConvertible {
     }
 }
 
-/// Factory methods for creating LineStyleConvertible instances
 extension LineStyleConvertible {
     public static var none: Self { .lineStyle(.none) }
     public static var hidden: Self { .lineStyle(.hidden) }

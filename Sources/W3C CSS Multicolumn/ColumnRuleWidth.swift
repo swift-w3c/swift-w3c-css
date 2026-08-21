@@ -1,30 +1,14 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The CSS `column-rule-width` property sets the width of the line drawn between columns in a multi-column layout.
-///
-/// Example:
-/// ```swift
-/// .columnRuleWidth(.thin)       // column-rule-width: thin
-/// .columnRuleWidth(.medium)     // column-rule-width: medium
-/// .columnRuleWidth(.thick)      // column-rule-width: thick
-/// .columnRuleWidth(.px(12))     // column-rule-width: 12px
-/// .columnRuleWidth(.em(2.5))    // column-rule-width: 2.5em
-/// ```
-///
-/// This property is similar to `border-width` but applies to the space between columns in a multi-column layout.
-///
-/// - SeeAlso: [MDN Web Docs on column-rule-width](https://developer.mozilla.org/en-US/docs/Web/CSS/column-rule-width)
 public enum ColumnRuleWidth: Property, LengthConvertible {
-    /// Predefined width values
+
     case thin
     case medium
     case thick
 
-    /// A specific length value
     case length(Length)
 
-    /// Global values
     case global(Global)
 }
 
@@ -32,7 +16,6 @@ extension ColumnRuleWidth {
     public static let property: String = "column-rule-width"
 }
 
-/// CSS Output conversion
 extension ColumnRuleWidth: CustomStringConvertible {
     public var description: String {
         switch self {

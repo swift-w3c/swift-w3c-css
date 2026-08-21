@@ -1,14 +1,7 @@
-// AnimationDirection Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationDirection type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationDirection - Declaration` {
@@ -32,8 +25,6 @@ struct `AnimationDirection - Basic Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AnimationDirection - Global Values` {
@@ -75,8 +66,6 @@ struct `AnimationDirection - CaseIterable` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationDirection - Edge Cases` {
     @Test func `all direction values are distinct`() {
@@ -89,8 +78,6 @@ struct `AnimationDirection - Edge Cases` {
         #expect(AnimationDirection.alternateReverse.description == "alternate-reverse")
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `AnimationDirection - CSS Property Usage` {
@@ -112,8 +99,6 @@ struct `AnimationDirection - CSS Property Usage` {
         #expect(css == "normal, reverse, alternate")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

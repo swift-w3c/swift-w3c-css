@@ -1,14 +1,7 @@
-// AnimationComposition Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS AnimationComposition type
-
 import Testing
 import W3C_CSS_Shared
 
 @testable import W3C_CSS_Animations
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `AnimationComposition - Declaration` {
@@ -33,8 +26,6 @@ struct `AnimationComposition - Basic Values` {
         #expect(value.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `AnimationComposition - Global Values` {
@@ -75,8 +66,6 @@ struct `AnimationComposition - CaseIterable` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `AnimationComposition - Edge Cases` {
     @Test func `all composition modes are distinct`() {
@@ -91,8 +80,6 @@ struct `AnimationComposition - Edge Cases` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `AnimationComposition - CSS Property Usage` {
     @Test func `renders correctly in CSS rule`() {
@@ -105,8 +92,6 @@ struct `AnimationComposition - CSS Property Usage` {
         #expect(decl.description == "animation-composition:add")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

@@ -1,42 +1,12 @@
-//
-//  Transition.swift
-//  swift-css
-//
-//  Created by Coen ten Thije Boonkkamp on 26/03/2025.
-//
-
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-/// The CSS `transition` property is a shorthand property for setting the four transition properties
-/// in a single declaration: `transition-property`, `transition-duration`, `transition-timing-function`,
-/// and `transition-delay`.
-///
-/// Transitions enable you to define the transition between two states of an element. Different states
-/// may be defined using pseudo-classes like :hover or :active or dynamically set using JavaScript.
-///
-/// Example:
-/// ```swift
-/// .transition(.config(.all, duration: .s(0.3), timingFunction: .ease)) // transition: all 0.3s ease
-/// .transition(.config(.custom("opacity"), duration: .ms(200), timingFunction: .easeInOut, delay: .ms(100))) // transition: opacity 200ms ease-in-out 100ms
-/// .transition(.global(.inherit)) // transition: inherit
-/// ```
-///
-/// - SeeAlso: [MDN Web Docs on transition](https://developer.mozilla.org/en-US/docs/Web/CSS/transition)
 public enum Transition: Property {
-    /// A specific transition configuration
+
     case config(Configuration)
 
-    /// Global CSS values
     case global(Global)
 
-    /// Creates a new transition with the specified properties
-    /// - Parameters:
-    ///   - property: The property to transition (default is .all)
-    ///   - duration: The duration of the transition (default is 0s)
-    ///   - timingFunction: The timing function (default is .ease)
-    ///   - delay: Optional delay before the transition starts
-    ///   - behavior: Optional behavior for discrete properties
     public init(
         property: Property = .all,
         duration: Time = .zero,
@@ -59,42 +29,26 @@ public enum Transition: Property {
 extension Transition {
     public static let property: String = "transition"
 
-    /// Represents a CSS transition property
     public typealias Property = TransitionProperty
 
-    /// Represents a CSS transition timing function
     public typealias TimingFunction = TransitionTimingFunction
 
-    /// Represents a CSS transition behavior
     public typealias Behavior = TransitionBehavior
 
-    /// Represents a time value for transitions
     public typealias Time = W3C_CSS_Values.Time
 
-    /// A specific transition configuration
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
-        /// The property or properties to which the transition applies
+
         public let property: Property
 
-        /// The duration of the transition
         public let duration: Time
 
-        /// The timing function that specifies the speed curve of the transition
         public let timingFunction: TimingFunction
 
-        /// Optional delay before the transition starts
         public let delay: Time?
 
-        /// Optional behavior for discrete properties
         public let behavior: Behavior?
 
-        /// Creates a new transition configuration with the specified properties
-        /// - Parameters:
-        ///   - property: The property to transition
-        ///   - duration: The duration of the transition
-        ///   - timingFunction: The timing function
-        ///   - delay: Optional delay before the transition starts
-        ///   - behavior: Optional behavior for discrete properties
         public init(
             property: Property,
             duration: Time,
@@ -127,9 +81,8 @@ extension Transition.Configuration {
     }
 }
 
-/// Provides string conversion for CSS output
 extension Transition: CustomStringConvertible {
-    /// Converts the transition to its CSS string representation
+
     public var description: String {
         switch self {
         case .config(let config):
@@ -141,15 +94,8 @@ extension Transition: CustomStringConvertible {
     }
 }
 
-/// Factory methods for common transition patterns
 extension Transition {
-    /// Factory method to create a transition for all properties
-    /// - Parameters:
-    ///   - duration: The duration of the transition
-    ///   - timingFunction: The timing function (default is .ease)
-    ///   - delay: Optional delay before the transition starts
-    ///   - behavior: Optional behavior for discrete properties
-    /// - Returns: A transition configured for all properties
+
     public static func all(
         duration: Time,
         timingFunction: TimingFunction = .ease,
@@ -167,8 +113,6 @@ extension Transition {
         )
     }
 
-    /// Factory method to create a transition with no transition effect
-    /// - Returns: A transition configured for no properties
     public static func none() -> Transition {
         .config(
             Configuration(
@@ -179,14 +123,6 @@ extension Transition {
         )
     }
 
-    /// Factory method to create a transition for a specific property
-    /// - Parameters:
-    ///   - propertyName: The name of the CSS property to transition
-    ///   - duration: The duration of the transition
-    ///   - timingFunction: The timing function (default is .ease)
-    ///   - delay: Optional delay before the transition starts
-    ///   - behavior: Optional behavior for discrete properties
-    /// - Returns: A transition configured for the specified property
     public static func custom(
         _ propertyName: String,
         duration: Time,

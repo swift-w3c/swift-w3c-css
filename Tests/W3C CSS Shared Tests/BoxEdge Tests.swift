@@ -1,13 +1,6 @@
-// BoxEdge Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS BoxEdge type
-
 import Testing
 
 @testable import W3C_CSS_Shared
-
-// MARK: - Main BoxEdge Values
 
 @Suite
 struct `BoxEdge - Main Values` {
@@ -59,8 +52,6 @@ struct `BoxEdge - RawValue Initialization` {
     }
 }
 
-// MARK: - Visual Subtype
-
 @Suite
 struct `BoxEdge.Visual - Values` {
     @Test(arguments: [
@@ -75,8 +66,6 @@ struct `BoxEdge.Visual - Values` {
         #expect(boxEdge.description == expected)
     }
 }
-
-// MARK: - Layout Subtype
 
 @Suite
 struct `BoxEdge.Layout - Values` {
@@ -94,8 +83,6 @@ struct `BoxEdge.Layout - Values` {
     }
 }
 
-// MARK: - Paint Subtype
-
 @Suite
 struct `BoxEdge.Paint - Values` {
     @Test(arguments: [
@@ -112,8 +99,6 @@ struct `BoxEdge.Paint - Values` {
         #expect(boxEdge.description == expected)
     }
 }
-
-// MARK: - Coordinate Subtype
 
 @Suite
 struct `BoxEdge.Coordinate - Values` {
@@ -133,8 +118,6 @@ struct `BoxEdge.Coordinate - Values` {
     }
 }
 
-// MARK: - Geometry Subtype
-
 @Suite
 struct `BoxEdge.Geometry - Values` {
     @Test(arguments: [
@@ -153,8 +136,6 @@ struct `BoxEdge.Geometry - Values` {
         #expect(boxEdge.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `BoxEdge - Hashable Conformance` {
@@ -186,8 +167,6 @@ struct `BoxEdge - Subtype Hashable Conformance` {
     }
 }
 
-// MARK: - RawValue Initialization Subtypes
-
 @Suite
 struct `BoxEdge - Subtype RawValue Initialization` {
     @Test func `visual subtype initializes from raw value`() {
@@ -205,8 +184,6 @@ struct `BoxEdge - Subtype RawValue Initialization` {
         #expect(invalidGeometry == nil)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `BoxEdge - Edge Cases` {
@@ -234,8 +211,6 @@ struct `BoxEdge - Edge Cases` {
         #expect(BoxEdge.Geometry.contentBox.description == "content-box")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

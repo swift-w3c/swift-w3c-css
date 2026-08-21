@@ -1,13 +1,6 @@
-// Resolution Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Resolution type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `Resolution - Unit Creation` {
@@ -77,8 +70,6 @@ struct `Resolution - Fractional Values` {
     }
 }
 
-// MARK: - Standard Resolution Constants
-
 @Suite
 struct `Resolution - Predefined Constants` {
     @Test func `standard resolution is 96 dpi`() {
@@ -100,8 +91,6 @@ struct `Resolution - Predefined Constants` {
     }
 }
 
-// MARK: - Unit Conversion
-
 @Suite
 struct `Resolution - DPI Conversions` {
     @Test func `dpi to dpcm conversion`() throws {
@@ -109,7 +98,7 @@ struct `Resolution - DPI Conversions` {
         let toDpcm = dpi.converted(to: .dpcm)
 
         #expect(toDpcm.unit == .dpcm)
-        #expect(toDpcm.value.rounded() == 38)  // 96/2.54 ≈ 37.8
+        #expect(toDpcm.value.rounded() == 38)
     }
 
     @Test func `dpi to dppx conversion`() throws {
@@ -117,7 +106,7 @@ struct `Resolution - DPI Conversions` {
         let toDppx = dpi.converted(to: .dppx)
 
         #expect(toDppx.unit == .dppx)
-        #expect(toDppx.value == 1)  // 96/96 = 1
+        #expect(toDppx.value == 1)
     }
 
     @Test func `dpi to x conversion`() throws {
@@ -125,7 +114,7 @@ struct `Resolution - DPI Conversions` {
         let toX = dpi.converted(to: .x)
 
         #expect(toX.unit == .x)
-        #expect(toX.value == 1)  // 96/96 = 1
+        #expect(toX.value == 1)
     }
 }
 
@@ -136,7 +125,7 @@ struct `Resolution - Other Unit Conversions` {
         let toDpi = dppx.converted(to: .dpi)
 
         #expect(toDpi.unit == .dpi)
-        #expect(toDpi.value == 192)  // 2*96 = 192
+        #expect(toDpi.value == 192)
     }
 
     @Test func `x to dpcm conversion`() throws {
@@ -144,7 +133,7 @@ struct `Resolution - Other Unit Conversions` {
         let xToDpcm = x.converted(to: .dpcm)
 
         #expect(xToDpcm.unit == .dpcm)
-        #expect(xToDpcm.value.rounded() == 113)  // 3*96/2.54 ≈ 113.4
+        #expect(xToDpcm.value.rounded() == 113)
     }
 }
 
@@ -160,8 +149,6 @@ struct `Resolution - Same Unit Conversion` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Resolution - Unit Hashable` {
     @Test func `resolution units conform to hashable`() {
@@ -172,8 +159,6 @@ struct `Resolution - Unit Hashable` {
         #expect(Resolution.Unit.dppx != Resolution.Unit.x)
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `Resolution - CSS Property Usage` {
@@ -197,8 +182,6 @@ struct `Resolution - CSS Property Usage` {
         #expect(media == "@media (min-resolution: 192dpi)")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Resolution - Edge Cases` {
@@ -232,8 +215,6 @@ struct `Resolution - Edge Cases` {
         #expect(try Resolution.dppx(3).description == "3dppx")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

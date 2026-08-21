@@ -1,13 +1,6 @@
-// BasicShape Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS BasicShape type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Inset Shape
 
 @Suite
 struct `BasicShape - Inset` {
@@ -45,8 +38,6 @@ struct `BasicShape - Inset` {
     }
 }
 
-// MARK: - XYWH Shape
-
 @Suite
 struct `BasicShape - XYWH` {
     @Test func `xywh without border radius renders correctly`() {
@@ -72,8 +63,6 @@ struct `BasicShape - XYWH` {
     }
 }
 
-// MARK: - Rect Shape
-
 @Suite
 struct `BasicShape - Rect` {
     @Test func `rect without border radius renders correctly`() {
@@ -98,8 +87,6 @@ struct `BasicShape - Rect` {
         #expect(rectWithRadius.description == "rect(10px 210px 110px 20px round 8px)")
     }
 }
-
-// MARK: - Circle Shape
 
 @Suite
 struct `BasicShape - Circle` {
@@ -132,8 +119,6 @@ struct `BasicShape - Circle` {
         #expect(emptyCircle.description == "circle()")
     }
 }
-
-// MARK: - Ellipse Shape
 
 @Suite
 struct `BasicShape - Ellipse` {
@@ -185,8 +170,6 @@ struct `BasicShape - Ellipse` {
         #expect(emptyEllipse.description == "ellipse()")
     }
 }
-
-// MARK: - Polygon Shape
 
 @Suite
 struct `BasicShape - Polygon` {
@@ -245,8 +228,6 @@ struct `BasicShape - Polygon` {
     }
 }
 
-// MARK: - Path Shape
-
 @Suite
 struct `BasicShape - Path` {
     @Test func `path without fill rule renders correctly`() {
@@ -263,8 +244,6 @@ struct `BasicShape - Path` {
     }
 }
 
-// MARK: - ShapeRadius
-
 @Suite
 struct `BasicShape - ShapeRadius` {
     @Test(arguments: [
@@ -277,8 +256,6 @@ struct `BasicShape - ShapeRadius` {
         #expect(radius.description == expected)
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `BasicShape - FillRule Hashable` {
@@ -316,8 +293,6 @@ struct `BasicShape - PolygonPoint Hashable` {
     }
 }
 
-// MARK: - Edge Cases
-
 @Suite
 struct `BasicShape - Edge Cases` {
     @Test func `polygon with single point`() {
@@ -337,8 +312,6 @@ struct `BasicShape - Edge Cases` {
         #expect(path.description == "path(\"\(complexPath)\")")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

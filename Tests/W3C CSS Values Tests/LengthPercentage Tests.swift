@@ -1,13 +1,6 @@
-// LengthPercentage Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS LengthPercentage type
-
 import Testing
 
 @testable import W3C_CSS_Values
-
-// MARK: - Basic Functionality
 
 @Suite
 struct `LengthPercentage - Length Values` {
@@ -61,8 +54,6 @@ struct `LengthPercentage - Calc Expressions` {
     }
 }
 
-// MARK: - Factory Methods
-
 @Suite
 struct `LengthPercentage - Factory Methods` {
     @Test func `px factory method with double`() {
@@ -105,8 +96,6 @@ struct `LengthPercentage - Factory Methods` {
     }
 }
 
-// MARK: - Literal Conformance
-
 @Suite
 struct `LengthPercentage - Integer Literal` {
     @Test func `integer literal creates px length`() {
@@ -122,8 +111,6 @@ struct `LengthPercentage - Float Literal` {
         #expect(lengthPercentage.description == "10.5px")
     }
 }
-
-// MARK: - Protocol Conformance
 
 @Suite
 struct `LengthPercentage - Hashable Conformance` {
@@ -143,8 +130,6 @@ struct `LengthPercentage - Hashable Conformance` {
         #expect(LengthPercentage.calc("50%") != LengthPercentage.percentage(50))
     }
 }
-
-// MARK: - Usage in Context
 
 @Suite
 struct `LengthPercentage - CSS Property Usage` {
@@ -168,8 +153,6 @@ struct `LengthPercentage - CSS Property Usage` {
         #expect(fontSize == "font-size: 1.2rem")
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `LengthPercentage - Edge Cases` {
@@ -198,8 +181,6 @@ struct `LengthPercentage - Edge Cases` {
         #expect(LengthPercentage.percentage(33.333333).description == "33.333333%")
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

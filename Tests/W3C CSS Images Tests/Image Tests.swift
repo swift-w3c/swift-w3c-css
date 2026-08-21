@@ -1,16 +1,9 @@
-// Image Tests.swift
-// swift-w3c-css
-//
-// Tests for CSS Image type
-
 import Testing
 import W3C_CSS_Color
 import W3C_CSS_Shared
 import W3C_CSS_Values
 
 @testable import W3C_CSS_Images
-
-// MARK: - URL Images
 
 @Suite
 struct `Image - URL Initialization` {
@@ -32,8 +25,6 @@ struct `Image - URL Initialization` {
         #expect(imageWithQuotes.description == #"url("\"path/to/image.jpg\"")"#)
     }
 }
-
-// MARK: - Gradient Images
 
 @Suite
 struct `Image - Linear Gradient` {
@@ -110,8 +101,6 @@ struct `Image - Conic Gradient` {
         #expect(conicGradient.description == "conic-gradient(from 45deg, red, yellow, blue)")
     }
 }
-
-// MARK: - Special Image Types
 
 @Suite
 struct `Image - Element Reference` {
@@ -218,8 +207,6 @@ struct `Image - None Value` {
     }
 }
 
-// MARK: - Protocol Conformance
-
 @Suite
 struct `Image - Hashable Conformance` {
     @Test func `equal URL images are equal`() {
@@ -291,8 +278,6 @@ struct `Image - Hashable Conformance` {
     }
 }
 
-// MARK: - Usage in Context
-
 @Suite
 struct `Image - CSS Property Usage` {
     @Test func `image renders correctly in background-image property`() {
@@ -311,8 +296,6 @@ struct `Image - CSS Property Usage` {
         #expect(listStyleImage == #"list-style-image: url("bullet.png")"#)
     }
 }
-
-// MARK: - Edge Cases
 
 @Suite
 struct `Image - Edge Cases` {
@@ -354,8 +337,6 @@ struct `Image - Edge Cases` {
         #expect(crossFade.description == #"cross-fade(100% url("old.jpg"), url("new.jpg"))"#)
     }
 }
-
-// MARK: - Performance
 
 extension `Performance Tests` {
     @Suite

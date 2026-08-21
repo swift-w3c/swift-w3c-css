@@ -3,13 +3,10 @@ public import W3C_CSS_Values
 
 public enum TextDecoration: Property {
 
-    /// No text decoration
     case none
 
-    /// Specified text decoration configuration
     case decoration(TextDecorationValue)
 
-    /// Single line decoration
     case line(
         TextDecorationLine,
         style: TextDecorationStyle? = nil,
@@ -17,7 +14,6 @@ public enum TextDecoration: Property {
         thickness: LengthPercentage? = nil
     )
 
-    /// Multiple line decorations
     case lines(
         [TextDecorationLine],
         style: TextDecorationStyle? = nil,
@@ -25,7 +21,6 @@ public enum TextDecoration: Property {
         thickness: LengthPercentage? = nil
     )
 
-    /// Global CSS values
     case global(Global)
 }
 
@@ -56,21 +51,16 @@ extension TextDecoration: CustomStringConvertible {
     }
 }
 
-/// Value to represent a text decoration configuration
 public struct TextDecorationValue: Sendable, Hashable, CustomStringConvertible {
-    /// The line type(s) to apply
+
     public let lines: [TextDecorationLine]
 
-    /// The style of the decoration (optional)
     public let style: TextDecorationStyle?
 
-    /// The color of the decoration (optional)
     public let color: Color?
 
-    /// The thickness of the decoration (optional)
     public let thickness: LengthPercentage?
 
-    /// Create a single-line text decoration
     public init(
         _ line: TextDecorationLine,
         style: TextDecorationStyle? = nil,
@@ -83,7 +73,6 @@ public struct TextDecorationValue: Sendable, Hashable, CustomStringConvertible {
         self.thickness = thickness
     }
 
-    /// Create a multi-line text decoration
     public init(
         _ lines: [TextDecorationLine],
         style: TextDecorationStyle? = nil,
@@ -169,8 +158,6 @@ extension TextDecoration {
     ) -> Self {
         .line(.value(.grammarError), style: style, color: color, thickness: thickness)
     }
-
-    // Static constants using defaults (nil)
 
     public static let underline: Self = .underline()
     public static let overline: Self = .overline()

@@ -1,39 +1,20 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-//
-// ScrollMarginInline.swift
-//
-
-/// The `scroll-margin-inline` CSS property is a shorthand property for setting the scroll-margin in the inline
-/// dimension. This property is not interpolable according to CSS standards.
-///
-/// Scroll snap areas are the parts of an element that are visually closest to the scroll container's
-/// snapport when the scroll position is manipulated.
-///
-/// ```css
-/// scroll-margin-inline: 10px;
-/// scroll-margin-inline: 1em 2em;
-/// scroll-margin-inline: 0;
-/// ```
 public enum ScrollMarginInline: Property, LengthConvertible, ExpressibleByIntegerLiteral,
     ExpressibleByFloatLiteral, CustomStringConvertible
 {
-    /// A single length value for both the start and end inlines
+
     case all(Length)
 
-    /// Two length values for start and end inline margins
     case startEnd(Length, Length)
 
-    /// Global CSS value
     case global(Global)
 
-    /// Creates a ScrollMarginInline using an integer literal (interpreted as pixels)
     public init(integerLiteral value: Int) {
         self = .all(.px(Double(value)))
     }
 
-    /// Creates a ScrollMarginInline using a floating-point literal (interpreted as pixels)
     public init(floatLiteral value: Double) {
         self = .all(.px(value))
     }
@@ -55,7 +36,6 @@ extension ScrollMarginInline {
         }
     }
 
-    /// Creates a ScrollMarginInline from a length value
     public static func length(_ length: Length) -> Self {
         .all(length)
     }
