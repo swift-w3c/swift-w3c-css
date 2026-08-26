@@ -1,4 +1,4 @@
-import Format_Primitives
+import Format_Primitive
 import IEEE_754
 
 public struct Number: Sendable, Hashable {

@@ -1,4 +1,4 @@
-import ASCII_Primitives
+import ASCII
 public import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 import W3C_CSS_Values

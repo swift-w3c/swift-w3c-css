@@ -1,4 +1,4 @@
-import Format_Primitives
+import Format_Primitive
 public import W3C_CSS_Values
 
 public enum FilterFunction: Sendable, Hashable {

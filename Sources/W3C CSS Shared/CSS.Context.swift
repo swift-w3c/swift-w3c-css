@@ -1,5 +1,5 @@
-import Format_Primitives
-public import Geometry_Primitives
+import Format_Primitive
+public import Geometry
 
 extension Geometry.Ball where N == 2, Scalar == Double, Space == W3C_CSS.Space {
 

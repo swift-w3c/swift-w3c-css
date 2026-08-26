@@ -1,4 +1,4 @@
-import Format_Primitives
+import Format_Primitive
 
 @dynamicMemberLookup
 public struct Percentage: Sendable, Hashable {

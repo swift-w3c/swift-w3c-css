@@ -1,4 +1,4 @@
-import Format_Primitives
+import Format_Primitive
 
 public enum Hue: Sendable, Hashable, AngleConvertible {
 

@@ -1,4 +1,4 @@
-import Format_Primitives
+import Format_Primitive
 
 public struct Ratio: Sendable, Hashable, Comparable {
 

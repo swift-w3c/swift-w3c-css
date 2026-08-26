@@ -1,4 +1,4 @@
-public import Geometry_Primitives
+public import Geometry
 
 public typealias GeometryTypeAlias = Geometry
 

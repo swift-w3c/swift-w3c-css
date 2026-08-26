@@ -1,4 +1,4 @@
-import ASCII_Primitives
+import ASCII
 public import W3C_CSS_Shared
 
 public struct Import: AtRule {
