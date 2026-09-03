@@ -2,120 +2,6 @@
 
 import PackageDescription
 
-extension String {
-
-    static let w3cCSSShared: Self = "W3C CSS Shared"
-    static let w3cCSSValues: Self = "W3C CSS Values"
-    static let w3cCSSColor: Self = "W3C CSS Color"
-    static let w3cCSSSyntax: Self = "W3C CSS Syntax"
-    static let w3cCSSCascade: Self = "W3C CSS Cascade"
-    static let w3cCSSSelectors: Self = "W3C CSS Selectors"
-    static let w3cCSSVariables: Self = "W3C CSS Variables"
-
-    static let w3cCSSDisplay: Self = "W3C CSS Display"
-    static let w3cCSSFlexbox: Self = "W3C CSS Flexbox"
-    static let w3cCSSGrid: Self = "W3C CSS Grid"
-    static let w3cCSSPositioning: Self = "W3C CSS Positioning"
-    static let w3cCSSMulticolumn: Self = "W3C CSS Multicolumn"
-    static let w3cCSSBoxModel: Self = "W3C CSS BoxModel"
-
-    static let w3cCSSText: Self = "W3C CSS Text"
-    static let w3cCSSFonts: Self = "W3C CSS Fonts"
-    static let w3cCSSTextDecoration: Self = "W3C CSS TextDecoration"
-    static let w3cCSSWritingModes: Self = "W3C CSS WritingModes"
-
-    static let w3cCSSBackgrounds: Self = "W3C CSS Backgrounds"
-    static let w3cCSSImages: Self = "W3C CSS Images"
-    static let w3cCSSTransforms: Self = "W3C CSS Transforms"
-    static let w3cCSSFilters: Self = "W3C CSS Filters"
-    static let w3cCSSMasking: Self = "W3C CSS Masking"
-    static let w3cCSSCompositing: Self = "W3C CSS Compositing"
-
-    static let w3cCSSAnimations: Self = "W3C CSS Animations"
-    static let w3cCSSTransitions: Self = "W3C CSS Transitions"
-    static let w3cCSSEasing: Self = "W3C CSS Easing"
-
-    static let w3cCSSConditional: Self = "W3C CSS Conditional"
-    static let w3cCSSMediaQueries: Self = "W3C CSS MediaQueries"
-
-    static let w3cCSSUI: Self = "W3C CSS UI"
-    static let w3cCSSPseudoElements: Self = "W3C CSS PseudoElements"
-    static let w3cCSSPseudoClasses: Self = "W3C CSS PseudoClasses"
-
-    static let w3cCSSContainment: Self = "W3C CSS Containment"
-    static let w3cCSSScroll: Self = "W3C CSS Scroll"
-    static let w3cCSSLogical: Self = "W3C CSS Logical"
-    static let w3cCSSAlignment: Self = "W3C CSS Alignment"
-
-    static let w3cCSSLists: Self = "W3C CSS Lists"
-    static let w3cCSSCounterStyles: Self = "W3C CSS CounterStyles"
-    static let w3cCSSPaged: Self = "W3C CSS Paged"
-
-    static let w3cCSSLayout: Self = "W3C CSS Layout"
-    static let w3cCSSTypography: Self = "W3C CSS Typography"
-    static let w3cCSSVisual: Self = "W3C CSS Visual"
-    static let w3cCSSAnimation: Self = "W3C CSS Animation"
-    static let w3cCSS: Self = "W3C CSS"
-
-    var tests: Self { "\(self) Tests" }
-}
-
-extension Target.Dependency {
-
-    static var w3cCSSShared: Self { .target(name: .w3cCSSShared) }
-    static var w3cCSSValues: Self { .target(name: .w3cCSSValues) }
-    static var w3cCSSColor: Self { .target(name: .w3cCSSColor) }
-    static var w3cCSSSyntax: Self { .target(name: .w3cCSSSyntax) }
-    static var w3cCSSCascade: Self { .target(name: .w3cCSSCascade) }
-    static var w3cCSSSelectors: Self { .target(name: .w3cCSSSelectors) }
-    static var w3cCSSVariables: Self { .target(name: .w3cCSSVariables) }
-
-    static var w3cCSSDisplay: Self { .target(name: .w3cCSSDisplay) }
-    static var w3cCSSFlexbox: Self { .target(name: .w3cCSSFlexbox) }
-    static var w3cCSSGrid: Self { .target(name: .w3cCSSGrid) }
-    static var w3cCSSPositioning: Self { .target(name: .w3cCSSPositioning) }
-    static var w3cCSSMulticolumn: Self { .target(name: .w3cCSSMulticolumn) }
-    static var w3cCSSBoxModel: Self { .target(name: .w3cCSSBoxModel) }
-
-    static var w3cCSSText: Self { .target(name: .w3cCSSText) }
-    static var w3cCSSFonts: Self { .target(name: .w3cCSSFonts) }
-    static var w3cCSSTextDecoration: Self { .target(name: .w3cCSSTextDecoration) }
-    static var w3cCSSWritingModes: Self { .target(name: .w3cCSSWritingModes) }
-
-    static var w3cCSSBackgrounds: Self { .target(name: .w3cCSSBackgrounds) }
-    static var w3cCSSImages: Self { .target(name: .w3cCSSImages) }
-    static var w3cCSSTransforms: Self { .target(name: .w3cCSSTransforms) }
-    static var w3cCSSFilters: Self { .target(name: .w3cCSSFilters) }
-    static var w3cCSSMasking: Self { .target(name: .w3cCSSMasking) }
-    static var w3cCSSCompositing: Self { .target(name: .w3cCSSCompositing) }
-
-    static var w3cCSSAnimations: Self { .target(name: .w3cCSSAnimations) }
-    static var w3cCSSTransitions: Self { .target(name: .w3cCSSTransitions) }
-    static var w3cCSSEasing: Self { .target(name: .w3cCSSEasing) }
-
-    static var w3cCSSConditional: Self { .target(name: .w3cCSSConditional) }
-    static var w3cCSSMediaQueries: Self { .target(name: .w3cCSSMediaQueries) }
-
-    static var w3cCSSUI: Self { .target(name: .w3cCSSUI) }
-    static var w3cCSSPseudoElements: Self { .target(name: .w3cCSSPseudoElements) }
-    static var w3cCSSPseudoClasses: Self { .target(name: .w3cCSSPseudoClasses) }
-
-    static var w3cCSSContainment: Self { .target(name: .w3cCSSContainment) }
-    static var w3cCSSScroll: Self { .target(name: .w3cCSSScroll) }
-    static var w3cCSSLogical: Self { .target(name: .w3cCSSLogical) }
-    static var w3cCSSAlignment: Self { .target(name: .w3cCSSAlignment) }
-
-    static var w3cCSSLists: Self { .target(name: .w3cCSSLists) }
-    static var w3cCSSCounterStyles: Self { .target(name: .w3cCSSCounterStyles) }
-    static var w3cCSSPaged: Self { .target(name: .w3cCSSPaged) }
-
-    static var w3cCSSLayout: Self { .target(name: .w3cCSSLayout) }
-    static var w3cCSSTypography: Self { .target(name: .w3cCSSTypography) }
-    static var w3cCSSVisual: Self { .target(name: .w3cCSSVisual) }
-    static var w3cCSSAnimation: Self { .target(name: .w3cCSSAnimation) }
-    static var w3cCSS: Self { .target(name: .w3cCSS) }
-}
-
 let package = Package(
     name: "swift-w3c-css",
     platforms: [
@@ -213,7 +99,7 @@ let package = Package(
         .target(
             name: "W3C CSS Values",
             dependencies: [
-                .w3cCSSShared,
+                .target(name: "W3C CSS Shared"),
                 .product(name: "IEEE 754", package: "swift-ieee-754"),
                 .product(name: "IEC 61966", package: "swift-iec-61966"),
                 .product(name: "RFC 4648", package: "swift-rfc-4648"),
@@ -222,229 +108,229 @@ let package = Package(
 
         .target(
             name: "W3C CSS Color",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSSyntax]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax")]
         ),
 
         .target(
             name: "W3C CSS Syntax",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Cascade",
-            dependencies: [.w3cCSSShared, .w3cCSSSyntax, .w3cCSSSelectors]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Syntax"), .target(name: "W3C CSS Selectors")]
         ),
 
         .target(
             name: "W3C CSS Selectors",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS Variables",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS Display",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Flexbox",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSAlignment]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Alignment")]
         ),
 
         .target(
             name: "W3C CSS Grid",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Positioning",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSSyntax]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax")]
         ),
 
         .target(
             name: "W3C CSS Multicolumn",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor, .w3cCSSBackgrounds]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Backgrounds")]
         ),
 
         .target(
             name: "W3C CSS BoxModel",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Text",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color")]
         ),
 
         .target(
             name: "W3C CSS Fonts",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSSyntax, .w3cCSSText]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax"), .target(name: "W3C CSS Text")]
         ),
 
         .target(
             name: "W3C CSS TextDecoration",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color")]
         ),
 
         .target(
             name: "W3C CSS WritingModes",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS Backgrounds",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor, .w3cCSSImages]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Images")]
         ),
 
         .target(
             name: "W3C CSS Images",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color")]
         ),
 
         .target(
             name: "W3C CSS Transforms",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Filters",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color")]
         ),
 
         .target(
             name: "W3C CSS Masking",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSImages, .w3cCSSPositioning]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Images"), .target(name: "W3C CSS Positioning")]
         ),
 
         .target(
             name: "W3C CSS Compositing",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS Animations",
-            dependencies: [.w3cCSSShared, .w3cCSSEasing, .w3cCSSMasking, .w3cCSSPositioning]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Easing"), .target(name: "W3C CSS Masking"), .target(name: "W3C CSS Positioning")]
         ),
 
         .target(
             name: "W3C CSS Transitions",
             dependencies: [
-                .w3cCSSShared, .w3cCSSValues, .w3cCSSEasing, .w3cCSSColor, .w3cCSSSyntax,
+                "W3C CSS Shared", "W3C CSS Values", "W3C CSS Easing", "W3C CSS Color", "W3C CSS Syntax",
             ]
         ),
 
         .target(
             name: "W3C CSS Easing",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Conditional",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS MediaQueries",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSSyntax]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax")]
         ),
 
         .target(
             name: "W3C CSS UI",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor, .w3cCSSBackgrounds]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Backgrounds")]
         ),
 
         .target(
             name: "W3C CSS PseudoElements",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS PseudoClasses",
-            dependencies: [.w3cCSSShared]
+            dependencies: [.target(name: "W3C CSS Shared")]
         ),
 
         .target(
             name: "W3C CSS Containment",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSLists]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Lists")]
         ),
 
         .target(
             name: "W3C CSS Scroll",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSColor]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color")]
         ),
 
         .target(
             name: "W3C CSS Logical",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Alignment",
-            dependencies: [.w3cCSSShared, .w3cCSSValues]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(
             name: "W3C CSS Lists",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSCounterStyles, .w3cCSSImages]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS CounterStyles"), .target(name: "W3C CSS Images")]
         ),
 
         .target(
             name: "W3C CSS CounterStyles",
-            dependencies: [.w3cCSSShared, .w3cCSSSyntax]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Syntax")]
         ),
 
         .target(
             name: "W3C CSS Paged",
-            dependencies: [.w3cCSSShared, .w3cCSSValues, .w3cCSSSyntax]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax")]
         ),
 
         .target(
             name: "W3C CSS Layout",
             dependencies: [
-                .w3cCSSDisplay,
-                .w3cCSSFlexbox,
-                .w3cCSSGrid,
-                .w3cCSSPositioning,
-                .w3cCSSMulticolumn,
-                .w3cCSSBoxModel,
-                .w3cCSSAlignment,
+                .target(name: "W3C CSS Display"),
+                .target(name: "W3C CSS Flexbox"),
+                .target(name: "W3C CSS Grid"),
+                .target(name: "W3C CSS Positioning"),
+                .target(name: "W3C CSS Multicolumn"),
+                .target(name: "W3C CSS BoxModel"),
+                .target(name: "W3C CSS Alignment"),
             ]
         ),
 
         .target(
             name: "W3C CSS Typography",
             dependencies: [
-                .w3cCSSText,
-                .w3cCSSFonts,
-                .w3cCSSTextDecoration,
-                .w3cCSSWritingModes,
+                .target(name: "W3C CSS Text"),
+                .target(name: "W3C CSS Fonts"),
+                .target(name: "W3C CSS TextDecoration"),
+                .target(name: "W3C CSS WritingModes"),
             ]
         ),
 
         .target(
             name: "W3C CSS Visual",
             dependencies: [
-                .w3cCSSBackgrounds,
-                .w3cCSSImages,
-                .w3cCSSTransforms,
-                .w3cCSSFilters,
-                .w3cCSSMasking,
-                .w3cCSSCompositing,
-                .w3cCSSPositioning,
+                .target(name: "W3C CSS Backgrounds"),
+                .target(name: "W3C CSS Images"),
+                .target(name: "W3C CSS Transforms"),
+                .target(name: "W3C CSS Filters"),
+                .target(name: "W3C CSS Masking"),
+                .target(name: "W3C CSS Compositing"),
+                .target(name: "W3C CSS Positioning"),
             ]
         ),
 
         .target(
             name: "W3C CSS Animation",
             dependencies: [
-                .w3cCSSAnimations,
-                .w3cCSSTransitions,
-                .w3cCSSEasing,
-                .w3cCSSPositioning,
+                .target(name: "W3C CSS Animations"),
+                .target(name: "W3C CSS Transitions"),
+                .target(name: "W3C CSS Easing"),
+                .target(name: "W3C CSS Positioning"),
             ]
         ),
 
@@ -452,304 +338,304 @@ let package = Package(
             name: "W3C CSS",
             dependencies: [
 
-                .w3cCSSShared,
-                .w3cCSSValues,
-                .w3cCSSColor,
-                .w3cCSSSyntax,
-                .w3cCSSCascade,
-                .w3cCSSSelectors,
-                .w3cCSSVariables,
+                .target(name: "W3C CSS Shared"),
+                .target(name: "W3C CSS Values"),
+                .target(name: "W3C CSS Color"),
+                .target(name: "W3C CSS Syntax"),
+                .target(name: "W3C CSS Cascade"),
+                .target(name: "W3C CSS Selectors"),
+                .target(name: "W3C CSS Variables"),
 
-                .w3cCSSLayout,
+                .target(name: "W3C CSS Layout"),
 
-                .w3cCSSTypography,
+                .target(name: "W3C CSS Typography"),
 
-                .w3cCSSVisual,
+                .target(name: "W3C CSS Visual"),
 
-                .w3cCSSAnimation,
+                .target(name: "W3C CSS Animation"),
 
-                .w3cCSSConditional,
-                .w3cCSSMediaQueries,
+                .target(name: "W3C CSS Conditional"),
+                .target(name: "W3C CSS MediaQueries"),
 
-                .w3cCSSUI,
-                .w3cCSSPseudoElements,
-                .w3cCSSPseudoClasses,
+                .target(name: "W3C CSS UI"),
+                .target(name: "W3C CSS PseudoElements"),
+                .target(name: "W3C CSS PseudoClasses"),
 
-                .w3cCSSContainment,
-                .w3cCSSScroll,
-                .w3cCSSLogical,
+                .target(name: "W3C CSS Containment"),
+                .target(name: "W3C CSS Scroll"),
+                .target(name: "W3C CSS Logical"),
 
-                .w3cCSSLists,
-                .w3cCSSCounterStyles,
-                .w3cCSSPaged,
+                .target(name: "W3C CSS Lists"),
+                .target(name: "W3C CSS CounterStyles"),
+                .target(name: "W3C CSS Paged"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Alignment Tests",
             dependencies: [
-                "W3C CSS Alignment",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Alignment"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Animations Tests",
             dependencies: [
-                "W3C CSS Animations",
-                "W3C CSS Values",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Animations"),
+                .target(name: "W3C CSS Values"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Backgrounds Tests",
             dependencies: [
-                "W3C CSS Backgrounds",
-                "W3C CSS Values",
+                .target(name: "W3C CSS Backgrounds"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS BoxModel Tests",
             dependencies: [
-                "W3C CSS BoxModel",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS BoxModel"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Cascade Tests",
             dependencies: [
-                "W3C CSS Cascade",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Cascade"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Color Tests",
             dependencies: [
-                "W3C CSS Color",
-                "W3C CSS Values",
+                .target(name: "W3C CSS Color"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Compositing Tests",
             dependencies: [
-                "W3C CSS Compositing",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Compositing"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Conditional Tests",
             dependencies: [
-                "W3C CSS Conditional",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Conditional"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Containment Tests",
             dependencies: [
-                "W3C CSS Containment",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Containment"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS CounterStyles Tests",
             dependencies: [
-                "W3C CSS CounterStyles",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS CounterStyles"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Display Tests",
             dependencies: [
-                "W3C CSS Display",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Display"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Easing Tests",
             dependencies: [
-                "W3C CSS Easing",
-                "W3C CSS Values",
+                .target(name: "W3C CSS Easing"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Filters Tests",
             dependencies: [
-                "W3C CSS Filters",
-                "W3C CSS Values",
+                .target(name: "W3C CSS Filters"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Flexbox Tests",
             dependencies: [
-                "W3C CSS Flexbox",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Flexbox"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Fonts Tests",
             dependencies: [
-                "W3C CSS Fonts",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Fonts"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Grid Tests",
             dependencies: [
-                "W3C CSS Grid",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Grid"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Images Tests",
             dependencies: [
-                "W3C CSS Images",
-                "W3C CSS Color",
-                "W3C CSS Values",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Images"),
+                .target(name: "W3C CSS Color"),
+                .target(name: "W3C CSS Values"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Lists Tests",
             dependencies: [
-                "W3C CSS Lists",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Lists"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Logical Tests",
             dependencies: [
-                "W3C CSS Logical",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Logical"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Masking Tests",
             dependencies: [
-                "W3C CSS Masking",
-                "W3C CSS Values",
+                .target(name: "W3C CSS Masking"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS MediaQueries Tests",
             dependencies: [
-                "W3C CSS MediaQueries",
-                "W3C CSS Values",
+                .target(name: "W3C CSS MediaQueries"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Multicolumn Tests",
             dependencies: [
-                "W3C CSS Multicolumn",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Multicolumn"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Paged Tests",
             dependencies: [
-                "W3C CSS Paged",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Paged"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Positioning Tests",
             dependencies: [
-                "W3C CSS Positioning",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Positioning"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS PseudoClasses Tests",
             dependencies: [
-                "W3C CSS PseudoClasses",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS PseudoClasses"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS PseudoElements Tests",
             dependencies: [
-                "W3C CSS PseudoElements",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS PseudoElements"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Scroll Tests",
             dependencies: [
-                "W3C CSS Scroll",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Scroll"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Selectors Tests",
             dependencies: [
-                "W3C CSS Selectors",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Selectors"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Shared Tests",
             dependencies: [
-                "W3C CSS Shared"
+                .target(name: "W3C CSS Shared")
             ]
         ),
         .testTarget(
             name: "W3C CSS Syntax Tests",
             dependencies: [
-                "W3C CSS Syntax",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Syntax"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Text Tests",
             dependencies: [
-                "W3C CSS Text",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Text"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS TextDecoration Tests",
             dependencies: [
-                "W3C CSS TextDecoration",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS TextDecoration"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Transforms Tests",
             dependencies: [
-                "W3C CSS Transforms",
-                "W3C CSS Values",
+                .target(name: "W3C CSS Transforms"),
+                .target(name: "W3C CSS Values"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Transitions Tests",
             dependencies: [
-                "W3C CSS Transitions",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Transitions"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS UI Tests",
             dependencies: [
-                "W3C CSS UI",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS UI"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Values Tests",
             dependencies: [
-                "W3C CSS Values",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Values"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS Variables Tests",
             dependencies: [
-                "W3C CSS Variables",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS Variables"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
         .testTarget(
             name: "W3C CSS WritingModes Tests",
             dependencies: [
-                "W3C CSS WritingModes",
-                "W3C CSS Shared",
+                .target(name: "W3C CSS WritingModes"),
+                .target(name: "W3C CSS Shared"),
             ]
         ),
     ],
