@@ -24,7 +24,7 @@ extension HexColor {
             Byte(UInt8(min(max(0, blue), 255))),
         ]
         let hexBytes: [ASCII.Code] = RFC_4648.Base16.encode(bytes, uppercase: true)
-        let hexString = "#" + String(decoding: hexBytes, as: UTF8.self)
+        let hexString = "#" + String(decoding: hexBytes.map(\.underlying), as: UTF8.self)
         return HexColor(hexString)
     }
 
@@ -41,7 +41,7 @@ extension HexColor {
             Byte(UInt8(alphaInt)),
         ]
         let hexBytes: [ASCII.Code] = RFC_4648.Base16.encode(bytes, uppercase: true)
-        let hexString = "#" + String(decoding: hexBytes, as: UTF8.self)
+        let hexString = "#" + String(decoding: hexBytes.map(\.underlying), as: UTF8.self)
         return HexColor(hexString)
     }
 
