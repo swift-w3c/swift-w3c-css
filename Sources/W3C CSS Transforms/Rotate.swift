@@ -44,7 +44,7 @@ extension Rotate {
 
         case .vector(let x, let y, let z, let angle):
             return
-                "\(x.formatted(.number)) \(y.formatted(.number)) \(z.formatted(.number)) \(angle.description)"
+                "\(x.formatted(Formatter.Number())) \(y.formatted(Formatter.Number())) \(z.formatted(Formatter.Number())) \(angle.description)"
 
         case .global(let global):
             return global.description

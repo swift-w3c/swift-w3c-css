@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 
 public struct Ratio: Sendable, Hashable, Comparable {
 
@@ -61,9 +61,9 @@ extension Ratio: CustomStringConvertible {
     public var description: String {
 
         if height == 1 {
-            return width.formatted(.number)
+            return width.formatted(Formatter.Number())
         } else {
-            return "\(width.formatted(.number)) / \(height.formatted(.number))"
+            return "\(width.formatted(Formatter.Number())) / \(height.formatted(Formatter.Number()))"
         }
     }
 }

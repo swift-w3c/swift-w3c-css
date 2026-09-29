@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 
 public enum Angle: Sendable, Hashable, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
 
@@ -38,16 +38,16 @@ extension Angle: CustomStringConvertible {
     public var description: String {
         switch self {
         case .deg(let value):
-            return "\(value.formatted(.number))deg"
+            return "\(value.formatted(Formatter.Number()))deg"
 
         case .rad(let value):
-            return "\(value.formatted(.number))rad"
+            return "\(value.formatted(Formatter.Number()))rad"
 
         case .grad(let value):
-            return "\(value.formatted(.number))grad"
+            return "\(value.formatted(Formatter.Number()))grad"
 
         case .turn(let value):
-            return "\(value.formatted(.number))turn"
+            return "\(value.formatted(Formatter.Number()))turn"
         }
     }
 }

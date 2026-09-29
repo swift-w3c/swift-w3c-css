@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 
 public enum Hue: Sendable, Hashable, AngleConvertible {
 
@@ -56,7 +56,7 @@ extension Hue: CustomStringConvertible {
     public var description: String {
         switch self {
         case .number(let number):
-            return number.value.formatted(.number)
+            return number.value.formatted(Formatter.Number())
 
         case .angle(let angle):
             return angle.description

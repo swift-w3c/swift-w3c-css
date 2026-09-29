@@ -33,13 +33,13 @@ extension GridAutoColumns {
             return "auto"
 
         case .px(let value):
-            return "\(value.formatted(.number))px"
+            return "\(value.formatted(Formatter.Number()))px"
 
         case .percentage(let percentage):
             return percentage.description
 
         case .fr(let value):
-            return "\(value.formatted(.number))fr"
+            return "\(value.formatted(Formatter.Number()))fr"
 
         case .minContent:
             return "min-content"
@@ -84,13 +84,13 @@ extension MinMaxValue {
             return "auto"
 
         case .px(let value):
-            return "\(value.formatted(.number))px"
+            return "\(value.formatted(Formatter.Number()))px"
 
         case .percentage(let percentage):
             return percentage.description
 
         case .fr(let value):
-            return "\(value.formatted(.number))fr"
+            return "\(value.formatted(Formatter.Number()))fr"
 
         case .minContent:
             return "min-content"

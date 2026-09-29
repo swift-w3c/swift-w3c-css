@@ -48,34 +48,34 @@ extension Color: CustomStringConvertible {
             return "rgb(\(r), \(g), \(b))"
 
         case .rgba(let r, let g, let b, let a):
-            return "rgba(\(r), \(g), \(b), \(a.formatted(.number)))"
+            return "rgba(\(r), \(g), \(b), \(a.formatted(Formatter.Number())))"
 
         case .hsl(let h, let s, let l):
-            return "hsl(\(h), \(s.formatted(.number))%, \(l.formatted(.number))%)"
+            return "hsl(\(h), \(s.formatted(Formatter.Number()))%, \(l.formatted(Formatter.Number()))%)"
 
         case .hsla(let h, let s, let l, let a):
             return
-                "hsla(\(h), \(s.formatted(.number))%, \(l.formatted(.number))%, \(a.formatted(.number)))"
+                "hsla(\(h), \(s.formatted(Formatter.Number()))%, \(l.formatted(Formatter.Number()))%, \(a.formatted(Formatter.Number())))"
 
         case .hwb(let h, let w, let b):
-            return "hwb(\(h) \(w.formatted(.number))% \(b.formatted(.number))%)"
+            return "hwb(\(h) \(w.formatted(Formatter.Number()))% \(b.formatted(Formatter.Number()))%)"
 
         case .lab(let l, let a, let b):
-            return "lab(\(l.formatted(.number))% \(a.formatted(.number)) \(b.formatted(.number)))"
+            return "lab(\(l.formatted(Formatter.Number()))% \(a.formatted(Formatter.Number())) \(b.formatted(Formatter.Number())))"
 
         case .lch(let l, let c, let h):
-            return "lch(\(l.formatted(.number))% \(c.formatted(.number)) \(h.formatted(.number)))"
+            return "lch(\(l.formatted(Formatter.Number()))% \(c.formatted(Formatter.Number())) \(h.formatted(Formatter.Number())))"
 
         case .oklab(let l, let a, let b):
-            return "oklab(\(l.formatted(.number)) \(a.formatted(.number)) \(b.formatted(.number)))"
+            return "oklab(\(l.formatted(Formatter.Number())) \(a.formatted(Formatter.Number())) \(b.formatted(Formatter.Number())))"
 
         case .oklch(let l, let c, let h):
-            return "oklch(\(l.formatted(.number)) \(c.formatted(.number)) \(h.formatted(.number)))"
+            return "oklch(\(l.formatted(Formatter.Number())) \(c.formatted(Formatter.Number())) \(h.formatted(Formatter.Number())))"
 
         case .mix(let method, let color1, let color2, let percentage):
             if let percentage {
                 return
-                    "color-mix(\(method), \(color1), \(color2) \(percentage.formatted(.number))%)"
+                    "color-mix(\(method), \(color1), \(color2) \(percentage.formatted(Formatter.Number()))%)"
             } else {
                 return "color-mix(\(method), \(color1), \(color2))"
             }

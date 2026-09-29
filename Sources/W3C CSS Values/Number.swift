@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 import IEEE_754
 
 public struct Number: Sendable, Hashable {
@@ -89,6 +89,6 @@ extension Number {
 extension Number: CustomStringConvertible {
 
     public var description: String {
-        return value.formatted(.number)
+        return value.formatted(Formatter.Number())
     }
 }

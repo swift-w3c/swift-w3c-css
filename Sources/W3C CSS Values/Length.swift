@@ -218,7 +218,7 @@ extension Length: CustomStringConvertible {
     public var description: String {
         switch self {
         case .length(let value, let unit):
-            return "\(value.formatted(.number))\(unit.rawValue)"
+            return "\(value.formatted(Formatter.Number()))\(unit.rawValue)"
 
         case .keyword(let keyword):
             return keyword.rawValue

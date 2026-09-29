@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 public import W3C_CSS_Values
 
 public enum FilterFunction: Sendable, Hashable {
@@ -84,7 +84,7 @@ extension FilterFunction: CustomStringConvertible {
             return percentage.description
         } else {
 
-            return value.formatted(.number)
+            return value.formatted(Formatter.Number())
         }
     }
 }

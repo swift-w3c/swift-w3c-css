@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 
 public struct Resolution: Sendable, Hashable {
 
@@ -97,6 +97,6 @@ extension Resolution {
 extension Resolution: CustomStringConvertible {
 
     public var description: String {
-        return "\(value.formatted(.number))\(unit.rawValue)"
+        return "\(value.formatted(Formatter.Number()))\(unit.rawValue)"
     }
 }

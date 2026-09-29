@@ -29,7 +29,7 @@ extension FloodOpacity {
     public var description: String {
         switch self {
         case .number(let number):
-            return max(0, min(1, number.value)).formatted(.number)
+            return max(0, min(1, number.value)).formatted(Formatter.Number())
 
         case .percentage(let percentage):
             return percentage.description

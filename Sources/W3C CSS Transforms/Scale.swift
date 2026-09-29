@@ -30,13 +30,13 @@ extension Scale {
         case .none: return "none"
 
         case .single(let value):
-            return value.formatted(.number)
+            return value.formatted(Formatter.Number())
 
         case .xy(let x, let y):
-            return "\(x.formatted(.number)) \(y.formatted(.number))"
+            return "\(x.formatted(Formatter.Number())) \(y.formatted(Formatter.Number()))"
 
         case .xyz(let x, let y, let z):
-            return "\(x.formatted(.number)) \(y.formatted(.number)) \(z.formatted(.number))"
+            return "\(x.formatted(Formatter.Number())) \(y.formatted(Formatter.Number())) \(z.formatted(Formatter.Number()))"
 
         case .global(let global):
             return global.description

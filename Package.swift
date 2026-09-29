@@ -69,20 +69,19 @@ let package = Package(
     dependencies: [
         .package(url: "https://github.com/swift-w3c/swift-w3c-cssom.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-molecules/swift-format.git",
-            branch: "main"
-        ),
+            url: "https://github.com/swift-atoms/swift-formatter.git",
+            branch: "main", traits: ["Number", "Conversions", "Tagged"]),
         .package(
-            url: "https://github.com/swift-molecules/swift-geometry.git",
-            branch: "main"
-        ),
+            url: "https://github.com/swift-atoms/swift-geometry.git",
+            branch: "main", traits: ["Affine"]),
         .package(url: "https://github.com/swift-ieee/swift-ieee-754.git", branch: "main"),
         .package(url: "https://github.com/swift-iec/swift-iec-61966.git", branch: "main"),
         .package(
-            url: "https://github.com/swift-molecules/swift-ascii.git",
+            url: "https://github.com/swift-atoms/swift-ascii.git",
             branch: "main"
         ),
         .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-linear.git", branch: "main"),
     ],
     targets: [
 
@@ -91,8 +90,9 @@ let package = Package(
             dependencies: [
                 .product(name: "W3C CSSOM", package: "swift-w3c-cssom"),
                 .product(name: "ASCII", package: "swift-ascii"),
-                .product(name: "Format Primitive", package: "swift-format"),
+                .product(name: "Formatter", package: "swift-formatter"),
                 .product(name: "Geometry", package: "swift-geometry"),
+                .product(name: "Linear", package: "swift-linear"),
             ]
         ),
 

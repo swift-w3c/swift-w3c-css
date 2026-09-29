@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 
 @dynamicMemberLookup
 public struct Percentage: Sendable, Hashable {
@@ -30,7 +30,7 @@ extension Percentage {
 extension Percentage: CustomStringConvertible {
 
     public var description: String {
-        return "\(value.formatted(.number))%"
+        return "\(value.formatted(Formatter.Number()))%"
     }
 }
 

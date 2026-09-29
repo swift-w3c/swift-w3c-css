@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 
 public struct Time: Sendable, Hashable {
 
@@ -81,7 +81,7 @@ extension Time {
 extension Time: CustomStringConvertible {
 
     public var description: String {
-        return "\(value.formatted(.number))\(unit.rawValue)"
+        return "\(value.formatted(Formatter.Number()))\(unit.rawValue)"
     }
 }
 

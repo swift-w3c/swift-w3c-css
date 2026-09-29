@@ -83,7 +83,7 @@ extension FilterFunction: CustomStringConvertible {
             return percentage.description
         } else {
 
-            return value.formatted(.number)
+            return value.formatted(Formatter.Number())
         }
     }
 }

@@ -119,13 +119,13 @@ extension GridTrackSize {
             "auto"
 
         case .px(let value):
-            value.formatted(.number) + "px"
+            value.formatted(Formatter.Number()) + "px"
 
         case .percentage(let percentage):
             percentage.description
 
         case .fr(let value):
-            value.formatted(.number) + "fr"
+            value.formatted(Formatter.Number()) + "fr"
 
         case .minContent:
             "min-content"

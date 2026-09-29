@@ -1,4 +1,4 @@
-import Format_Primitive
+import Formatter
 public import Geometry
 
 extension Geometry.Ball where N == 2, Scalar == Double, Space == W3C_CSS.Space {
@@ -15,7 +15,7 @@ extension Geometry.Ball where N == 2, Scalar == Double, Space == W3C_CSS.Space {
         public var clipPath: String? {
             guard circle.radius.underlying >= 0 else { return nil }
             return
-                "circle(\(circle.radius.formatted(.number))px at \(circle.center.x.formatted(.number))px \(circle.center.y.formatted(.number))px)"
+                "circle(\(circle.radius.formatted(Formatter.Number()))px at \(circle.center.x.formatted(Formatter.Number()))px \(circle.center.y.formatted(Formatter.Number()))px)"
         }
     }
 }
@@ -42,7 +42,7 @@ extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Sp
             let right = referenceWidth - (rectangle.llx.underlying + rectangle.width.underlying)
 
             return
-                "inset(\(top.formatted(.number))px \(right.formatted(.number))px \(bottom.formatted(.number))px \(left.formatted(.number))px)"
+                "inset(\(top.formatted(Formatter.Number()))px \(right.formatted(Formatter.Number()))px \(bottom.formatted(Formatter.Number()))px \(left.formatted(Formatter.Number()))px)"
         }
 
         public var xywh: String? {
@@ -50,7 +50,7 @@ extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Sp
                 return nil
             }
             return
-                "xywh(\(rectangle.llx.formatted(.number))px \(rectangle.lly.formatted(.number))px \(rectangle.width.formatted(.number))px \(rectangle.height.formatted(.number))px)"
+                "xywh(\(rectangle.llx.formatted(Formatter.Number()))px \(rectangle.lly.formatted(Formatter.Number()))px \(rectangle.width.formatted(Formatter.Number()))px \(rectangle.height.formatted(Formatter.Number()))px)"
         }
     }
 }
@@ -71,7 +71,7 @@ extension Geometry.Ellipse where Scalar == Double, Space == W3C_CSS.Space {
                 return nil
             }
             return
-                "ellipse(\(ellipse.semiMajor.formatted(.number))px \(ellipse.semiMinor.formatted(.number))px at \(ellipse.center.x.formatted(.number))px \(ellipse.center.y.formatted(.number))px)"
+                "ellipse(\(ellipse.semiMajor.formatted(Formatter.Number()))px \(ellipse.semiMinor.formatted(Formatter.Number()))px at \(ellipse.center.x.formatted(Formatter.Number()))px \(ellipse.center.y.formatted(Formatter.Number()))px)"
         }
     }
 }
@@ -89,7 +89,7 @@ extension Geometry.Polygon where Scalar == Double, Space == W3C_CSS.Space {
 
         public var clipPath: String {
             let pointsStr = polygon.vertices.map { vertex in
-                "\(vertex.x.formatted(.number))px \(vertex.y.formatted(.number))px"
+                "\(vertex.x.formatted(Formatter.Number()))px \(vertex.y.formatted(Formatter.Number()))px"
             }.joined(separator: ", ")
             return "polygon(\(pointsStr))"
         }
@@ -119,27 +119,27 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                     d += " M"
                 }
                 d +=
-                    " \(subpath.startPoint.x.formatted(.number)) \(subpath.startPoint.y.formatted(.number))"
+                    " \(subpath.startPoint.x.formatted(Formatter.Number())) \(subpath.startPoint.y.formatted(Formatter.Number()))"
 
                 for segment in subpath.segments {
                     switch segment {
                     case .line(let seg):
-                        d += " L \(seg.end.x.formatted(.number)) \(seg.end.y.formatted(.number))"
+                        d += " L \(seg.end.x.formatted(Formatter.Number())) \(seg.end.y.formatted(Formatter.Number()))"
 
                     case .bezier(let bez):
 
                         switch bez.controlPoints.count {
                         case 2:
                             if let end = bez.controlPoints.last {
-                                d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
+                                d += " L \(end.x.formatted(Formatter.Number())) \(end.y.formatted(Formatter.Number()))"
                             }
 
                         case 3:
                             if bez.controlPoints.count >= 3 {
                                 let cp = bez.controlPoints[1]
                                 let end = bez.controlPoints[2]
-                                d += " Q \(cp.x.formatted(.number)) \(cp.y.formatted(.number))"
-                                d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
+                                d += " Q \(cp.x.formatted(Formatter.Number())) \(cp.y.formatted(Formatter.Number()))"
+                                d += " \(end.x.formatted(Formatter.Number())) \(end.y.formatted(Formatter.Number()))"
                             }
 
                         case 4:
@@ -147,27 +147,27 @@ extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
                                 let cp1 = bez.controlPoints[1]
                                 let cp2 = bez.controlPoints[2]
                                 let end = bez.controlPoints[3]
-                                d += " C \(cp1.x.formatted(.number)) \(cp1.y.formatted(.number))"
-                                d += " \(cp2.x.formatted(.number)) \(cp2.y.formatted(.number))"
-                                d += " \(end.x.formatted(.number)) \(end.y.formatted(.number))"
+                                d += " C \(cp1.x.formatted(Formatter.Number())) \(cp1.y.formatted(Formatter.Number()))"
+                                d += " \(cp2.x.formatted(Formatter.Number())) \(cp2.y.formatted(Formatter.Number()))"
+                                d += " \(end.x.formatted(Formatter.Number())) \(end.y.formatted(Formatter.Number()))"
                             }
 
                         default:
 
                             if let end = bez.controlPoints.last {
-                                d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
+                                d += " L \(end.x.formatted(Formatter.Number())) \(end.y.formatted(Formatter.Number()))"
                             }
                         }
 
                     case .arc(let arc):
 
                         let end = arc.endPoint
-                        d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
+                        d += " L \(end.x.formatted(Formatter.Number())) \(end.y.formatted(Formatter.Number()))"
 
                     case .ellipticalArc(let arc):
 
                         let end = arc.endPoint
-                        d += " L \(end.x.formatted(.number)) \(end.y.formatted(.number))"
+                        d += " L \(end.x.formatted(Formatter.Number())) \(end.y.formatted(Formatter.Number()))"
                     }
                 }
 

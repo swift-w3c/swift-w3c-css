@@ -35,7 +35,7 @@ extension LineHeight {
         case .multiple(let factor):
 
             let nonNegative = max(0, factor)
-            return nonNegative.formatted(.number)
+            return nonNegative.formatted(Formatter.Number())
 
         case .global(let value):
             return value.description

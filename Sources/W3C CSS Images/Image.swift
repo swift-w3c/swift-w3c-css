@@ -32,7 +32,7 @@ extension Image: CustomStringConvertible {
             return "element(#\(id))"
 
         case .crossFade(let percentage, let from, let to):
-            return "cross-fade(\(percentage.value.formatted(.number))% \(from), \(to))"
+            return "cross-fade(\(percentage.value.formatted(Formatter.Number()))% \(from), \(to))"
 
         case .imageSet(let images):
             let imageParts = images.map { "\($0.url.description) \($0.resolution)" }
