@@ -4,7 +4,7 @@ public import W3C_CSS_Values
 
 public enum ColumnRuleColor: Property, ColorConvertible, GlobalConvertible {
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case global(Global)
 }
@@ -12,7 +12,7 @@ public enum ColumnRuleColor: Property, ColorConvertible, GlobalConvertible {
 extension ColumnRuleColor {
     public static let property: String = "column-rule-color"
 
-    public static func rule(_ color: W3C_CSS_Values.Color) -> ColumnRuleColor {
+    public static func rule(_ color: W3C_CSS_Values::Color) -> ColumnRuleColor {
         return .color(color)
     }
 

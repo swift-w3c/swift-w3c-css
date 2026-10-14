@@ -35,7 +35,7 @@ extension Transition {
 
     public typealias Behavior = TransitionBehavior
 
-    public typealias Time = W3C_CSS_Values.Time
+    public typealias Time = W3C_CSS_Values::Time
 
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
 

@@ -56,7 +56,6 @@ extension W3C_CSS {
 
 extension W3C_CSS {
 
-    /// Homogeneous column-vector matrix in CSS coordinate space.
     public typealias AffineTransform = Linear<Double, W3C_CSS.Space>.Matrix<3, 3>
 }
 

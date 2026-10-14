@@ -6,7 +6,7 @@ public enum CaretColor: Property, ColorConvertible {
 
     case auto
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case global(Global)
 }

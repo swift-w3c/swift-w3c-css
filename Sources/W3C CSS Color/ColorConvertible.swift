@@ -1,7 +1,7 @@
 public import W3C_CSS_Values
 
 public protocol ColorConvertible {
-    static func color(_ color: W3C_CSS_Values.Color) -> Self
+    static func color(_ color: W3C_CSS_Values::Color) -> Self
 }
 
 extension ColorConvertible {

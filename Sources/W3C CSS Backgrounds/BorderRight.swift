@@ -15,11 +15,11 @@ public enum BorderRight: Property {
         self = .properties(Properties(width: width, style: style))
     }
 
-    public init(_ style: LineStyle, _ color: W3C_CSS_Values.Color) {
+    public init(_ style: LineStyle, _ color: W3C_CSS_Values::Color) {
         self = .properties(Properties(style: style, color: color))
     }
 
-    public init(_ width: BorderWidth, _ style: LineStyle, _ color: W3C_CSS_Values.Color) {
+    public init(_ width: BorderWidth, _ style: LineStyle, _ color: W3C_CSS_Values::Color) {
         self = .properties(Properties(width: width, style: style, color: color))
     }
 

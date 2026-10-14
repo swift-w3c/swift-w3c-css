@@ -4,11 +4,11 @@ public import W3C_CSS_Values
 
 public enum BorderInlineColor: Property, ColorConvertible {
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case global(Global)
 
-    public init(_ color: W3C_CSS_Values.Color) {
+    public init(_ color: W3C_CSS_Values::Color) {
         self = .color(color)
     }
 }

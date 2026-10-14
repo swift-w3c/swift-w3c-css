@@ -19,7 +19,7 @@ public struct Resolution: Sendable, Hashable {
 
 extension Resolution {
 
-    public enum ResolutionError: Swift.Error, Sendable {
+    public enum ResolutionError: Swift::Error, Sendable {
         case invalidValue(String)
     }
 

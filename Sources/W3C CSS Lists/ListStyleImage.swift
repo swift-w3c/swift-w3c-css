@@ -34,7 +34,7 @@ extension ListStyleImage {
         return .image(.url(url))
     }
 
-    public static func linearGradient(_ stops: [W3C_CSS_Values.Color]) -> ListStyleImage {
+    public static func linearGradient(_ stops: [W3C_CSS_Values::Color]) -> ListStyleImage {
         return .image(.linearGradient(stops))
     }
 }

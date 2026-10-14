@@ -44,7 +44,7 @@ extension BoxShadow {
 
         public let spreadRadius: Length?
 
-        public let color: W3C_CSS_Values.Color?
+        public let color: W3C_CSS_Values::Color?
 
         public let isInset: Bool
 
@@ -53,7 +53,7 @@ extension BoxShadow {
             offsetY: Length,
             blurRadius: Length? = nil,
             spreadRadius: Length? = nil,
-            color: W3C_CSS_Values.Color? = nil,
+            color: W3C_CSS_Values::Color? = nil,
             isInset: Bool = false
         ) {
             self.offsetX = offsetX

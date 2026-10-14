@@ -6,7 +6,7 @@ public enum ScrollbarColor: Property {
 
     case auto
 
-    case colors(thumb: W3C_CSS_Values.Color, track: W3C_CSS_Values.Color)
+    case colors(thumb: W3C_CSS_Values::Color, track: W3C_CSS_Values::Color)
 
     case global(Global)
 

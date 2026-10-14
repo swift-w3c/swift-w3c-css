@@ -35,7 +35,7 @@ extension Property {
         addDescriptor("initial-value: \(value)")
     }
 
-    public func initialValue(_ value: W3C_CSS_Values.Color) -> Property {
+    public func initialValue(_ value: W3C_CSS_Values::Color) -> Property {
         addDescriptor("initial-value: \(value)")
     }
 

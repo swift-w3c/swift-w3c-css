@@ -11,7 +11,7 @@ public enum Background: Property, ColorConvertible {
 
     case layers([Layer])
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case global(Global)
 }
@@ -38,7 +38,7 @@ extension Background {
 
         public var clip: BackgroundClip?
 
-        public var color: W3C_CSS_Values.Color?
+        public var color: W3C_CSS_Values::Color?
 
         public init(
             image: Image? = nil,
@@ -48,7 +48,7 @@ extension Background {
             attachment: BackgroundAttachment? = nil,
             origin: BackgroundOrigin? = nil,
             clip: BackgroundClip? = nil,
-            color: W3C_CSS_Values.Color? = nil
+            color: W3C_CSS_Values::Color? = nil
         ) {
             self.image = image
             self.position = position
@@ -64,7 +64,7 @@ extension Background {
 
 extension Background.Layer {
 
-    public static func color(_ color: W3C_CSS_Values.Color) -> Background.Layer {
+    public static func color(_ color: W3C_CSS_Values::Color) -> Background.Layer {
         Background.Layer(color: color)
     }
 

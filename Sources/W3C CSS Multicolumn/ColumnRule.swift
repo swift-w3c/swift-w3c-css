@@ -5,11 +5,11 @@ public import W3C_CSS_Values
 
 public enum ColumnRule: Property, LineStyleConvertible {
 
-    case full(LineStyle, BorderWidth.Width, W3C_CSS_Values.Color?)
+    case full(LineStyle, BorderWidth.Width, W3C_CSS_Values::Color?)
 
     case styleWidth(LineStyle, BorderWidth.Width)
 
-    case styleColor(LineStyle, W3C_CSS_Values.Color)
+    case styleColor(LineStyle, W3C_CSS_Values::Color)
 
     case lineStyle(LineStyle)
 
@@ -22,7 +22,7 @@ extension ColumnRule {
     public static func rule(
         _ style: LineStyle,
         _ width: BorderWidth.Width,
-        _ color: W3C_CSS_Values.Color? = nil
+        _ color: W3C_CSS_Values::Color? = nil
     ) -> ColumnRule {
         return .full(style, width, color)
     }
@@ -31,7 +31,7 @@ extension ColumnRule {
         return .styleWidth(style, width)
     }
 
-    public static func rule(_ style: LineStyle, _ color: W3C_CSS_Values.Color) -> ColumnRule {
+    public static func rule(_ style: LineStyle, _ color: W3C_CSS_Values::Color) -> ColumnRule {
         return .styleColor(style, color)
     }
 

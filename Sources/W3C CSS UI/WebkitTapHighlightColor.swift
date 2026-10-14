@@ -4,7 +4,7 @@ public import W3C_CSS_Values
 
 public enum WebkitTapHighlightColor: Property, ColorConvertible {
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case transparent
 
@@ -33,7 +33,7 @@ extension WebkitTapHighlightColor {
     public static let `default` = WebkitTapHighlightColor.color(.named(.black))
 
     public static func alpha(
-        _ color: W3C_CSS_Values.Color,
+        _ color: W3C_CSS_Values::Color,
         opacity: Double
     ) -> WebkitTapHighlightColor {
 

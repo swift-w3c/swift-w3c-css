@@ -25,7 +25,7 @@ extension WebkitTextStroke {
 
     public enum StrokeColor: Sendable, Hashable, CustomStringConvertible, ColorConvertible {
 
-        case color(W3C_CSS_Values.Color)
+        case color(W3C_CSS_Values::Color)
 
         case currentColor
     }
@@ -34,7 +34,7 @@ extension WebkitTextStroke {
         .stroke(width: width)
     }
 
-    public static func color(_ color: W3C_CSS_Values.Color) -> WebkitTextStroke {
+    public static func color(_ color: W3C_CSS_Values::Color) -> WebkitTextStroke {
         .stroke(color: .color(color))
     }
 

@@ -219,7 +219,7 @@ let package = Package(
         .target(
             name: "W3C CSS Transitions",
             dependencies: [
-                "W3C CSS Shared", "W3C CSS Values", "W3C CSS Easing", "W3C CSS Color", "W3C CSS Syntax",
+                .target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Easing"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Syntax"),
             ]
         ),
 

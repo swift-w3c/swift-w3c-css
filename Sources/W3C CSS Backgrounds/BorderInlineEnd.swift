@@ -21,7 +21,7 @@ extension BorderInlineEnd {
     public static func all(
         _ width: BorderWidth.Width,
         _ style: LineStyle,
-        _ color: W3C_CSS_Values.Color
+        _ color: W3C_CSS_Values::Color
     ) -> BorderInlineEnd {
         .properties(width: width, style: style, color: color)
     }
@@ -33,7 +33,7 @@ extension BorderInlineEnd {
         self = .style(style)
     }
 
-    public init(_ width: BorderWidth.Width, _ style: LineStyle, _ color: W3C_CSS_Values.Color) {
+    public init(_ width: BorderWidth.Width, _ style: LineStyle, _ color: W3C_CSS_Values::Color) {
         self = .all(width, style, color)
     }
 

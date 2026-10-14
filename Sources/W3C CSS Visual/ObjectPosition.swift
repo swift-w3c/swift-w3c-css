@@ -4,7 +4,7 @@ public import W3C_CSS_Values
 
 public enum ObjectPosition: Property, LengthPercentageConvertible {
 
-    case keyword(W3C_CSS_Values.Position.Keyword)
+    case keyword(W3C_CSS_Values::Position.Keyword)
 
     case oneValue(Value)
 
@@ -22,7 +22,7 @@ extension ObjectPosition {
 
     public enum Value: Sendable, Hashable, LengthPercentageConvertible {
 
-        case keyword(W3C_CSS_Values.Position.Keyword)
+        case keyword(W3C_CSS_Values::Position.Keyword)
 
         case lengthPercentage(LengthPercentage)
     }
@@ -35,7 +35,7 @@ extension ObjectPosition {
         .twoValues(horizontal, vertical)
     }
 
-    public static func objectPosition(_ position: W3C_CSS_Values.Position.Keyword) -> ObjectPosition
+    public static func objectPosition(_ position: W3C_CSS_Values::Position.Keyword) -> ObjectPosition
     {
         .keyword(position)
     }

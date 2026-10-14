@@ -88,7 +88,7 @@ extension StartingStyle {
         transform("scaleY(\(value))")
     }
 
-    public func backgroundColor(_ value: W3C_CSS_Values.Color) -> StartingStyle {
+    public func backgroundColor(_ value: W3C_CSS_Values::Color) -> StartingStyle {
         declaration("background-color", value.description)
     }
 }

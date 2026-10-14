@@ -81,7 +81,7 @@ extension Gradient {
 
         public let position: LengthPercentage?
 
-        public init(_ color: W3C_CSS_Values.Color, at position: LengthPercentage? = nil) {
+        public init(_ color: W3C_CSS_Values::Color, at position: LengthPercentage? = nil) {
             self.color = color
             self.position = position
         }

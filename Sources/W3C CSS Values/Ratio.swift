@@ -34,7 +34,7 @@ public struct Ratio: Sendable, Hashable, Comparable {
 
 extension Ratio {
 
-    public enum RatioError: Swift.Error, Sendable {
+    public enum RatioError: Swift::Error, Sendable {
         case invalidValue(String)
     }
 

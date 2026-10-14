@@ -8,7 +8,7 @@ public enum WebkitBorderBefore: Property {
     case properties(
         width: BorderWidth? = nil,
         style: LineStyle? = nil,
-        color: W3C_CSS_Values.Color? = nil
+        color: W3C_CSS_Values::Color? = nil
     )
 
     case global(Global)
@@ -16,7 +16,7 @@ public enum WebkitBorderBefore: Property {
     public init(
         width: BorderWidth? = nil,
         style: LineStyle? = nil,
-        color: W3C_CSS_Values.Color? = nil
+        color: W3C_CSS_Values::Color? = nil
     ) {
         self = .properties(width: width, style: style, color: color)
     }

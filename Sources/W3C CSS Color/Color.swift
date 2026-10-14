@@ -3,7 +3,7 @@ public import W3C_CSS_Values
 
 public enum Color: Property, ColorConvertible {
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case global(Global)
 }

@@ -8,7 +8,7 @@ public indirect enum Stroke: Property, ColorConvertible {
 
     case contextStroke
 
-    case color(W3C_CSS_Values.Color)
+    case color(W3C_CSS_Values::Color)
 
     case url(Url)
 
