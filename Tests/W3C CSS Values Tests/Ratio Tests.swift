@@ -112,7 +112,7 @@ struct `Ratio - Quotient` {
     }
 
     @Test func `quotient returns value for single-value ratio`() throws {
-        let singleRatio = try Ratio(1.5)
+        let singleRatio = Ratio(1.5)
         #expect(singleRatio.quotient == 1.5)
     }
 
@@ -197,7 +197,7 @@ struct `Ratio - CSS Property Usage` {
     }
 
     @Test func `single value ratio renders in aspect-ratio property`() throws {
-        let aspectRatio = try "aspect-ratio: \(Ratio(1.5))"
+        let aspectRatio = "aspect-ratio: \(Ratio(1.5))"
         #expect(aspectRatio == "aspect-ratio: 1.5")
     }
 

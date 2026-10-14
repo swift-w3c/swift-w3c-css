@@ -220,7 +220,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `hex color creation from string 100K times`() {
             for i in 0..<100_000 {
-                let hex = String(format: "#%06x", i % 0xFFFFFF)
+                let hex = unsafe String(format: "#%06x", i % 0xFFFFFF)
                 _ = HexColor(hex)
             }
         }

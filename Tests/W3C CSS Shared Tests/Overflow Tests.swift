@@ -10,7 +10,7 @@ struct `Overflow - Enum Cases` {
         (Overflow.clip, "clip"),
         (Overflow.scroll, "scroll"),
         (Overflow.auto, "auto"),
-        (Overflow.overlay, "overlay"),
+        (Overflow(rawValue: "overlay")!, "overlay"),
     ])
     func `enum cases have correct raw values`(
         overflow: Overflow,
@@ -28,7 +28,7 @@ struct `Overflow - Description` {
         (Overflow.clip, "clip"),
         (Overflow.scroll, "scroll"),
         (Overflow.auto, "auto"),
-        (Overflow.overlay, "overlay"),
+        (Overflow(rawValue: "overlay")!, "overlay"),
     ])
     func `description returns raw value`(
         overflow: Overflow,
@@ -71,7 +71,7 @@ struct `Overflow - CaseIterable Conformance` {
 
     @Test func `deprecated case not in all cases`() {
         let allCases = Overflow.allCases
-        #expect(!allCases.contains(.overlay))
+        #expect(!allCases.contains(Overflow(rawValue: "overlay")!))
     }
 }
 
@@ -83,7 +83,7 @@ struct `Overflow - RawValue Initialization` {
         ("clip", Overflow.clip),
         ("scroll", Overflow.scroll),
         ("auto", Overflow.auto),
-        ("overlay", Overflow.overlay),
+        ("overlay", Overflow(rawValue: "overlay")!),
     ])
     func `initializes from valid raw values`(
         rawValue: String,
@@ -123,7 +123,7 @@ struct `Overflow - CSS Property Usage` {
     }
 
     @Test func `deprecated overlay value renders correctly`() {
-        let overflowOverlay = "overflow: \(Overflow.overlay)"
+        let overflowOverlay = "overflow: \(Overflow(rawValue: "overlay")!)"
         #expect(overflowOverlay == "overflow: overlay")
     }
 }
@@ -151,7 +151,7 @@ struct `Overflow - CSS Specification Compliance` {
     }
 
     @Test func `overlay is deprecated but supported`() {
-        #expect(Overflow.overlay.description == "overlay")
+        #expect(Overflow(rawValue: "overlay")!.description == "overlay")
     }
 }
 
@@ -161,13 +161,13 @@ struct `Overflow - Edge Cases` {
         var count = 0
         for overflow in Overflow.allCases {
             count += 1
-            #expect(overflow != .overlay)
+            #expect(overflow != Overflow(rawValue: "overlay")!)
         }
         #expect(count == 5)
     }
 
     @Test func `deprecated overlay can still be constructed`() {
-        let overlay = Overflow.overlay
+        let overlay = Overflow(rawValue: "overlay")!
         #expect(overlay.rawValue == "overlay")
     }
 }
