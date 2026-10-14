@@ -22,7 +22,7 @@ extension Percentage {
 
     public static let full = Percentage(100)
 
-    subscript<T>(dynamicMember keyPath: KeyPath<Double, T>) -> T {
+    public subscript<T>(dynamicMember keyPath: KeyPath<Double, T>) -> T {
         value[keyPath: keyPath]
     }
 }
