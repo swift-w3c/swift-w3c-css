@@ -89,13 +89,11 @@ extension Transform {
         .function(.skewY(angle))
     }
 
-    public static func translate(_ tx: LengthPercentage, _ ty: LengthPercentage? = nil) -> Transform
-    {
+    public static func translate(_ tx: LengthPercentage, _ ty: LengthPercentage? = nil) -> Transform {
         .function(.translate(tx, ty))
     }
 
-    public static func translate3d(x: LengthPercentage, y: LengthPercentage, z: Length) -> Transform
-    {
+    public static func translate3d(x: LengthPercentage, y: LengthPercentage, z: Length) -> Transform {
         .function(.translate3d(x, y, z))
     }
 

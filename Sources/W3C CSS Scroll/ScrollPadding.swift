@@ -56,8 +56,7 @@ extension ScrollPadding {
         .verticalHorizontal(.percentage(vertical), .percentage(horizontal))
     }
 
-    public static func percent(top: Percentage, horizontal: Percentage, bottom: Percentage) -> Self
-    {
+    public static func percent(top: Percentage, horizontal: Percentage, bottom: Percentage) -> Self {
         .topHorizontalBottom(.percentage(top), .percentage(horizontal), .percentage(bottom))
     }
 

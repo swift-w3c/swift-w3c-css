@@ -98,8 +98,7 @@ extension Color {
         return .rgba(validated.red, validated.green, validated.blue, validated.alpha)
     }
 
-    public static func validatedHSL(_ hue: Hue, _ saturation: Double, _ lightness: Double) -> Color
-    {
+    public static func validatedHSL(_ hue: Hue, _ saturation: Double, _ lightness: Double) -> Color {
         let validated = ColorValidation.validateHSL(hue, saturation, lightness)
         return .hsl(validated.hue, validated.saturation, validated.lightness)
     }

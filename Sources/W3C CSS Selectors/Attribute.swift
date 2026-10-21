@@ -17,8 +17,7 @@ public struct AttributeSelector: Sendable, Hashable {
         self.caseInsensitive = false
     }
 
-    public init(attribute: String, value: String, operator: Operator, caseInsensitive: Bool = false)
-    {
+    public init(attribute: String, value: String, operator: Operator, caseInsensitive: Bool = false) {
         self.attribute = attribute
         self.value = value
         self.operator = `operator`

@@ -109,8 +109,7 @@ extension Color {
         return .hsl(hue, saturation, lightness)
     }
 
-    public static func hsla(hue: Hue, saturation: Double, lightness: Double, alpha: Double) -> Color
-    {
+    public static func hsla(hue: Hue, saturation: Double, lightness: Double, alpha: Double) -> Color {
         return .hsla(hue, saturation, lightness, alpha)
     }
 

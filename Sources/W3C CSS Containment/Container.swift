@@ -37,8 +37,7 @@ extension Container {
         Container(name, .blockSize(comparison))
     }
 
-    public static func aspectRatio(name: String? = nil, _ comparison: RatioComparison) -> Container
-    {
+    public static func aspectRatio(name: String? = nil, _ comparison: RatioComparison) -> Container {
         Container(name, .aspectRatio(comparison))
     }
 
@@ -211,8 +210,7 @@ extension Container.RatioComparison {
         Container.RatioComparison(rawValue: "< \(width)/\(height)")
     }
 
-    public static func greaterThanOrEqual(_ width: Int, _ height: Int) -> Container.RatioComparison
-    {
+    public static func greaterThanOrEqual(_ width: Int, _ height: Int) -> Container.RatioComparison {
         Container.RatioComparison(rawValue: ">= \(width)/\(height)")
     }
 

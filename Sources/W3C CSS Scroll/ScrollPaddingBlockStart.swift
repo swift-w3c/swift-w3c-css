@@ -1,8 +1,7 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-public enum ScrollPaddingBlockStart: Property, LengthPercentageConvertible, CustomStringConvertible
-{
+public enum ScrollPaddingBlockStart: Property, LengthPercentageConvertible, CustomStringConvertible {
 
     case auto
 

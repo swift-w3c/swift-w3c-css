@@ -15,8 +15,7 @@ public enum TextEmphasis: Property {
         }
     }
 
-    public init(shape: EmphasisShape, fill: EmphasisFill = .filled, color: TextEmphasisColor? = nil)
-    {
+    public init(shape: EmphasisShape, fill: EmphasisFill = .filled, color: TextEmphasisColor? = nil) {
         self = .config(Configuration(style: .shape(shape, fill), color: color))
     }
 

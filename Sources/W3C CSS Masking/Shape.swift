@@ -44,8 +44,7 @@ extension Shape {
     @available(
         *,
         deprecated,
-        message:
-            "Auto values are not well supported for rect(). Use clip-path with BasicShape instead."
+        message: "Auto values are not well supported for rect(). Use clip-path with BasicShape instead."
     )
     public static let auto = Shape.rect(
         top: .auto,

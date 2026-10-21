@@ -36,8 +36,7 @@ extension BorderImageWidth {
 
 extension BorderImageWidth {
 
-    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthPercentageConvertible
-    {
+    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthPercentageConvertible {
 
         case lengthPercentage(LengthPercentage)
 

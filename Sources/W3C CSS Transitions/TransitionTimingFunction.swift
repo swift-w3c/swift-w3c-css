@@ -74,8 +74,7 @@ extension TransitionTimingFunction {
         .init(EasingFunction.cubicBezier(x1, y1, x2, y2))
     }
 
-    public static func steps(count: Int, position: StepPosition = .end) -> TransitionTimingFunction
-    {
+    public static func steps(count: Int, position: StepPosition = .end) -> TransitionTimingFunction {
         .init(EasingFunction.steps(count, position))
     }
 }

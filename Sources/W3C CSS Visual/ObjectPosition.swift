@@ -35,8 +35,7 @@ extension ObjectPosition {
         .twoValues(horizontal, vertical)
     }
 
-    public static func objectPosition(_ position: W3C_CSS_Values::Position.Keyword) -> ObjectPosition
-    {
+    public static func objectPosition(_ position: W3C_CSS_Values::Position.Keyword) -> ObjectPosition {
         .keyword(position)
     }
 

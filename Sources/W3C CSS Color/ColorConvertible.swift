@@ -134,8 +134,7 @@ extension ColorConvertible {
         .hsl(hue, saturation, lightness)
     }
 
-    public static func hsla(hue: Hue, saturation: Double, lightness: Double, alpha: Double) -> Self
-    {
+    public static func hsla(hue: Hue, saturation: Double, lightness: Double, alpha: Double) -> Self {
         .hsla(hue, saturation, lightness, alpha)
     }
 
