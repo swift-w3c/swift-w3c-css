@@ -28,44 +28,41 @@ extension StartingStyle {
     public func rule(_ selector: String, _ declarations: String) -> StartingStyle {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + selector + " { " + declarations + " }}"
-            return StartingStyle(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent =
                 currentContent.dropLast() + " " + selector + " { " + declarations + " }}"
             return StartingStyle(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + selector + " { " + declarations + " }}"
+        return StartingStyle(rawValue: String(newContent))
     }
 
     public func declaration(_ property: String, _ value: String) -> StartingStyle {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + property + ": " + value + ";}"
-            return StartingStyle(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " " + property + ": " + value + ";}"
             return StartingStyle(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + property + ": " + value + ";}"
+        return StartingStyle(rawValue: String(newContent))
     }
 
     public func declarations(_ declarations: String) -> StartingStyle {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + declarations + "}"
-            return StartingStyle(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " " + declarations + "}"
             return StartingStyle(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + declarations + "}"
+        return StartingStyle(rawValue: String(newContent))
     }
 
     public func opacity(_ value: Double) -> StartingStyle {

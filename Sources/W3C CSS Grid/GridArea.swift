@@ -79,11 +79,10 @@ public struct GridAreaCoordinates: Sendable, Hashable, CustomStringConvertible {
 
 extension GridAreaCoordinates {
     public var description: String {
-        if let rowEnd, let columnEnd {
-            return "\(rowStart) / \(columnStart) / \(rowEnd) / \(columnEnd)"
-        } else {
+        guard let rowEnd, let columnEnd else {
             return "\(rowStart) / \(columnStart)"
         }
+        return "\(rowStart) / \(columnStart) / \(rowEnd) / \(columnEnd)"
     }
 }
 

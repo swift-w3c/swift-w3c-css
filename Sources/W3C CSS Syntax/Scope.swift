@@ -53,15 +53,14 @@ extension Scope {
     private func addRule(_ rule: String) -> Scope {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + rule + "}"
-            return Scope(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " " + rule + "}"
             return Scope(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + rule + "}"
+        return Scope(rawValue: String(newContent))
     }
 }
 

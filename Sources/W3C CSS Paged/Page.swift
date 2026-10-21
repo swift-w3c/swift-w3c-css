@@ -80,15 +80,14 @@ extension Page {
     private func addProperty(_ property: String) -> Page {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + property + "}"
-            return Page(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " " + property + "}"
             return Page(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + property + "}"
+        return Page(rawValue: String(newContent))
     }
 }
 

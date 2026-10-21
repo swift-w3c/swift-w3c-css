@@ -19,13 +19,12 @@ extension FillOpacity {
 
             let clampedValue = max(0, min(1, number.value))
 
-            if clampedValue == Double(Int(clampedValue)) {
-                return "\(Int(clampedValue))"
-            } else {
+            guard clampedValue == Double(Int(clampedValue)) else {
 
                 let rounded = (clampedValue * 100).rounded() / 100
                 return String(rounded)
             }
+            return "\(Int(clampedValue))"
 
         case .percentage(let percentage):
             return percentage.description

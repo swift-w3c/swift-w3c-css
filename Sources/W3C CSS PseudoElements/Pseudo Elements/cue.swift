@@ -14,10 +14,9 @@ extension Cue {
 extension Cue: CustomStringConvertible {
 
     public var description: String {
-        if let selector {
-            return Self.prefix + "cue(\(selector))"
-        } else {
+        guard let selector else {
             return Self.prefix + Self.name
         }
+        return Self.prefix + "cue(\(selector))"
     }
 }

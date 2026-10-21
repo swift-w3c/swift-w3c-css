@@ -32,11 +32,10 @@ extension Grid {
             if let density, density == .dense {
                 result += " dense"
             }
-            if let trackSize {
-                return "\(result) / \(trackSize)"
-            } else {
+            guard let trackSize else {
                 return "\(result) / auto"
             }
+            return "\(result) / \(trackSize)"
 
         case .explicit(let tracks, let autoFlow):
             let tracksStr = tracks.map { $0.description }.joined(separator: " ")

@@ -78,13 +78,12 @@ extension FilterFunction: CustomStringConvertible {
     }
 
     private func formatNumberOrPercentage(_ value: Double) -> String {
-        if value >= 0 && value <= 1 {
-
-            let percentage = Percentage(value * 100)
-            return percentage.description
-        } else {
+        guard value >= 0 && value <= 1 else {
 
             return value.formatted(Formatter.Number())
         }
+
+        let percentage = Percentage(value * 100)
+        return percentage.description
     }
 }

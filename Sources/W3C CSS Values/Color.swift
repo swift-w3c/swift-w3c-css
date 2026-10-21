@@ -73,12 +73,11 @@ extension Color: CustomStringConvertible {
             return "oklch(\(l.formatted(Formatter.Number())) \(c.formatted(Formatter.Number())) \(h.formatted(Formatter.Number())))"
 
         case .mix(let method, let color1, let color2, let percentage):
-            if let percentage {
-                return
-                    "color-mix(\(method), \(color1), \(color2) \(percentage.formatted(Formatter.Number()))%)"
-            } else {
+            guard let percentage else {
                 return "color-mix(\(method), \(color1), \(color2))"
             }
+            return
+                "color-mix(\(method), \(color1), \(color2) \(percentage.formatted(Formatter.Number()))%)"
 
         case .system(let color):
             return color.description

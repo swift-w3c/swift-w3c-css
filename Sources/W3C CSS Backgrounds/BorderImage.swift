@@ -190,12 +190,11 @@ extension BorderImage.Configuration {
     }
 
     private func repeatDescription(_ repeat: BorderImage.Repeat) -> String {
-        if let vertical = `repeat`.vertical {
-            return
-                "\(repeatValueDescription(`repeat`.horizontal)) \(repeatValueDescription(vertical))"
-        } else {
+        guard let vertical = `repeat`.vertical else {
             return repeatValueDescription(`repeat`.horizontal)
         }
+        return
+            "\(repeatValueDescription(`repeat`.horizontal)) \(repeatValueDescription(vertical))"
     }
 
     private func repeatValueDescription(_ value: BorderImage.Repeat.RepeatValue) -> String {

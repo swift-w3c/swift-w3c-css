@@ -39,11 +39,10 @@ extension Image: CustomStringConvertible {
             return "image-set(\(imageParts.joined(separator: ", ")))"
 
         case .paint(let name, let arguments):
-            if arguments.isEmpty {
-                return "paint(\(name))"
-            } else {
+            guard arguments.isEmpty else {
                 return "paint(\(name), \(arguments.joined(separator: ", ")))"
             }
+            return "paint(\(name))"
 
         case .none:
             return "none"

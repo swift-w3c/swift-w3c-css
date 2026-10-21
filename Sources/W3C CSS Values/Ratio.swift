@@ -19,6 +19,11 @@ public struct Ratio: Sendable, Hashable, Comparable {
         self.height = height
     }
 
+    private init(unchecked width: Double, height: Double) {
+        self.width = width
+        self.height = height
+    }
+
     public init(_ width: Int, _ height: Int) throws(RatioError) {
         try self.init(Double(width), Double(height))
     }
@@ -42,17 +47,17 @@ extension Ratio {
         return width / height
     }
 
-    public static let square = try! Ratio(1, 1)
+    public static let square = Ratio(unchecked: 1, height: 1)
 
-    public static let tv = try! Ratio(4, 3)
+    public static let tv = Ratio(unchecked: 4, height: 3)
 
-    public static let widescreen = try! Ratio(16, 9)
+    public static let widescreen = Ratio(unchecked: 16, height: 9)
 
-    public static let ultrawide = try! Ratio(21, 9)
+    public static let ultrawide = Ratio(unchecked: 21, height: 9)
 
-    public static let movie = try! Ratio(185, 100)
+    public static let movie = Ratio(unchecked: 185, height: 100)
 
-    public static let cinemascope = try! Ratio(239, 100)
+    public static let cinemascope = Ratio(unchecked: 239, height: 100)
 
 }
 
@@ -60,11 +65,10 @@ extension Ratio: CustomStringConvertible {
 
     public var description: String {
 
-        if height == 1 {
-            return width.formatted(Formatter.Number())
-        } else {
+        guard height == 1 else {
             return "\(width.formatted(Formatter.Number())) / \(height.formatted(Formatter.Number()))"
         }
+        return width.formatted(Formatter.Number())
     }
 }
 
@@ -72,7 +76,11 @@ extension Ratio: ExpressibleByIntegerLiteral {
 
     public init(integerLiteral value: Int) {
 
-        try! self.init(value)
+        do {
+            try self.init(value)
+        } catch {
+            fatalError("Ratio integer literal must be non-negative: \(error)")
+        }
     }
 }
 
@@ -80,7 +88,11 @@ extension Ratio: ExpressibleByFloatLiteral {
 
     public init(floatLiteral value: Double) {
 
-        try! self.init(value)
+        do {
+            try self.init(value)
+        } catch {
+            fatalError("Ratio float literal must be non-negative: \(error)")
+        }
     }
 }
 
@@ -92,7 +104,7 @@ extension Ratio {
 
     public var inverse: Ratio {
 
-        return try! Ratio(height, width)
+        return Ratio(unchecked: height, height: width)
     }
 
     public func simplified() -> Ratio {
@@ -119,6 +131,10 @@ extension Ratio {
 
         let divisor = gcd(width, height)
 
-        return try! Ratio(width / divisor, height / divisor)
+        do {
+            return try Ratio(width / divisor, height / divisor)
+        } catch {
+            fatalError("Ratio simplification produced an invalid ratio: \(error)")
+        }
     }
 }

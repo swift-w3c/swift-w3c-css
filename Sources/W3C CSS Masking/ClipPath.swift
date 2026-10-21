@@ -112,32 +112,29 @@ public struct PolygonShape: Sendable, Hashable {
 
 extension CircleShape: CustomStringConvertible {
     public var description: String {
-        if let center {
-            return "circle(\(radius) at \(center.x) \(center.y))"
-        } else {
+        guard let center else {
             return "circle(\(radius) )"
         }
+        return "circle(\(radius) at \(center.x) \(center.y))"
     }
 }
 
 extension EllipseShape: CustomStringConvertible {
     public var description: String {
-        if let center {
-            return "ellipse(\(radiusX) \(radiusY) at \(center.x) \(center.y))"
-        } else {
+        guard let center else {
             return "ellipse(\(radiusX) \(radiusY) )"
         }
+        return "ellipse(\(radiusX) \(radiusY) at \(center.x) \(center.y))"
     }
 }
 
 extension InsetShape: CustomStringConvertible {
     public var description: String {
         let insetPart = "inset(\(top) \(right) \(bottom) \(left))"
-        if let borderRadius {
-            return "\(insetPart) round \(borderRadius)"
-        } else {
+        guard let borderRadius else {
             return insetPart
         }
+        return "\(insetPart) round \(borderRadius)"
     }
 }
 

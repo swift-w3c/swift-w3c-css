@@ -54,7 +54,10 @@ extension ShapeOutside {
 
     public static func circle(radius: LengthPercentage, box: ShapeBox? = nil) -> Self {
         let shape = BasicShape.circle(radius: .lengthPercentage(radius), at: nil)
-        return box != nil ? .shapeWithBox(shape, box!) : .shape(shape)
+        guard let box else {
+            return .shape(shape)
+        }
+        return .shapeWithBox(shape, box)
     }
 
     public static func ellipse(
@@ -67,7 +70,10 @@ extension ShapeOutside {
             radiusY: .lengthPercentage(radiusY),
             at: nil
         )
-        return box != nil ? .shapeWithBox(shape, box!) : .shape(shape)
+        guard let box else {
+            return .shape(shape)
+        }
+        return .shapeWithBox(shape, box)
     }
 
     public static func polygon(_ points: [(Double, Double)], box: ShapeBox? = nil) -> Self {
@@ -79,6 +85,9 @@ extension ShapeOutside {
         }
 
         let shape = BasicShape.polygon(points: polygonPoints)
-        return box != nil ? .shapeWithBox(shape, box!) : .shape(shape)
+        guard let box else {
+            return .shape(shape)
+        }
+        return .shapeWithBox(shape, box)
     }
 }

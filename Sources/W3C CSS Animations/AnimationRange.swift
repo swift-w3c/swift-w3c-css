@@ -62,11 +62,10 @@ extension AnimationRangeValue: CustomStringConvertible {
             return lp.description
 
         case .namedRange(let name, let percentage):
-            if let percentage {
-                return "\(name.rawValue) \(percentage.description)"
-            } else {
+            guard let percentage else {
                 return name.rawValue
             }
+            return "\(name.rawValue) \(percentage.description)"
         }
     }
 }

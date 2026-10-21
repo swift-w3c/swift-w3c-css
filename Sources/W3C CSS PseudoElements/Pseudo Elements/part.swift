@@ -14,10 +14,9 @@ extension Part {
 extension Part: CustomStringConvertible {
 
     public var description: String {
-        if let partName {
-            return Self.prefix + "part(\(partName))"
-        } else {
+        guard let partName else {
             return Self.prefix + Self.name
         }
+        return Self.prefix + "part(\(partName))"
     }
 }

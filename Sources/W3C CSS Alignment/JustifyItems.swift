@@ -45,11 +45,10 @@ extension JustifyItems: CustomStringConvertible {
             return position.description
 
         case .position(let overflow, let position):
-            if let overflow {
-                return "\(overflow) \(position)"
-            } else {
+            guard let overflow else {
                 return position.description
             }
+            return "\(overflow) \(position)"
 
         case .left:
             return "left"
@@ -58,11 +57,10 @@ extension JustifyItems: CustomStringConvertible {
             return "right"
 
         case .legacy(let position):
-            if let position {
-                return "legacy \(position)"
-            } else {
+            guard let position else {
                 return "legacy"
             }
+            return "legacy \(position)"
 
         case .anchorCenter:
             return "anchor-center"

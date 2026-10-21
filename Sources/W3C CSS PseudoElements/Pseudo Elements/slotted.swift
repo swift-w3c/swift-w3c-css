@@ -14,10 +14,9 @@ extension Slotted {
 extension Slotted: CustomStringConvertible {
 
     public var description: String {
-        if let selector {
-            return Self.prefix + "slotted(\(selector))"
-        } else {
+        guard let selector else {
             return Self.prefix + Self.name
         }
+        return Self.prefix + "slotted(\(selector))"
     }
 }

@@ -66,11 +66,10 @@ extension EasingFunction: CustomStringConvertible {
 
         case .linearPoints(let points):
             let pointsString = points.map { point in
-                if let percentage = point.percentage {
-                    return "\(point.value.formatted(Formatter.Number())) \(percentage.description)"
-                } else {
+                guard let percentage = point.percentage else {
                     return point.value.formatted(Formatter.Number())
                 }
+                return "\(point.value.formatted(Formatter.Number())) \(percentage.description)"
             }.joined(separator: ", ")
             return "linear(\(pointsString))"
 
@@ -97,11 +96,10 @@ extension EasingFunction: CustomStringConvertible {
             return "step-end"
 
         case .steps(let steps, let position):
-            if let position {
-                return "steps(\(steps), \(position))"
-            } else {
+            guard let position else {
                 return "steps(\(steps))"
             }
+            return "steps(\(steps), \(position))"
         }
     }
 }

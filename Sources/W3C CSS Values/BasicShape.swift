@@ -41,27 +41,24 @@ extension BasicShape: CustomStringConvertible {
         switch self {
         case .inset(let top, let right, let bottom, let left, let borderRadius):
             let insetValues = "\(top) \(right) \(bottom) \(left)"
-            if let radius = borderRadius {
-                return "inset(\(insetValues) round \(radius))"
-            } else {
+            guard let radius = borderRadius else {
                 return "inset(\(insetValues))"
             }
+            return "inset(\(insetValues) round \(radius))"
 
         case .xywh(let x, let y, let width, let height, let borderRadius):
             let values = "\(x) \(y) \(width) \(height)"
-            if let radius = borderRadius {
-                return "xywh(\(values) round \(radius))"
-            } else {
+            guard let radius = borderRadius else {
                 return "xywh(\(values))"
             }
+            return "xywh(\(values) round \(radius))"
 
         case .rect(let top, let right, let bottom, let left, let borderRadius):
             let values = "\(top) \(right) \(bottom) \(left)"
-            if let radius = borderRadius {
-                return "rect(\(values) round \(radius))"
-            } else {
+            guard let radius = borderRadius else {
                 return "rect(\(values))"
             }
+            return "rect(\(values) round \(radius))"
 
         case .circle(let radius, let position):
             var result = "circle("

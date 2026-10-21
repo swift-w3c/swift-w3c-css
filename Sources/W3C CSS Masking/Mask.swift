@@ -317,11 +317,10 @@ extension Mask.Configuration {
     }
 
     private func clipDescription(_ clip: Mask.GeometryBox) -> String {
-        if clip == .noClip {
-            return "no-clip"
-        } else {
+        guard clip == .noClip else {
             return geometryBoxDescription(clip)
         }
+        return "no-clip"
     }
 
     private func compositeDescription(_ composite: Mask.Composite) -> String {

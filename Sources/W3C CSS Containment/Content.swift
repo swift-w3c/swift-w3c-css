@@ -53,14 +53,14 @@ extension Content {
         case .counter(let name, nil):
             return "counter(\(name))"
 
-        case .counter(let name, let style):
-            return "counter(\(name), \(style!.description))"
+        case .counter(let name, let style?):
+            return "counter(\(name), \(style.description))"
 
         case .counters(let name, let separator, nil):
             return "counters(\(name), \"\(separator)\")"
 
-        case .counters(let name, let separator, let style):
-            return "counters(\(name), \"\(separator)\", \(style!.description))"
+        case .counters(let name, let separator, let style?):
+            return "counters(\(name), \"\(separator)\", \(style.description))"
 
         case .attr(let name):
             return "attr(\(name))"

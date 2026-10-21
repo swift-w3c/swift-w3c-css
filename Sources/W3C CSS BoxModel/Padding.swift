@@ -72,24 +72,9 @@ extension Padding {
 
         case .named(let sides):
 
-            if let top = sides.top, let right = sides.right, let bottom = sides.bottom,
+            guard let top = sides.top, let right = sides.right, let bottom = sides.bottom,
                 let left = sides.left
-            {
-
-                if top == right && right == bottom && bottom == left {
-
-                    return top.description
-                } else if top == bottom && right == left {
-
-                    return "\(top) \(right)"
-                } else if right == left {
-
-                    return "\(top) \(right) \(bottom)"
-                } else {
-
-                    return "\(top) \(right) \(bottom) \(left)"
-                }
-            } else {
+            else {
 
                 var individualProperties: [String] = []
 
@@ -107,6 +92,20 @@ extension Padding {
                 }
 
                 return individualProperties.joined(separator: " ")
+            }
+
+            if top == right && right == bottom && bottom == left {
+
+                return top.description
+            } else if top == bottom && right == left {
+
+                return "\(top) \(right)"
+            } else if right == left {
+
+                return "\(top) \(right) \(bottom)"
+            } else {
+
+                return "\(top) \(right) \(bottom) \(left)"
             }
 
         case .global(let global):

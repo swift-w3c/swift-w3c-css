@@ -140,7 +140,7 @@ extension FontFeatureValues {
     public func characterVariant(_ features: [String: (Int, Int?)]) -> FontFeatureValues {
         var fontFeatureValues = self
         for (name, values) in features {
-            let valueString = values.1 != nil ? "\(values.0) \(values.1!)" : String(values.0)
+            let valueString = values.1.map { "\(values.0) \($0)" } ?? String(values.0)
             fontFeatureValues.blocks["character-variant", default: [:]][name] = valueString
         }
         fontFeatureValues.updateRawValue()

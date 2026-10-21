@@ -14,10 +14,9 @@ extension Highlight {
 extension Highlight: CustomStringConvertible {
 
     public var description: String {
-        if let identifier {
-            return Self.prefix + "highlight(\(identifier))"
-        } else {
+        guard let identifier else {
             return Self.prefix + Self.name
         }
+        return Self.prefix + "highlight(\(identifier))"
     }
 }

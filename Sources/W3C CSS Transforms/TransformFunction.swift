@@ -168,11 +168,10 @@ extension TransformFunction: CustomStringConvertible {
             return "rotateZ(\(angle))"
 
         case .scale(let sx, let sy):
-            if let sy {
-                return "scale(\(sx), \(sy))"
-            } else {
+            guard let sy else {
                 return "scale(\(sx))"
             }
+            return "scale(\(sx), \(sy))"
 
         case .scale3d(let sx, let sy, let sz):
             return "scale3d(\(sx), \(sy), \(sz))"
@@ -187,11 +186,10 @@ extension TransformFunction: CustomStringConvertible {
             return "scaleZ(\(factor))"
 
         case .skew(let angleX, let angleY):
-            if let angleY {
-                return "skew(\(angleX), \(angleY))"
-            } else {
+            guard let angleY else {
                 return "skew(\(angleX))"
             }
+            return "skew(\(angleX), \(angleY))"
 
         case .skewX(let angle):
             return "skewX(\(angle))"
@@ -200,11 +198,10 @@ extension TransformFunction: CustomStringConvertible {
             return "skewY(\(angle))"
 
         case .translate(let tx, let ty):
-            if let ty {
-                return "translate(\(tx), \(ty))"
-            } else {
+            guard let ty else {
                 return "translate(\(tx))"
             }
+            return "translate(\(tx), \(ty))"
 
         case .translate3d(let tx, let ty, let tz):
             return "translate3d(\(tx), \(ty), \(tz))"

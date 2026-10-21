@@ -76,11 +76,10 @@ extension ColorInterpolationMethod {
     }
 
     public var description: String {
-        if let hueMethod {
-            return "in \(colorSpace) \(hueMethod)"
-        } else {
+        guard let hueMethod else {
             return "in \(colorSpace)"
         }
+        return "in \(colorSpace) \(hueMethod)"
     }
 }
 

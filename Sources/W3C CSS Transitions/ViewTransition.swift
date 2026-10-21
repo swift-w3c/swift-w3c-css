@@ -33,15 +33,14 @@ extension ViewTransition {
             }
         }
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + "navigation: \(value.rawValue);}"
-            return ViewTransition(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " navigation: \(value.rawValue);}"
             return ViewTransition(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + "navigation: \(value.rawValue);}"
+        return ViewTransition(rawValue: String(newContent))
     }
 }
 

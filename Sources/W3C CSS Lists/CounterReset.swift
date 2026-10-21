@@ -56,11 +56,10 @@ extension CounterReset {
             return counters.map { counter in
                 let nameStr =
                     counter.reversed ? "reversed(\(counter.name))" : counter.name.description
-                if let value = counter.value {
-                    return "\(nameStr) \(value)"
-                } else {
+                guard let value = counter.value else {
                     return nameStr
                 }
+                return "\(nameStr) \(value)"
             }.joined(separator: " ")
 
         case .global(let value):

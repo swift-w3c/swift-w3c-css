@@ -27,11 +27,10 @@ extension Opacity: CustomStringConvertible {
         case .value(let value):
 
             let rounded = (value * 100).rounded() / 100
-            if rounded.truncatingRemainder(dividingBy: 1) == 0 {
-                return String(Int(rounded))
-            } else {
+            guard rounded.truncatingRemainder(dividingBy: 1) == 0 else {
                 return String(rounded)
             }
+            return String(Int(rounded))
 
         case .global(let global):
             return global.description

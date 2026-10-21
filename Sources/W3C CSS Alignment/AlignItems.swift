@@ -33,11 +33,10 @@ extension AlignItems {
             return position.description
 
         case .position(let overflow, let position):
-            if let overflow {
-                return "\(overflow) \(position)"
-            } else {
+            guard let overflow else {
                 return position.description
             }
+            return "\(overflow) \(position)"
 
         case .anchorCenter:
             return "anchor-center"

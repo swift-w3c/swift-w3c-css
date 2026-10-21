@@ -81,15 +81,14 @@ extension PositionTry {
     private func addProperty(_ property: String) -> PositionTry {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + property + "}"
-            return PositionTry(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " " + property + "}"
             return PositionTry(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + property + "}"
+        return PositionTry(rawValue: String(newContent))
     }
 }
 

@@ -41,11 +41,10 @@ extension CounterSet {
 
         case .counters(let counters):
             return counters.map { counter in
-                if let value = counter.value {
-                    return "\(counter.name) \(value)"
-                } else {
+                guard let value = counter.value else {
                     return counter.name.description
                 }
+                return "\(counter.name) \(value)"
             }.joined(separator: " ")
 
         case .global(let value):

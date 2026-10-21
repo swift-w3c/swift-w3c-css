@@ -61,16 +61,15 @@ extension Supports {
     public func style(_ selector: String, _ declarations: String) -> Supports {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + selector + " { " + declarations + " }}"
-            return Supports(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent =
                 currentContent.dropLast() + " " + selector + " { " + declarations + " }}"
             return Supports(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + selector + " { " + declarations + " }}"
+        return Supports(rawValue: String(newContent))
     }
 
 }

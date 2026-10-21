@@ -50,15 +50,14 @@ extension Property {
     private func addDescriptor(_ descriptor: String) -> Property {
         let currentContent = rawValue
 
-        if currentContent.hasSuffix("{}") {
-
-            let newContent = currentContent.dropLast() + descriptor + ";}"
-            return Property(rawValue: String(newContent))
-        } else {
+        guard currentContent.hasSuffix("{}") else {
 
             let newContent = currentContent.dropLast() + " " + descriptor + ";}"
             return Property(rawValue: String(newContent))
         }
+
+        let newContent = currentContent.dropLast() + descriptor + ";}"
+        return Property(rawValue: String(newContent))
     }
 }
 

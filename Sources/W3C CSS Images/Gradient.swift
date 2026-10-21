@@ -322,11 +322,10 @@ extension Gradient: CustomStringConvertible {
 
     private func formatColorStops(_ stops: [ColorStop]) -> String {
         return stops.map { stop in
-            if let position = stop.position {
-                return "\(stop.color) \(position)"
-            } else {
+            guard let position = stop.position else {
                 return stop.color.description
             }
+            return "\(stop.color) \(position)"
         }.joined(separator: ", ")
     }
 }

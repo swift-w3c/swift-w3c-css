@@ -15,6 +15,11 @@ public struct Resolution: Sendable, Hashable {
         self.value = value
         self.unit = unit
     }
+
+    private init(unchecked value: Double, unit: Unit) {
+        self.value = value
+        self.unit = unit
+    }
 }
 
 extension Resolution {
@@ -72,25 +77,25 @@ extension Resolution {
 
         switch targetUnit {
         case .dpi:
-            return try! Resolution(dpiValue, unit: .dpi)
+            return Resolution(unchecked: dpiValue, unit: .dpi)
 
         case .dpcm:
-            return try! Resolution(dpiValue / 2.54, unit: .dpcm)
+            return Resolution(unchecked: dpiValue / 2.54, unit: .dpcm)
 
         case .dppx:
-            return try! Resolution(dpiValue / 96, unit: .dppx)
+            return Resolution(unchecked: dpiValue / 96, unit: .dppx)
 
         case .x:
-            return try! Resolution(dpiValue / 96, unit: .x)
+            return Resolution(unchecked: dpiValue / 96, unit: .x)
         }
 
     }
 
-    public static let standard = try! Resolution.dpi(96)
+    public static let standard = Resolution(unchecked: 96, unit: .dpi)
 
-    public static let retina = try! Resolution.dpi(192)
+    public static let retina = Resolution(unchecked: 192, unit: .dpi)
 
-    public static let print = try! Resolution.dpi(300)
+    public static let print = Resolution(unchecked: 300, unit: .dpi)
 
 }
 

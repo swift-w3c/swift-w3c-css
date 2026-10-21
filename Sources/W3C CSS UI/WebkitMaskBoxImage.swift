@@ -124,11 +124,10 @@ extension WebkitMaskBoxImage {
     }
 
     private func repeatStyleDescription(_ repeatStyle: RepeatStyle) -> String {
-        if let vertical = repeatStyle.vertical {
-            return "\(repeatStyle.horizontal.rawValue) \(vertical.rawValue)"
-        } else {
+        guard let vertical = repeatStyle.vertical else {
             return repeatStyle.horizontal.rawValue
         }
+        return "\(repeatStyle.horizontal.rawValue) \(vertical.rawValue)"
     }
 }
 

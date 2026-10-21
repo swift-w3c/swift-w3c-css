@@ -31,11 +31,10 @@ extension AlignContent {
             return distribution.description
 
         case .position(let overflow, let position):
-            if let overflow {
-                return "\(overflow) \(position)"
-            } else {
+            guard let overflow else {
                 return position.description
             }
+            return "\(overflow) \(position)"
 
         case .global(let global):
             return global.description
