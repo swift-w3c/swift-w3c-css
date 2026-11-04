@@ -6,7 +6,7 @@ Use this package when you want to write CSS from Swift with typed values instead
 
 - A property's `declaration` prints as the property name, a colon and the value, with no space and no semicolon, as in `animation-play-state:running`.
 - Every property accepts the global keywords and prints them as CSS spells them, so `revertLayer` prints as `revert-layer`.
-- Numbers print in plain decimal with no exponent and no trailing zeros. 90.0 degrees prints as `90deg`, and 0.0001 keeps all its digits.
+- Numbers in the value types print in plain decimal with no exponent and no trailing zeros. 90.0 degrees prints as `90deg`, and 0.0001 keeps all its digits.
 - A bare number literal means pixels for `Length` and `LengthPercentage`, degrees for `Angle`, seconds for `Time`, and a plain number for `Hue`.
 - `Length`, `Angle` and `Frequency` compare by value and unit, so 1 turn is not equal to 360 degrees. `Time` compares by duration, so 1 second equals 1000 milliseconds, and adding two times keeps the left-hand unit.
 - Adding, subtracting or multiplying two `Length` values in the same unit computes the result. Any other combination, including mixed units and keywords, produces the expression as `calc()` text.
@@ -17,5 +17,7 @@ Use this package when you want to write CSS from Swift with typed values instead
 - A `Hue` prints as given. `Hue.normalizedDegrees()` converts grads, radians and turns to degrees and wraps the result into 0 up to 360.
 - `TypeSelector` lowercases the element name. `ClassSelector` and `IDSelector` drop one leading . or # from their input, so both spellings give the same selector. `AttributeSelector` puts its value in double quotes and adds the i flag when asked.
 - A font family name is quoted when it contains a space, a hyphen or a dot, and written bare otherwise.
+- A `FilterFunction` amount from 0 to 1 prints as a percentage and any other amount as a plain number, so `brightness(0.5)` prints as `brightness(50%)` and `brightness(1.5)` stays `brightness(1.5)`.
+- Some out-of-range values are corrected rather than refused. `AnimationDuration` turns a negative time into 0, an `AnimationIterationCount` literal of 0 or less becomes 1, and `FontWeight`, `FontStretch` and `FontStyle` clamp to 1 to 1000, 50% to 200% and -90 to 90 degrees when they print.
 - `Ratio` refuses a negative width or height, orders ratios by their quotient, and prints a height of 1 as the width alone. `Resolution` refuses a negative value.
 - The `css` contexts on circles, ellipses and rectangles give nil for a negative radius or size. A path's arcs are written as straight lines to their end points.
