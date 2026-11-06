@@ -69,8 +69,8 @@ extension Marker {
         .all(.url(Url("#\(id)")))
     }
 
-    public static func externalReference(file: String, id: String) -> Self {
-        .all(.url(Url("\(file)#\(id)")))
+    public static func externalReference(file: Url, id: String) -> Self {
+        .all(.url(Url("\(file.value)#\(id)")))
     }
 
     public static func positions(

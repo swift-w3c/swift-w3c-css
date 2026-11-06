@@ -32,7 +32,7 @@ extension MarkerMid {
         .url(Url("#\(id)"))
     }
 
-    public static func externalReference(file: String, id: String) -> Self {
-        .url(Url("\(file)#\(id)"))
+    public static func externalReference(file: Url, id: String) -> Self {
+        .url(Url("\(file.value)#\(id)"))
     }
 }
