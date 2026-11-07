@@ -362,7 +362,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `media feature query creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Media.minWidth(.px(i))
             }
         }

@@ -510,14 +510,14 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `nth child creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = NthChild(i)
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `not pseudo class creation 50K times`() {
-            for i in 0..<50_000 {
+            (0..<50_000).forEach { i in
                 _ = Not(".class-\(i)")
             }
         }

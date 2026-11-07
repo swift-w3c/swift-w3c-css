@@ -283,7 +283,7 @@ extension `Performance Tests` {
     struct `TextEdge - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `text edge creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 if i % 2 == 0 {
                     _ = TextEdge.text
                 } else {
@@ -302,7 +302,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `text edge pair creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let over = TextEdge.OverValue.allCases[i % 5]
                 let under = TextEdge.UnderValue.allCases[i % 4]
                 _ = TextEdge.pair(over, under)

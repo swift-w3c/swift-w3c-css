@@ -180,7 +180,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `relative size raw value access 100K times`() {
             let sizes = RelativeSize.allCases
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = sizes[i % sizes.count].rawValue
             }
         }
@@ -197,7 +197,7 @@ extension `Performance Tests` {
         func `relative size comparison 100K times`() {
             let smaller = RelativeSize.smaller
             let sizes = RelativeSize.allCases
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = sizes[i % sizes.count] == smaller
             }
         }

@@ -138,7 +138,7 @@ extension `Performance Tests` {
     struct `NamedColor - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `named color description access 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let color = NamedColor.allCases[i % NamedColor.allCases.count]
                 _ = color.description
             }
@@ -164,7 +164,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `raw value access 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let color = NamedColor.allCases[i % NamedColor.allCases.count]
                 _ = color.rawValue
             }

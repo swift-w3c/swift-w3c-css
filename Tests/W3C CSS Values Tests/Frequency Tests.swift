@@ -129,7 +129,7 @@ extension `Performance Tests` {
     struct `Frequency - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `frequency creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Frequency.hz(Number(i))
             }
         }
@@ -137,14 +137,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `frequency comparison 100K times`() {
             let freq1 = Frequency.hz(440)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Frequency.hz(Number(i)) == freq1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `frequency unit variations 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let d = Number(i)
                 _ = Frequency.hz(d)
                 _ = Frequency.khz(d / 1000)

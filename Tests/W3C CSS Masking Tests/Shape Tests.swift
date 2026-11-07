@@ -92,7 +92,7 @@ extension `Performance Tests` {
     struct `Shape - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `shape creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Shape.rect(all: Double(i % 100))
             }
         }

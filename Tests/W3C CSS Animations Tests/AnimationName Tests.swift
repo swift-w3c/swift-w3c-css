@@ -133,7 +133,7 @@ extension `Performance Tests` {
     struct `AnimationName - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnimationName.keyframes(.init("animation-\(i)"))
             }
         }
@@ -148,7 +148,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `string literal initialization 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _: AnimationName = AnimationName(stringLiteral: "animation-\(i)")
             }
         }

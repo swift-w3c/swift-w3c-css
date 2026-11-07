@@ -182,14 +182,14 @@ extension `Performance Tests` {
     struct `FrequencyPercentage - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `frequency percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = FrequencyPercentage.hz(Number(i))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = FrequencyPercentage.percentage(Percentage(i))
             }
         }
@@ -197,14 +197,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `frequency percentage comparison 100K times`() {
             let fp1 = FrequencyPercentage.hz(440)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = FrequencyPercentage.hz(Number(i)) == fp1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `factory method 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = FrequencyPercentage.khz(Number(i))
             }
         }

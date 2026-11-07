@@ -388,14 +388,14 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `parametric pseudo element creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Part("part-\(i)")
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `highlight creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Highlight("highlight-\(i)")
             }
         }

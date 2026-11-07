@@ -179,7 +179,7 @@ extension `Performance Tests` {
     struct `AnimationIterationCount - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnimationIterationCount.count(Number(Double(i)))
             }
         }
@@ -194,7 +194,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `literal initialization 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _: AnimationIterationCount = AnimationIterationCount(integerLiteral: i)
             }
         }

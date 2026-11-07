@@ -318,7 +318,7 @@ extension `Performance Tests` {
     struct `BasicShape - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `circle creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = BasicShape.circle(
                     radius: .length(.px(Double(i % 100))),
                     at: .center

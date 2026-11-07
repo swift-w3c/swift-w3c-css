@@ -262,7 +262,7 @@ extension `Performance Tests` {
     struct `BlendMode - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `blend mode access 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _ = (i % 2 == 0) ? BlendMode.normal : BlendMode.multiply
             }
         }
@@ -270,7 +270,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `blend mode comparison 100K times`() {
             let mode1 = BlendMode.multiply
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let mode2 = (i % 2 == 0) ? BlendMode.multiply : BlendMode.screen
                 _ = mode1 == mode2
             }
@@ -278,7 +278,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `raw value initialization 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let rawValue = (i % 2 == 0) ? "multiply" : "screen"
                 _ = BlendMode(rawValue: rawValue)
             }

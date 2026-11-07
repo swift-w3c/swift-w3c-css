@@ -122,7 +122,7 @@ extension `Performance Tests` {
     struct `AnimationDelay - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnimationDelay.ms(Double(i))
             }
         }
@@ -137,7 +137,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `Time object creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnimationDelay.time(Time.s(Double(i)))
             }
         }

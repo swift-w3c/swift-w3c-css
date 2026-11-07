@@ -343,7 +343,7 @@ extension `Performance Tests` {
     struct `Image - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `URL image creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Image.url(Url("image\(i).jpg"))
             }
         }
@@ -361,7 +361,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `image comparison 100K times`() {
             let image1 = Image.url(Url("test.jpg"))
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = image1 == Image.url(Url("test\(i % 10).jpg"))
             }
         }

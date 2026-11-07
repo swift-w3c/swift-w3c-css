@@ -187,7 +187,7 @@ extension `Performance Tests` {
     struct `AnimationRangeEnd - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnimationRangeEnd.percentage(Percentage(Double(i % 100)))
             }
         }
@@ -202,7 +202,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `named range with percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnimationRangeEnd.namedRange(.exit, Percentage(50 + Double(i % 50)))
             }
         }

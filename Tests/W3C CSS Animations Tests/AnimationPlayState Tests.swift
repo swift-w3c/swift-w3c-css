@@ -148,7 +148,7 @@ extension `Performance Tests` {
     struct `AnimationPlayState - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = i % 2 == 0 ? AnimationPlayState.running : AnimationPlayState.paused
             }
         }

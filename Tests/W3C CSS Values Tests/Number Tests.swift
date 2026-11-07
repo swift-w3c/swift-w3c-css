@@ -268,14 +268,14 @@ extension `Performance Tests` {
     struct `Number - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `number creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Number(Double(i))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `number arithmetic 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Number(Double(i)) + Number(Double(i + 1))
             }
         }
@@ -283,14 +283,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `number comparison 100K times`() {
             let n1 = Number(50)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Number(Double(i)) < n1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `number manipulation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Number(Double(i)).absolute
             }
         }

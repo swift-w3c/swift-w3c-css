@@ -336,14 +336,14 @@ extension `Performance Tests` {
     struct `EasingFunction - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `predefined easing creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _ = (i % 2 == 0) ? EasingFunction.ease : EasingFunction.linear
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `cubic bezier creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let val = Double(i % 100) / 100.0
                 _ = EasingFunction.cubicBezier(val, 0, 1 - val, 1)
             }
@@ -351,7 +351,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `steps creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = EasingFunction.steps((i % 10) + 1, nil)
             }
         }
@@ -359,7 +359,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `easing comparison 100K times`() {
             let easing1 = EasingFunction.cubicBezier(0.42, 0, 0.58, 1)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let val = Double(i % 100) / 100.0
                 _ = easing1 == EasingFunction.cubicBezier(val, 0, 1 - val, 1)
             }

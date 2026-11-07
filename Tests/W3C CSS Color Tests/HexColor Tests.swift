@@ -219,15 +219,15 @@ extension `Performance Tests` {
     struct `HexColor - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `hex color creation from string 100K times`() {
-            for i in 0..<100_000 {
-                let hex = unsafe String(format: "#%06x", i % 0xFFFFFF)
+            (0..<100_000).forEach { i in
+                let hex = String(format: "#%06x", i % 0xFFFFFF)
                 _ = HexColor(hex)
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `hex color creation from RGB 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = i % 256
                 _ = HexColor.rgb(value, value, value)
             }
@@ -235,7 +235,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `hex color creation from RGBA 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = i % 256
                 _ = HexColor.rgba(value, 0, 0, 0.5)
             }

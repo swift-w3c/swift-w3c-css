@@ -183,7 +183,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `position values creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Position.values(.px(i), .px(i + 1))
             }
         }
@@ -191,7 +191,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `position comparison 100K times`() {
             let pos1 = Position.center
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Position.values(.px(i), .px(i)) == pos1
             }
         }

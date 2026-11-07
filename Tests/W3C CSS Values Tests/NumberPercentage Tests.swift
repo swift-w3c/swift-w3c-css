@@ -180,14 +180,14 @@ extension `Performance Tests` {
     struct `NumberPercentage - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `number percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = NumberPercentage.number(Number(Double(i)))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = NumberPercentage.percentage(Percentage(Double(i)))
             }
         }
@@ -195,14 +195,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `number percentage comparison 100K times`() {
             let np1 = NumberPercentage.number(Number(50))
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = NumberPercentage.number(Number(Double(i))) == np1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `literal creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _: NumberPercentage = NumberPercentage(i)
             }
         }

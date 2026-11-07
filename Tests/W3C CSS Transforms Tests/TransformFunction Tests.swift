@@ -523,21 +523,21 @@ extension `Performance Tests` {
     struct `TransformFunction - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `translate creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TransformFunction.translate(i, i)
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `rotate creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TransformFunction.rotate(.deg(Double(i % 360)))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `scale creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TransformFunction.scale(Double(i % 10) / 10.0)
             }
         }
@@ -545,14 +545,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `transform comparison 100K times`() {
             let transform1 = TransformFunction.rotate(.deg(45))
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = transform1 == TransformFunction.rotate(.deg(Double(i % 360)))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `3D transform creation 10K times`() {
-            for i in 0..<10_000 {
+            (0..<10_000).forEach { i in
                 _ = TransformFunction.translate3d(
                     Length.px(Double(i)),
                     Length.px(Double(i * 2)),

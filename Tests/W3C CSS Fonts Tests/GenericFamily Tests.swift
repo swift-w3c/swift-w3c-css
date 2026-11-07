@@ -223,7 +223,7 @@ extension `Performance Tests` {
             let families: [GenericFamily] = [
                 .serif, .sansSerif, .monospace, .systemUi, .math,
             ]
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = families[i % families.count].rawValue
             }
         }
@@ -242,7 +242,7 @@ extension `Performance Tests` {
             let families: [GenericFamily] = [
                 .serif, .sansSerif, .monospace, .systemUi, .math,
             ]
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = families[i % families.count] == sansSerif
             }
         }

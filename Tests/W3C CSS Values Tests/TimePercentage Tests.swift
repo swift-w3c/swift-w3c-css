@@ -226,14 +226,14 @@ extension `Performance Tests` {
     struct `TimePercentage - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `time percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TimePercentage.s(Double(i))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TimePercentage.percentage(.init(i))
             }
         }
@@ -241,14 +241,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `time percentage comparison 100K times`() {
             let tp1 = TimePercentage.s(1)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TimePercentage.s(Double(i)) == tp1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `arithmetic operations 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TimePercentage.s(Double(i)) * 2
             }
         }

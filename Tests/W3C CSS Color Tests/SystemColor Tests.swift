@@ -208,7 +208,7 @@ extension `Performance Tests` {
         func `system color creation from raw value 100K times`() {
             let colors = ["Canvas", "CanvasText", "Field", "FieldText"]
 
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let rawValue = colors[i % colors.count]
                 _ = SystemColor(rawValue: rawValue)
             }
@@ -221,7 +221,7 @@ extension `Performance Tests` {
                 .accentColor, .accentColorText, .mark, .markText,
             ]
 
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let color = colors[i % colors.count]
                 _ = color.description
             }
@@ -244,7 +244,7 @@ extension `Performance Tests` {
                 .accentColor, .accentColorText, .mark, .markText,
             ]
 
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let color = colors[i % colors.count]
                 _ = color.rawValue
             }
@@ -252,7 +252,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `custom system color creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = SystemColor(rawValue: "CustomColor\(i % 10)")
             }
         }

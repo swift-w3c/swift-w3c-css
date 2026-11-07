@@ -205,7 +205,7 @@ extension `Performance Tests` {
             let sizes: [AbsoluteSize] = [
                 .xxSmall, .small, .medium, .large, .xxLarge,
             ]
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = sizes[i % sizes.count].rawValue
             }
         }
@@ -224,7 +224,7 @@ extension `Performance Tests` {
             let sizes: [AbsoluteSize] = [
                 .xxSmall, .small, .medium, .large, .xxLarge,
             ]
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = sizes[i % sizes.count] == medium
             }
         }

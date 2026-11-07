@@ -408,21 +408,21 @@ extension `Performance Tests` {
     struct `FilterFunction - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `blur filter creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = FilterFunction.blur(.px(Double(i % 100)))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `brightness filter creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = FilterFunction.brightness(Double(i % 100) / 100.0)
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `drop shadow filter creation 10K times`() {
-            for i in 0..<10_000 {
+            (0..<10_000).forEach { i in
                 _ = FilterFunction.dropShadow(
                     offsetX: .px(Double(i % 10)),
                     offsetY: .px(Double(i % 10)),
@@ -435,7 +435,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `filter comparison 100K times`() {
             let filter1 = FilterFunction.blur(.px(10))
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = filter1 == FilterFunction.blur(.px(Double(i % 20)))
             }
         }

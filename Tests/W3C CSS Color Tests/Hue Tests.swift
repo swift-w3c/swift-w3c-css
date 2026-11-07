@@ -178,7 +178,7 @@ extension `Performance Tests` {
     struct `Hue - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `hue creation with number 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 360)
                 _ = Hue.number(Number(value))
             }
@@ -186,7 +186,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `hue creation with degrees 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 360)
                 _ = Hue.angle(.deg(value))
             }
@@ -211,7 +211,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `hue description access 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 360)
                 let hue = Hue.angle(.deg(value))
                 _ = hue.description

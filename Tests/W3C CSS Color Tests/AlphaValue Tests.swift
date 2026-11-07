@@ -195,7 +195,7 @@ extension `Performance Tests` {
     struct `AlphaValue - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `alpha value creation with number 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 100) / 100.0
                 _ = AlphaValue.number(Number(value))
             }
@@ -203,7 +203,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `alpha value creation with percentage 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 100)
                 _ = AlphaValue.percentage(Percentage(value))
             }
@@ -220,7 +220,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `alpha value description access 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 100) / 100.0
                 let alpha = AlphaValue.number(Number(value))
                 _ = alpha.description
@@ -229,7 +229,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `alpha value literal conversion 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = Double(i % 100) / 100.0
                 let alpha: AlphaValue = AlphaValue.number(Number(value))
                 _ = alpha

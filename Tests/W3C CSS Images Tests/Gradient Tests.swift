@@ -547,7 +547,7 @@ extension `Performance Tests` {
                 to: .right,
                 colors: [.named(.red), .named(.blue)]
             )
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let side: Gradient.Direction.Side = (i % 2 == 0) ? .right : .left
                 _ =
                     gradient1

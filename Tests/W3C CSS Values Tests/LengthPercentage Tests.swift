@@ -187,14 +187,14 @@ extension `Performance Tests` {
     struct `LengthPercentage - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `length percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = LengthPercentage.px(Double(i))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = LengthPercentage.percentage(.init(i))
             }
         }
@@ -202,14 +202,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `length percentage comparison 100K times`() {
             let lp1 = LengthPercentage.px(50)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = LengthPercentage.px(Double(i)) == lp1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `factory method 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = LengthPercentage.em(Double(i))
             }
         }

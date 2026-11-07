@@ -27,7 +27,7 @@ public struct FontFeatureValues: AtRule {
             let famBytes = Array(familiesString.utf8)
             var famResults: [String] = []
             var famStart = 0
-            for idx in 0..<famBytes.count {
+            (0..<famBytes.count).forEach { idx in
                 if famBytes[idx] == 0x2C {
                     famResults.append(String(decoding: famBytes[famStart..<idx], as: UTF8.self))
                     famStart = idx &+ 1

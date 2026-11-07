@@ -309,14 +309,14 @@ extension `Performance Tests` {
     struct `Length - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `length creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Length.px(Double(i))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `length arithmetic 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Length.px(Double(i)) + Length.px(Double(i + 1))
             }
         }
@@ -324,14 +324,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `length comparison 100K times`() {
             let length1 = Length.px(50)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Length.px(Double(i)) == length1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `length factory method 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Double(i).px
             }
         }

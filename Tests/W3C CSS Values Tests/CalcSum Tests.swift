@@ -208,14 +208,14 @@ extension `Performance Tests` {
     struct `CalcSum - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `calc sum creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = CalcSum("100% - \(i)px")
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `min function creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = CalcSum.min("\(i)px, \(i + 10)em")
             }
         }
@@ -223,14 +223,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `calc sum comparison 100K times`() {
             let calc1 = CalcSum("100% - 20px")
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = CalcSum("100% - \(i)px") == calc1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `clamp function creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = CalcSum.clamp(min: "\(i)px", preferred: "5vw", max: "\(i + 100)px")
             }
         }

@@ -299,14 +299,14 @@ extension `Performance Tests` {
     struct `Time - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `time creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Time.s(Double(i))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `time arithmetic 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Time.s(Double(i)) + Time.s(Double(i + 1))
             }
         }
@@ -314,14 +314,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `time comparison 100K times`() {
             let t1 = Time.s(1)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Time.s(Double(i)) < t1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `time unit conversion 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let t = Time.s(Double(i))
                 _ = t.converted(to: .ms)
             }

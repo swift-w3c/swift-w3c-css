@@ -252,7 +252,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `rgb color creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = i % 256
                 _ = W3C_CSS_Values::Color.rgb(value, value, value)
             }
@@ -260,7 +260,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `rgba color creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let value = i % 256
                 _ = W3C_CSS_Values::Color.rgba(value, 0, 0, 0.5)
             }
@@ -268,7 +268,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `hsl color creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let hue = Double(i % 360)
                 _ = W3C_CSS_Values::Color.hsl(.deg(hue), 50, 50)
             }

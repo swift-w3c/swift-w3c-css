@@ -167,7 +167,7 @@ extension `Performance Tests` {
     struct `Flex - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `flex creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Flex(i)
             }
         }
@@ -175,21 +175,21 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `flex comparison 100K times`() {
             let flex1: Flex = 1
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Flex(i) == flex1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `flex with number creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Flex(Number(Double(i)))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `flex literal assignment 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _: Flex = Flex(i)
             }
         }

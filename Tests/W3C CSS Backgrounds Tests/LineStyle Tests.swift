@@ -233,7 +233,7 @@ extension `Performance Tests` {
     struct `LineStyle - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `line style raw value access 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let style = LineStyle.allCases[i % LineStyle.allCases.count]
                 _ = style.rawValue
             }
@@ -241,7 +241,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `line style property checks 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let style = LineStyle.allCases[i % LineStyle.allCases.count]
                 _ = style.is3D
                 _ = style.isVisible
@@ -252,7 +252,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `line style comparison 100K times`() {
             let solid = LineStyle.solid
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let style = LineStyle.allCases[i % LineStyle.allCases.count]
                 _ = style == solid
             }

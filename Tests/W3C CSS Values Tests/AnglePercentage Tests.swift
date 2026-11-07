@@ -172,14 +172,14 @@ extension `Performance Tests` {
     struct `AnglePercentage - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `angle percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnglePercentage.angle(.deg(Double(i)))
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `percentage creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnglePercentage.percentage(Percentage(i))
             }
         }
@@ -187,14 +187,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `angle percentage comparison 100K times`() {
             let ap1 = AnglePercentage.angle(.deg(45))
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = AnglePercentage.angle(.deg(Double(i))) == ap1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `literal creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let _: AnglePercentage = AnglePercentage(integerLiteral: i)
             }
         }

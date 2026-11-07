@@ -207,7 +207,7 @@ extension `Performance Tests` {
     struct `Angle - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `angle creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Angle.deg(Double(i))
             }
         }
@@ -215,14 +215,14 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `angle comparison 100K times`() {
             let angle1 = Angle.deg(45)
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = Angle.deg(Double(i)) == angle1
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `angle unit variations 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let d = Double(i)
                 _ = Angle.deg(d)
                 _ = Angle.rad(d)

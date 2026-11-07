@@ -318,28 +318,28 @@ extension `Performance Tests` {
     struct `Selector - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `type selector creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = TypeSelector("div\(i)")
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `class selector creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = ClassSelector("class-\(i)")
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `id selector creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 _ = IDSelector("id-\(i)")
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `attribute selector creation 50K times`() {
-            for i in 0..<50_000 {
+            (0..<50_000).forEach { i in
                 _ = AttributeSelector(
                     attribute: "data-id",
                     value: "\(i)",

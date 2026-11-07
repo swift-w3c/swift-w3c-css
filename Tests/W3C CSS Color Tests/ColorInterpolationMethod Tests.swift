@@ -202,7 +202,7 @@ extension `Performance Tests` {
                 .xyz, .xyzD50, .xyzD65,
             ]
 
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let space = spaces[i % spaces.count]
                 _ = ColorInterpolationMethod.rectangular(space)
             }
@@ -212,7 +212,7 @@ extension `Performance Tests` {
         func `polar color space creation 100K times`() {
             let spaces: [ColorInterpolationMethod.PolarColorSpace] = [.hsl, .hwb, .lch, .oklch]
 
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let space = spaces[i % spaces.count]
                 _ = ColorInterpolationMethod.polar(space)
             }
@@ -225,7 +225,7 @@ extension `Performance Tests` {
                 .shorter, .longer, .increasing, .decreasing,
             ]
 
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let space = spaces[i % spaces.count]
                 let hueMethod = hueMethods[i % hueMethods.count]
                 _ = ColorInterpolationMethod.polar(space, hueMethod)
@@ -234,7 +234,7 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `custom color profile creation 100K times`() {
-            for i in 0..<100_000 {
+            (0..<100_000).forEach { i in
                 let profile = "profile-\(i % 10)"
                 _ = ColorInterpolationMethod.custom(profile)
             }
