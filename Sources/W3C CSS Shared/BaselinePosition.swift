@@ -7,7 +7,12 @@ public struct BaselinePosition: Sendable, Hashable {
 }
 
 extension BaselinePosition {
+    public enum FirstLast: String, Sendable, Hashable, CustomStringConvertible {
 
+        case first
+
+        case last
+    }
 
     public static let first: Self = .init(firstLast: .first)
     public static let last: Self = .init(firstLast: .last)
@@ -28,6 +33,9 @@ extension BaselinePosition: CustomStringConvertible {
     }
 }
 
+public protocol BaselinePositionConvertible {
+    static func baseline(_: BaselinePosition) -> Self
+}
 
 extension BaselinePositionConvertible {
 

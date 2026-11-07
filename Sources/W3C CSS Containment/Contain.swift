@@ -62,6 +62,18 @@ extension Contain {
     }
 }
 
+public enum ContainValue: Sendable, Hashable, CustomStringConvertible {
+
+    case size
+
+    case inlineSize
+
+    case layout
+
+    case style
+
+    case paint
+}
 
 extension ContainValue {
     public var description: String {

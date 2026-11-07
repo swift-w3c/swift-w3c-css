@@ -26,6 +26,14 @@ extension AnimationRange {
     public static let normal = AnimationRange.single(.normal)
 }
 
+public enum AnimationRangeValue: Sendable, Hashable, LengthPercentageConvertible {
+
+    case normal
+
+    case lengthPercentage(LengthPercentage)
+
+    case namedRange(TimelineRangeName, Percentage? = nil)
+}
 
 extension AnimationRange: CustomStringConvertible {
 

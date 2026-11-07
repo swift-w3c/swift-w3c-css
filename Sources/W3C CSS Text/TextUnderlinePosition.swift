@@ -59,6 +59,18 @@ extension TextUnderlinePosition {
     public static let property: String = "text-underline-position"
 }
 
+public enum TextUnderlinePositionValue: Sendable, Hashable, CustomStringConvertible {
+
+    case auto
+
+    case fromFont
+
+    case under
+
+    case left
+
+    case right
+}
 
 extension TextUnderlinePositionValue {
     public var description: String {

@@ -25,6 +25,11 @@ extension JustifyItems {
     public static let property: String = "justify-items"
 }
 
+public enum LegacyPosition: String, Sendable, Hashable {
+    case left
+    case right
+    case center
+}
 
 extension JustifyItems: CustomStringConvertible {
 

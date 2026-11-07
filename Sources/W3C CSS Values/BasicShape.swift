@@ -119,6 +119,33 @@ extension BasicShape.ShapeRadius: CustomStringConvertible {
 }
 
 extension BasicShape {
+
+    public enum FillRule: String, Sendable, Hashable {
+
+        case nonzero
+
+        case evenodd
+    }
+
+    public enum ShapeRadius: Sendable, Hashable, LengthPercentageConvertible {
+        case lengthPercentage(LengthPercentage)
+
+        case closestSide
+
+        case farthestSide
+    }
+
+    public struct PolygonPoint: Sendable, Hashable {
+
+        public let x: LengthPercentage
+
+        public let y: LengthPercentage
+
+        public init(_ x: LengthPercentage, _ y: LengthPercentage) {
+            self.x = x
+            self.y = y
+        }
+    }
 }
 
 extension BasicShape {

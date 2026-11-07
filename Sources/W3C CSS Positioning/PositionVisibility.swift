@@ -17,6 +17,12 @@ public enum PositionVisibility: Property {
 extension PositionVisibility {
     public static let property: String = "position-visibility"
 
+    public enum Condition: String, Sendable, Hashable {
+
+        case anchorsVisible = "anchors-visible"
+
+        case noOverflow = "no-overflow"
+    }
 
     public var description: String {
         switch self {

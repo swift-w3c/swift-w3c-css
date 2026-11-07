@@ -20,6 +20,16 @@ public enum FontSynthesis: Property {
 extension FontSynthesis {
     public static let property: String = "font-synthesis"
 
+    public enum SynthesisOption: String, Sendable, CustomStringConvertible {
+
+        case weight
+
+        case style
+
+        case smallCaps = "small-caps"
+
+        case position
+    }
 }
 
 extension FontSynthesis.SynthesisOption {

@@ -71,6 +71,60 @@ extension Container {
 }
 
 extension Container {
+
+    public struct Condition: RawRepresentable, Hashable, Sendable {
+        public var rawValue: String
+
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+    }
+
+    public struct SizeComparison: RawRepresentable, Hashable, Sendable {
+        public var rawValue: String
+
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+    }
+
+    public struct RatioComparison: RawRepresentable, Hashable, Sendable {
+        public var rawValue: String
+
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+    }
+
+    public enum Orientation: String, Hashable, Sendable {
+        case portrait
+        case landscape
+    }
+
+    public struct ScrollState: RawRepresentable, Hashable, Sendable {
+        public var rawValue: String
+
+        public init(rawValue: String) {
+            self.rawValue = rawValue
+        }
+    }
+
+    public enum ScrollDirection: String, Hashable, Sendable {
+        case none
+        case top
+        case right
+        case bottom
+        case left
+        case x
+        case y
+        case blockStart = "block-start"
+        case blockEnd = "block-end"
+        case inlineStart = "inline-start"
+        case inlineEnd = "inline-end"
+        case block
+        case inline
+        case both
+    }
 }
 
 extension Container.Condition {

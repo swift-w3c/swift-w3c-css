@@ -14,8 +14,50 @@ public enum PageBreak: Sendable, Hashable, Property {
 extension PageBreak {
     public static let property: String = "page-break"
 
+    public enum After: String, Sendable {
 
+        case auto
 
+        case always
+
+        case avoid
+
+        case left
+
+        case right
+
+        case initial
+
+        case inherit
+    }
+
+    public enum Before: String, Sendable {
+
+        case auto
+
+        case always
+
+        case avoid
+
+        case left
+
+        case right
+
+        case initial
+
+        case inherit
+    }
+
+    public enum Inside: String, Sendable {
+
+        case auto
+
+        case avoid
+
+        case initial
+
+        case inherit
+    }
 
     public var description: String {
         switch self {

@@ -14,6 +14,14 @@ extension ColorScheme {
     public static let property: String = "color-scheme"
 }
 
+public enum ColorSchemeValue: Sendable, Hashable, CustomStringConvertible {
+
+    case light
+
+    case dark
+
+    case custom(CSSString)
+}
 
 extension ColorSchemeValue {
     public var description: String {

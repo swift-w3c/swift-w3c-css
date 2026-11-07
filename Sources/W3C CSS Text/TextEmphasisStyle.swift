@@ -31,7 +31,25 @@ extension TextEmphasisStyle {
     }
 }
 
+public enum EmphasisFill: String, Sendable, Hashable {
 
+    case filled
+
+    case open
+}
+
+public enum EmphasisShape: String, Sendable, Hashable {
+
+    case dot
+
+    case circle
+
+    case doubleCircle = "double-circle"
+
+    case triangle
+
+    case sesame
+}
 
 extension TextEmphasisStyle {
 

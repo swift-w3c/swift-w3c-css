@@ -20,6 +20,15 @@ extension BackgroundPositionX {
 }
 
 extension BackgroundPositionX {
+
+    public enum Keyword: String, Sendable, Hashable {
+
+        case left
+
+        case center
+
+        case right
+    }
 }
 
 extension BackgroundPositionX: CustomStringConvertible {

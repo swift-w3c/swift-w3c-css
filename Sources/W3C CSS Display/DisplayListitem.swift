@@ -18,6 +18,8 @@ extension DisplayListitem: CustomStringConvertible {
     }
 }
 
+public struct DisplayListitemFactory {
+}
 
 extension DisplayListitemFactory {
 

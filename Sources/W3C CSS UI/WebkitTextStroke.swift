@@ -12,7 +12,23 @@ public enum WebkitTextStroke: Property {
 extension WebkitTextStroke {
     public static let property: String = "-webkit-text-stroke"
 
+    public enum StrokeWidth: Sendable, Hashable, CustomStringConvertible {
 
+        case thin
+
+        case medium
+
+        case thick
+
+        case length(Length)
+    }
+
+    public enum StrokeColor: Sendable, Hashable, CustomStringConvertible, ColorConvertible {
+
+        case color(W3C_CSS_Values::Color)
+
+        case currentColor
+    }
 
     public static func width(_ width: StrokeWidth) -> WebkitTextStroke {
         .stroke(width: width)

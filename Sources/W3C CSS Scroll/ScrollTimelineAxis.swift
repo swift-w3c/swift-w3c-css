@@ -12,6 +12,16 @@ public enum ScrollTimelineAxis: Property {
 extension ScrollTimelineAxis {
     public static let property: String = "scroll-timeline-axis"
 
+    public enum Axis: String, Sendable {
+
+        case block
+
+        case inline
+
+        case y
+
+        case x
+    }
 
     public var description: String {
         switch self {

@@ -35,6 +35,14 @@ extension Gap {
     }
 }
 
+public enum GapValue: Sendable, Hashable {
+
+    case normal
+
+    case length(Length)
+
+    case percentage(Percentage)
+}
 
 extension GapValue: CustomStringConvertible {
 

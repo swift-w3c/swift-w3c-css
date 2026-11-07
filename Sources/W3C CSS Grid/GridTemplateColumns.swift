@@ -22,6 +22,20 @@ public enum GridTemplateColumns: Property {
 extension GridTemplateColumns {
     public static let property: String = "grid-template-columns"
 
+    public struct NamedTrack: Sendable, Hashable {
+
+        public let before: String?
+
+        public let size: GridTrackSize
+
+        public let after: String?
+
+        public init(before: String? = nil, size: GridTrackSize, after: String? = nil) {
+            self.before = before
+            self.size = size
+            self.after = after
+        }
+    }
 }
 
 extension GridTemplateColumns.NamedTrack {

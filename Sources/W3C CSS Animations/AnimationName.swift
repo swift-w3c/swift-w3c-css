@@ -15,6 +15,14 @@ extension AnimationName {
 }
 
 extension AnimationName {
+    public enum KeyFramesName: Sendable, Hashable, CustomStringConvertible {
+        case customIdent(Ident)
+        case string(CSSString)
+
+        public init(_ string: String) {
+            self = .customIdent(.init(string))
+        }
+    }
 }
 
 extension AnimationName.KeyFramesName {

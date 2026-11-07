@@ -20,6 +20,20 @@ public enum CounterReset: Property {
 extension CounterReset {
     public static let property: String = "counter-reset"
 
+    public struct Counter: Sendable, Hashable {
+
+        public let name: CustomIdent
+
+        public let reversed: Bool
+
+        public let value: Int?
+
+        public init(name: CustomIdent, reversed: Bool = false, value: Int? = nil) {
+            self.name = name
+            self.reversed = reversed
+            self.value = value
+        }
+    }
 
     public var description: String {
         switch self {

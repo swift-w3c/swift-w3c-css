@@ -24,7 +24,32 @@ public enum EasingFunction: Sendable, Hashable {
     case steps(Int, StepPosition?)
 }
 
+public struct LinearPoint: Sendable, Hashable {
 
+    public let value: Double
+
+    public let percentage: Percentage?
+
+    public init(value: Double, percentage: Percentage? = nil) {
+        self.value = value
+        self.percentage = percentage
+    }
+}
+
+public enum StepPosition: String, Sendable, Hashable, CustomStringConvertible {
+
+    case start
+
+    case end
+
+    case jumpStart = "jump-start"
+
+    case jumpEnd = "jump-end"
+
+    case jumpNone = "jump-none"
+
+    case jumpBoth = "jump-both"
+}
 
 extension StepPosition {
     public var description: String {

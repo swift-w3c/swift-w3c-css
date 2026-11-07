@@ -16,6 +16,20 @@ extension AnimationRangeStart {
     public static let property: String = "animation-range-start"
 }
 
+public enum TimelineRangeName: String, Sendable, Hashable, CaseIterable {
+
+    case cover
+
+    case contain
+
+    case entry
+
+    case exit
+
+    case entryCrossing = "entry-crossing"
+
+    case exitCrossing = "exit-crossing"
+}
 
 extension AnimationRangeStart: CustomStringConvertible {
 

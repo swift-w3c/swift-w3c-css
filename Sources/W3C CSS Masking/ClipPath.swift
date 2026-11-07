@@ -30,10 +30,85 @@ extension ClipPath {
     public static let property: String = "clip-path"
 }
 
+public struct CircleShape: Sendable, Hashable {
 
+    public var radius: LengthPercentage
 
+    public var center: Point?
 
+    public init(radius: LengthPercentage, center: Point? = nil) {
+        self.radius = radius
+        self.center = center
+    }
+}
 
+public struct EllipseShape: Sendable, Hashable {
+
+    public var radiusX: LengthPercentage
+
+    public var radiusY: LengthPercentage
+
+    public var center: Point?
+
+    public init(
+        radiusX: LengthPercentage,
+        radiusY: LengthPercentage,
+        center: Point? = nil
+    ) {
+        self.radiusX = radiusX
+        self.radiusY = radiusY
+        self.center = center
+    }
+}
+
+public struct InsetShape: Sendable, Hashable {
+
+    public var top: LengthPercentage
+
+    public var right: LengthPercentage
+
+    public var bottom: LengthPercentage
+
+    public var left: LengthPercentage
+
+    public var borderRadius: LengthPercentage?
+
+    public init(
+        top: LengthPercentage,
+        right: LengthPercentage,
+        bottom: LengthPercentage,
+        left: LengthPercentage,
+        borderRadius: LengthPercentage? = nil
+    ) {
+        self.top = top
+        self.right = right
+        self.bottom = bottom
+        self.left = left
+        self.borderRadius = borderRadius
+    }
+
+    public init(all: LengthPercentage, borderRadius: LengthPercentage? = nil) {
+        self.top = all
+        self.right = all
+        self.bottom = all
+        self.left = all
+        self.borderRadius = borderRadius
+    }
+}
+
+public struct Point: Sendable, Hashable {
+    public let x: LengthPercentage
+    public let y: LengthPercentage
+}
+
+public struct PolygonShape: Sendable, Hashable {
+
+    public var points: [Point]
+
+    public init(points: [Point]) {
+        self.points = points
+    }
+}
 
 extension CircleShape: CustomStringConvertible {
     public var description: String {

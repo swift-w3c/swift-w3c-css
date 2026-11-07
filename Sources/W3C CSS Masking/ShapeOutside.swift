@@ -19,6 +19,16 @@ public enum ShapeOutside: Property {
 extension ShapeOutside {
     public static let property: String = "shape-outside"
 
+    public enum ShapeBox: String, Sendable {
+
+        case marginBox = "margin-box"
+
+        case borderBox = "border-box"
+
+        case paddingBox = "padding-box"
+
+        case contentBox = "content-box"
+    }
 
     public var description: String {
         switch self {

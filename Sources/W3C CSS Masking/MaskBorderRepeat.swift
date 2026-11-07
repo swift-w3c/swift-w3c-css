@@ -21,6 +21,16 @@ public enum MaskBorderRepeat: Property {
 extension MaskBorderRepeat {
     public static let property: String = "mask-border-repeat"
 
+    public enum RepeatStyle: String, Sendable, Hashable {
+
+        case stretch
+
+        case `repeat`
+
+        case round
+
+        case space
+    }
 
     public static let `default` = MaskBorderRepeat(.stretch)
 

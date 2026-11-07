@@ -33,6 +33,16 @@ public enum MaskBorderWidth: Property {
 extension MaskBorderWidth {
     public static let property: String = "mask-border-width"
 
+    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+
+        case length(Length)
+
+        case percentage(Percentage)
+
+        case number(Number)
+
+        case auto
+    }
 
     public static func px(_ px: Double) -> MaskBorderWidth {
         return MaskBorderWidth(.length(.px(px)))

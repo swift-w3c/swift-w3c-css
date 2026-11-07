@@ -42,6 +42,12 @@ extension MaskBorderOutset {
         .init(.length(length))
     }
 
+    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
+
+        case length(Length)
+
+        case number(Number)
+    }
 
     public static func number(_ number: Number) -> MaskBorderOutset {
         return MaskBorderOutset(.number(number))

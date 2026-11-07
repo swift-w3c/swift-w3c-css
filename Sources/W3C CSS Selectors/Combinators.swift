@@ -12,6 +12,10 @@ extension DescendantCombinator: CustomStringConvertible {
     }
 }
 
+public struct ChildCombinator: Sendable, Hashable {
+
+    public init() {}
+}
 
 extension ChildCombinator: CustomStringConvertible {
 
@@ -20,6 +24,10 @@ extension ChildCombinator: CustomStringConvertible {
     }
 }
 
+public struct AdjacentSiblingCombinator: Sendable, Hashable {
+
+    public init() {}
+}
 
 extension AdjacentSiblingCombinator: CustomStringConvertible {
 
@@ -28,6 +36,10 @@ extension AdjacentSiblingCombinator: CustomStringConvertible {
     }
 }
 
+public struct GeneralSiblingCombinator: Sendable, Hashable {
+
+    public init() {}
+}
 
 extension GeneralSiblingCombinator: CustomStringConvertible {
 
@@ -36,6 +48,10 @@ extension GeneralSiblingCombinator: CustomStringConvertible {
     }
 }
 
+public struct ColumnCombinator: Sendable, Hashable {
+
+    public init() {}
+}
 
 extension ColumnCombinator: CustomStringConvertible {
 

@@ -23,6 +23,17 @@ extension BorderImageRepeat {
 }
 
 extension BorderImageRepeat {
+
+    public enum RepeatStyle: String, Sendable, Hashable {
+
+        case stretch
+
+        case `repeat`
+
+        case round
+
+        case space
+    }
 }
 
 extension BorderImageRepeat {

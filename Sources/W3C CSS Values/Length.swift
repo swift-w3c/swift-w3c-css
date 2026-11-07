@@ -22,6 +22,60 @@ public enum Length: Sendable, ExpressibleByIntegerLiteral, ExpressibleByFloatLit
 }
 
 extension Length {
+
+    public enum Unit: String, Sendable {
+
+        case px
+
+        case em
+
+        case rem
+
+        case vw
+
+        case vh
+
+        case vmin
+
+        case vmax
+
+        case cm
+
+        case mm
+
+        case `in`
+
+        case pt
+
+        case pc
+
+        case ex
+
+        case ch
+
+        case lh
+
+        case fr
+
+        case q
+
+        case cap
+
+        case ic
+
+        case rlh
+    }
+
+    public enum Keyword: String, Sendable {
+
+        case auto
+
+        case maxContent = "max-content"
+
+        case minContent = "min-content"
+
+        case fitContent = "fit-content"
+    }
 }
 
 extension Length: Hashable {

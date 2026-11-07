@@ -13,6 +13,13 @@ public struct Time: Sendable, Hashable {
 }
 
 extension Time {
+
+    public enum Unit: String, Sendable, Hashable {
+
+        case second = "s"
+
+        case millisecond = "ms"
+    }
 }
 
 extension Time.Unit {

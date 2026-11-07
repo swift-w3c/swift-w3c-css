@@ -25,6 +25,16 @@ public enum MarginTrim: Property {
 extension MarginTrim {
     public static let property: String = "margin-trim"
 
+    public enum Edge: String, Sendable, Hashable, CaseIterable {
+
+        case blockStart = "block-start"
+
+        case blockEnd = "block-end"
+
+        case inlineStart = "inline-start"
+
+        case inlineEnd = "inline-end"
+    }
 
     public var description: String {
         switch self {

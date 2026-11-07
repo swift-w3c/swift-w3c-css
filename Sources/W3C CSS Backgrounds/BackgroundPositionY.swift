@@ -19,6 +19,15 @@ extension BackgroundPositionY {
 }
 
 extension BackgroundPositionY {
+
+    public enum Keyword: String, Sendable, Hashable {
+
+        case top
+
+        case center
+
+        case bottom
+    }
 }
 
 extension BackgroundPositionY: CustomStringConvertible {

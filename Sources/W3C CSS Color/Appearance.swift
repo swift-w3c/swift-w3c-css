@@ -16,6 +16,32 @@ public enum Appearance: Property {
     case global(Global)
 }
 
+public enum CompatAuto: String, Sendable, Hashable, CaseIterable {
+
+    case button
+
+    case checkbox
+
+    case listbox
+
+    case menulist
+
+    case meter
+
+    case progressBar = "progress-bar"
+
+    case pushButton = "push-button"
+
+    case radio
+
+    case searchfield
+
+    case sliderHorizontal = "slider-horizontal"
+
+    case squareButton = "square-button"
+
+    case textarea
+}
 
 extension Appearance {
     public static let property: String = "appearance"

@@ -14,6 +14,22 @@ public enum TouchAction: Sendable, Hashable, Property {
     case global(Global)
 }
 
+public enum TouchActionValue: String, Sendable, Hashable {
+
+    case panX = "pan-x"
+
+    case panLeft = "pan-left"
+
+    case panRight = "pan-right"
+
+    case panY = "pan-y"
+
+    case panUp = "pan-up"
+
+    case panDown = "pan-down"
+
+    case pinchZoom = "pinch-zoom"
+}
 
 extension TouchAction: CustomStringConvertible {
     public static let property: String = "touch-action"

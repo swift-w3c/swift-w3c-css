@@ -43,6 +43,10 @@ extension HyphenateLimitChars {
     }
 }
 
+public enum HyphenLimit: Sendable, Hashable, CustomStringConvertible {
+    case auto
+    case value(Int)
+}
 
 extension HyphenLimit {
     public var description: String {

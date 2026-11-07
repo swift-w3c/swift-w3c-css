@@ -37,6 +37,18 @@ extension FontSmooth {
     }
 }
 
+public enum WebkitFontSmoothing: Property {
+
+    case auto
+
+    case none
+
+    case antialiased
+
+    case subpixelAntialiased
+
+    case global(Global)
+}
 
 extension WebkitFontSmoothing {
     public static let property: String = "-webkit-font-smoothing"
@@ -61,6 +73,14 @@ extension WebkitFontSmoothing {
     }
 }
 
+public enum MozOsxFontSmoothing: Property {
+
+    case auto
+
+    case grayscale
+
+    case global(Global)
+}
 
 extension MozOsxFontSmoothing {
     public static let property: String = "-moz-osx-font-smoothing"

@@ -20,6 +20,12 @@ extension ObjectPosition {
 
     public static let property: String = "object-position"
 
+    public enum Value: Sendable, Hashable, LengthPercentageConvertible {
+
+        case keyword(W3C_CSS_Values::Position.Keyword)
+
+        case lengthPercentage(LengthPercentage)
+    }
 
     public static func objectPosition(_ value: Value) -> ObjectPosition {
         .oneValue(value)
@@ -113,6 +119,14 @@ extension ObjectPosition: CustomStringConvertible {
     }
 }
 
+public struct ObjectStyle: Sendable, Hashable {
+
+    public let position: ObjectPosition
+
+    public init(position: ObjectPosition) {
+        self.position = position
+    }
+}
 
 extension ObjectPosition.Value: CustomStringConvertible {
 

@@ -13,6 +13,26 @@ public enum FontStretch: Property, PercentageConvertible {
 extension FontStretch {
     public static let property: String = "font-stretch"
 
+    public enum Keyword: String, Sendable, Hashable {
+
+        case ultraCondensed = "ultra-condensed"
+
+        case extraCondensed = "extra-condensed"
+
+        case condensed
+
+        case semiCondensed = "semi-condensed"
+
+        case normal
+
+        case semiExpanded = "semi-expanded"
+
+        case expanded
+
+        case extraExpanded = "extra-expanded"
+
+        case ultraExpanded = "ultra-expanded"
+    }
 }
 
 extension FontStretch.Keyword {

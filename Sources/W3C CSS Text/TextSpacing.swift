@@ -32,6 +32,18 @@ extension TextSpacing {
     public static let property: String = "text-spacing"
 }
 
+public enum TextSpacingOption: String, Sendable, Hashable, CaseIterable {
+
+    case trimStart = "trim-start"
+
+    case trimEnd = "trim-end"
+
+    case trimAll = "trim-all"
+
+    case spaceFirst = "space-first"
+
+    case spaceAll = "space-all"
+}
 
 extension TextSpacing: CustomStringConvertible {
 

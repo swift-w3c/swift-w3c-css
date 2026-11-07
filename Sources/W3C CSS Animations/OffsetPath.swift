@@ -24,6 +24,34 @@ extension OffsetPath {
 }
 
 extension OffsetPath {
+
+    public enum RaySize: Sendable, Hashable {
+
+        case closestSide
+
+        case closestCorner
+
+        case farthestSide
+
+        case farthestCorner
+
+        case sides
+    }
+
+    public enum CoordBox: Sendable, Hashable {
+
+        case borderBox
+
+        case paddingBox
+
+        case contentBox
+
+        case fillBox
+
+        case strokeBox
+
+        case viewBox
+    }
 }
 
 extension OffsetPath {

@@ -19,6 +19,15 @@ extension Rotate {
 }
 
 extension Rotate {
+
+    public enum Axis: String, Sendable, Hashable {
+
+        case x
+
+        case y
+
+        case z
+    }
 }
 
 extension Rotate {

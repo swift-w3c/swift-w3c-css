@@ -12,6 +12,14 @@ public enum PaintOrder: Property {
 extension PaintOrder {
     public static let property: String = "paint-order"
 
+    public enum PaintLayer: String, Sendable, Hashable, CaseIterable {
+
+        case fill
+
+        case stroke
+
+        case markers
+    }
 }
 
 extension PaintOrder: CustomStringConvertible {

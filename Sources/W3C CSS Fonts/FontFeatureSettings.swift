@@ -33,6 +33,14 @@ extension FontFeatureSettings {
     public static let property: String = "font-feature-settings"
 }
 
+public enum FeatureValue: Sendable, Hashable, CustomStringConvertible {
+
+    case integer(Int)
+
+    case on
+
+    case off
+}
 
 extension FeatureValue {
     public var description: String {

@@ -15,6 +15,14 @@ public enum OverflowClipMargin: Property {
 extension OverflowClipMargin {
     public static let property: String = "overflow-clip-margin"
 
+    public enum VisualBox: String, Sendable, Hashable {
+
+        case contentBox = "content-box"
+
+        case paddingBox = "padding-box"
+
+        case borderBox = "border-box"
+    }
 
     public var description: String {
         switch self {

@@ -14,6 +14,14 @@ extension ViewTimelineInset {
     public static let property: String = "view-timeline-inset"
 }
 
+public enum ViewTimelineInsetValue: Sendable, Hashable {
+
+    case auto
+
+    case length(Length)
+
+    case percentage(Percentage)
+}
 
 extension ViewTimelineInsetValue: CustomStringConvertible {
 
