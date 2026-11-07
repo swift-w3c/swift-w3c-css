@@ -2,190 +2,206 @@ import Testing
 
 @testable import W3C_CSS_Shared
 
-@Suite
-struct `OverflowPosition - Initialization` {
-    @Test(arguments: [
-        (OverflowPosition.safe, "safe"),
-        (OverflowPosition.unsafe, "unsafe"),
-    ])
-    func `overflow position renders with correct description`(
-        position: OverflowPosition,
-        expected: String
-    ) {
-        #expect(position.description == expected)
-    }
+enum `OverflowPosition Tests` {}
 
-    @Test func `safe value is correct`() {
-        let safe = OverflowPosition.safe
-        #expect(safe.description == "safe")
-    }
-
-    @Test func `unsafe value is correct`() {
-        let unsafe = OverflowPosition.unsafe
-        #expect(unsafe.description == "unsafe")
-    }
-}
-
-@Suite
-struct `OverflowPosition - Hashable Conformance` {
-    @Test func `equal values are equal`() {
-        let safe1 = OverflowPosition.safe
-        let safe2 = OverflowPosition.safe
-        #expect(safe1 == safe2)
-    }
-
-    @Test func `different values are not equal`() {
-        let safe = OverflowPosition.safe
-        let unsafe = OverflowPosition.unsafe
-        #expect(safe != unsafe)
-    }
-
-    @Test func `all values are distinct`() {
-        let values = [
-            OverflowPosition.safe,
-            OverflowPosition.unsafe,
-        ]
-        let uniqueValues = Set(values)
-        #expect(uniqueValues.count == values.count)
-    }
-}
-
-@Suite
-struct `OverflowPosition - CaseIterable Conformance` {
-    @Test func `all cases contains all overflow position values`() {
-        let allCases = OverflowPosition.allCases
-        #expect(allCases.count == 2)
-        #expect(allCases.contains(.safe))
-        #expect(allCases.contains(.unsafe))
-    }
-
-    @Test func `can iterate over all cases`() {
-        var count = 0
-        for position in OverflowPosition.allCases {
-            #expect(position.description == position.rawValue)
-            count += 1
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - Initialization` {
+        @Test(arguments: [
+            (OverflowPosition.safe, "safe"),
+            (OverflowPosition.unsafe, "unsafe"),
+        ])
+        func `overflow position renders with correct description`(
+            position: OverflowPosition,
+            expected: String
+        ) {
+            #expect(position.description == expected)
         }
-        #expect(count == 2)
-    }
-}
 
-@Suite
-struct `OverflowPosition - RawRepresentable Conformance` {
-    @Test func `raw values match CSS specifications`() {
-        #expect(OverflowPosition.safe.rawValue == "safe")
-        #expect(OverflowPosition.unsafe.rawValue == "unsafe")
-    }
+        @Test func `safe value is correct`() {
+            let safe = OverflowPosition.safe
+            #expect(safe.description == "safe")
+        }
 
-    @Test func `description uses raw value`() {
-        for position in OverflowPosition.allCases {
-            #expect(position.description == position.rawValue)
+        @Test func `unsafe value is correct`() {
+            let unsafe = OverflowPosition.unsafe
+            #expect(unsafe.description == "unsafe")
         }
     }
+}
 
-    @Test(arguments: [
-        ("safe", OverflowPosition.safe),
-        ("unsafe", OverflowPosition.unsafe),
-    ])
-    func `initialization from raw value works correctly`(
-        rawValue: String,
-        expected: OverflowPosition
-    ) {
-        let position = OverflowPosition(rawValue: rawValue)
-        #expect(position == expected)
-    }
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - Hashable Conformance` {
+        @Test func `equal values are equal`() {
+            let safe1 = OverflowPosition.safe
+            let safe2 = OverflowPosition.safe
+            #expect(safe1 == safe2)
+        }
 
-    @Test func `initialization with invalid raw value returns nil`() {
-        let invalid = OverflowPosition(rawValue: "invalid")
-        #expect(invalid == nil)
+        @Test func `different values are not equal`() {
+            let safe = OverflowPosition.safe
+            let unsafe = OverflowPosition.unsafe
+            #expect(safe != unsafe)
+        }
+
+        @Test func `all values are distinct`() {
+            let values = [
+                OverflowPosition.safe,
+                OverflowPosition.unsafe,
+            ]
+            let uniqueValues = Set(values)
+            #expect(uniqueValues.count == values.count)
+        }
     }
 }
 
-@Suite
-struct `OverflowPosition - CSS Property Usage` {
-    @Test func `safe overflow position renders correctly in align-items property`() {
-        let alignItems = "align-items: \(OverflowPosition.safe) center"
-        #expect(alignItems == "align-items: safe center")
-    }
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - CaseIterable Conformance` {
+        @Test func `all cases contains all overflow position values`() {
+            let allCases = OverflowPosition.allCases
+            #expect(allCases.count == 2)
+            #expect(allCases.contains(.safe))
+            #expect(allCases.contains(.unsafe))
+        }
 
-    @Test func `unsafe overflow position renders correctly in justify-content property`() {
-        let justifyContent = "justify-content: \(OverflowPosition.unsafe) flex-end"
-        #expect(justifyContent == "justify-content: unsafe flex-end")
-    }
-
-    @Test func `safe overflow position renders correctly in align-self property`() {
-        let alignSelf = "align-self: \(OverflowPosition.safe) start"
-        #expect(alignSelf == "align-self: safe start")
-    }
-
-    @Test func `unsafe overflow position renders correctly in justify-self property`() {
-        let justifySelf = "justify-self: \(OverflowPosition.unsafe) stretch"
-        #expect(justifySelf == "justify-self: unsafe stretch")
-    }
-
-    @Test func `safe combined with content position`() {
-        let alignContent = "align-content: \(OverflowPosition.safe) flex-start"
-        #expect(alignContent == "align-content: safe flex-start")
-    }
-
-    @Test func `unsafe combined with self position`() {
-        let alignSelf = "align-self: \(OverflowPosition.unsafe) self-end"
-        #expect(alignSelf == "align-self: unsafe self-end")
+        @Test func `can iterate over all cases`() {
+            var count = 0
+            for position in OverflowPosition.allCases {
+                #expect(position.description == position.rawValue)
+                count += 1
+            }
+            #expect(count == 2)
+        }
     }
 }
 
-@Suite
-struct `OverflowPosition - Edge Cases` {
-    @Test func `safe ensures content remains visible during overflow`() {
-        let safe = OverflowPosition.safe
-        #expect(safe.description == "safe")
-        #expect(safe.rawValue == "safe")
-    }
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - RawRepresentable Conformance` {
+        @Test func `raw values match CSS specifications`() {
+            #expect(OverflowPosition.safe.rawValue == "safe")
+            #expect(OverflowPosition.unsafe.rawValue == "unsafe")
+        }
 
-    @Test func `unsafe honors alignment even with overflow`() {
-        let unsafe = OverflowPosition.unsafe
-        #expect(unsafe.description == "unsafe")
-        #expect(unsafe.rawValue == "unsafe")
-    }
+        @Test func `description uses raw value`() {
+            for position in OverflowPosition.allCases {
+                #expect(position.description == position.rawValue)
+            }
+        }
 
-    @Test func `safe and unsafe are opposites`() {
-        let safe = OverflowPosition.safe
-        let unsafe = OverflowPosition.unsafe
-        #expect(safe != unsafe)
-        #expect(safe.description != unsafe.description)
-    }
+        @Test(arguments: [
+            ("safe", OverflowPosition.safe),
+            ("unsafe", OverflowPosition.unsafe),
+        ])
+        func `initialization from raw value works correctly`(
+            rawValue: String,
+            expected: OverflowPosition
+        ) {
+            let position = OverflowPosition(rawValue: rawValue)
+            #expect(position == expected)
+        }
 
-    @Test func `overflow position modifies alignment behavior`() {
-
-        let safeAlignment = "align-items: \(OverflowPosition.safe) center"
-        #expect(safeAlignment.contains("safe"))
-        #expect(safeAlignment.contains("center"))
-
-        let unsafeAlignment = "align-items: \(OverflowPosition.unsafe) center"
-        #expect(unsafeAlignment.contains("unsafe"))
-        #expect(unsafeAlignment.contains("center"))
+        @Test func `initialization with invalid raw value returns nil`() {
+            let invalid = OverflowPosition(rawValue: "invalid")
+            #expect(invalid == nil)
+        }
     }
 }
 
-@Suite
-struct `OverflowPosition - CSS Specification` {
-    @Test func `safe prevents data loss on overflow`() {
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - CSS Property Usage` {
+        @Test func `safe overflow position renders correctly in align-items property`() {
+            let alignItems = "align-items: \(OverflowPosition.safe) center"
+            #expect(alignItems == "align-items: safe center")
+        }
 
-        let safe = OverflowPosition.safe
-        #expect(safe.description == "safe")
+        @Test func `unsafe overflow position renders correctly in justify-content property`() {
+            let justifyContent = "justify-content: \(OverflowPosition.unsafe) flex-end"
+            #expect(justifyContent == "justify-content: unsafe flex-end")
+        }
+
+        @Test func `safe overflow position renders correctly in align-self property`() {
+            let alignSelf = "align-self: \(OverflowPosition.safe) start"
+            #expect(alignSelf == "align-self: safe start")
+        }
+
+        @Test func `unsafe overflow position renders correctly in justify-self property`() {
+            let justifySelf = "justify-self: \(OverflowPosition.unsafe) stretch"
+            #expect(justifySelf == "justify-self: unsafe stretch")
+        }
+
+        @Test func `safe combined with content position`() {
+            let alignContent = "align-content: \(OverflowPosition.safe) flex-start"
+            #expect(alignContent == "align-content: safe flex-start")
+        }
+
+        @Test func `unsafe combined with self position`() {
+            let alignSelf = "align-self: \(OverflowPosition.unsafe) self-end"
+            #expect(alignSelf == "align-self: unsafe self-end")
+        }
     }
+}
 
-    @Test func `unsafe allows data loss on overflow`() {
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - Edge Cases` {
+        @Test func `safe ensures content remains visible during overflow`() {
+            let safe = OverflowPosition.safe
+            #expect(safe.description == "safe")
+            #expect(safe.rawValue == "safe")
+        }
 
-        let unsafe = OverflowPosition.unsafe
-        #expect(unsafe.description == "unsafe")
+        @Test func `unsafe honors alignment even with overflow`() {
+            let unsafe = OverflowPosition.unsafe
+            #expect(unsafe.description == "unsafe")
+            #expect(unsafe.rawValue == "unsafe")
+        }
+
+        @Test func `safe and unsafe are opposites`() {
+            let safe = OverflowPosition.safe
+            let unsafe = OverflowPosition.unsafe
+            #expect(safe != unsafe)
+            #expect(safe.description != unsafe.description)
+        }
+
+        @Test func `overflow position modifies alignment behavior`() {
+
+            let safeAlignment = "align-items: \(OverflowPosition.safe) center"
+            #expect(safeAlignment.contains("safe"))
+            #expect(safeAlignment.contains("center"))
+
+            let unsafeAlignment = "align-items: \(OverflowPosition.unsafe) center"
+            #expect(unsafeAlignment.contains("unsafe"))
+            #expect(unsafeAlignment.contains("center"))
+        }
     }
+}
 
-    @Test func `overflow position is optional in alignment properties`() {
+extension `OverflowPosition Tests` {
+    @Suite
+    struct `OverflowPosition - CSS Specification` {
+        @Test func `safe prevents data loss on overflow`() {
 
-        let allCases = OverflowPosition.allCases
-        #expect(allCases.count == 2)
-        #expect(allCases.contains(.safe))
-        #expect(allCases.contains(.unsafe))
+            let safe = OverflowPosition.safe
+            #expect(safe.description == "safe")
+        }
+
+        @Test func `unsafe allows data loss on overflow`() {
+
+            let unsafe = OverflowPosition.unsafe
+            #expect(unsafe.description == "unsafe")
+        }
+
+        @Test func `overflow position is optional in alignment properties`() {
+
+            let allCases = OverflowPosition.allCases
+            #expect(allCases.count == 2)
+            #expect(allCases.contains(.safe))
+            #expect(allCases.contains(.unsafe))
+        }
     }
 }
 

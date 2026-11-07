@@ -4,190 +4,214 @@ import W3C_CSS_Values
 
 @testable import W3C_CSS_Animations
 
-@Suite
-struct `AnimationRange - Declaration` {
-    @Test func `renders declaration correctly`() {
-        #expect(AnimationRange.normal.declaration.description == "animation-range:normal")
+enum `AnimationRange Tests` {}
+
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Declaration` {
+        @Test func `renders declaration correctly`() {
+            #expect(AnimationRange.normal.declaration.description == "animation-range:normal")
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Normal Value` {
-    @Test(arguments: [
-        (AnimationRange.normal, "normal"),
-        (AnimationRange.single(.normal), "normal"),
-    ])
-    func `renders normal value correctly`(
-        value: AnimationRange,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Normal Value` {
+        @Test(arguments: [
+            (AnimationRange.normal, "normal"),
+            (AnimationRange.single(.normal), "normal"),
+        ])
+        func `renders normal value correctly`(
+            value: AnimationRange,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Named Range Values` {
-    @Test(arguments: [
-        (AnimationRange.namedRange(.cover), "cover"),
-        (AnimationRange.namedRange(.contain), "contain"),
-        (AnimationRange.namedRange(.entry), "entry"),
-        (AnimationRange.namedRange(.exit), "exit"),
-        (AnimationRange.namedRange(.entryCrossing), "entry-crossing"),
-        (AnimationRange.namedRange(.exitCrossing), "exit-crossing"),
-    ])
-    func `renders named range values correctly`(
-        value: AnimationRange,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Named Range Values` {
+        @Test(arguments: [
+            (AnimationRange.namedRange(.cover), "cover"),
+            (AnimationRange.namedRange(.contain), "contain"),
+            (AnimationRange.namedRange(.entry), "entry"),
+            (AnimationRange.namedRange(.exit), "exit"),
+            (AnimationRange.namedRange(.entryCrossing), "entry-crossing"),
+            (AnimationRange.namedRange(.exitCrossing), "exit-crossing"),
+        ])
+        func `renders named range values correctly`(
+            value: AnimationRange,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Percentage Values` {
-    @Test(arguments: [
-        (AnimationRange.percentage(20), "20%"),
-        (AnimationRange.single(.percentage(50)), "50%"),
-        (AnimationRange.percentage(0), "0%"),
-        (AnimationRange.percentage(100), "100%"),
-    ])
-    func `renders percentage values correctly`(
-        value: AnimationRange,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Percentage Values` {
+        @Test(arguments: [
+            (AnimationRange.percentage(20), "20%"),
+            (AnimationRange.single(.percentage(50)), "50%"),
+            (AnimationRange.percentage(0), "0%"),
+            (AnimationRange.percentage(100), "100%"),
+        ])
+        func `renders percentage values correctly`(
+            value: AnimationRange,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Named Range with Percentage` {
-    @Test(arguments: [
-        (AnimationRange.single(.namedRange(.entry, 10)), "entry 10%"),
-        (AnimationRange.single(.namedRange(.contain, 75)), "contain 75%"),
-        (AnimationRange.single(.namedRange(.exit, 50)), "exit 50%"),
-    ])
-    func `renders named range with percentage values correctly`(
-        value: AnimationRange,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Named Range with Percentage` {
+        @Test(arguments: [
+            (AnimationRange.single(.namedRange(.entry, 10)), "entry 10%"),
+            (AnimationRange.single(.namedRange(.contain, 75)), "contain 75%"),
+            (AnimationRange.single(.namedRange(.exit, 50)), "exit 50%"),
+        ])
+        func `renders named range with percentage values correctly`(
+            value: AnimationRange,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Start-End Range` {
-    @Test func `renders start-end with normal and named range`() {
-        #expect(AnimationRange.startEnd(.normal, .namedRange(.exit)).description == "normal exit")
-    }
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Start-End Range` {
+        @Test func `renders start-end with normal and named range`() {
+            #expect(AnimationRange.startEnd(.normal, .namedRange(.exit)).description == "normal exit")
+        }
 
-    @Test func `renders start-end with named range and percentage`() {
-        #expect(
-            AnimationRange.startEnd(.namedRange(.entry), .percentage(50)).description == "entry 50%"
-        )
-    }
+        @Test func `renders start-end with named range and percentage`() {
+            #expect(
+                AnimationRange.startEnd(.namedRange(.entry), .percentage(50)).description == "entry 50%"
+            )
+        }
 
-    @Test func `renders start-end with two named ranges with percentages`() {
-        #expect(
-            AnimationRange.startEnd(.namedRange(.entry, 10), .namedRange(.contain, 75)).description
-                == "entry 10% contain 75%"
-        )
-    }
+        @Test func `renders start-end with two named ranges with percentages`() {
+            #expect(
+                AnimationRange.startEnd(.namedRange(.entry, 10), .namedRange(.contain, 75)).description
+                    == "entry 10% contain 75%"
+            )
+        }
 
-    @Test func `renders start-end with percentages only`() {
-        #expect(
-            AnimationRange.startEnd(.percentage(25), .percentage(75)).description == "25% 75%"
-        )
-    }
-}
-
-@Suite
-struct `AnimationRange - Global Values` {
-    @Test(arguments: [
-        (AnimationRange.inherit, "inherit"),
-        (AnimationRange.initial, "initial"),
-        (AnimationRange.revert, "revert"),
-        (AnimationRange.revertLayer, "revert-layer"),
-        (AnimationRange.unset, "unset"),
-    ])
-    func `renders global values correctly`(
-        value: AnimationRange,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+        @Test func `renders start-end with percentages only`() {
+            #expect(
+                AnimationRange.startEnd(.percentage(25), .percentage(75)).description == "25% 75%"
+            )
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Property Protocol` {
-    @Test func `conforms to Property protocol`() {
-        #expect(AnimationRange.property == "animation-range")
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Global Values` {
+        @Test(arguments: [
+            (AnimationRange.inherit, "inherit"),
+            (AnimationRange.initial, "initial"),
+            (AnimationRange.revert, "revert"),
+            (AnimationRange.revertLayer, "revert-layer"),
+            (AnimationRange.unset, "unset"),
+        ])
+        func `renders global values correctly`(
+            value: AnimationRange,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Edge Cases` {
-    @Test func `named ranges with hyphens render correctly`() {
-        #expect(AnimationRange.namedRange(.entryCrossing).description == "entry-crossing")
-        #expect(AnimationRange.namedRange(.exitCrossing).description == "exit-crossing")
-    }
-
-    @Test func `percentage values can be 0 or 100`() {
-        #expect(AnimationRange.percentage(0).description == "0%")
-        #expect(AnimationRange.percentage(100).description == "100%")
-    }
-
-    @Test func `fractional percentages render correctly`() {
-        #expect(AnimationRange.percentage(25.5).description == "25.5%")
-        #expect(AnimationRange.single(.percentage(33.33)).description == "33.33%")
-    }
-
-    @Test func `start-end can have same named range with different percentages`() {
-        #expect(
-            AnimationRange.startEnd(.namedRange(.entry, 10), .namedRange(.entry, 90)).description
-                == "entry 10% entry 90%"
-        )
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Property Protocol` {
+        @Test func `conforms to Property protocol`() {
+            #expect(AnimationRange.property == "animation-range")
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - CSS Property Usage` {
-    @Test func `renders correctly in CSS rule`() {
-        let css = "animation-range: \(AnimationRange.namedRange(.cover))"
-        #expect(css == "animation-range: cover")
-    }
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Edge Cases` {
+        @Test func `named ranges with hyphens render correctly`() {
+            #expect(AnimationRange.namedRange(.entryCrossing).description == "entry-crossing")
+            #expect(AnimationRange.namedRange(.exitCrossing).description == "exit-crossing")
+        }
 
-    @Test func `declaration renders complete property`() {
-        let decl = AnimationRange.normal.declaration
-        #expect(decl.description == "animation-range:normal")
-    }
+        @Test func `percentage values can be 0 or 100`() {
+            #expect(AnimationRange.percentage(0).description == "0%")
+            #expect(AnimationRange.percentage(100).description == "100%")
+        }
 
-    @Test func `complex range renders correctly`() {
-        let css =
-            "animation-range: \(AnimationRange.startEnd(.namedRange(.entry, 10), .namedRange(.exit, 90)))"
-        #expect(css == "animation-range: entry 10% exit 90%")
+        @Test func `fractional percentages render correctly`() {
+            #expect(AnimationRange.percentage(25.5).description == "25.5%")
+            #expect(AnimationRange.single(.percentage(33.33)).description == "33.33%")
+        }
+
+        @Test func `start-end can have same named range with different percentages`() {
+            #expect(
+                AnimationRange.startEnd(.namedRange(.entry, 10), .namedRange(.entry, 90)).description
+                    == "entry 10% entry 90%"
+            )
+        }
     }
 }
 
-@Suite
-struct `AnimationRange - Semantic Validation` {
-    @Test func `cover represents full scroll range`() {
-        let range = AnimationRange.namedRange(.cover)
-        #expect(range.description == "cover")
-    }
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - CSS Property Usage` {
+        @Test func `renders correctly in CSS rule`() {
+            let css = "animation-range: \(AnimationRange.namedRange(.cover))"
+            #expect(css == "animation-range: cover")
+        }
 
-    @Test func `contain represents contained range`() {
-        let range = AnimationRange.namedRange(.contain)
-        #expect(range.description == "contain")
-    }
+        @Test func `declaration renders complete property`() {
+            let decl = AnimationRange.normal.declaration
+            #expect(decl.description == "animation-range:normal")
+        }
 
-    @Test func `entry represents entry phase`() {
-        let range = AnimationRange.namedRange(.entry)
-        #expect(range.description == "entry")
+        @Test func `complex range renders correctly`() {
+            let css =
+                "animation-range: \(AnimationRange.startEnd(.namedRange(.entry, 10), .namedRange(.exit, 90)))"
+            #expect(css == "animation-range: entry 10% exit 90%")
+        }
     }
+}
 
-    @Test func `exit represents exit phase`() {
-        let range = AnimationRange.namedRange(.exit)
-        #expect(range.description == "exit")
+extension `AnimationRange Tests` {
+    @Suite
+    struct `AnimationRange - Semantic Validation` {
+        @Test func `cover represents full scroll range`() {
+            let range = AnimationRange.namedRange(.cover)
+            #expect(range.description == "cover")
+        }
+
+        @Test func `contain represents contained range`() {
+            let range = AnimationRange.namedRange(.contain)
+            #expect(range.description == "contain")
+        }
+
+        @Test func `entry represents entry phase`() {
+            let range = AnimationRange.namedRange(.entry)
+            #expect(range.description == "entry")
+        }
+
+        @Test func `exit represents exit phase`() {
+            let range = AnimationRange.namedRange(.exit)
+            #expect(range.description == "exit")
+        }
     }
 }
 

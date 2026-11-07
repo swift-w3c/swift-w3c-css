@@ -3,191 +3,205 @@ import W3C_CSS_Values
 
 @testable import W3C_CSS_Color
 
-@Suite
-struct `ColorInterpolationMethod - Rectangular Spaces` {
-    @Test(arguments: [
-        (ColorInterpolationMethod.RectangularColorSpace.srgb, "in srgb"),
-        (.srgbLinear, "in srgb-linear"),
-        (.displayP3, "in display-p3"),
-        (.a98rgb, "in a98-rgb"),
-        (.prophotoRgb, "in prophoto-rgb"),
-        (.rec2020, "in rec2020"),
-        (.lab, "in lab"),
-        (.oklab, "in oklab"),
-        (.xyz, "in xyz"),
-        (.xyzD50, "in xyz-d50"),
-        (.xyzD65, "in xyz-d65"),
-    ])
-    func `rectangular color spaces render correctly`(
-        space: ColorInterpolationMethod.RectangularColorSpace,
-        expected: String
-    ) {
-        #expect(ColorInterpolationMethod.rectangular(space).description == expected)
+enum `ColorInterpolationMethod Tests` {}
+
+extension `ColorInterpolationMethod Tests` {
+    @Suite
+    struct `ColorInterpolationMethod - Rectangular Spaces` {
+        @Test(arguments: [
+            (ColorInterpolationMethod.RectangularColorSpace.srgb, "in srgb"),
+            (.srgbLinear, "in srgb-linear"),
+            (.displayP3, "in display-p3"),
+            (.a98rgb, "in a98-rgb"),
+            (.prophotoRgb, "in prophoto-rgb"),
+            (.rec2020, "in rec2020"),
+            (.lab, "in lab"),
+            (.oklab, "in oklab"),
+            (.xyz, "in xyz"),
+            (.xyzD50, "in xyz-d50"),
+            (.xyzD65, "in xyz-d65"),
+        ])
+        func `rectangular color spaces render correctly`(
+            space: ColorInterpolationMethod.RectangularColorSpace,
+            expected: String
+        ) {
+            #expect(ColorInterpolationMethod.rectangular(space).description == expected)
+        }
     }
 }
 
-@Suite
-struct `ColorInterpolationMethod - Polar Spaces Without Hue` {
-    @Test(arguments: [
-        (ColorInterpolationMethod.PolarColorSpace.hsl, "in hsl"),
-        (.hwb, "in hwb"),
-        (.lch, "in lch"),
-        (.oklch, "in oklch"),
-    ])
-    func `polar color spaces without hue method render correctly`(
-        space: ColorInterpolationMethod.PolarColorSpace,
-        expected: String
-    ) {
-        #expect(ColorInterpolationMethod.polar(space).description == expected)
+extension `ColorInterpolationMethod Tests` {
+    @Suite
+    struct `ColorInterpolationMethod - Polar Spaces Without Hue` {
+        @Test(arguments: [
+            (ColorInterpolationMethod.PolarColorSpace.hsl, "in hsl"),
+            (.hwb, "in hwb"),
+            (.lch, "in lch"),
+            (.oklch, "in oklch"),
+        ])
+        func `polar color spaces without hue method render correctly`(
+            space: ColorInterpolationMethod.PolarColorSpace,
+            expected: String
+        ) {
+            #expect(ColorInterpolationMethod.polar(space).description == expected)
+        }
     }
 }
 
-@Suite
-struct `ColorInterpolationMethod - Polar Spaces With Hue` {
-    @Test(arguments: [
-        (
-            ColorInterpolationMethod.PolarColorSpace.hsl,
-            ColorInterpolationMethod.HueInterpolationMethod.shorter, "in hsl shorter hue"
-        ),
-        (.hwb, .longer, "in hwb longer hue"),
-        (.lch, .increasing, "in lch increasing hue"),
-        (.oklch, .decreasing, "in oklch decreasing hue"),
-    ])
-    func `polar color spaces with hue method render correctly`(
-        space: ColorInterpolationMethod.PolarColorSpace,
-        hueMethod: ColorInterpolationMethod.HueInterpolationMethod,
-        expected: String
-    ) {
-        #expect(ColorInterpolationMethod.polar(space, hueMethod).description == expected)
+extension `ColorInterpolationMethod Tests` {
+    @Suite
+    struct `ColorInterpolationMethod - Polar Spaces With Hue` {
+        @Test(arguments: [
+            (
+                ColorInterpolationMethod.PolarColorSpace.hsl,
+                ColorInterpolationMethod.HueInterpolationMethod.shorter, "in hsl shorter hue"
+            ),
+            (.hwb, .longer, "in hwb longer hue"),
+            (.lch, .increasing, "in lch increasing hue"),
+            (.oklch, .decreasing, "in oklch decreasing hue"),
+        ])
+        func `polar color spaces with hue method render correctly`(
+            space: ColorInterpolationMethod.PolarColorSpace,
+            hueMethod: ColorInterpolationMethod.HueInterpolationMethod,
+            expected: String
+        ) {
+            #expect(ColorInterpolationMethod.polar(space, hueMethod).description == expected)
+        }
     }
 }
 
-@Suite
-struct `ColorInterpolationMethod - Custom Profile` {
-    @Test(arguments: [
-        ("my-custom-profile", #"in "my-custom-profile""#),
-        ("sRGB-IEC61966", #"in "sRGB-IEC61966""#),
-        ("Adobe-RGB-1998", #"in "Adobe-RGB-1998""#),
-    ])
-    func `custom color profile renders correctly`(
-        profileName: String,
-        expected: String
-    ) {
-        #expect(ColorInterpolationMethod.custom(profileName).description == expected)
+extension `ColorInterpolationMethod Tests` {
+    @Suite
+    struct `ColorInterpolationMethod - Custom Profile` {
+        @Test(arguments: [
+            ("my-custom-profile", #"in "my-custom-profile""#),
+            ("sRGB-IEC61966", #"in "sRGB-IEC61966""#),
+            ("Adobe-RGB-1998", #"in "Adobe-RGB-1998""#),
+        ])
+        func `custom color profile renders correctly`(
+            profileName: String,
+            expected: String
+        ) {
+            #expect(ColorInterpolationMethod.custom(profileName).description == expected)
+        }
     }
 }
 
-@Suite
-struct `ColorInterpolationMethod - Hashable Conformance` {
-    @Test func `equal rectangular spaces are equal`() {
-        #expect(
-            ColorInterpolationMethod.rectangular(.srgb)
-                == ColorInterpolationMethod.rectangular(.srgb)
-        )
-    }
+extension `ColorInterpolationMethod Tests` {
+    @Suite
+    struct `ColorInterpolationMethod - Hashable Conformance` {
+        @Test func `equal rectangular spaces are equal`() {
+            #expect(
+                ColorInterpolationMethod.rectangular(.srgb)
+                    == ColorInterpolationMethod.rectangular(.srgb)
+            )
+        }
 
-    @Test func `equal polar spaces are equal`() {
-        #expect(
-            ColorInterpolationMethod.polar(.hsl)
-                == ColorInterpolationMethod.polar(.hsl)
-        )
-    }
+        @Test func `equal polar spaces are equal`() {
+            #expect(
+                ColorInterpolationMethod.polar(.hsl)
+                    == ColorInterpolationMethod.polar(.hsl)
+            )
+        }
 
-    @Test func `equal polar spaces with hue are equal`() {
-        #expect(
-            ColorInterpolationMethod.polar(.hsl, .shorter)
-                == ColorInterpolationMethod.polar(.hsl, .shorter)
-        )
-    }
+        @Test func `equal polar spaces with hue are equal`() {
+            #expect(
+                ColorInterpolationMethod.polar(.hsl, .shorter)
+                    == ColorInterpolationMethod.polar(.hsl, .shorter)
+            )
+        }
 
-    @Test func `different rectangular spaces are not equal`() {
-        #expect(
-            ColorInterpolationMethod.rectangular(.srgb)
-                != ColorInterpolationMethod.rectangular(.lab)
-        )
-    }
+        @Test func `different rectangular spaces are not equal`() {
+            #expect(
+                ColorInterpolationMethod.rectangular(.srgb)
+                    != ColorInterpolationMethod.rectangular(.lab)
+            )
+        }
 
-    @Test func `different polar spaces are not equal`() {
-        #expect(
-            ColorInterpolationMethod.polar(.hsl)
-                != ColorInterpolationMethod.polar(.hwb)
-        )
-    }
+        @Test func `different polar spaces are not equal`() {
+            #expect(
+                ColorInterpolationMethod.polar(.hsl)
+                    != ColorInterpolationMethod.polar(.hwb)
+            )
+        }
 
-    @Test func `polar spaces with different hue methods are not equal`() {
-        #expect(
-            ColorInterpolationMethod.polar(.hsl, .shorter)
-                != ColorInterpolationMethod.polar(.hsl, .longer)
-        )
-    }
+        @Test func `polar spaces with different hue methods are not equal`() {
+            #expect(
+                ColorInterpolationMethod.polar(.hsl, .shorter)
+                    != ColorInterpolationMethod.polar(.hsl, .longer)
+            )
+        }
 
-    @Test func `rectangular and polar types are not equal`() {
-        #expect(
-            ColorInterpolationMethod.rectangular(.srgb)
-                != ColorInterpolationMethod.polar(.hsl)
-        )
-    }
+        @Test func `rectangular and polar types are not equal`() {
+            #expect(
+                ColorInterpolationMethod.rectangular(.srgb)
+                    != ColorInterpolationMethod.polar(.hsl)
+            )
+        }
 
-    @Test func `custom profiles with same value are equal`() {
-        let profile1 = "profile1"
-        #expect(
-            ColorInterpolationMethod.custom(profile1)
-                == ColorInterpolationMethod.custom(profile1)
-        )
-    }
+        @Test func `custom profiles with same value are equal`() {
+            let profile1 = "profile1"
+            #expect(
+                ColorInterpolationMethod.custom(profile1)
+                    == ColorInterpolationMethod.custom(profile1)
+            )
+        }
 
-    @Test func `custom profiles with different values are not equal`() {
-        let profile1 = "profile1"
-        let profile2 = "profile2"
-        #expect(
-            ColorInterpolationMethod.custom(profile1)
-                != ColorInterpolationMethod.custom(profile2)
-        )
+        @Test func `custom profiles with different values are not equal`() {
+            let profile1 = "profile1"
+            let profile2 = "profile2"
+            #expect(
+                ColorInterpolationMethod.custom(profile1)
+                    != ColorInterpolationMethod.custom(profile2)
+            )
+        }
     }
 }
 
-@Suite
-struct `ColorInterpolationMethod - Edge Cases` {
-    @Test func `all rectangular color spaces are distinct`() {
-        let spaces: [ColorInterpolationMethod.RectangularColorSpace] = [
-            .srgb, .srgbLinear, .displayP3, .a98rgb,
-            .prophotoRgb, .rec2020, .lab, .oklab,
-            .xyz, .xyzD50, .xyzD65,
-        ]
+extension `ColorInterpolationMethod Tests` {
+    @Suite
+    struct `ColorInterpolationMethod - Edge Cases` {
+        @Test func `all rectangular color spaces are distinct`() {
+            let spaces: [ColorInterpolationMethod.RectangularColorSpace] = [
+                .srgb, .srgbLinear, .displayP3, .a98rgb,
+                .prophotoRgb, .rec2020, .lab, .oklab,
+                .xyz, .xyzD50, .xyzD65,
+            ]
 
-        let methods = spaces.map { ColorInterpolationMethod.rectangular($0) }
-        let uniqueMethods = Set(methods)
-        #expect(methods.count == uniqueMethods.count)
-    }
+            let methods = spaces.map { ColorInterpolationMethod.rectangular($0) }
+            let uniqueMethods = Set(methods)
+            #expect(methods.count == uniqueMethods.count)
+        }
 
-    @Test func `all polar color spaces are distinct`() {
-        let spaces: [ColorInterpolationMethod.PolarColorSpace] = [.hsl, .hwb, .lch, .oklch]
+        @Test func `all polar color spaces are distinct`() {
+            let spaces: [ColorInterpolationMethod.PolarColorSpace] = [.hsl, .hwb, .lch, .oklch]
 
-        let methods = spaces.map { ColorInterpolationMethod.polar($0) }
-        let uniqueMethods = Set(methods)
-        #expect(methods.count == uniqueMethods.count)
-    }
+            let methods = spaces.map { ColorInterpolationMethod.polar($0) }
+            let uniqueMethods = Set(methods)
+            #expect(methods.count == uniqueMethods.count)
+        }
 
-    @Test func `all hue interpolation methods are distinct`() {
-        let hueMethods: [ColorInterpolationMethod.HueInterpolationMethod] = [
-            .shorter, .longer, .increasing, .decreasing,
-        ]
+        @Test func `all hue interpolation methods are distinct`() {
+            let hueMethods: [ColorInterpolationMethod.HueInterpolationMethod] = [
+                .shorter, .longer, .increasing, .decreasing,
+            ]
 
-        let methods = hueMethods.map { ColorInterpolationMethod.polar(.hsl, $0) }
-        let uniqueMethods = Set(methods)
-        #expect(methods.count == uniqueMethods.count)
-    }
+            let methods = hueMethods.map { ColorInterpolationMethod.polar(.hsl, $0) }
+            let uniqueMethods = Set(methods)
+            #expect(methods.count == uniqueMethods.count)
+        }
 
-    @Test func `custom profile with empty string`() {
-        let emptyProfile = ""
-        let method = ColorInterpolationMethod.custom(emptyProfile)
-        #expect(method.description == #"in """#)
-    }
+        @Test func `custom profile with empty string`() {
+            let emptyProfile = ""
+            let method = ColorInterpolationMethod.custom(emptyProfile)
+            #expect(method.description == #"in """#)
+        }
 
-    @Test func `custom profile with special characters`() {
-        let specialProfile = "my-profile-2.0"
-        let method = ColorInterpolationMethod.custom(specialProfile)
-        #expect(method.description == #"in "my-profile-2.0""#)
+        @Test func `custom profile with special characters`() {
+            let specialProfile = "my-profile-2.0"
+            let method = ColorInterpolationMethod.custom(specialProfile)
+            #expect(method.description == #"in "my-profile-2.0""#)
+        }
     }
 }
 

@@ -2,208 +2,226 @@ import Testing
 
 @testable import W3C_CSS_Display
 
-@Suite
-struct `DisplayOutside - Initialization` {
-    @Test(arguments: [
-        (DisplayOutside.block, "block"),
-        (DisplayOutside.inline, "inline"),
-        (DisplayOutside.runIn, "run-in"),
-    ])
-    func `displayOutside initializes with correct raw value and description`(
-        value: DisplayOutside,
-        expected: String
-    ) {
-        #expect(value.rawValue == expected)
-        #expect(value.description == expected)
+enum `DisplayOutside Tests` {}
+
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - Initialization` {
+        @Test(arguments: [
+            (DisplayOutside.block, "block"),
+            (DisplayOutside.inline, "inline"),
+            (DisplayOutside.runIn, "run-in"),
+        ])
+        func `displayOutside initializes with correct raw value and description`(
+            value: DisplayOutside,
+            expected: String
+        ) {
+            #expect(value.rawValue == expected)
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `DisplayOutside - Raw Value Initialization` {
-    @Test(arguments: [
-        ("block", DisplayOutside.block),
-        ("inline", DisplayOutside.inline),
-        ("run-in", DisplayOutside.runIn),
-    ])
-    func `creates displayOutside from valid raw values`(
-        rawValue: String,
-        expected: DisplayOutside
-    ) {
-        #expect(DisplayOutside(rawValue: rawValue) == expected)
-    }
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - Raw Value Initialization` {
+        @Test(arguments: [
+            ("block", DisplayOutside.block),
+            ("inline", DisplayOutside.inline),
+            ("run-in", DisplayOutside.runIn),
+        ])
+        func `creates displayOutside from valid raw values`(
+            rawValue: String,
+            expected: DisplayOutside
+        ) {
+            #expect(DisplayOutside(rawValue: rawValue) == expected)
+        }
 
-    @Test func `returns nil for invalid raw values`() {
-        #expect(DisplayOutside(rawValue: "invalid") == nil)
-        #expect(DisplayOutside(rawValue: "") == nil)
-        #expect(DisplayOutside(rawValue: "flex") == nil)
-        #expect(DisplayOutside(rawValue: "grid") == nil)
-    }
-}
-
-@Suite
-struct `DisplayOutside - Hashable Conformance` {
-    @Test func `equal values are equal`() {
-        let display1 = DisplayOutside.block
-        let display2 = DisplayOutside.block
-        #expect(display1 == display2)
-    }
-
-    @Test func `different values are not equal`() {
-        let display1 = DisplayOutside.block
-        let display2 = DisplayOutside.inline
-        #expect(display1 != display2)
-    }
-
-    @Test func `hashable allows use in sets`() {
-        let set: Set<DisplayOutside> = [.block, .inline, .runIn, .block]
-        #expect(set.count == 3)
-        #expect(set.contains(.block))
-        #expect(set.contains(.inline))
-        #expect(set.contains(.runIn))
-    }
-
-    @Test func `hashable allows use as dictionary keys`() {
-        let dict: [DisplayOutside: String] = [
-            .block: "block-level",
-            .inline: "inline-level",
-            .runIn: "conditional",
-        ]
-        #expect(dict[.block] == "block-level")
-        #expect(dict[.inline] == "inline-level")
-        #expect(dict[.runIn] == "conditional")
+        @Test func `returns nil for invalid raw values`() {
+            #expect(DisplayOutside(rawValue: "invalid") == nil)
+            #expect(DisplayOutside(rawValue: "") == nil)
+            #expect(DisplayOutside(rawValue: "flex") == nil)
+            #expect(DisplayOutside(rawValue: "grid") == nil)
+        }
     }
 }
 
-@Suite
-struct `DisplayOutside - CSS Property Usage` {
-    @Test(arguments: [
-        (DisplayOutside.block, "display: block"),
-        (DisplayOutside.inline, "display: inline"),
-        (DisplayOutside.runIn, "display: run-in"),
-    ])
-    func `renders correctly in display property`(
-        value: DisplayOutside,
-        expected: String
-    ) {
-        let display = "display: \(value)"
-        #expect(display == expected)
-    }
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - Hashable Conformance` {
+        @Test func `equal values are equal`() {
+            let display1 = DisplayOutside.block
+            let display2 = DisplayOutside.block
+            #expect(display1 == display2)
+        }
 
-    @Test func `block creates block-level box`() {
-        #expect(DisplayOutside.block.description == "block")
-    }
+        @Test func `different values are not equal`() {
+            let display1 = DisplayOutside.block
+            let display2 = DisplayOutside.inline
+            #expect(display1 != display2)
+        }
 
-    @Test func `inline creates inline-level box`() {
-        #expect(DisplayOutside.inline.description == "inline")
-    }
+        @Test func `hashable allows use in sets`() {
+            let set: Set<DisplayOutside> = [.block, .inline, .runIn, .block]
+            #expect(set.count == 3)
+            #expect(set.contains(.block))
+            #expect(set.contains(.inline))
+            #expect(set.contains(.runIn))
+        }
 
-    @Test func `runIn creates conditional box`() {
-        #expect(DisplayOutside.runIn.description == "run-in")
-    }
-}
-
-@Suite
-struct `DisplayOutside - Combination Behavior` {
-    @Test(arguments: [
-        (DisplayOutside.block, DisplayInside.flow, "block flow"),
-        (DisplayOutside.block, DisplayInside.flex, "block flex"),
-        (DisplayOutside.inline, DisplayInside.grid, "inline grid"),
-        (DisplayOutside.inline, DisplayInside.flex, "inline flex"),
-        (DisplayOutside.block, DisplayInside.grid, "block grid"),
-    ])
-    func `combines with displayInside values`(
-        outside: DisplayOutside,
-        inside: DisplayInside,
-        expected: String
-    ) {
-        let combined = "\(outside) \(inside)"
-        #expect(combined == expected)
-    }
-
-    @Test func `block flex creates flex container`() {
-        let blockFlex = "\(DisplayOutside.block) \(DisplayInside.flex)"
-        #expect(blockFlex == "block flex")
-    }
-
-    @Test func `inline grid creates inline-level grid`() {
-        let inlineGrid = "\(DisplayOutside.inline) \(DisplayInside.grid)"
-        #expect(inlineGrid == "inline grid")
+        @Test func `hashable allows use as dictionary keys`() {
+            let dict: [DisplayOutside: String] = [
+                .block: "block-level",
+                .inline: "inline-level",
+                .runIn: "conditional",
+            ]
+            #expect(dict[.block] == "block-level")
+            #expect(dict[.inline] == "inline-level")
+            #expect(dict[.runIn] == "conditional")
+        }
     }
 }
 
-@Suite
-struct `DisplayOutside - CSS Specification` {
-    @Test func `block matches CSS specification`() {
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - CSS Property Usage` {
+        @Test(arguments: [
+            (DisplayOutside.block, "display: block"),
+            (DisplayOutside.inline, "display: inline"),
+            (DisplayOutside.runIn, "display: run-in"),
+        ])
+        func `renders correctly in display property`(
+            value: DisplayOutside,
+            expected: String
+        ) {
+            let display = "display: \(value)"
+            #expect(display == expected)
+        }
 
-        #expect(DisplayOutside.block.rawValue == "block")
-        #expect(DisplayOutside.block.description == "block")
-    }
+        @Test func `block creates block-level box`() {
+            #expect(DisplayOutside.block.description == "block")
+        }
 
-    @Test func `inline matches CSS specification`() {
+        @Test func `inline creates inline-level box`() {
+            #expect(DisplayOutside.inline.description == "inline")
+        }
 
-        #expect(DisplayOutside.inline.rawValue == "inline")
-        #expect(DisplayOutside.inline.description == "inline")
-    }
-
-    @Test func `runIn matches CSS specification`() {
-
-        #expect(DisplayOutside.runIn.rawValue == "run-in")
-        #expect(DisplayOutside.runIn.description == "run-in")
-    }
-
-    @Test func `all specification values are present`() {
-
-        let allValues: Set<DisplayOutside> = [.block, .inline, .runIn]
-        #expect(allValues.count == 3)
-    }
-}
-
-@Suite
-struct `DisplayOutside - Edge Cases` {
-    @Test func `case insensitive raw value lookup fails`() {
-        #expect(DisplayOutside(rawValue: "BLOCK") == nil)
-        #expect(DisplayOutside(rawValue: "Inline") == nil)
-        #expect(DisplayOutside(rawValue: "RUN-IN") == nil)
-    }
-
-    @Test func `whitespace in raw value fails`() {
-        #expect(DisplayOutside(rawValue: " block") == nil)
-        #expect(DisplayOutside(rawValue: "inline ") == nil)
-        #expect(DisplayOutside(rawValue: " run-in ") == nil)
-    }
-
-    @Test func `similar but incorrect values fail`() {
-        #expect(DisplayOutside(rawValue: "blocks") == nil)
-        #expect(DisplayOutside(rawValue: "inline-block") == nil)
-        #expect(DisplayOutside(rawValue: "run_in") == nil)
-        #expect(DisplayOutside(rawValue: "runin") == nil)
-    }
-
-    @Test func `hyphenated values are parsed correctly`() {
-
-        #expect(DisplayOutside(rawValue: "run-in") == DisplayOutside.runIn)
-        #expect(DisplayOutside.runIn.rawValue == "run-in")
+        @Test func `runIn creates conditional box`() {
+            #expect(DisplayOutside.runIn.description == "run-in")
+        }
     }
 }
 
-@Suite
-struct `DisplayOutside - Box Semantics` {
-    @Test func `block creates new line`() {
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - Combination Behavior` {
+        @Test(arguments: [
+            (DisplayOutside.block, DisplayInside.flow, "block flow"),
+            (DisplayOutside.block, DisplayInside.flex, "block flex"),
+            (DisplayOutside.inline, DisplayInside.grid, "inline grid"),
+            (DisplayOutside.inline, DisplayInside.flex, "inline flex"),
+            (DisplayOutside.block, DisplayInside.grid, "block grid"),
+        ])
+        func `combines with displayInside values`(
+            outside: DisplayOutside,
+            inside: DisplayInside,
+            expected: String
+        ) {
+            let combined = "\(outside) \(inside)"
+            #expect(combined == expected)
+        }
 
-        let blockElements: [DisplayOutside] = [.block]
-        #expect(blockElements.contains(.block))
+        @Test func `block flex creates flex container`() {
+            let blockFlex = "\(DisplayOutside.block) \(DisplayInside.flex)"
+            #expect(blockFlex == "block flex")
+        }
+
+        @Test func `inline grid creates inline-level grid`() {
+            let inlineGrid = "\(DisplayOutside.inline) \(DisplayInside.grid)"
+            #expect(inlineGrid == "inline grid")
+        }
     }
+}
 
-    @Test func `inline flows with text`() {
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - CSS Specification` {
+        @Test func `block matches CSS specification`() {
 
-        let inlineElements: [DisplayOutside] = [.inline]
-        #expect(inlineElements.contains(.inline))
+            #expect(DisplayOutside.block.rawValue == "block")
+            #expect(DisplayOutside.block.description == "block")
+        }
+
+        @Test func `inline matches CSS specification`() {
+
+            #expect(DisplayOutside.inline.rawValue == "inline")
+            #expect(DisplayOutside.inline.description == "inline")
+        }
+
+        @Test func `runIn matches CSS specification`() {
+
+            #expect(DisplayOutside.runIn.rawValue == "run-in")
+            #expect(DisplayOutside.runIn.description == "run-in")
+        }
+
+        @Test func `all specification values are present`() {
+
+            let allValues: Set<DisplayOutside> = [.block, .inline, .runIn]
+            #expect(allValues.count == 3)
+        }
     }
+}
 
-    @Test func `runIn is conditional`() {
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - Edge Cases` {
+        @Test func `case insensitive raw value lookup fails`() {
+            #expect(DisplayOutside(rawValue: "BLOCK") == nil)
+            #expect(DisplayOutside(rawValue: "Inline") == nil)
+            #expect(DisplayOutside(rawValue: "RUN-IN") == nil)
+        }
 
-        let conditionalElements: [DisplayOutside] = [.runIn]
-        #expect(conditionalElements.contains(.runIn))
+        @Test func `whitespace in raw value fails`() {
+            #expect(DisplayOutside(rawValue: " block") == nil)
+            #expect(DisplayOutside(rawValue: "inline ") == nil)
+            #expect(DisplayOutside(rawValue: " run-in ") == nil)
+        }
+
+        @Test func `similar but incorrect values fail`() {
+            #expect(DisplayOutside(rawValue: "blocks") == nil)
+            #expect(DisplayOutside(rawValue: "inline-block") == nil)
+            #expect(DisplayOutside(rawValue: "run_in") == nil)
+            #expect(DisplayOutside(rawValue: "runin") == nil)
+        }
+
+        @Test func `hyphenated values are parsed correctly`() {
+
+            #expect(DisplayOutside(rawValue: "run-in") == DisplayOutside.runIn)
+            #expect(DisplayOutside.runIn.rawValue == "run-in")
+        }
+    }
+}
+
+extension `DisplayOutside Tests` {
+    @Suite
+    struct `DisplayOutside - Box Semantics` {
+        @Test func `block creates new line`() {
+
+            let blockElements: [DisplayOutside] = [.block]
+            #expect(blockElements.contains(.block))
+        }
+
+        @Test func `inline flows with text`() {
+
+            let inlineElements: [DisplayOutside] = [.inline]
+            #expect(inlineElements.contains(.inline))
+        }
+
+        @Test func `runIn is conditional`() {
+
+            let conditionalElements: [DisplayOutside] = [.runIn]
+            #expect(conditionalElements.contains(.runIn))
+        }
     }
 }
 

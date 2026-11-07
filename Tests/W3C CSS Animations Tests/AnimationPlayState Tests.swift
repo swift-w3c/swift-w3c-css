@@ -3,143 +3,163 @@ import W3C_CSS_Shared
 
 @testable import W3C_CSS_Animations
 
-@Suite
-struct `AnimationPlayState - Declaration` {
-    @Test func `renders declaration correctly`() {
-        #expect(
-            AnimationPlayState.running.declaration.description == "animation-play-state:running"
-        )
+enum `AnimationPlayState Tests` {}
+
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Declaration` {
+        @Test func `renders declaration correctly`() {
+            #expect(
+                AnimationPlayState.running.declaration.description == "animation-play-state:running"
+            )
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - Basic Values` {
-    @Test(arguments: [
-        (AnimationPlayState.running, "running"),
-        (AnimationPlayState.paused, "paused"),
-    ])
-    func `renders basic values correctly`(
-        value: AnimationPlayState,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Basic Values` {
+        @Test(arguments: [
+            (AnimationPlayState.running, "running"),
+            (AnimationPlayState.paused, "paused"),
+        ])
+        func `renders basic values correctly`(
+            value: AnimationPlayState,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - Global Values` {
-    @Test(arguments: [
-        (AnimationPlayState.inherit, "inherit"),
-        (AnimationPlayState.initial, "initial"),
-        (AnimationPlayState.revert, "revert"),
-        (AnimationPlayState.revertLayer, "revert-layer"),
-        (AnimationPlayState.unset, "unset"),
-    ])
-    func `renders global values correctly`(
-        value: AnimationPlayState,
-        expected: String
-    ) {
-        #expect(value.description == expected)
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Global Values` {
+        @Test(arguments: [
+            (AnimationPlayState.inherit, "inherit"),
+            (AnimationPlayState.initial, "initial"),
+            (AnimationPlayState.revert, "revert"),
+            (AnimationPlayState.revertLayer, "revert-layer"),
+            (AnimationPlayState.unset, "unset"),
+        ])
+        func `renders global values correctly`(
+            value: AnimationPlayState,
+            expected: String
+        ) {
+            #expect(value.description == expected)
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - Property Protocol` {
-    @Test func `conforms to Property protocol`() {
-        #expect(AnimationPlayState.property == "animation-play-state")
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Property Protocol` {
+        @Test func `conforms to Property protocol`() {
+            #expect(AnimationPlayState.property == "animation-play-state")
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - CaseIterable` {
-    @Test func `provides all cases`() {
-        let allCases = AnimationPlayState.allCases
-        #expect(allCases.contains(AnimationPlayState.running))
-        #expect(allCases.contains(AnimationPlayState.paused))
-        #expect(allCases.contains(AnimationPlayState.inherit))
-    }
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - CaseIterable` {
+        @Test func `provides all cases`() {
+            let allCases = AnimationPlayState.allCases
+            #expect(allCases.contains(AnimationPlayState.running))
+            #expect(allCases.contains(AnimationPlayState.paused))
+            #expect(allCases.contains(AnimationPlayState.inherit))
+        }
 
-    @Test func `all cases count is correct`() {
-        #expect(AnimationPlayState.allCases.count >= 7)
-    }
-}
-
-@Suite
-struct `AnimationPlayState - Edge Cases` {
-    @Test func `running and paused are distinct`() {
-        #expect(AnimationPlayState.running != AnimationPlayState.paused)
-    }
-
-    @Test func `running means animation is active`() {
-        #expect(AnimationPlayState.running.description == "running")
-    }
-
-    @Test func `paused means animation is frozen`() {
-        #expect(AnimationPlayState.paused.description == "paused")
+        @Test func `all cases count is correct`() {
+            #expect(AnimationPlayState.allCases.count >= 7)
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - CSS Property Usage` {
-    @Test func `renders correctly in CSS rule`() {
-        let css = "animation-play-state: \(AnimationPlayState.paused)"
-        #expect(css == "animation-play-state: paused")
-    }
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Edge Cases` {
+        @Test func `running and paused are distinct`() {
+            #expect(AnimationPlayState.running != AnimationPlayState.paused)
+        }
 
-    @Test func `declaration renders complete property`() {
-        let decl = AnimationPlayState.running.declaration
-        #expect(decl.description == "animation-play-state:running")
-    }
+        @Test func `running means animation is active`() {
+            #expect(AnimationPlayState.running.description == "running")
+        }
 
-    @Test func `multiple play states can be combined in array notation`() {
-        let states = [
-            AnimationPlayState.running, AnimationPlayState.paused, AnimationPlayState.running,
-        ]
-        let css = states.map(\.description).joined(separator: ", ")
-        #expect(css == "running, paused, running")
+        @Test func `paused means animation is frozen`() {
+            #expect(AnimationPlayState.paused.description == "paused")
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - Semantic Validation` {
-    @Test func `running allows animation to play`() {
-        let state = AnimationPlayState.running
-        #expect(state.description == "running")
-    }
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - CSS Property Usage` {
+        @Test func `renders correctly in CSS rule`() {
+            let css = "animation-play-state: \(AnimationPlayState.paused)"
+            #expect(css == "animation-play-state: paused")
+        }
 
-    @Test func `paused stops animation playback`() {
-        let state = AnimationPlayState.paused
-        #expect(state.description == "paused")
-    }
+        @Test func `declaration renders complete property`() {
+            let decl = AnimationPlayState.running.declaration
+            #expect(decl.description == "animation-play-state:running")
+        }
 
-    @Test func `state can toggle between running and paused`() {
-        let initial = AnimationPlayState.running
-        let changed = AnimationPlayState.paused
-        #expect(initial != changed)
+        @Test func `multiple play states can be combined in array notation`() {
+            let states = [
+                AnimationPlayState.running, AnimationPlayState.paused, AnimationPlayState.running,
+            ]
+            let css = states.map(\.description).joined(separator: ", ")
+            #expect(css == "running, paused, running")
+        }
     }
 }
 
-@Suite
-struct `AnimationPlayState - Interactive Scenarios` {
-    @Test func `can pause running animation`() {
-        let running = AnimationPlayState.running
-        let paused = AnimationPlayState.paused
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Semantic Validation` {
+        @Test func `running allows animation to play`() {
+            let state = AnimationPlayState.running
+            #expect(state.description == "running")
+        }
 
-        #expect(running.description == "running")
-        #expect(paused.description == "paused")
+        @Test func `paused stops animation playback`() {
+            let state = AnimationPlayState.paused
+            #expect(state.description == "paused")
+        }
+
+        @Test func `state can toggle between running and paused`() {
+            let initial = AnimationPlayState.running
+            let changed = AnimationPlayState.paused
+            #expect(initial != changed)
+        }
     }
+}
 
-    @Test func `can resume paused animation`() {
-        let paused = AnimationPlayState.paused
-        let resumed = AnimationPlayState.running
+extension `AnimationPlayState Tests` {
+    @Suite
+    struct `AnimationPlayState - Interactive Scenarios` {
+        @Test func `can pause running animation`() {
+            let running = AnimationPlayState.running
+            let paused = AnimationPlayState.paused
 
-        #expect(paused.description == "paused")
-        #expect(resumed.description == "running")
-    }
+            #expect(running.description == "running")
+            #expect(paused.description == "paused")
+        }
 
-    @Test func `default state is running`() {
-        let defaultState = AnimationPlayState.running
-        #expect(defaultState.description == "running")
+        @Test func `can resume paused animation`() {
+            let paused = AnimationPlayState.paused
+            let resumed = AnimationPlayState.running
+
+            #expect(paused.description == "paused")
+            #expect(resumed.description == "running")
+        }
+
+        @Test func `default state is running`() {
+            let defaultState = AnimationPlayState.running
+            #expect(defaultState.description == "running")
+        }
     }
 }
 
