@@ -13,6 +13,23 @@ public enum WithGlobal<T: Sendable & Hashable>: Sendable, Hashable {
     public init(_ global: Global) {
         self = .global(global)
     }
+}
+
+extension WithGlobal: GlobalConvertible {}
+
+extension WithGlobal: CustomStringConvertible where T: CustomStringConvertible {
+    public var description: String {
+        switch self {
+        case .value(let t):
+            return t.description
+
+        case .global(let g):
+            return g.description
+        }
+    }
+}
+
+extension WithGlobal {
 
     @inlinable
     public func map<U: Sendable & Hashable>(_ transform: (T) -> U) -> WithGlobal<U> {
@@ -33,20 +50,6 @@ public enum WithGlobal<T: Sendable & Hashable>: Sendable, Hashable {
 
         case .global(let g):
             return .global(g)
-        }
-    }
-}
-
-extension WithGlobal: GlobalConvertible {}
-
-extension WithGlobal: CustomStringConvertible where T: CustomStringConvertible {
-    public var description: String {
-        switch self {
-        case .value(let t):
-            return t.description
-
-        case .global(let g):
-            return g.description
         }
     }
 }
