@@ -21,23 +21,7 @@ public enum PositionTryFallbacks: Property {
 extension PositionTryFallbacks {
     public static let property: String = "position-try-fallbacks"
 
-    public enum TryTactic: String, Sendable, Hashable {
 
-        case flipBlock = "flip-block"
-
-        case flipInline = "flip-inline"
-
-        case flipStart = "flip-start"
-    }
-
-    public enum FallbackOption: Sendable, Hashable {
-
-        case tactic(TryTactic)
-
-        case positionArea(CSSString)
-
-        case customOption(CSSString)
-    }
 
     public var description: String {
         switch self {

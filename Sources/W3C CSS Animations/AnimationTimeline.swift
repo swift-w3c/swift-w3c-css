@@ -20,25 +20,7 @@ extension AnimationTimeline {
     public static let property: String = "animation-timeline"
 }
 
-public enum ScrollerValue: String, Sendable, Hashable, CaseIterable {
 
-    case root
-
-    case nearest
-
-    case `self`
-}
-
-public enum ScrollAxis: String, Sendable, Hashable, CaseIterable {
-
-    case block
-
-    case inline
-
-    case x
-
-    case y
-}
 
 extension AnimationTimeline: CustomStringConvertible {
 

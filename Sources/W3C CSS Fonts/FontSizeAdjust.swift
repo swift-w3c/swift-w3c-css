@@ -16,25 +16,7 @@ public enum FontSizeAdjust: Property {
 extension FontSizeAdjust {
     public static let property: String = "font-size-adjust"
 
-    public enum Metric: String, Sendable, CustomStringConvertible {
 
-        case exHeight = "ex-height"
-
-        case capHeight = "cap-height"
-
-        case chWidth = "ch-width"
-
-        case icWidth = "ic-width"
-
-        case icHeight = "ic-height"
-    }
-
-    public enum ValueOrFromFont: Sendable, Hashable, CustomStringConvertible {
-
-        case value(Double)
-
-        case fromFont
-    }
 
     public var description: String {
         switch self {

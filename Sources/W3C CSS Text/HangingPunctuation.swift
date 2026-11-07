@@ -30,14 +30,6 @@ extension HangingPunctuation {
     public static let property: String = "hanging-punctuation"
 }
 
-public enum HangingPunctuationOption: String, Sendable, Hashable, CaseIterable {
-
-    case first
-
-    case last
-
-    case allowEnd = "allow-end"
-}
 
 extension HangingPunctuation: CustomStringConvertible {
 

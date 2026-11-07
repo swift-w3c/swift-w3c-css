@@ -19,16 +19,6 @@ public enum MaskComposite: Property {
 extension MaskComposite {
     public static let property: String = "mask-composite"
 
-    public enum CompositeOperation: String, Sendable, Hashable {
-
-        case add
-
-        case subtract
-
-        case intersect
-
-        case exclude
-    }
 }
 
 extension MaskComposite: CustomStringConvertible {

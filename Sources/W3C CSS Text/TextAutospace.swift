@@ -30,18 +30,6 @@ extension TextAutospace {
     public static let property: String = "text-autospace"
 }
 
-public enum TextAutospaceOption: String, Sendable, Hashable, CaseIterable {
-
-    case ideographAlpha = "ideograph-alpha"
-
-    case ideographNumeric = "ideograph-numeric"
-
-    case ideographParenthesis = "ideograph-parenthesis"
-
-    case punctuation = "punctuation"
-
-    case all = "all"
-}
 
 extension TextAutospace: CustomStringConvertible {
 

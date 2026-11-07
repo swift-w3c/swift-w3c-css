@@ -46,12 +46,6 @@ extension ViewTransition {
 
 extension ViewTransition {
 
-    public enum NavigationType: String, Hashable, Sendable {
-
-        case auto
-
-        case none
-    }
 
     public static let auto = ViewTransition().navigation(.auto)
 

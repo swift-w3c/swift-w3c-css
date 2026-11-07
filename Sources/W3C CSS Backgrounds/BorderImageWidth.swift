@@ -35,15 +35,6 @@ extension BorderImageWidth {
 }
 
 extension BorderImageWidth {
-
-    public enum WidthValue: Sendable, Hashable, CustomStringConvertible, LengthPercentageConvertible {
-
-        case lengthPercentage(LengthPercentage)
-
-        case number(Number)
-
-        case auto
-    }
 }
 
 extension BorderImageWidth.WidthValue {

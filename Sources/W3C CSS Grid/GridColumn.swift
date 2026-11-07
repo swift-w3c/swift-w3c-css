@@ -46,20 +46,6 @@ extension GridColumn {
     }
 }
 
-public enum GridColumnValue: Sendable, Hashable, CustomStringConvertible {
-
-    case auto
-
-    case line(Int)
-
-    case lineEnd(Int)
-
-    case name(String)
-
-    case span(Int)
-
-    case spanTo(String)
-}
 
 extension GridColumnValue {
     public var description: String {

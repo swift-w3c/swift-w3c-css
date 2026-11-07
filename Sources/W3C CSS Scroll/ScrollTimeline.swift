@@ -16,18 +16,6 @@ public enum ScrollTimeline: Property {
 extension ScrollTimeline {
     public static let property: String = "scroll-timeline"
 
-    public struct CustomIdent: RawRepresentable, Sendable, Hashable, CustomStringConvertible {
-        public var rawValue: String
-
-        public init(rawValue: String) {
-
-            if rawValue.hasPrefix("--") {
-                self.rawValue = rawValue
-            } else {
-                self.rawValue = "--" + rawValue
-            }
-        }
-    }
 
     public var description: String {
         switch self {

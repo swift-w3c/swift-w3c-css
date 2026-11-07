@@ -47,28 +47,8 @@ extension Grid {
     }
 }
 
-public enum AutoFlowDirection: Sendable, Hashable {
 
-    case row
 
-    case column
-}
-
-public enum AutoFlowDensity: Sendable, Hashable {
-
-    case normal
-
-    case dense
-}
-
-public struct AutoFlow: Sendable, Hashable, CustomStringConvertible {
-
-    let direction: AutoFlowDirection
-
-    let density: AutoFlowDensity
-
-    let trackSize: GridTrackSize?
-}
 
 extension AutoFlow {
 
@@ -92,24 +72,6 @@ extension AutoFlow {
     }
 }
 
-public enum GridTrackSize: Sendable, Hashable, CustomStringConvertible {
-
-    case auto
-
-    case px(Double)
-
-    case percentage(Percentage)
-
-    case fr(Double)
-
-    case minContent
-
-    case maxContent
-
-    case minMax(MinMaxValue, MinMaxValue)
-
-    case fitContent(LengthPercentage)
-}
 
 extension GridTrackSize {
     public var description: String {

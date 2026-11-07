@@ -17,33 +17,6 @@ extension TransformOrigin {
 }
 
 extension TransformOrigin {
-
-    public enum HorizontalKeyword: Sendable, Hashable, CustomStringConvertible {
-
-        case left
-
-        case center
-
-        case right
-    }
-
-    public enum VerticalKeyword: Sendable, Hashable, CustomStringConvertible {
-
-        case top
-
-        case center
-
-        case bottom
-    }
-
-    public enum Value: Sendable, Hashable, LengthPercentageConvertible {
-
-        case horizontalKeyword(HorizontalKeyword)
-
-        case verticalKeyword(VerticalKeyword)
-
-        case lengthPercentage(LengthPercentage)
-    }
 }
 
 extension TransformOrigin.HorizontalKeyword {

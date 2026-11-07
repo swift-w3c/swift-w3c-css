@@ -14,16 +14,6 @@ public enum ScrollSnapAlign: Property {
 extension ScrollSnapAlign {
     public static let property: String = "scroll-snap-align"
 
-    public enum Alignment: String, Sendable {
-
-        case none
-
-        case start
-
-        case end
-
-        case center
-    }
 
     public var description: String {
         switch self {

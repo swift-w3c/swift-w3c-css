@@ -105,12 +105,3 @@ extension Image {
     }
 }
 
-public struct ImageSetItem: Sendable, Hashable {
-    public let url: Url
-    public let resolution: String
-
-    public init(url: Url, resolution: String) {
-        self.url = url
-        self.resolution = resolution
-    }
-}

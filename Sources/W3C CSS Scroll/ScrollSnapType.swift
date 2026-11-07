@@ -16,25 +16,7 @@ public enum ScrollSnapType: Property {
 extension ScrollSnapType {
     public static let property: String = "scroll-snap-type"
 
-    public enum Axis: String, Sendable {
 
-        case x
-
-        case y
-
-        case block
-
-        case inline
-
-        case both
-    }
-
-    public enum Strictness: String, Sendable {
-
-        case mandatory
-
-        case proximity
-    }
 
     public var description: String {
         switch self {

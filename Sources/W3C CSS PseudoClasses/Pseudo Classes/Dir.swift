@@ -7,11 +7,4 @@ public struct Dir: CSSPseudoClass {
 }
 
 extension Dir {
-
-    public enum Direction: String, Sendable, Hashable {
-
-        case ltr
-
-        case rtl
-    }
 }

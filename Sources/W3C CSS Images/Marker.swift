@@ -12,12 +12,6 @@ public enum Marker: Property {
 extension Marker {
     public static let property: String = "marker"
 
-    public enum MarkerValue: Sendable, Hashable, CustomStringConvertible {
-
-        case none
-
-        case url(Url)
-    }
 }
 
 extension Marker.MarkerValue {

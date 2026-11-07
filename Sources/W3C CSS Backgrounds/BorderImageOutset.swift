@@ -40,13 +40,6 @@ extension BorderImageOutset {
 }
 
 extension BorderImageOutset {
-
-    public enum OutsetValue: Sendable, Hashable, CustomStringConvertible, LengthConvertible {
-
-        case length(Length)
-
-        case number(Number)
-    }
 }
 
 extension BorderImageOutset.OutsetValue {

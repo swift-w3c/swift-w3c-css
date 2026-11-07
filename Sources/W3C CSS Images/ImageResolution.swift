@@ -28,14 +28,6 @@ public enum ImageResolution: Property {
 extension ImageResolution {
     public static let property: String = "image-resolution"
 
-    public enum Source: Sendable, Hashable {
-
-        case fromImage
-
-        case resolution(Resolution)
-
-        case fromImageWithFallback(Resolution)
-    }
 }
 
 extension ImageResolution {

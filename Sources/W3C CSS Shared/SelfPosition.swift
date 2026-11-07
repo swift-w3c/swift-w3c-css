@@ -30,9 +30,6 @@ extension SelfPosition: CustomStringConvertible {
     }
 }
 
-public protocol SelfPositionConvertible {
-    static func position(_: OverflowPosition?, _: SelfPosition) -> Self
-}
 
 extension SelfPositionConvertible {
 

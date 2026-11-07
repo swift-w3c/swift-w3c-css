@@ -23,20 +23,6 @@ public enum MaskOrigin: Property {
 extension MaskOrigin {
     public static let property: String = "mask-origin"
 
-    public enum Origin: String, Sendable, Hashable {
-
-        case borderBox = "border-box"
-
-        case paddingBox = "padding-box"
-
-        case contentBox = "content-box"
-
-        case fillBox = "fill-box"
-
-        case strokeBox = "stroke-box"
-
-        case viewBox = "view-box"
-    }
 }
 
 extension MaskOrigin: CustomStringConvertible {
