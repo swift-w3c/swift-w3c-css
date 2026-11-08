@@ -29,19 +29,7 @@ extension TextEmphasisPosition {
     }
 }
 
-public enum HorizontalEmphasisPosition: String, Sendable, Hashable {
 
-    case over
-
-    case under
-}
-
-public enum VerticalEmphasisPosition: String, Sendable, Hashable {
-
-    case right
-
-    case left
-}
 
 extension TextEmphasisPosition {
 

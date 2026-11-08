@@ -16,18 +16,6 @@ public enum Size: Property {
 extension Size {
     public static let property: String = "size"
 
-    public enum Keyword: String, Sendable {
-
-        case maxContent = "max-content"
-
-        case minContent = "min-content"
-
-        case fitContent = "fit-content"
-
-        case containingBlock = "contain"
-
-        case cover
-    }
 }
 
 extension Size: LengthConvertible {

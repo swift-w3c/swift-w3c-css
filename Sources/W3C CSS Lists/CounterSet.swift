@@ -16,17 +16,6 @@ public enum CounterSet: Property {
 extension CounterSet {
     public static let property: String = "counter-set"
 
-    public struct Counter: Sendable, Hashable {
-
-        public let name: CustomIdent
-
-        public let value: Int?
-
-        public init(name: CustomIdent, value: Int? = nil) {
-            self.name = name
-            self.value = value
-        }
-    }
 
     public var description: String {
         switch self {

@@ -10,18 +10,6 @@ public enum ObjectFit: Property {
 extension ObjectFit {
     public static let property: String = "object-fit"
 
-    public enum Keyword: Sendable, Hashable, CustomStringConvertible {
-
-        case contain
-
-        case cover
-
-        case fill
-
-        case none
-
-        case scaleDown
-    }
 }
 
 extension ObjectFit.Keyword {

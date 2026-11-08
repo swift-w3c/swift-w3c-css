@@ -36,14 +36,6 @@ extension Namespace {
 }
 
 extension Namespace {
-
-    public enum NamespaceURI: Hashable, Sendable {
-
-        case url(String)
-    }
-
-    public struct CommonNamespaces {
-    }
 }
 
 extension Namespace.NamespaceURI {

@@ -97,12 +97,6 @@ extension Font {
 
     public typealias Style = FontStyle
 
-    public enum Variant: String, Sendable, Hashable {
-
-        case normal
-
-        case smallCaps = "small-caps"
-    }
 
     public typealias Weight = FontWeight
 

@@ -14,22 +14,6 @@ extension TextDecorationLine {
     public static let property: String = "text-decoration-line"
 }
 
-public enum TextDecorationLineValue: Sendable, Hashable, CustomStringConvertible {
-
-    case none
-
-    case underline
-
-    case overline
-
-    case lineThrough
-
-    case blink
-
-    case spellingError
-
-    case grammarError
-}
 
 extension TextDecorationLineValue {
     public var description: String {

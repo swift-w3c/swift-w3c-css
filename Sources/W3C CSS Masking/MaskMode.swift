@@ -17,14 +17,6 @@ public enum MaskMode: Property {
 extension MaskMode {
     public static let property: String = "mask-mode"
 
-    public enum MaskingMode: String, Sendable, Hashable {
-
-        case alpha
-
-        case luminance
-
-        case matchSource = "match-source"
-    }
 }
 
 extension MaskMode: CustomStringConvertible {

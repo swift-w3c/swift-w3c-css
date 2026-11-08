@@ -61,22 +61,6 @@ extension FontVariantAlternates {
     }
 }
 
-public enum AlternateOption: Sendable, Hashable, CustomStringConvertible {
-
-    case historicalForms
-
-    case stylistic(String)
-
-    case styleset(String)
-
-    case characterVariant(String)
-
-    case swash(String)
-
-    case ornaments(String)
-
-    case annotation(String)
-}
 
 extension AlternateOption {
     public var description: String {

@@ -20,18 +20,6 @@ public enum Overflow: Property {
 extension Overflow {
     public static let property: String = "overflow"
 
-    public enum Value: String, Sendable, Hashable {
-
-        case visible
-
-        case hidden
-
-        case clip
-
-        case scroll
-
-        case auto
-    }
 
     public static let visible = Overflow(.visible)
 

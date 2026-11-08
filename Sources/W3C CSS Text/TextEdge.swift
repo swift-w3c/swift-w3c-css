@@ -6,39 +6,6 @@ public enum TextEdge: Sendable, Hashable {
 }
 
 extension TextEdge {
-
-    public enum Value: String, Sendable, Hashable, CaseIterable {
-
-        case text
-
-        case ideographic
-
-        case ideographicInk = "ideographic-ink"
-    }
-
-    public enum OverValue: String, Sendable, Hashable, CaseIterable {
-
-        case text
-
-        case ideographic
-
-        case ideographicInk = "ideographic-ink"
-
-        case cap
-
-        case ex
-    }
-
-    public enum UnderValue: String, Sendable, Hashable, CaseIterable {
-
-        case text
-
-        case ideographic
-
-        case ideographicInk = "ideographic-ink"
-
-        case alphabetic
-    }
 }
 
 extension TextEdge {

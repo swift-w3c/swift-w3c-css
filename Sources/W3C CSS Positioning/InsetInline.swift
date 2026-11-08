@@ -15,12 +15,6 @@ public enum InsetInline: Property, LengthPercentageConvertible {
 extension InsetInline {
     public static let property: String = "inset-inline"
 
-    public enum Value: Hashable, Sendable {
-
-        case auto
-
-        case lengthPercentage(LengthPercentage)
-    }
 
     public var description: String {
         switch self {

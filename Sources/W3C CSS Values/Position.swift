@@ -19,18 +19,6 @@ public enum Position: Sendable, Hashable {
 
 extension Position {
 
-    public enum Keyword: String, Sendable, Hashable {
-
-        case center
-
-        case top
-
-        case right
-
-        case bottom
-
-        case left
-    }
 
     public static let center: Position = .keyword(.center)
 

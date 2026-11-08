@@ -19,40 +19,8 @@ public enum SpeakAs: Property {
 extension SpeakAs {
     public static let property: String = "speak-as"
 
-    public enum SpeakingMode: Sendable, Hashable, CustomStringConvertible {
 
-        case normal
 
-        case spellOut
-    }
-
-    public enum PunctuationMode: String, Sendable, Hashable, CustomStringConvertible {
-
-        case auto
-
-        case literalPunctuation = "literal-punctuation"
-
-        case noPunctuation = "no-punctuation"
-    }
-
-    public struct Options: Sendable, Hashable, CustomStringConvertible {
-
-        public let mode: SpeakingMode
-
-        public let digits: Bool
-
-        public let punctuation: PunctuationMode
-
-        public init(
-            mode: SpeakingMode = .normal,
-            digits: Bool = false,
-            punctuation: PunctuationMode = .auto
-        ) {
-            self.mode = mode
-            self.digits = digits
-            self.punctuation = punctuation
-        }
-    }
 }
 
 extension SpeakAs.SpeakingMode {

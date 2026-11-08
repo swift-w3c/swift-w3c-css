@@ -29,18 +29,6 @@ extension TextEmphasis {
 }
 
 extension TextEmphasis {
-
-    public struct Configuration: Sendable, Hashable, CustomStringConvertible {
-
-        public let style: TextEmphasisStyle
-
-        public let color: TextEmphasisColor?
-
-        public init(style: TextEmphasisStyle, color: TextEmphasisColor? = nil) {
-            self.style = style
-            self.color = color
-        }
-    }
 }
 
 extension TextEmphasis.Configuration {

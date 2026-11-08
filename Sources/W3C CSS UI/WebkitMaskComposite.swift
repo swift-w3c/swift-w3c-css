@@ -25,30 +25,6 @@ public enum WebkitMaskComposite: Property {
 extension WebkitMaskComposite {
     public static let property: String = "-webkit-mask-composite"
 
-    public enum CompositeOperation: String, Sendable, Hashable, CaseIterable {
-
-        case clear
-
-        case copy
-
-        case sourceOver = "source-over"
-
-        case sourceIn = "source-in"
-
-        case sourceOut = "source-out"
-
-        case sourceAtop = "source-atop"
-
-        case destinationOver = "destination-over"
-
-        case destinationIn = "destination-in"
-
-        case destinationOut = "destination-out"
-
-        case destinationAtop = "destination-atop"
-
-        case xor
-    }
 
     public var description: String {
         switch self {
