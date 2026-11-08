@@ -16,10 +16,10 @@ public enum WebkitMaskRepeatX: Property {
     case global(Global)
 
     public init(_ repeats: [WebkitMaskRepeatX]) {
-        if repeats.count == 1 {
-            self = repeats[0]
+        self = if repeats.count == 1 {
+            repeats[0]
         } else {
-            self = .multiple(repeats)
+            .multiple(repeats)
         }
     }
 }

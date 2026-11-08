@@ -33,18 +33,18 @@ extension AnimationIterationCount: CustomStringConvertible {
 extension AnimationIterationCount: ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral {
 
     public init(integerLiteral value: Int) {
-        if value <= 0 {
-            self = .count(1)
+        self = if value <= 0 {
+            .count(1)
         } else {
-            self = .count(.init(value))
+            .count(.init(value))
         }
     }
 
     public init(floatLiteral value: Double) {
-        if value <= 0 {
-            self = .count(1)
+        self = if value <= 0 {
+            .count(1)
         } else {
-            self = .count(.init(value))
+            .count(.init(value))
         }
     }
 }

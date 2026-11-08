@@ -13,10 +13,10 @@ public enum FontFeatureSettings: Property {
     }
 
     public init(_ features: [String: FeatureValue?]) {
-        if features.isEmpty {
-            self = .normal
+        self = if features.isEmpty {
+            .normal
         } else {
-            self = .features(features)
+            .features(features)
         }
     }
 

@@ -40,10 +40,10 @@ extension FontPaletteValues {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        if descriptorString.isEmpty {
-            rawValue = "@font-palette-values \(identifier) {}"
+        rawValue = if descriptorString.isEmpty {
+            "@font-palette-values \(identifier) {}"
         } else {
-            rawValue = "@font-palette-values \(identifier) {\n\(descriptorString)\n}"
+            "@font-palette-values \(identifier) {\n\(descriptorString)\n}"
         }
     }
 

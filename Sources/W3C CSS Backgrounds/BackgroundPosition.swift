@@ -14,10 +14,10 @@ public enum BackgroundPosition: Property {
     }
 
     public init(_ positions: [Position]) {
-        if positions.count == 1 {
-            self = .single(positions[0])
+        self = if positions.count == 1 {
+            .single(positions[0])
         } else {
-            self = .multiple(positions)
+            .multiple(positions)
         }
     }
 }

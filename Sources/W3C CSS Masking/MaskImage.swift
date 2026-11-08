@@ -17,10 +17,10 @@ public enum MaskImage: Property {
     }
 
     public init(_ images: [Image]) {
-        if images.count == 1 {
-            self = .single(images[0])
+        self = if images.count == 1 {
+            .single(images[0])
         } else {
-            self = .multiple(images)
+            .multiple(images)
         }
     }
 }

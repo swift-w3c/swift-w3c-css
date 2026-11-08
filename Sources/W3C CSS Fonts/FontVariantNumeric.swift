@@ -9,10 +9,10 @@ public enum FontVariantNumeric: Property {
     case global(Global)
 
     public init(_ options: Set<NumericOption>) {
-        if options.isEmpty {
-            self = .normal
+        self = if options.isEmpty {
+            .normal
         } else {
-            self = .options(options)
+            .options(options)
         }
     }
 

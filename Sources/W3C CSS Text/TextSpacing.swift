@@ -16,10 +16,10 @@ public enum TextSpacing: Property {
     }
 
     public init(_ options: Set<TextSpacingOption>) {
-        if options.isEmpty {
-            self = .normal
+        self = if options.isEmpty {
+            .normal
         } else {
-            self = .custom(options)
+            .custom(options)
         }
     }
 

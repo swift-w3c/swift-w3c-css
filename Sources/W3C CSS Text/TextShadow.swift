@@ -16,12 +16,12 @@ public enum TextShadow: Property {
     }
 
     public init(_ shadows: [TextShadowValue]) {
-        if shadows.isEmpty {
-            self = .none
+        self = if shadows.isEmpty {
+            .none
         } else if shadows.count == 1 {
-            self = .shadow(shadows[0])
+            .shadow(shadows[0])
         } else {
-            self = .shadows(shadows)
+            .shadows(shadows)
         }
     }
 

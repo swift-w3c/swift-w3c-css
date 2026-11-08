@@ -65,18 +65,18 @@ extension Padding {
                 return individualProperties.joined(separator: " ")
             }
 
-            if top == right && right == bottom && bottom == left {
+            return if top == right && right == bottom && bottom == left {
 
-                return top.description
+                top.description
             } else if top == bottom && right == left {
 
-                return "\(top) \(right)"
+                "\(top) \(right)"
             } else if right == left {
 
-                return "\(top) \(right) \(bottom)"
+                "\(top) \(right) \(bottom)"
             } else {
 
-                return "\(top) \(right) \(bottom) \(left)"
+                "\(top) \(right) \(bottom) \(left)"
             }
 
         case .global(let global):

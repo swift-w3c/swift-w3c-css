@@ -14,11 +14,11 @@ public enum FloodOpacity: Property, PercentageConvertible {
     }
 
     public init(_ opacity: Double) {
-        if opacity >= 0 && opacity <= 1 {
-            self = .number(.init(opacity))
+        self = if opacity >= 0 && opacity <= 1 {
+            .number(.init(opacity))
         } else {
 
-            self = .percentage(.init(opacity))
+            .percentage(.init(opacity))
         }
     }
 }

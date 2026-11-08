@@ -57,10 +57,10 @@ extension Keyframes {
 
         let keyframesString = sections.joined(separator: "\n\n")
 
-        if keyframesString.isEmpty {
-            rawValue = "@keyframes \(name) {}"
+        rawValue = if keyframesString.isEmpty {
+            "@keyframes \(name) {}"
         } else {
-            rawValue = "@keyframes \(name) {\n\(keyframesString)\n}"
+            "@keyframes \(name) {\n\(keyframesString)\n}"
         }
     }
 

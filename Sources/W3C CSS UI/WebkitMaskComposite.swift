@@ -14,10 +14,10 @@ public enum WebkitMaskComposite: Property {
     }
 
     public init(_ operations: [CompositeOperation]) {
-        if operations.count == 1 {
-            self = .operation(operations[0])
+        self = if operations.count == 1 {
+            .operation(operations[0])
         } else {
-            self = .multiple(operations)
+            .multiple(operations)
         }
     }
 }

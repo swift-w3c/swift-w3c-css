@@ -14,10 +14,10 @@ public enum TextAutospace: Property {
     }
 
     public init(_ options: Set<TextAutospaceOption>) {
-        if options.isEmpty {
-            self = .none
+        self = if options.isEmpty {
+            .none
         } else {
-            self = .options(options)
+            .options(options)
         }
     }
 

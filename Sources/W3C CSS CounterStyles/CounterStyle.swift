@@ -39,10 +39,10 @@ extension CounterStyle {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        if descriptorString.isEmpty {
-            rawValue = "@counter-style \(name) {}"
+        rawValue = if descriptorString.isEmpty {
+            "@counter-style \(name) {}"
         } else {
-            rawValue = "@counter-style \(name) {\n\(descriptorString)\n}"
+            "@counter-style \(name) {\n\(descriptorString)\n}"
         }
     }
 

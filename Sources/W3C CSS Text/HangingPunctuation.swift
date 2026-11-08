@@ -10,10 +10,10 @@ public enum HangingPunctuation: Property {
     case global(Global)
 
     public init(_ options: Set<HangingPunctuationOption>) {
-        if options.isEmpty {
-            self = .none
+        self = if options.isEmpty {
+            .none
         } else {
-            self = .options(options)
+            .options(options)
         }
     }
 

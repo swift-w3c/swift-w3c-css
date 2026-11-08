@@ -14,12 +14,12 @@ public enum TransitionProperty: Property {
     case global(Global)
 
     public init(_ properties: [String]) {
-        if properties.isEmpty {
-            self = .none
+        self = if properties.isEmpty {
+            .none
         } else if properties.count == 1 {
-            self = .custom(.init(properties[0]))
+            .custom(.init(properties[0]))
         } else {
-            self = .list(properties)
+            .list(properties)
         }
     }
 

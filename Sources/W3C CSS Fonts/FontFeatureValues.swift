@@ -82,10 +82,10 @@ extension FontFeatureValues {
 
         let blockString = blockStrings.joined(separator: "\n\n")
 
-        if blockString.isEmpty {
-            rawValue = "@font-feature-values \(familiesString) {}"
+        rawValue = if blockString.isEmpty {
+            "@font-feature-values \(familiesString) {}"
         } else {
-            rawValue = "@font-feature-values \(familiesString) {\n\(blockString)\n}"
+            "@font-feature-values \(familiesString) {\n\(blockString)\n}"
         }
     }
 

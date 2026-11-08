@@ -23,10 +23,10 @@ extension FontFace {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        if descriptorString.isEmpty {
-            rawValue = "@font-face {}"
+        rawValue = if descriptorString.isEmpty {
+            "@font-face {}"
         } else {
-            rawValue = "@font-face {\n\(descriptorString)\n}"
+            "@font-face {\n\(descriptorString)\n}"
         }
     }
 

@@ -57,10 +57,10 @@ extension ColorProfile {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        if descriptorString.isEmpty {
-            rawValue = "@color-profile \(name) {}"
+        rawValue = if descriptorString.isEmpty {
+            "@color-profile \(name) {}"
         } else {
-            rawValue = "@color-profile \(name) {\n\(descriptorString)\n}"
+            "@color-profile \(name) {\n\(descriptorString)\n}"
         }
     }
 }

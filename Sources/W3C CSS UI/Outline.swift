@@ -44,14 +44,14 @@ extension Outline {
         _ style: OutlineStyle,
         _ color: OutlineColor? = nil
     ) -> Self {
-        if let width, let color {
-            return .widthStyleColor(width, style, color)
+        return if let width, let color {
+            .widthStyleColor(width, style, color)
         } else if let width {
-            return .widthStyle(width, style)
+            .widthStyle(width, style)
         } else if let color {
-            return .styleColor(style, color)
+            .styleColor(style, color)
         } else {
-            return .style(style)
+            .style(style)
         }
     }
 

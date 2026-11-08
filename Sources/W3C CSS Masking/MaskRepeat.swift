@@ -20,10 +20,10 @@ public enum MaskRepeat: Property {
     }
 
     public init(_ repeats: [MaskRepeat]) {
-        if repeats.count == 1 {
-            self = repeats[0]
+        self = if repeats.count == 1 {
+            repeats[0]
         } else {
-            self = .multiple(repeats)
+            .multiple(repeats)
         }
     }
 }
@@ -42,12 +42,12 @@ extension MaskRepeat: CustomStringConvertible {
 
         case .twoValue(let horizontal, let vertical):
 
-            if horizontal == .repeat && vertical == .noRepeat {
-                return RepeatStyle.repeatX.rawValue
+            return if horizontal == .repeat && vertical == .noRepeat {
+                RepeatStyle.repeatX.rawValue
             } else if horizontal == .noRepeat && vertical == .repeat {
-                return RepeatStyle.repeatY.rawValue
+                RepeatStyle.repeatY.rawValue
             } else {
-                return "\(horizontal.rawValue) \(vertical.rawValue)"
+                "\(horizontal.rawValue) \(vertical.rawValue)"
             }
 
         case .multiple(let repeats):

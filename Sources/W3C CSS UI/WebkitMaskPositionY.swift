@@ -16,10 +16,10 @@ public enum WebkitMaskPositionY: Property, LengthPercentageConvertible {
     case global(Global)
 
     public init(_ positions: [WebkitMaskPositionY]) {
-        if positions.count == 1 {
-            self = positions[0]
+        self = if positions.count == 1 {
+            positions[0]
         } else {
-            self = .multiple(positions)
+            .multiple(positions)
         }
     }
 }

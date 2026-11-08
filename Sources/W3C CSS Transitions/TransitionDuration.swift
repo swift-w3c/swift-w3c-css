@@ -14,12 +14,12 @@ public enum TransitionDuration: Property {
     }
 
     public init(_ times: [Time]) {
-        if times.isEmpty {
-            self = .time(.zero)
+        self = if times.isEmpty {
+            .time(.zero)
         } else if times.count == 1 {
-            self = .time(times[0])
+            .time(times[0])
         } else {
-            self = .list(times)
+            .list(times)
         }
     }
 

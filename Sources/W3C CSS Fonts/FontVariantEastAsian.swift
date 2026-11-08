@@ -11,12 +11,12 @@ public enum FontVariantEastAsian: Property {
     case global(Global)
 
     public init(_ values: Set<EastAsianVariantValue>) {
-        if values.isEmpty {
-            self = .normal
+        self = if values.isEmpty {
+            .normal
         } else if values.count == 1, let value = values.first {
-            self = .single(value)
+            .single(value)
         } else {
-            self = .combined(values)
+            .combined(values)
         }
     }
 

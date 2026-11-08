@@ -13,10 +13,10 @@ public enum Animation: Property {
     case global(Global)
 
     public init(_ properties: AnimationProperty...) {
-        if properties.isEmpty {
-            self = .none
+        self = if properties.isEmpty {
+            .none
         } else {
-            self = .single(AnimationProperties(properties: properties))
+            .single(AnimationProperties(properties: properties))
         }
     }
 }
