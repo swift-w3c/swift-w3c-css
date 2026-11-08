@@ -17,13 +17,14 @@ public enum BoxShadow: Property {
     }
 
     public init(_ shadows: [Shadow]) {
-        self = if shadows.isEmpty {
-            .none
-        } else if shadows.count == 1 {
-            .shadow(shadows[0])
-        } else {
-            .multiple(shadows)
-        }
+        self =
+            if shadows.isEmpty {
+                .none
+            } else if shadows.count == 1 {
+                .shadow(shadows[0])
+            } else {
+                .multiple(shadows)
+            }
     }
 
     public init(_ shadows: Shadow...) {

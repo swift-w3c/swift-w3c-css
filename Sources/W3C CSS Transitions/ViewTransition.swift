@@ -46,7 +46,6 @@ extension ViewTransition {
 
 extension ViewTransition {
 
-
     public static let auto = ViewTransition().navigation(.auto)
 
     public static let none = ViewTransition().navigation(.none)

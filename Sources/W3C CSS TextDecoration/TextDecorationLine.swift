@@ -14,7 +14,6 @@ extension TextDecorationLine {
     public static let property: String = "text-decoration-line"
 }
 
-
 extension TextDecorationLineValue {
     public var description: String {
         switch self {

@@ -13,11 +13,12 @@ public enum FontVariationSettings: Property {
     }
 
     public init(_ axes: [String: Double]) {
-        self = if axes.isEmpty {
-            .normal
-        } else {
-            .axes(axes)
-        }
+        self =
+            if axes.isEmpty {
+                .normal
+            } else {
+                .axes(axes)
+            }
     }
 }
 

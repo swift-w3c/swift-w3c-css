@@ -10,11 +10,12 @@ public enum HangingPunctuation: Property {
     case global(Global)
 
     public init(_ options: Set<HangingPunctuationOption>) {
-        self = if options.isEmpty {
-            .none
-        } else {
-            .options(options)
-        }
+        self =
+            if options.isEmpty {
+                .none
+            } else {
+                .options(options)
+            }
     }
 
     public init(_ options: [HangingPunctuationOption]) {
@@ -29,7 +30,6 @@ public enum HangingPunctuation: Property {
 extension HangingPunctuation {
     public static let property: String = "hanging-punctuation"
 }
-
 
 extension HangingPunctuation: CustomStringConvertible {
 

@@ -19,8 +19,6 @@ public enum SpeakAs: Property {
 extension SpeakAs {
     public static let property: String = "speak-as"
 
-
-
 }
 
 extension SpeakAs.SpeakingMode {

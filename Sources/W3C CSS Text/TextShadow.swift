@@ -16,13 +16,14 @@ public enum TextShadow: Property {
     }
 
     public init(_ shadows: [TextShadowValue]) {
-        self = if shadows.isEmpty {
-            .none
-        } else if shadows.count == 1 {
-            .shadow(shadows[0])
-        } else {
-            .shadows(shadows)
-        }
+        self =
+            if shadows.isEmpty {
+                .none
+            } else if shadows.count == 1 {
+                .shadow(shadows[0])
+            } else {
+                .shadows(shadows)
+            }
     }
 
     public init(_ shadows: TextShadowValue...) {
@@ -53,7 +54,6 @@ extension TextShadow {
     }
 
 }
-
 
 extension TextShadowValue: CustomStringConvertible {
 

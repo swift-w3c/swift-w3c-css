@@ -11,11 +11,12 @@ public enum FontVariantLigatures: Property {
     case global(Global)
 
     public init(_ options: Set<LigatureOption>) {
-        self = if options.isEmpty {
-            .normal
-        } else {
-            .options(options)
-        }
+        self =
+            if options.isEmpty {
+                .normal
+            } else {
+                .options(options)
+            }
     }
 
     public init(_ options: [LigatureOption]) {
@@ -30,7 +31,6 @@ public enum FontVariantLigatures: Property {
 extension FontVariantLigatures {
     public static let property: String = "font-variant-ligatures"
 }
-
 
 extension FontVariantLigatures: CustomStringConvertible {
 

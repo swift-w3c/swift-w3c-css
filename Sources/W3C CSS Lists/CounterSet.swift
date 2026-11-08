@@ -16,7 +16,6 @@ public enum CounterSet: Property {
 extension CounterSet {
     public static let property: String = "counter-set"
 
-
     public var description: String {
         switch self {
         case .none:

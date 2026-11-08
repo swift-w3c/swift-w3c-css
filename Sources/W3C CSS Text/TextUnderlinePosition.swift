@@ -59,7 +59,6 @@ extension TextUnderlinePosition {
     public static let property: String = "text-underline-position"
 }
 
-
 extension TextUnderlinePositionValue {
     public var description: String {
         switch self {

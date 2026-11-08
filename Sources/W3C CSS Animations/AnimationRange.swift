@@ -26,7 +26,6 @@ extension AnimationRange {
     public static let normal = AnimationRange.single(.normal)
 }
 
-
 extension AnimationRange: CustomStringConvertible {
 
     public var description: String {

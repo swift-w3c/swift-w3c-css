@@ -13,7 +13,6 @@ public enum Quotes: Property {
 extension Quotes {
     public static let property: String = "quotes"
 
-
     public var description: String {
         switch self {
         case .none:

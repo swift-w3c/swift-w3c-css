@@ -62,7 +62,6 @@ extension GridAutoColumns {
     }
 }
 
-
 extension MinMaxValue {
     public var description: String {
         switch self {

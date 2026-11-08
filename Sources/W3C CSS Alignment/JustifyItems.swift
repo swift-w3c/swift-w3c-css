@@ -25,7 +25,6 @@ extension JustifyItems {
     public static let property: String = "justify-items"
 }
 
-
 extension JustifyItems: CustomStringConvertible {
 
     public var description: String {

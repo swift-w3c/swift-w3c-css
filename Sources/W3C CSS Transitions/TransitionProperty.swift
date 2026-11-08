@@ -14,13 +14,14 @@ public enum TransitionProperty: Property {
     case global(Global)
 
     public init(_ properties: [String]) {
-        self = if properties.isEmpty {
-            .none
-        } else if properties.count == 1 {
-            .custom(.init(properties[0]))
-        } else {
-            .list(properties)
-        }
+        self =
+            if properties.isEmpty {
+                .none
+            } else if properties.count == 1 {
+                .custom(.init(properties[0]))
+            } else {
+                .list(properties)
+            }
     }
 
     public init(_ properties: String...) {

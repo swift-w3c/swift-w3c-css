@@ -20,11 +20,12 @@ public enum MaskRepeat: Property {
     }
 
     public init(_ repeats: [MaskRepeat]) {
-        self = if repeats.count == 1 {
-            repeats[0]
-        } else {
-            .multiple(repeats)
-        }
+        self =
+            if repeats.count == 1 {
+                repeats[0]
+            } else {
+                .multiple(repeats)
+            }
     }
 }
 

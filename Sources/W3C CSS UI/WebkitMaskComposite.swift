@@ -14,17 +14,17 @@ public enum WebkitMaskComposite: Property {
     }
 
     public init(_ operations: [CompositeOperation]) {
-        self = if operations.count == 1 {
-            .operation(operations[0])
-        } else {
-            .multiple(operations)
-        }
+        self =
+            if operations.count == 1 {
+                .operation(operations[0])
+            } else {
+                .multiple(operations)
+            }
     }
 }
 
 extension WebkitMaskComposite {
     public static let property: String = "-webkit-mask-composite"
-
 
     public var description: String {
         switch self {

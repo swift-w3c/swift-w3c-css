@@ -19,7 +19,6 @@ public enum Position: Sendable, Hashable {
 
 extension Position {
 
-
     public static let center: Position = .keyword(.center)
 
     public static let top: Position = .keyword(.top)

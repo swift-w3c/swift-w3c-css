@@ -19,11 +19,12 @@ extension `TimePercentage Tests` {
             expected: String
         ) {
             let time: TimePercentage
-            time = if unit == "s" {
-                TimePercentage.s(value)
-            } else {
-                TimePercentage.ms(value)
-            }
+            time =
+                if unit == "s" {
+                    TimePercentage.s(value)
+                } else {
+                    TimePercentage.ms(value)
+                }
             #expect(time.description == expected)
         }
 

@@ -1,6 +1,5 @@
 public import W3C_CSS_Shared
 
-
 extension GridTemplate {
     public struct AreaRow: Sendable, Hashable {
 

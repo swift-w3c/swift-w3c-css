@@ -25,7 +25,6 @@ public enum MarginTrim: Property {
 extension MarginTrim {
     public static let property: String = "margin-trim"
 
-
     public var description: String {
         switch self {
         case .none:

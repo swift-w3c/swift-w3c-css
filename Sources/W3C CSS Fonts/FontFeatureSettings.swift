@@ -13,11 +13,12 @@ public enum FontFeatureSettings: Property {
     }
 
     public init(_ features: [String: FeatureValue?]) {
-        self = if features.isEmpty {
-            .normal
-        } else {
-            .features(features)
-        }
+        self =
+            if features.isEmpty {
+                .normal
+            } else {
+                .features(features)
+            }
     }
 
     public init(_ features: [String: Int]) {
@@ -32,7 +33,6 @@ public enum FontFeatureSettings: Property {
 extension FontFeatureSettings {
     public static let property: String = "font-feature-settings"
 }
-
 
 extension FeatureValue {
     public var description: String {

@@ -1,7 +1,6 @@
 public import W3C_CSS_Shared
 import W3C_CSS_Values
 
-
 extension TextEmphasis {
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
 

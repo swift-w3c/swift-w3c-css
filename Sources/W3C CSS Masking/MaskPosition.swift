@@ -14,11 +14,12 @@ public enum MaskPosition: Property {
     }
 
     public init(_ positions: [Position]) {
-        self = if positions.count == 1 {
-            .single(positions[0])
-        } else {
-            .multiple(positions)
-        }
+        self =
+            if positions.count == 1 {
+                .single(positions[0])
+            } else {
+                .multiple(positions)
+            }
     }
 }
 

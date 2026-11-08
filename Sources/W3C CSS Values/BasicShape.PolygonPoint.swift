@@ -1,6 +1,5 @@
 import W3C_CSS_Shared
 
-
 extension BasicShape {
     public struct PolygonPoint: Sendable, Hashable {
 

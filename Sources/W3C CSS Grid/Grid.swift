@@ -47,9 +47,6 @@ extension Grid {
     }
 }
 
-
-
-
 extension AutoFlow {
 
     public static func autoFlow(
@@ -71,7 +68,6 @@ extension AutoFlow {
         return result
     }
 }
-
 
 extension GridTrackSize {
     public var description: String {

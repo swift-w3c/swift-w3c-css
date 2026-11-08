@@ -1,6 +1,5 @@
 import W3C_CSS_Shared
 
-
 extension Position {
     public enum Keyword: String, Sendable, Hashable {
 

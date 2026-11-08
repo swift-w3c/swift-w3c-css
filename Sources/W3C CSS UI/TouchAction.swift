@@ -14,7 +14,6 @@ public enum TouchAction: Sendable, Hashable, Property {
     case global(Global)
 }
 
-
 extension TouchAction: CustomStringConvertible {
     public static let property: String = "touch-action"
 

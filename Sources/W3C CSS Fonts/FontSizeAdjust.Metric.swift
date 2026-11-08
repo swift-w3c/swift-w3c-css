@@ -1,6 +1,5 @@
 public import W3C_CSS_Shared
 
-
 extension FontSizeAdjust {
     public enum Metric: String, Sendable, CustomStringConvertible {
 

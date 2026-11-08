@@ -1,7 +1,6 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-
 extension BorderTop {
     public struct Properties: Sendable, Hashable, CustomStringConvertible {
 

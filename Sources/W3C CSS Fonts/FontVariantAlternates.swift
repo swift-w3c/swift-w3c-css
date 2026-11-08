@@ -61,7 +61,6 @@ extension FontVariantAlternates {
     }
 }
 
-
 extension AlternateOption {
     public var description: String {
         switch self {

@@ -1,6 +1,5 @@
 public import W3C_CSS_Shared
 
-
 extension CounterIncrement {
     public struct Counter: Sendable, Hashable {
 

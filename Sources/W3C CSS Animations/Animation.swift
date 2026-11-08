@@ -13,11 +13,12 @@ public enum Animation: Property {
     case global(Global)
 
     public init(_ properties: AnimationProperty...) {
-        self = if properties.isEmpty {
-            .none
-        } else {
-            .single(AnimationProperties(properties: properties))
-        }
+        self =
+            if properties.isEmpty {
+                .none
+            } else {
+                .single(AnimationProperties(properties: properties))
+            }
     }
 }
 
@@ -31,8 +32,6 @@ extension Animation {
         return .single(AnimationProperties(properties: [.name(.keyframes(.string(name)))]))
     }
 }
-
-
 
 extension Animation: CustomStringConvertible {
 

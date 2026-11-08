@@ -19,11 +19,12 @@ extension `FrequencyPercentage Tests` {
             expected: String
         ) {
             let frequency: FrequencyPercentage
-            frequency = if unit == "Hz" {
-                FrequencyPercentage.hz(value)
-            } else {
-                FrequencyPercentage.khz(value)
-            }
+            frequency =
+                if unit == "Hz" {
+                    FrequencyPercentage.hz(value)
+                } else {
+                    FrequencyPercentage.khz(value)
+                }
             #expect(frequency.description == expected)
         }
 

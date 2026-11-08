@@ -17,7 +17,6 @@ public enum PositionVisibility: Property {
 extension PositionVisibility {
     public static let property: String = "position-visibility"
 
-
     public var description: String {
         switch self {
         case .always:

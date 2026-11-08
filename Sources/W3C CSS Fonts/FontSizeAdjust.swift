@@ -16,8 +16,6 @@ public enum FontSizeAdjust: Property {
 extension FontSizeAdjust {
     public static let property: String = "font-size-adjust"
 
-
-
     public var description: String {
         switch self {
         case .none:

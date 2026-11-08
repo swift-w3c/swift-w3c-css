@@ -19,7 +19,6 @@ public enum ShapeOutside: Property {
 extension ShapeOutside {
     public static let property: String = "shape-outside"
 
-
     public var description: String {
         switch self {
         case .none:

@@ -18,7 +18,6 @@ extension DisplayListitem: CustomStringConvertible {
     }
 }
 
-
 extension DisplayListitemFactory {
 
     public static func create(outer: DisplayOutside, inner: DisplayInside) -> DisplayListitem {

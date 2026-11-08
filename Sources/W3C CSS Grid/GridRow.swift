@@ -46,7 +46,6 @@ extension GridRow {
     }
 }
 
-
 extension GridRowValue {
     public var description: String {
         switch self {

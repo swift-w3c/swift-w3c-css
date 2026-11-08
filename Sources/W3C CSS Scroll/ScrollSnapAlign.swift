@@ -14,7 +14,6 @@ public enum ScrollSnapAlign: Property {
 extension ScrollSnapAlign {
     public static let property: String = "scroll-snap-align"
 
-
     public var description: String {
         switch self {
         case .single(let alignment):

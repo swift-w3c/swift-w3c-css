@@ -20,7 +20,6 @@ extension ObjectPosition {
 
     public static let property: String = "object-position"
 
-
     public static func objectPosition(_ value: Value) -> ObjectPosition {
         .oneValue(value)
     }
@@ -112,7 +111,6 @@ extension ObjectPosition: CustomStringConvertible {
         }
     }
 }
-
 
 extension ObjectPosition.Value: CustomStringConvertible {
 

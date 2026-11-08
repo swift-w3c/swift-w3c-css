@@ -19,7 +19,6 @@ public enum Padding: Property, LengthPercentageConvertible {
 extension Padding {
     public static let property: String = "padding"
 
-
     public static func lengthPercentage(_ value: LengthPercentage) -> Padding {
         .all(value)
     }

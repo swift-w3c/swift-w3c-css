@@ -42,7 +42,6 @@ extension MaskBorderOutset {
         .init(.length(length))
     }
 
-
     public static func number(_ number: Number) -> MaskBorderOutset {
         return MaskBorderOutset(.number(number))
     }

@@ -1,7 +1,6 @@
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-
 extension Transition {
     public struct Configuration: Sendable, Hashable, CustomStringConvertible {
 

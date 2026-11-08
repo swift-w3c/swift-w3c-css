@@ -35,7 +35,6 @@ extension Gap {
     }
 }
 
-
 extension GapValue: CustomStringConvertible {
 
     public var description: String {

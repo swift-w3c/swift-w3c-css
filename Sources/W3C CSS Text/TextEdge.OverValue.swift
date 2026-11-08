@@ -1,4 +1,3 @@
-
 extension TextEdge {
     public enum OverValue: String, Sendable, Hashable, CaseIterable {
 

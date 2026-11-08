@@ -76,7 +76,6 @@ public enum Inset: Property, LengthPercentageConvertible {
 extension Inset {
     public static let property: String = "inset"
 
-
     public var description: String {
         switch self {
         case .auto:

@@ -16,7 +16,6 @@ public enum ScrollTimeline: Property {
 extension ScrollTimeline {
     public static let property: String = "scroll-timeline"
 
-
     public var description: String {
         switch self {
         case .none:

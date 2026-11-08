@@ -16,7 +16,6 @@ extension AnimationRangeStart {
     public static let property: String = "animation-range-start"
 }
 
-
 extension AnimationRangeStart: CustomStringConvertible {
 
     public var description: String {

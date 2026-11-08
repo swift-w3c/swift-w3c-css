@@ -16,11 +16,12 @@ public enum TextSpacing: Property {
     }
 
     public init(_ options: Set<TextSpacingOption>) {
-        self = if options.isEmpty {
-            .normal
-        } else {
-            .custom(options)
-        }
+        self =
+            if options.isEmpty {
+                .normal
+            } else {
+                .custom(options)
+            }
     }
 
     public init(_ options: TextSpacingOption...) {
@@ -31,7 +32,6 @@ public enum TextSpacing: Property {
 extension TextSpacing {
     public static let property: String = "text-spacing"
 }
-
 
 extension TextSpacing: CustomStringConvertible {
 

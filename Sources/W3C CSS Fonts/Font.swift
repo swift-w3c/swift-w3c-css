@@ -97,7 +97,6 @@ extension Font {
 
     public typealias Style = FontStyle
 
-
     public typealias Weight = FontWeight
 
     public typealias Size = FontSize

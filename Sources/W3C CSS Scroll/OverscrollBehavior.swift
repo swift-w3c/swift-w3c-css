@@ -14,7 +14,6 @@ public enum OverscrollBehavior: Property {
 extension OverscrollBehavior {
     public static let property: String = "overscroll-behavior"
 
-
     public var description: String {
         switch self {
         case .single(let value):

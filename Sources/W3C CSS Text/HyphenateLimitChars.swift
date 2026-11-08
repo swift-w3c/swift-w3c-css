@@ -43,7 +43,6 @@ extension HyphenateLimitChars {
     }
 }
 
-
 extension HyphenLimit {
     public var description: String {
         switch self {

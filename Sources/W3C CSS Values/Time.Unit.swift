@@ -1,6 +1,5 @@
 import Formatter
 
-
 extension Time {
     public enum Unit: String, Sendable, Hashable {
 

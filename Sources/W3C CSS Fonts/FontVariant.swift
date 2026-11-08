@@ -36,7 +36,6 @@ extension FontVariant {
     }
 }
 
-
 extension FontVariantOption {
     public var description: String {
         switch self {

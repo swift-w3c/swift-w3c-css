@@ -8,11 +8,12 @@ public enum TextEmphasis: Property {
     case global(Global)
 
     public init(style: TextEmphasisStyle, color: TextEmphasisColor? = nil) {
-        self = if case .global(let global) = style {
-            .global(global)
-        } else {
-            .config(Configuration(style: style, color: color))
-        }
+        self =
+            if case .global(let global) = style {
+                .global(global)
+            } else {
+                .config(Configuration(style: style, color: color))
+            }
     }
 
     public init(shape: EmphasisShape, fill: EmphasisFill = .filled, color: TextEmphasisColor? = nil) {

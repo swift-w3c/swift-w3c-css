@@ -1,4 +1,3 @@
-
 extension BoxEdge {
     public enum Geometry: String, Sendable, Hashable {
         case contentBox = "content-box"

@@ -24,8 +24,6 @@ public enum EasingFunction: Sendable, Hashable {
     case steps(Int, StepPosition?)
 }
 
-
-
 extension StepPosition {
     public var description: String {
         rawValue

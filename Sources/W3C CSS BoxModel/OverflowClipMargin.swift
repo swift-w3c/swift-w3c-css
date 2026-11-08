@@ -15,7 +15,6 @@ public enum OverflowClipMargin: Property {
 extension OverflowClipMargin {
     public static let property: String = "overflow-clip-margin"
 
-
     public var description: String {
         switch self {
         case .length(let length):

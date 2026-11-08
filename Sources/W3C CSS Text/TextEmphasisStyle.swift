@@ -31,8 +31,6 @@ extension TextEmphasisStyle {
     }
 }
 
-
-
 extension TextEmphasisStyle {
 
     public static var filledDot: TextEmphasisStyle {

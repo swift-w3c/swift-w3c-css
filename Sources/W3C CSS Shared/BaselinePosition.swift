@@ -8,7 +8,6 @@ public struct BaselinePosition: Sendable, Hashable {
 
 extension BaselinePosition {
 
-
     public static let first: Self = .init(firstLast: .first)
     public static let last: Self = .init(firstLast: .last)
     public static let firstBaseline: Self = .init(firstLast: .first)
@@ -27,7 +26,6 @@ extension BaselinePosition: CustomStringConvertible {
         return firstLast.map { "\($0) baseline" } ?? "baseline"
     }
 }
-
 
 extension BaselinePositionConvertible {
 

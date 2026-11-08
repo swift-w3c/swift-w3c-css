@@ -14,13 +14,14 @@ public enum TransitionDelay: Property {
     }
 
     public init(_ times: [Time]) {
-        self = if times.isEmpty {
-            .time(.zero)
-        } else if times.count == 1 {
-            .time(times[0])
-        } else {
-            .list(times)
-        }
+        self =
+            if times.isEmpty {
+                .time(.zero)
+            } else if times.count == 1 {
+                .time(times[0])
+            } else {
+                .list(times)
+            }
     }
 
     public init(_ times: Time...) {

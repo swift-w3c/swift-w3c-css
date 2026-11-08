@@ -14,11 +14,12 @@ public enum TextAutospace: Property {
     }
 
     public init(_ options: Set<TextAutospaceOption>) {
-        self = if options.isEmpty {
-            .none
-        } else {
-            .options(options)
-        }
+        self =
+            if options.isEmpty {
+                .none
+            } else {
+                .options(options)
+            }
     }
 
     public init(_ options: TextAutospaceOption...) {
@@ -29,7 +30,6 @@ public enum TextAutospace: Property {
 extension TextAutospace {
     public static let property: String = "text-autospace"
 }
-
 
 extension TextAutospace: CustomStringConvertible {
 

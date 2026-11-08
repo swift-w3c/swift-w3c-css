@@ -39,11 +39,12 @@ extension CounterStyle {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        rawValue = if descriptorString.isEmpty {
-            "@counter-style \(name) {}"
-        } else {
-            "@counter-style \(name) {\n\(descriptorString)\n}"
-        }
+        rawValue =
+            if descriptorString.isEmpty {
+                "@counter-style \(name) {}"
+            } else {
+                "@counter-style \(name) {\n\(descriptorString)\n}"
+            }
     }
 
     public func system(_ system: System) -> CounterStyle {

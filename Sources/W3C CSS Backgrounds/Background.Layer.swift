@@ -3,7 +3,6 @@ public import W3C_CSS_Images
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
-
 extension Background {
     public struct Layer: Sendable, Hashable {
 

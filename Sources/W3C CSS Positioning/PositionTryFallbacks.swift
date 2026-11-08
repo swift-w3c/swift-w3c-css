@@ -21,8 +21,6 @@ public enum PositionTryFallbacks: Property {
 extension PositionTryFallbacks {
     public static let property: String = "position-try-fallbacks"
 
-
-
     public var description: String {
         switch self {
         case .none:

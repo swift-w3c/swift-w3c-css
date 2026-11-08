@@ -12,8 +12,6 @@ public enum WebkitTextStroke: Property {
 extension WebkitTextStroke {
     public static let property: String = "-webkit-text-stroke"
 
-
-
     public static func width(_ width: StrokeWidth) -> WebkitTextStroke {
         .stroke(width: width)
     }

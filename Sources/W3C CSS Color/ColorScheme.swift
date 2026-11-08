@@ -14,7 +14,6 @@ extension ColorScheme {
     public static let property: String = "color-scheme"
 }
 
-
 extension ColorSchemeValue {
     public var description: String {
         switch self {

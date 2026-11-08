@@ -14,7 +14,6 @@ extension ViewTimelineInset {
     public static let property: String = "view-timeline-inset"
 }
 
-
 extension ViewTimelineInsetValue: CustomStringConvertible {
 
     public var description: String {

@@ -1,6 +1,5 @@
 public import W3C_CSS_Shared
 
-
 extension PageBreak {
     public enum Before: String, Sendable {
 

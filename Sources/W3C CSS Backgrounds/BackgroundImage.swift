@@ -15,11 +15,12 @@ public enum BackgroundImage: Property {
     }
 
     public init(_ images: [Image]) {
-        self = if images.count == 1 {
-            .single(images[0])
-        } else {
-            .multiple(images)
-        }
+        self =
+            if images.count == 1 {
+                .single(images[0])
+            } else {
+                .multiple(images)
+            }
     }
 }
 

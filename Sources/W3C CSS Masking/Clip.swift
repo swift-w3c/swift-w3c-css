@@ -14,8 +14,6 @@ extension Clip {
     public static let property: String = "clip"
 }
 
-
-
 extension ClipValue: CustomStringConvertible {
     public var description: String {
         switch self {

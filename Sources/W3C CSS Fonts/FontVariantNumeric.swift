@@ -9,11 +9,12 @@ public enum FontVariantNumeric: Property {
     case global(Global)
 
     public init(_ options: Set<NumericOption>) {
-        self = if options.isEmpty {
-            .normal
-        } else {
-            .options(options)
-        }
+        self =
+            if options.isEmpty {
+                .normal
+            } else {
+                .options(options)
+            }
     }
 
     public init(_ options: [NumericOption]) {
@@ -28,7 +29,6 @@ public enum FontVariantNumeric: Property {
 extension FontVariantNumeric {
     public static let property: String = "font-variant-numeric"
 }
-
 
 extension FontVariantNumeric: CustomStringConvertible {
 

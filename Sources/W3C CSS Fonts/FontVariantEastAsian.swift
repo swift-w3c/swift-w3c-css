@@ -11,13 +11,14 @@ public enum FontVariantEastAsian: Property {
     case global(Global)
 
     public init(_ values: Set<EastAsianVariantValue>) {
-        self = if values.isEmpty {
-            .normal
-        } else if values.count == 1, let value = values.first {
-            .single(value)
-        } else {
-            .combined(values)
-        }
+        self =
+            if values.isEmpty {
+                .normal
+            } else if values.count == 1, let value = values.first {
+                .single(value)
+            } else {
+                .combined(values)
+            }
     }
 
     public init(_ values: [EastAsianVariantValue]) {
@@ -32,7 +33,6 @@ public enum FontVariantEastAsian: Property {
 extension FontVariantEastAsian {
     public static let property: String = "font-variant-east-asian"
 }
-
 
 extension FontVariantEastAsian: CustomStringConvertible {
 

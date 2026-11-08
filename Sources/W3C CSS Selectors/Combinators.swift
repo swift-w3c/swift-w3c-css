@@ -12,14 +12,12 @@ extension DescendantCombinator: CustomStringConvertible {
     }
 }
 
-
 extension ChildCombinator: CustomStringConvertible {
 
     public var description: String {
         return " > "
     }
 }
-
 
 extension AdjacentSiblingCombinator: CustomStringConvertible {
 
@@ -28,14 +26,12 @@ extension AdjacentSiblingCombinator: CustomStringConvertible {
     }
 }
 
-
 extension GeneralSiblingCombinator: CustomStringConvertible {
 
     public var description: String {
         return " ~ "
     }
 }
-
 
 extension ColumnCombinator: CustomStringConvertible {
 

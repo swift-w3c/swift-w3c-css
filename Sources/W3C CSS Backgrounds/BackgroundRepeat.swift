@@ -20,11 +20,12 @@ public enum BackgroundRepeat: Property {
     }
 
     public init(_ repeats: [BackgroundRepeat]) {
-        self = if repeats.count == 1 {
-            repeats[0]
-        } else {
-            .multiple(repeats)
-        }
+        self =
+            if repeats.count == 1 {
+                repeats[0]
+            } else {
+                .multiple(repeats)
+            }
     }
 }
 

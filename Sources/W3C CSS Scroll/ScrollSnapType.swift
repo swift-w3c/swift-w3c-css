@@ -16,8 +16,6 @@ public enum ScrollSnapType: Property {
 extension ScrollSnapType {
     public static let property: String = "scroll-snap-type"
 
-
-
     public var description: String {
         switch self {
         case .none:

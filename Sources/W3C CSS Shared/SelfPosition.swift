@@ -30,7 +30,6 @@ extension SelfPosition: CustomStringConvertible {
     }
 }
 
-
 extension SelfPositionConvertible {
 
     public static var center: Self { .center() }

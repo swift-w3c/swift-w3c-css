@@ -10,11 +10,12 @@ public enum BorderTopRightRadius: Property {
     case global(Global)
 
     public init(_ horizontal: LengthPercentage, _ vertical: LengthPercentage? = nil) {
-        self = if let vertical {
-            .elliptical(horizontal, vertical)
-        } else {
-            .radius(horizontal)
-        }
+        self =
+            if let vertical {
+                .elliptical(horizontal, vertical)
+            } else {
+                .radius(horizontal)
+            }
     }
 
     public init(radius: LengthPercentage) {

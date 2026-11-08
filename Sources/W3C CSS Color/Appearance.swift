@@ -16,7 +16,6 @@ public enum Appearance: Property {
     case global(Global)
 }
 
-
 extension Appearance {
     public static let property: String = "appearance"
 }

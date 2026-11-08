@@ -40,11 +40,12 @@ extension FontPaletteValues {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        rawValue = if descriptorString.isEmpty {
-            "@font-palette-values \(identifier) {}"
-        } else {
-            "@font-palette-values \(identifier) {\n\(descriptorString)\n}"
-        }
+        rawValue =
+            if descriptorString.isEmpty {
+                "@font-palette-values \(identifier) {}"
+            } else {
+                "@font-palette-values \(identifier) {\n\(descriptorString)\n}"
+            }
     }
 
     public func fontFamily(_ family: String) -> FontPaletteValues {

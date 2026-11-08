@@ -37,7 +37,6 @@ extension FontSmooth {
     }
 }
 
-
 extension WebkitFontSmoothing {
     public static let property: String = "-webkit-font-smoothing"
 
@@ -60,7 +59,6 @@ extension WebkitFontSmoothing {
         }
     }
 }
-
 
 extension MozOsxFontSmoothing {
     public static let property: String = "-moz-osx-font-smoothing"

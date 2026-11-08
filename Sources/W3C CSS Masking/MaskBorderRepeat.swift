@@ -21,7 +21,6 @@ public enum MaskBorderRepeat: Property {
 extension MaskBorderRepeat {
     public static let property: String = "mask-border-repeat"
 
-
     public static let `default` = MaskBorderRepeat(.stretch)
 
     public static let stretch = MaskBorderRepeat(.stretch)

@@ -82,11 +82,12 @@ extension FontFeatureValues {
 
         let blockString = blockStrings.joined(separator: "\n\n")
 
-        rawValue = if blockString.isEmpty {
-            "@font-feature-values \(familiesString) {}"
-        } else {
-            "@font-feature-values \(familiesString) {\n\(blockString)\n}"
-        }
+        rawValue =
+            if blockString.isEmpty {
+                "@font-feature-values \(familiesString) {}"
+            } else {
+                "@font-feature-values \(familiesString) {\n\(blockString)\n}"
+            }
     }
 
     public func styleset(_ features: [String: [Int]]) -> FontFeatureValues {

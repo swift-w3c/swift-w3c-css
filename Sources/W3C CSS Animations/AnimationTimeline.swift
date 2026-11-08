@@ -20,8 +20,6 @@ extension AnimationTimeline {
     public static let property: String = "animation-timeline"
 }
 
-
-
 extension AnimationTimeline: CustomStringConvertible {
 
     public var description: String {

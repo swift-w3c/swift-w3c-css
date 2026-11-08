@@ -30,11 +30,6 @@ extension ClipPath {
     public static let property: String = "clip-path"
 }
 
-
-
-
-
-
 extension CircleShape: CustomStringConvertible {
     public var description: String {
         guard let center else {

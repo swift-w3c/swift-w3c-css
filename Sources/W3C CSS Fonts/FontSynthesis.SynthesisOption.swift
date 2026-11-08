@@ -1,6 +1,5 @@
 public import W3C_CSS_Shared
 
-
 extension FontSynthesis {
     public enum SynthesisOption: String, Sendable, CustomStringConvertible {
 

@@ -20,7 +20,6 @@ public enum CounterReset: Property {
 extension CounterReset {
     public static let property: String = "counter-reset"
 
-
     public var description: String {
         switch self {
         case .none:

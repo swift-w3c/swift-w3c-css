@@ -29,8 +29,6 @@ extension TextEmphasisPosition {
     }
 }
 
-
-
 extension TextEmphasisPosition {
 
     public static var overRight: TextEmphasisPosition {

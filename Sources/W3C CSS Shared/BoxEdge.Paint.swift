@@ -1,4 +1,3 @@
-
 extension BoxEdge {
     public enum Paint: String, Sendable, Hashable {
         case contentBox = "content-box"

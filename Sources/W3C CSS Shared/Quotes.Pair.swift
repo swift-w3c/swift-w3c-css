@@ -1,4 +1,3 @@
-
 extension Quotes {
     public struct Pair: Sendable, Hashable {
         let first: String

@@ -23,11 +23,12 @@ extension FontFace {
             "  \(key): \(value);"
         }.joined(separator: "\n")
 
-        rawValue = if descriptorString.isEmpty {
-            "@font-face {}"
-        } else {
-            "@font-face {\n\(descriptorString)\n}"
-        }
+        rawValue =
+            if descriptorString.isEmpty {
+                "@font-face {}"
+            } else {
+                "@font-face {\n\(descriptorString)\n}"
+            }
     }
 
     public func fontFamily(_ name: String) -> FontFace {

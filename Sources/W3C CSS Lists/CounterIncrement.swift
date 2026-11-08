@@ -16,7 +16,6 @@ public enum CounterIncrement: Property {
 extension CounterIncrement {
     public static let property: String = "counter-increment"
 
-
     public var description: String {
         switch self {
         case .none:
