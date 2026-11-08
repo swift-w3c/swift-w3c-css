@@ -1,22 +1,22 @@
-@_exported import W3C_CSS_Animation
-@_exported import W3C_CSS_Cascade
-@_exported import W3C_CSS_Color
-@_exported import W3C_CSS_Conditional
-@_exported import W3C_CSS_Containment
-@_exported import W3C_CSS_CounterStyles
-@_exported import W3C_CSS_Layout
-@_exported import W3C_CSS_Lists
-@_exported import W3C_CSS_Logical
-@_exported import W3C_CSS_MediaQueries
-@_exported import W3C_CSS_Paged
-@_exported import W3C_CSS_PseudoClasses
-@_exported import W3C_CSS_PseudoElements
-@_exported import W3C_CSS_Scroll
-@_exported import W3C_CSS_Selectors
-@_exported import W3C_CSS_Shared
-@_exported import W3C_CSS_Syntax
-@_exported import W3C_CSS_Typography
-@_exported import W3C_CSS_UI
-@_exported import W3C_CSS_Values
-@_exported import W3C_CSS_Variables
-@_exported import W3C_CSS_Visual
+@_exported public import W3C_CSS_Animation
+@_exported public import W3C_CSS_Cascade
+@_exported public import W3C_CSS_Color
+@_exported public import W3C_CSS_Conditional
+@_exported public import W3C_CSS_Containment
+@_exported public import W3C_CSS_CounterStyles
+@_exported public import W3C_CSS_Layout
+@_exported public import W3C_CSS_Lists
+@_exported public import W3C_CSS_Logical
+@_exported public import W3C_CSS_MediaQueries
+@_exported public import W3C_CSS_Paged
+@_exported public import W3C_CSS_PseudoClasses
+@_exported public import W3C_CSS_PseudoElements
+@_exported public import W3C_CSS_Scroll
+@_exported public import W3C_CSS_Selectors
+@_exported public import W3C_CSS_Shared
+@_exported public import W3C_CSS_Syntax
+@_exported public import W3C_CSS_Typography
+@_exported public import W3C_CSS_UI
+@_exported public import W3C_CSS_Values
+@_exported public import W3C_CSS_Variables
+@_exported public import W3C_CSS_Visual
