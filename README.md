@@ -1,6 +1,6 @@
 # swift-w3c-css
 
-Use this package when you want to write CSS from Swift with typed values instead of strings: one type per CSS property, such as `Display`, `FontFamily` or `W3C_CSS_Color.Color`, built from value types such as `Length`, `Percentage`, `Angle` and `W3C_CSS_Values.Color`. Import one module per CSS specification, or `W3C CSS` for all of them. For a single facade over these types with CSSOM serialization, use swift-css-standard. To apply them to HTML views, use swift-css-html-render.
+Use this package when you want to write CSS from Swift with typed values instead of strings: one type per CSS property, such as `Display`, `FontFamily` or `W3C_CSS_Color.Color`, built from value types such as `Length`, `Percentage`, `Angle` and `W3C_CSS_Values.Color`. Import one module per CSS specification, or `W3C CSS` for all of them. For a single facade over these types with CSSOM serialization, use swift-css-standard. To apply them to HTML views, use swift-css-html-render. `W3C CSS Compositing` also computes: `Compositing.Operator` and `BlendMode` carry the arithmetic of Compositing and Blending Level 1, applied by `composited(over:operator:blend:coverage:)` on `Compositing.Straight` and `Compositing.Premultiplied`.
 
 ## Laws
 
@@ -21,3 +21,10 @@ Use this package when you want to write CSS from Swift with typed values instead
 - Some out-of-range values are corrected rather than refused. `AnimationDuration` turns a negative time into 0, an `AnimationIterationCount` literal of 0 or less becomes 1, and `FontWeight`, `FontStretch` and `FontStyle` clamp to 1 to 1000, 50% to 200% and -90 to 90 degrees when they print.
 - `Ratio` refuses a negative width or height, orders ratios by their quotient, and prints a height of 1 as the width alone. `Resolution` refuses a negative value.
 - The `css` contexts on circles, ellipses and rectangles give nil for a negative radius or size. A path's arcs are written as straight lines to their end points.
+- `Compositing.Operator` holds the thirteen Porter-Duff operators of Compositing and Blending Level 1 under the specification's keywords. `destination` is one of them although `<composite-mode>` does not list it. `coefficients(source:backdrop:)` gives the specification's `Fa` and `Fb` for two alpha values.
+- `composited(over:operator:blend:coverage:)` is the specification's general formula: the source color becomes `(1 − αb) × Cs + αb × B(Cb, Cs)`, and the result is `αs × Fa` of that plus `αb × Fb` of the backdrop, with alpha `αs × Fa + αb × Fb`. The defaults, `sourceOver` and `normal`, are simple alpha compositing. `Compositing.Straight` and `Compositing.Premultiplied` give the same composite up to rounding.
+- Coverage is alpha, as the specification has it: it multiplies the source alpha before the formula. With coverage 0 an operator therefore gives what it gives for a transparent source, which is the backdrop for `sourceOver`, `destination`, `destinationOver`, `destinationOut`, `sourceAtop`, `xor` and `lighter`, and nothing at all for the other six.
+- A blend result is clamped to 0 to 1. Nothing else is: operands outside 0 to 1 go through the formulas as given, and `lighter` adds, so its alpha can exceed 1.
+- `Compositing.Straight` made from a premultiplied value with alpha 0 is transparent black.
+- `BlendMode.blend(backdrop:source:)` on one component is nil for `hue`, `saturation`, `color` and `luminosity`, which need a whole color. On a `Compositing.Color` the twelve separable modes blend each component alone. A blend on a transparent backdrop has no effect: the composite uses the source color unchanged.
+- Luminosity is `0.3 × red + 0.59 × green + 0.11 × blue`, the specification's weights, whatever the color space of the components.
