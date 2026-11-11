@@ -48,4 +48,13 @@ extension Compositing.Premultiplied {
             alpha: sourceAlpha * factor.source + backdrop.alpha * factor.backdrop
         )
     }
+
+    /// The value `parameter` of the way from this one to `other`: every color component and the alpha move
+    /// along a straight line, as CSS Color 4 interpolates colors that carry alpha.
+    public func interpolated(to other: Self, at parameter: Scalar) -> Self {
+        .init(
+            color: color.combined(with: other.color) { $0 + ($1 - $0) * parameter },
+            alpha: alpha + (other.alpha - alpha) * parameter
+        )
+    }
 }

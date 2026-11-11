@@ -554,3 +554,50 @@ extension `Compositing Tests` {
         }
     }
 }
+
+extension `Compositing Tests` {
+    @Suite
+    struct `Interpolating premultiplied values` {
+        typealias Tests = `Compositing Tests`
+
+        static func between(_ value: Double, _ a: Double, _ b: Double) -> Bool {
+            value >= min(a, b) - 1e-12 && value <= max(a, b) + 1e-12
+        }
+
+        @Test
+        func `Every component moves along a straight line`() {
+            let from = Premultiplied(color: .init(red: 0.5, green: 0.25, blue: 0), alpha: 0.5)
+            let to = Premultiplied(color: .init(red: 0, green: 0.75, blue: 1), alpha: 1)
+            #expect(from.interpolated(to: to, at: 0.25) == Premultiplied(color: .init(red: 0.375, green: 0.375, blue: 0.25), alpha: 0.625))
+            #expect(from.interpolated(to: to, at: 0.5) == Premultiplied(color: .init(red: 0.25, green: 0.5, blue: 0.5), alpha: 0.75))
+            #expect(from.interpolated(to: to, at: 2) == Premultiplied(color: .init(red: -0.5, green: 1.25, blue: 2), alpha: 1.5))
+        }
+
+        @Test
+        func `It starts exactly at the value, ends at the other up to rounding, and stays between them`() {
+            let pixels = Tests.pixels.map(Premultiplied.init)
+            pixels.forEach { from in
+                pixels.forEach { to in
+                    #expect(from.interpolated(to: to, at: 0) == from)
+                    #expect(Tests.close(from.interpolated(to: to, at: 1), to))
+                    Tests.levels.forEach { parameter in
+                        let result = from.interpolated(to: to, at: parameter)
+                        #expect(Self.between(result.color.red, from.color.red, to.color.red))
+                        #expect(Self.between(result.color.green, from.color.green, to.color.green))
+                        #expect(Self.between(result.color.blue, from.color.blue, to.color.blue))
+                        #expect(Self.between(result.alpha, from.alpha, to.alpha))
+                    }
+                }
+            }
+        }
+
+        @Test
+        func `Two equal values give that value at every parameter`() {
+            Tests.pixels.map(Premultiplied.init).forEach { pixel in
+                [-1, 0, 0.1, 1 / 3, 0.9, 1, 7].forEach { parameter in
+                    #expect(pixel.interpolated(to: pixel, at: parameter) == pixel)
+                }
+            }
+        }
+    }
+}
