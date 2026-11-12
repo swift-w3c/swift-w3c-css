@@ -1,5 +1,6 @@
 import Formatter
 public import Geometry
+import Numeric
 
 extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
     public struct Context {

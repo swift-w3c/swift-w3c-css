@@ -86,6 +86,7 @@ let package = Package(
         ),
         .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-linear.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-numeric.git", branch: "main"),
     ],
     targets: [
 
@@ -97,6 +98,7 @@ let package = Package(
                 .product(name: "Formatter", package: "swift-formatter"),
                 .product(name: "Geometry", package: "swift-geometry"),
                 .product(name: "Linear", package: "swift-linear"),
+                .product(name: "Numeric", package: "swift-numeric"),
             ]
         ),
 
