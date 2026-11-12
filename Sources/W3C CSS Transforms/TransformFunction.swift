@@ -146,7 +146,7 @@ extension TransformFunction: CustomStringConvertible {
             return "matrix(\(a), \(b), \(c), \(d), \(tx), \(ty))"
 
         case .matrix3d(let values):
-            let valuesString = values.map(\.description).joined(separator: ", ")
+            let valuesString = values.map({ $0.description }).joined(separator: ", ")
             return "matrix3d(\(valuesString))"
 
         case .perspective(let distance):

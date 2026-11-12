@@ -54,7 +54,7 @@ extension Contain {
             return "paint"
 
         case .combined(let values):
-            return values.map(\.description).joined(separator: " ")
+            return values.map({ $0.description }).joined(separator: " ")
 
         case .global(let value):
             return value.description
