@@ -8,6 +8,7 @@ extension Compositing {
 
         public var blue: Scalar
 
+        @inlinable
         public init(red: Scalar, green: Scalar, blue: Scalar) {
             self.red = red
             self.green = green
@@ -22,22 +23,27 @@ extension Compositing.Color: Hashable {}
 
 extension Compositing.Color {
 
+    @inlinable
     public static var black: Self {
         .init(red: 0, green: 0, blue: 0)
     }
 
+    @inlinable
     public static var white: Self {
         .init(red: 1, green: 1, blue: 1)
     }
 
+    @inlinable
     public init(gray: Scalar) {
         self.init(red: gray, green: gray, blue: gray)
     }
 
+    @inlinable
     public func map<E: Swift.Error>(_ transform: (Scalar) throws(E) -> Scalar) throws(E) -> Self {
         .init(red: try transform(red), green: try transform(green), blue: try transform(blue))
     }
 
+    @inlinable
     public func combined<E: Swift.Error>(
         with other: Self,
         _ combine: (Scalar, Scalar) throws(E) -> Scalar
@@ -52,14 +58,17 @@ extension Compositing.Color {
 
 extension Compositing.Color {
 
+    @inlinable
     public var luminosity: Scalar {
         0.3 * red + 0.59 * green + 0.11 * blue
     }
 
+    @inlinable
     public var saturation: Scalar {
         max(red, green, blue) - min(red, green, blue)
     }
 
+    @inlinable
     public func clipped() -> Self {
         let luminosity = luminosity
         let lowest = min(red, green, blue)
@@ -74,11 +83,13 @@ extension Compositing.Color {
         return color
     }
 
+    @inlinable
     public func luminosity(_ luminosity: Scalar) -> Self {
         let difference = luminosity - self.luminosity
         return map { $0 + difference }.clipped()
     }
 
+    @inlinable
     public func saturation(_ saturation: Scalar) -> Self {
         let lowest = min(red, green, blue)
         let highest = max(red, green, blue)

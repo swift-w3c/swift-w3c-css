@@ -6,6 +6,7 @@ extension Compositing {
 
         public var alpha: Scalar
 
+        @inlinable
         public init(color: Compositing.Color<Scalar>, alpha: Scalar) {
             self.color = color
             self.alpha = alpha
@@ -19,15 +20,18 @@ extension Compositing.Premultiplied: Hashable {}
 
 extension Compositing.Premultiplied {
 
+    @inlinable
     public static var transparent: Self {
         .init(color: .black, alpha: 0)
     }
 
+    @inlinable
     public init(_ straight: Compositing.Straight<Scalar>) {
         let alpha = straight.alpha
         self.init(color: straight.color.map { $0 * alpha }, alpha: alpha)
     }
 
+    @inlinable
     public func composited(
         over backdrop: Self,
         operator: Compositing.Operator = .sourceOver,
@@ -51,6 +55,7 @@ extension Compositing.Premultiplied {
 
     /// The value `parameter` of the way from this one to `other`: every color component and the alpha move
     /// along a straight line, as CSS Color 4 interpolates colors that carry alpha.
+    @inlinable
     public func interpolated(to other: Self, at parameter: Scalar) -> Self {
         .init(
             color: color.combined(with: other.color) { $0 + ($1 - $0) * parameter },

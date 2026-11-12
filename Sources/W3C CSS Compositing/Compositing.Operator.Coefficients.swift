@@ -6,6 +6,7 @@ extension Compositing.Operator {
 
         public var backdrop: Scalar
 
+        @inlinable
         public init(source: Scalar, backdrop: Scalar) {
             self.source = source
             self.backdrop = backdrop

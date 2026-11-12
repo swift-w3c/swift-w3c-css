@@ -1,5 +1,6 @@
 extension BlendMode {
 
+    @inlinable
     public var isSeparable: Bool {
         switch self {
         case .hue, .saturation, .color, .luminosity: false
@@ -7,6 +8,7 @@ extension BlendMode {
         }
     }
 
+    @inlinable
     public func blend<Scalar: BinaryFloatingPoint>(backdrop: Scalar, source: Scalar) -> Scalar? {
         let result: Scalar
         switch self {
@@ -76,6 +78,7 @@ extension BlendMode {
         return Self.clamped(result)
     }
 
+    @inlinable
     public func blend<Scalar>(
         backdrop: Compositing.Color<Scalar>,
         source: Compositing.Color<Scalar>
@@ -103,6 +106,7 @@ extension BlendMode {
 
 extension BlendMode {
 
+    @inlinable
     func mixed<Scalar>(
         backdrop: Compositing.Straight<Scalar>,
         source: Compositing.Color<Scalar>
@@ -112,7 +116,8 @@ extension BlendMode {
         return source.combined(with: blended) { (1 - backdrop.alpha) * $0 + backdrop.alpha * $1 }
     }
 
-    private static func hardLight<Scalar: BinaryFloatingPoint>(backdrop: Scalar, source: Scalar) -> Scalar {
+    @inlinable
+    static func hardLight<Scalar: BinaryFloatingPoint>(backdrop: Scalar, source: Scalar) -> Scalar {
         if source <= 0.5 {
             backdrop * (2 * source)
         } else {
@@ -120,7 +125,8 @@ extension BlendMode {
         }
     }
 
-    private static func clamped<Scalar: BinaryFloatingPoint>(_ value: Scalar) -> Scalar {
+    @inlinable
+    static func clamped<Scalar: BinaryFloatingPoint>(_ value: Scalar) -> Scalar {
         min(1, max(0, value))
     }
 }

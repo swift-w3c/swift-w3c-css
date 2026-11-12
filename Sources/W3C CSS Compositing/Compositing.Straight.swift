@@ -6,6 +6,7 @@ extension Compositing {
 
         public var alpha: Scalar
 
+        @inlinable
         public init(color: Compositing.Color<Scalar>, alpha: Scalar) {
             self.color = color
             self.alpha = alpha
@@ -19,10 +20,12 @@ extension Compositing.Straight: Hashable {}
 
 extension Compositing.Straight {
 
+    @inlinable
     public static var transparent: Self {
         .init(color: .black, alpha: 0)
     }
 
+    @inlinable
     public init(_ premultiplied: Compositing.Premultiplied<Scalar>) {
         let alpha = premultiplied.alpha
         self.init(
@@ -31,6 +34,7 @@ extension Compositing.Straight {
         )
     }
 
+    @inlinable
     public func composited(
         over backdrop: Self,
         operator: Compositing.Operator = .sourceOver,

@@ -32,6 +32,7 @@ extension Compositing {
 
 extension Compositing.Operator: CustomStringConvertible {
 
+    @inlinable
     public var description: String {
         rawValue
     }
@@ -39,6 +40,7 @@ extension Compositing.Operator: CustomStringConvertible {
 
 extension Compositing.Operator {
 
+    @inlinable
     public func coefficients<Scalar: BinaryFloatingPoint>(
         source: Scalar,
         backdrop: Scalar
@@ -60,6 +62,7 @@ extension Compositing.Operator {
         }
     }
 
+    @inlinable
     public func alpha<Scalar: BinaryFloatingPoint>(source: Scalar, backdrop: Scalar) -> Scalar {
         let factor = coefficients(source: source, backdrop: backdrop)
         return source * factor.source + backdrop * factor.backdrop
