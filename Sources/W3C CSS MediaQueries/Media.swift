@@ -17,8 +17,8 @@ public struct Media: AtRule {
 extension Media {
     public static let identifier: String = "media"
 
-    private static func feature(_ name: String, _ value: any CustomStringConvertible) -> Media {
-        Media(rawValue: "@media (\(name): \(value))")
+    private static func feature<Value: CustomStringConvertible>(_ name: String, _ value: Value) -> Media {
+        Media(rawValue: "@media (\(name): \(value.description))")
     }
 
     private var isFeatureQuery: Bool {
