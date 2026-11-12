@@ -1,6 +1,7 @@
 import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 import W3C_CSS_Values
+import Standard_Library_Extensions
 
 public struct ViewTransition: AtRule {
 
@@ -21,7 +22,7 @@ extension ViewTransition {
     public func navigation(_ value: NavigationType) -> ViewTransition {
         let currentContent = rawValue
 
-        if let navStartRange = currentContent.ranges(of: "navigation:").first {
+        if let navStartRange = currentContent.range(of: "navigation:") {
 
             let afterNav = currentContent[navStartRange.lowerBound...]
             if let semiIndex = afterNav.firstIndex(of: ";") {

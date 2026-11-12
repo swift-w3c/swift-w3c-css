@@ -87,6 +87,7 @@ let package = Package(
         .package(url: "https://github.com/swift-ietf/swift-rfc-4648.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-linear.git", branch: "main"),
         .package(url: "https://github.com/swift-atoms/swift-numeric.git", branch: "main"),
+        .package(url: "https://github.com/swift-atoms/swift-standard-library-extensions.git", branch: "main"),
     ],
     targets: [
 
@@ -226,6 +227,7 @@ let package = Package(
             name: "W3C CSS Transitions",
             dependencies: [
                 .target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Easing"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Syntax"),
+                .product(name: "Standard Library Extensions", package: "swift-standard-library-extensions"),
             ]
         ),
 
