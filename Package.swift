@@ -67,6 +67,7 @@ let package = Package(
         .library(name: "W3C CSS", targets: ["W3C CSS"]),
     ],
     dependencies: [
+        .package(url: "https://github.com/swift-w3c/swift-w3c-compositing.git", branch: "main"),
         .package(url: "https://github.com/swift-w3c/swift-w3c-cssom.git", branch: "main"),
         .package(
             url: "https://github.com/swift-atoms/swift-formatter.git",
@@ -94,6 +95,7 @@ let package = Package(
         .target(
             name: "W3C CSS Shared",
             dependencies: [
+                .product(name: "W3C Compositing", package: "swift-w3c-compositing"),
                 .product(name: "W3C CSSOM", package: "swift-w3c-cssom"),
                 .product(name: "ASCII", package: "swift-ascii"),
                 .product(name: "Formatter", package: "swift-formatter"),
@@ -215,7 +217,10 @@ let package = Package(
 
         .target(
             name: "W3C CSS Compositing",
-            dependencies: [.target(name: "W3C CSS Shared")]
+            dependencies: [
+                .product(name: "W3C Compositing", package: "swift-w3c-compositing"),
+                .target(name: "W3C CSS Shared"),
+            ]
         ),
 
         .target(
