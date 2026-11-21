@@ -7,7 +7,7 @@ public enum AnimationTimeline: Property {
 
     case auto
 
-    case named(DashedIdent)
+    case named(W3C.CSSOM.DashedIdent)
 
     case scroll(ScrollerValue? = nil, ScrollAxis? = nil)
 

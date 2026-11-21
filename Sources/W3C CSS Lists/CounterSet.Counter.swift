@@ -3,11 +3,11 @@ public import W3C_CSS_Shared
 extension CounterSet {
     public struct Counter: Sendable, Hashable {
 
-        public let name: CustomIdent
+        public let name: W3C.CSSOM.CustomIdent
 
         public let value: Int?
 
-        public init(name: CustomIdent, value: Int? = nil) {
+        public init(name: W3C.CSSOM.CustomIdent, value: Int? = nil) {
             self.name = name
             self.value = value
         }

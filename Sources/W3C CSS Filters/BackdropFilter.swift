@@ -9,9 +9,9 @@ public enum BackdropFilter: Property {
 
     case filters([FilterFunction])
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
-    case combined(url: Url, filters: [FilterFunction])
+    case combined(url: W3C.CSSOM.Url, filters: [FilterFunction])
 
     case global(Global)
 }
@@ -100,7 +100,7 @@ extension BackdropFilter {
         .filter(.sepia(amount))
     }
 
-    public static func urlWithFilters(_ url: Url, _ filters: [FilterFunction]) -> BackdropFilter {
+    public static func urlWithFilters(_ url: W3C.CSSOM.Url, _ filters: [FilterFunction]) -> BackdropFilter {
         return .combined(url: url, filters: filters)
     }
 }

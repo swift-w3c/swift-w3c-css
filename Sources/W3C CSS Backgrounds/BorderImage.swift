@@ -213,7 +213,7 @@ extension BorderImage {
 
         case none
 
-        case url(Url)
+        case url(W3C.CSSOM.Url)
 
         case linearGradient([String], String?)
 

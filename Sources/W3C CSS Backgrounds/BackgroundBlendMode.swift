@@ -3,13 +3,13 @@ import W3C_CSS_Values
 
 public enum BackgroundBlendMode: Property {
 
-    case single(BlendMode)
+    case single(W3C.Compositing.BlendMode)
 
-    case multiple([BlendMode])
+    case multiple([W3C.Compositing.BlendMode])
 
     case global(Global)
 
-    public init(_ mode: BlendMode) {
+    public init(_ mode: W3C.Compositing.BlendMode) {
         self = .single(mode)
     }
 }
@@ -38,14 +38,14 @@ extension BackgroundBlendMode {
 
     public static let `default` = BackgroundBlendMode(.normal)
 
-    public static func values(_ modes: [BlendMode]) -> BackgroundBlendMode {
+    public static func values(_ modes: [W3C.Compositing.BlendMode]) -> BackgroundBlendMode {
         if modes.count == 1 {
             return .single(modes[0])
         }
         return .multiple(modes)
     }
 
-    public static func values(_ modes: BlendMode...) -> BackgroundBlendMode {
+    public static func values(_ modes: W3C.Compositing.BlendMode...) -> BackgroundBlendMode {
         values(modes)
     }
 

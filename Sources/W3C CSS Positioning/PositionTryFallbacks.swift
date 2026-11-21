@@ -9,9 +9,9 @@ public enum PositionTryFallbacks: Property {
 
     case tactics([TryTactic])
 
-    case positionArea(CSSString)
+    case positionArea(W3C.CSSOM.String)
 
-    case customOption(CSSString)
+    case customOption(W3C.CSSOM.String)
 
     case combined([FallbackOption])
 

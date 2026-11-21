@@ -4,9 +4,9 @@ public enum CounterIncrement: Property {
 
     case none
 
-    case counter(CustomIdent)
+    case counter(W3C.CSSOM.CustomIdent)
 
-    case counterWithValue(CustomIdent, Int)
+    case counterWithValue(W3C.CSSOM.CustomIdent, Int)
 
     case counters([Counter])
 

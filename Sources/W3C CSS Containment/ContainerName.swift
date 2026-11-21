@@ -5,9 +5,9 @@ public enum ContainerName: Property {
 
     case none
 
-    case name(Ident)
+    case name(W3C.CSSOM.Ident)
 
-    case names([Ident])
+    case names([W3C.CSSOM.Ident])
 
     case global(Global)
 }

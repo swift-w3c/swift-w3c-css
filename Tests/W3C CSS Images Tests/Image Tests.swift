@@ -19,7 +19,7 @@ extension `Image Tests` {
             url: String,
             expected: String
         ) {
-            let image = Image.url(Url(url))
+            let image = Image.url(W3C.CSSOM.Url(url))
             #expect(image.description == expected)
         }
 
@@ -370,7 +370,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `URL image creation 100K times`() {
             (0..<100_000).forEach { i in
-                _ = Image.url(Url("image\(i).jpg"))
+                _ = Image.url(W3C.CSSOM.Url("image\(i).jpg"))
             }
         }
 
@@ -386,9 +386,9 @@ extension `Performance Tests` {
 
         @Test(.timeLimit(.minutes(1)))
         func `image comparison 100K times`() {
-            let image1 = Image.url(Url("test.jpg"))
+            let image1 = Image.url(W3C.CSSOM.Url("test.jpg"))
             (0..<100_000).forEach { i in
-                _ = image1 == Image.url(Url("test\(i % 10).jpg"))
+                _ = image1 == Image.url(W3C.CSSOM.Url("test\(i % 10).jpg"))
             }
         }
     }

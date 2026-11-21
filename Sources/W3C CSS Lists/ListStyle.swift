@@ -65,7 +65,7 @@ extension ListStyle {
         return .combined(type: .disc, position: position, image: nil)
     }
 
-    public static func withImage(_ url: Url) -> ListStyle {
+    public static func withImage(_ url: W3C.CSSOM.Url) -> ListStyle {
         return .image(.url(url))
     }
 

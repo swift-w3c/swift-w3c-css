@@ -1,15 +1,17 @@
 public import W3C_CSS_Shared
 
-public enum Isolation: Property {
+extension W3C.CSS.Compositing {
+    public enum Isolation: Property {
 
-    case auto
+        case auto
 
-    case isolate
+        case isolate
 
-    case global(Global)
+        case global(Global)
+    }
 }
 
-extension Isolation {
+extension W3C.CSS.Compositing.Isolation {
     public static let property: String = "isolation"
 
     public var description: String {

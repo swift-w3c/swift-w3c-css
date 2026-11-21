@@ -6,8 +6,8 @@ extension PositionTryFallbacks {
 
         case tactic(TryTactic)
 
-        case positionArea(CSSString)
+        case positionArea(W3C.CSSOM.String)
 
-        case customOption(CSSString)
+        case customOption(W3C.CSSOM.String)
     }
 }

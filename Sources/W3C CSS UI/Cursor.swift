@@ -65,9 +65,9 @@ public indirect enum Cursor: Property {
 
     case zoomOut
 
-    case url(url: Url, fallback: Cursor = .auto)
+    case url(url: W3C.CSSOM.Url, fallback: Cursor = .auto)
 
-    case urlWithCoordinates(url: Url, x: Int, y: Int, fallback: Cursor = .auto)
+    case urlWithCoordinates(url: W3C.CSSOM.Url, x: Int, y: Int, fallback: Cursor = .auto)
 
     case global(Global)
 }

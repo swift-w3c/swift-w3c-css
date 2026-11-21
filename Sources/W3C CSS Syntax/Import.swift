@@ -29,7 +29,7 @@ public struct Import: AtRule {
     }
 
     // swift-linter:disable:next raw concept
-    // REASON: A CSS import's url text, written into the rule as a quoted string, not a file-system path; looked at File.Path, RFC_3986.URI and CSSOM's Url, which Import.url(_:) already takes for the url() form.
+    // REASON: A CSS import's url text, written into the rule as a quoted string, not a file-system path; looked at File.Path, RFC_3986.URI and CSSOM's W3C.CSSOM.Url, which Import.url(_:) already takes for the url() form.
     public init(_ path: String) {
         self.urlString = "\"\(path)\""
         self.rawValue = "@import \(self.urlString);"
@@ -42,7 +42,7 @@ extension Import {
 
 extension Import {
 
-    public static func url(_ url: Url) -> Import {
+    public static func url(_ url: W3C.CSSOM.Url) -> Import {
         let formattedUrl = url.description
         var importRule = Import(rawValue: "@import \(formattedUrl);")
         importRule.urlString = formattedUrl

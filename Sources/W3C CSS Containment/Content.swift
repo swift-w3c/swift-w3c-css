@@ -8,9 +8,9 @@ public enum Content: Property {
 
     case none
 
-    case text(CSSString)
+    case text(W3C.CSSOM.String)
 
-    case image(Url)
+    case image(W3C.CSSOM.Url)
 
     case counter(name: String, style: ListStyleType? = nil)
 
@@ -28,7 +28,7 @@ public enum Content: Property {
 
     case list([Content])
 
-    case imageWithAlt(image: Url, alt: CSSString)
+    case imageWithAlt(image: W3C.CSSOM.Url, alt: W3C.CSSOM.String)
 
     case global(Global)
 }

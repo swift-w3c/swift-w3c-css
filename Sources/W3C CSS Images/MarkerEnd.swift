@@ -4,7 +4,7 @@ public enum MarkerEnd: Property {
 
     case none
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
     case global(Global)
 }
@@ -29,10 +29,10 @@ extension MarkerEnd {
 extension MarkerEnd {
 
     public static func reference(id: String) -> Self {
-        .url(Url("#\(id)"))
+        .url(W3C.CSSOM.Url("#\(id)"))
     }
 
-    public static func externalReference(file: Url, id: String) -> Self {
-        .url(Url("\(file.value)#\(id)"))
+    public static func externalReference(file: W3C.CSSOM.Url, id: String) -> Self {
+        .url(W3C.CSSOM.Url("\(file.value)#\(id)"))
     }
 }

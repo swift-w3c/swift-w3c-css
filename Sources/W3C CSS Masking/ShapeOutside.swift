@@ -11,7 +11,7 @@ public enum ShapeOutside: Property {
 
     case shapeWithBox(BasicShape, ShapeBox)
 
-    case image(url: Url)
+    case image(url: W3C.CSSOM.Url)
 
     case global(Global)
 }

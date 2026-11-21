@@ -21,11 +21,11 @@ extension WebkitBoxReflect {
 
     public enum ReflectionMask: Sendable, Hashable {
 
-        case linearGradient(CSSString)
+        case linearGradient(W3C.CSSOM.String)
 
-        case radialGradient(CSSString)
+        case radialGradient(W3C.CSSOM.String)
 
-        case url(Url)
+        case url(W3C.CSSOM.Url)
     }
 
     public var description: String {

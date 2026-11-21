@@ -5,7 +5,7 @@ public enum HyphenateCharacter: Property {
 
     case auto
 
-    case string(CSSString)
+    case string(W3C.CSSOM.String)
 
     case global(Global)
 }

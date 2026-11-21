@@ -50,7 +50,7 @@ extension BackgroundImage {
 
     public static let none = BackgroundImage(.none)
 
-    public static func url(_ url: Url) -> BackgroundImage {
+    public static func url(_ url: W3C.CSSOM.Url) -> BackgroundImage {
         BackgroundImage.single(.url(url))
     }
 

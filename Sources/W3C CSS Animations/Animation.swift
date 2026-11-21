@@ -28,7 +28,7 @@ extension Animation {
 
 extension Animation {
 
-    public static func name(_ name: CSSString) -> Animation {
+    public static func name(_ name: W3C.CSSOM.String) -> Animation {
         return .single(AnimationProperties(properties: [.name(.keyframes(.string(name)))]))
     }
 }

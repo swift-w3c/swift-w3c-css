@@ -38,7 +38,7 @@ extension ColorProfile {
 
     public static let deviceCMYK = ColorProfile("device-cmyk")
 
-    public func src(_ url: Url) -> ColorProfile {
+    public func src(_ url: W3C.CSSOM.Url) -> ColorProfile {
         var profile = self
         profile.descriptors["src"] = url.description
         profile.updateRawValue()

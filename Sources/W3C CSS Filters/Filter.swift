@@ -9,7 +9,7 @@ public enum Filter: Property {
 
     case filters([FilterFunction])
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
     case global(Global)
 }

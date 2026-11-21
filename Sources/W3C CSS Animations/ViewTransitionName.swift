@@ -5,7 +5,7 @@ public enum ViewTransitionName: Property {
 
     case none
 
-    case custom(CustomIdent)
+    case custom(W3C.CSSOM.CustomIdent)
 
     case global(Global)
 }
@@ -33,6 +33,6 @@ extension ViewTransitionName: CustomStringConvertible {
 extension ViewTransitionName {
 
     public static func custom(_ name: String) -> Self {
-        return .custom(CustomIdent(name))
+        return .custom(W3C.CSSOM.CustomIdent(name))
     }
 }

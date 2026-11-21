@@ -7,9 +7,9 @@ public enum TimelineScope: Property {
 
     case all
 
-    case custom(DashedIdent)
+    case custom(W3C.CSSOM.DashedIdent)
 
-    case multiple([DashedIdent])
+    case multiple([W3C.CSSOM.DashedIdent])
 
     case global(Global)
 }
@@ -43,10 +43,10 @@ extension TimelineScope: CustomStringConvertible {
 extension TimelineScope {
 
     public static func custom(_ name: String) -> Self {
-        return .custom(DashedIdent(name))
+        return .custom(W3C.CSSOM.DashedIdent(name))
     }
 
     public static func multiple(_ names: [String]) -> Self {
-        return .multiple(names.map { DashedIdent($0) })
+        return .multiple(names.map { W3C.CSSOM.DashedIdent($0) })
     }
 }

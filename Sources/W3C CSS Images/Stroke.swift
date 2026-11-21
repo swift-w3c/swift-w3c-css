@@ -10,9 +10,9 @@ public indirect enum Stroke: Property, ColorConvertible {
 
     case color(W3C_CSS_Values::Color)
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
-    case urlWithFallback(url: Url, fallback: Stroke = .none)
+    case urlWithFallback(url: W3C.CSSOM.Url, fallback: Stroke = .none)
 
     case global(Global)
 }

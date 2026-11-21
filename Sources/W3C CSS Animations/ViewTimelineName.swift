@@ -5,7 +5,7 @@ public enum ViewTimelineName: Property {
 
     case none
 
-    case custom(DashedIdent)
+    case custom(W3C.CSSOM.DashedIdent)
 
     case global(Global)
 }
@@ -33,6 +33,6 @@ extension ViewTimelineName: CustomStringConvertible {
 extension ViewTimelineName {
 
     public static func custom(_ name: String) -> Self {
-        return .custom(DashedIdent(name))
+        return .custom(W3C.CSSOM.DashedIdent(name))
     }
 }

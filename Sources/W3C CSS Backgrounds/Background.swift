@@ -127,7 +127,7 @@ extension Background.Layer: CustomStringConvertible {
 extension Background {
 
     public static func image(
-        _ url: Url,
+        _ url: W3C.CSSOM.Url,
         position: BackgroundPosition? = nil,
         size: BackgroundSize? = nil,
         repeat: BackgroundRepeat? = nil

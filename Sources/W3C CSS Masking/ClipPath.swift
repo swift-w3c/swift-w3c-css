@@ -5,7 +5,7 @@ public enum ClipPath: Property {
 
     case none
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
     case circle(CircleShape)
 
@@ -15,13 +15,13 @@ public enum ClipPath: Property {
 
     case polygon(PolygonShape)
 
-    case path(CSSString)
+    case path(W3C.CSSOM.String)
 
-    case custom(CSSString)
+    case custom(W3C.CSSOM.String)
 
     case global(Global)
 
-    public init(_ value: CSSString) {
+    public init(_ value: W3C.CSSOM.String) {
         self = .custom(value)
     }
 }

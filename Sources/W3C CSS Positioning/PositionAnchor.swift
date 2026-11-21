@@ -5,7 +5,7 @@ public enum PositionAnchor: Property {
 
     case auto
 
-    case anchorName(DashedIdent)
+    case anchorName(W3C.CSSOM.DashedIdent)
 
     case global(Global)
 }
@@ -14,7 +14,7 @@ extension PositionAnchor {
     public static let property: String = "position-anchor"
 
     public static func anchorName(_ name: String) -> PositionAnchor {
-        .anchorName(DashedIdent(name))
+        .anchorName(W3C.CSSOM.DashedIdent(name))
     }
 
     public var description: String {

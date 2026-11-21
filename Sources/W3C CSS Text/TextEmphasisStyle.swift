@@ -7,7 +7,7 @@ public enum TextEmphasisStyle: Property {
 
     case shape(EmphasisShape, EmphasisFill)
 
-    case string(CSSString)
+    case string(W3C.CSSOM.String)
 
     case global(Global)
 }

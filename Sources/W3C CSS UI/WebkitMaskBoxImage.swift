@@ -15,11 +15,11 @@ extension WebkitMaskBoxImage {
 
     public enum Source: Sendable, Hashable {
 
-        case url(Url)
+        case url(W3C.CSSOM.Url)
 
-        case linearGradient(CSSString)
+        case linearGradient(W3C.CSSOM.String)
 
-        case radialGradient(CSSString)
+        case radialGradient(W3C.CSSOM.String)
     }
 
     public struct EdgeOffset: Sendable, Hashable {

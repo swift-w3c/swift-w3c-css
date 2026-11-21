@@ -84,19 +84,19 @@ extension MaskBorder {
 
         case none
 
-        case url(Url)
+        case url(W3C.CSSOM.Url)
 
-        case linearGradient(CSSString)
+        case linearGradient(W3C.CSSOM.String)
 
-        case radialGradient(CSSString)
+        case radialGradient(W3C.CSSOM.String)
 
-        case conicGradient(CSSString)
+        case conicGradient(W3C.CSSOM.String)
 
-        case repeatingLinearGradient(CSSString)
+        case repeatingLinearGradient(W3C.CSSOM.String)
 
-        case repeatingRadialGradient(CSSString)
+        case repeatingRadialGradient(W3C.CSSOM.String)
 
-        case repeatingConicGradient(CSSString)
+        case repeatingConicGradient(W3C.CSSOM.String)
     }
 
     public struct Slice: Sendable, Hashable {

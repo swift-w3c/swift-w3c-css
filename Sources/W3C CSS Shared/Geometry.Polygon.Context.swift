@@ -1,11 +1,11 @@
 import Formatter
 public import Geometry
 
-extension Geometry.Polygon where Scalar == Double, Space == W3C_CSS.Space {
+extension Geometry.Polygon where Scalar == Double, Space == W3C.CSS.Space {
     public struct Context {
-        let polygon: Geometry<Double, W3C_CSS.Space>.Polygon
+        let polygon: Geometry<Double, W3C.CSS.Space>.Polygon
 
-        init(_ polygon: Geometry<Double, W3C_CSS.Space>.Polygon) {
+        init(_ polygon: Geometry<Double, W3C.CSS.Space>.Polygon) {
             self.polygon = polygon
         }
     }

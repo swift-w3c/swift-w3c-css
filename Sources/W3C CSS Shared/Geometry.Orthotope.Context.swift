@@ -1,11 +1,11 @@
 import Formatter
 public import Geometry
 
-extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C_CSS.Space {
+extension Geometry.Orthotope where N == 2, Scalar == Double, Space == W3C.CSS.Space {
     public struct Context {
-        let rectangle: Geometry<Double, W3C_CSS.Space>.Rectangle
+        let rectangle: Geometry<Double, W3C.CSS.Space>.Rectangle
 
-        init(_ rectangle: Geometry<Double, W3C_CSS.Space>.Rectangle) {
+        init(_ rectangle: Geometry<Double, W3C.CSS.Space>.Rectangle) {
             self.rectangle = rectangle
         }
     }

@@ -59,19 +59,19 @@ extension Mask {
 
         case none
 
-        case url(Url)
+        case url(W3C.CSSOM.Url)
 
-        case linearGradient(CSSString)
+        case linearGradient(W3C.CSSOM.String)
 
-        case radialGradient(CSSString)
+        case radialGradient(W3C.CSSOM.String)
 
-        case conicGradient(CSSString)
+        case conicGradient(W3C.CSSOM.String)
 
-        case repeatingLinearGradient(CSSString)
+        case repeatingLinearGradient(W3C.CSSOM.String)
 
-        case repeatingRadialGradient(CSSString)
+        case repeatingRadialGradient(W3C.CSSOM.String)
 
-        case repeatingConicGradient(CSSString)
+        case repeatingConicGradient(W3C.CSSOM.String)
     }
 
     public enum Position: Sendable, Hashable {
@@ -158,15 +158,15 @@ extension Mask {
         case matchSource
     }
 
-    public static func url(_ url: Url) -> Mask {
+    public static func url(_ url: W3C.CSSOM.Url) -> Mask {
         return .configuration(Configuration(.url(url)))
     }
 
-    public static func linearGradient(_ gradient: CSSString) -> Mask {
+    public static func linearGradient(_ gradient: W3C.CSSOM.String) -> Mask {
         return .configuration(Configuration(.linearGradient(gradient)))
     }
 
-    public static func radialGradient(_ gradient: CSSString) -> Mask {
+    public static func radialGradient(_ gradient: W3C.CSSOM.String) -> Mask {
         return .configuration(Configuration(.radialGradient(gradient)))
     }
 }

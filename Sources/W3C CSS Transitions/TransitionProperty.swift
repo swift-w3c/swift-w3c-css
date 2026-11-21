@@ -7,7 +7,7 @@ public enum TransitionProperty: Property {
 
     case none
 
-    case custom(CSSString)
+    case custom(W3C.CSSOM.String)
 
     case list([String])
 

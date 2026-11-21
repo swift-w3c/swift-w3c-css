@@ -30,7 +30,7 @@ extension ListStyleImage {
 
 extension ListStyleImage {
 
-    public static func url(_ url: Url) -> ListStyleImage {
+    public static func url(_ url: W3C.CSSOM.Url) -> ListStyleImage {
         return .image(.url(url))
     }
 

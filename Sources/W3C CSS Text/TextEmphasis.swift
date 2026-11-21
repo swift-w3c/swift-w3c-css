@@ -20,7 +20,7 @@ public enum TextEmphasis: Property {
         self = .config(Configuration(style: .shape(shape, fill), color: color))
     }
 
-    public init(string: CSSString, color: TextEmphasisColor? = nil) {
+    public init(string: W3C.CSSOM.String, color: TextEmphasisColor? = nil) {
         self = .config(Configuration(style: .string(string), color: color))
     }
 }

@@ -5,9 +5,9 @@ public enum AnchorName: Property {
 
     case none
 
-    case single(DashedIdent)
+    case single(W3C.CSSOM.DashedIdent)
 
-    case multiple([DashedIdent])
+    case multiple([W3C.CSSOM.DashedIdent])
 
     case global(Global)
 }
@@ -38,11 +38,11 @@ extension AnchorName: CustomStringConvertible {
 extension AnchorName {
 
     public static func custom(_ name: String) -> Self {
-        return .single(DashedIdent(name))
+        return .single(W3C.CSSOM.DashedIdent(name))
     }
 
     public static func customs(_ names: [String]) -> Self {
-        return .multiple(names.map { DashedIdent($0) })
+        return .multiple(names.map { W3C.CSSOM.DashedIdent($0) })
     }
 }
 

@@ -3,7 +3,7 @@ public import W3C_CSS_Values
 
 public indirect enum Image: Sendable, Hashable {
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
     case gradient(Gradient)
 
@@ -99,7 +99,7 @@ extension Image {
         return .paint(name: name, arguments: arguments)
     }
 
-    public static func imageSet(_ items: [(url: Url, resolution: String)]) -> Self {
+    public static func imageSet(_ items: [(url: W3C.CSSOM.Url, resolution: String)]) -> Self {
         let imageItems = items.map { ImageSetItem(url: $0.url, resolution: $0.resolution) }
         return .imageSet(images: imageItems)
     }

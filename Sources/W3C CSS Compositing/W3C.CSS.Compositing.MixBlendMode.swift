@@ -1,51 +1,53 @@
 public import W3C_CSS_Shared
 
-public enum MixBlendMode: Property {
+extension W3C.CSS.Compositing {
+    public enum MixBlendMode: Property {
 
-    case normal
+        case normal
 
-    case multiply
+        case multiply
 
-    case screen
+        case screen
 
-    case overlay
+        case overlay
 
-    case darken
+        case darken
 
-    case lighten
+        case lighten
 
-    case colorDodge
+        case colorDodge
 
-    case colorBurn
+        case colorBurn
 
-    case hardLight
+        case hardLight
 
-    case softLight
+        case softLight
 
-    case difference
+        case difference
 
-    case exclusion
+        case exclusion
 
-    case hue
+        case hue
 
-    case saturation
+        case saturation
 
-    case color
+        case color
 
-    case luminosity
+        case luminosity
 
-    case plusDarker
+        case plusDarker
 
-    case plusLighter
+        case plusLighter
 
-    case global(Global)
+        case global(Global)
+    }
 }
 
-extension MixBlendMode {
+extension W3C.CSS.Compositing.MixBlendMode {
     public static let property: String = "mix-blend-mode"
 }
 
-extension MixBlendMode: CustomStringConvertible {
+extension W3C.CSS.Compositing.MixBlendMode: CustomStringConvertible {
 
     public var description: String {
         switch self {
@@ -109,9 +111,9 @@ extension MixBlendMode: CustomStringConvertible {
     }
 }
 
-extension MixBlendMode {
+extension W3C.CSS.Compositing.MixBlendMode {
 
-    public init(_ blendMode: BlendMode) {
+    public init(_ blendMode: W3C.Compositing.BlendMode) {
         switch blendMode {
         case .normal: self = .normal
         case .multiply: self = .multiply

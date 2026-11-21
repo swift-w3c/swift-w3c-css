@@ -6,7 +6,7 @@ public enum OffsetPath: Property {
 
     case none
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
     case ray(angle: Angle, size: RaySize? = nil, contain: Bool = false, position: Position? = nil)
 

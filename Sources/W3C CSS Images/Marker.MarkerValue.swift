@@ -5,6 +5,6 @@ extension Marker {
 
         case none
 
-        case url(Url)
+        case url(W3C.CSSOM.Url)
     }
 }

@@ -71,7 +71,7 @@ extension Offset {
         .path(path: OffsetPath.path(pathData), distance: nil, rotate: nil, anchor: nil)
     }
 
-    public static func url(_ url: Url) -> Self {
+    public static func url(_ url: W3C.CSSOM.Url) -> Self {
         .path(path: .url(url), distance: nil, rotate: nil, anchor: nil)
     }
 

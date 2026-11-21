@@ -7,7 +7,7 @@ public enum TextOverflow: Property {
 
     case ellipsis
 
-    case string(CSSString)
+    case string(W3C.CSSOM.String)
 
     case global(Global)
 }

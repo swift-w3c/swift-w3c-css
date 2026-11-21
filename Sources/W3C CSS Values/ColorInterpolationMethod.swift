@@ -72,7 +72,7 @@ extension ColorInterpolationMethod {
     }
 
     public static func custom(_ profile: String) -> Self {
-        Self(colorSpace: CSSString(profile).description)
+        Self(colorSpace: W3C.CSSOM.String(profile).description)
     }
 
     public var description: String {

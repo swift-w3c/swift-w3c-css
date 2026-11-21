@@ -4,13 +4,13 @@ public enum CounterReset: Property {
 
     case none
 
-    case counter(CustomIdent)
+    case counter(W3C.CSSOM.CustomIdent)
 
-    case counterWithValue(CustomIdent, Int)
+    case counterWithValue(W3C.CSSOM.CustomIdent, Int)
 
-    case reversedCounter(CustomIdent)
+    case reversedCounter(W3C.CSSOM.CustomIdent)
 
-    case reversedCounterWithValue(CustomIdent, Int)
+    case reversedCounterWithValue(W3C.CSSOM.CustomIdent, Int)
 
     case counters([Counter])
 

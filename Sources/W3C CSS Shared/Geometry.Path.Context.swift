@@ -2,11 +2,11 @@ import Formatter
 public import Geometry
 import Numeric
 
-extension Geometry.Path where Scalar == Double, Space == W3C_CSS.Space {
+extension Geometry.Path where Scalar == Double, Space == W3C.CSS.Space {
     public struct Context {
-        let path: Geometry<Double, W3C_CSS.Space>.Path
+        let path: Geometry<Double, W3C.CSS.Space>.Path
 
-        init(_ path: Geometry<Double, W3C_CSS.Space>.Path) {
+        init(_ path: Geometry<Double, W3C.CSS.Space>.Path) {
             self.path = path
         }
     }

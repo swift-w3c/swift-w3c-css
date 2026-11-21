@@ -1,11 +1,11 @@
 import Formatter
 public import Geometry
 
-extension Geometry.Ellipse where Scalar == Double, Space == W3C_CSS.Space {
+extension Geometry.Ellipse where Scalar == Double, Space == W3C.CSS.Space {
     public struct Context {
-        let ellipse: Geometry<Double, W3C_CSS.Space>.Ellipse
+        let ellipse: Geometry<Double, W3C.CSS.Space>.Ellipse
 
-        init(_ ellipse: Geometry<Double, W3C_CSS.Space>.Ellipse) {
+        init(_ ellipse: Geometry<Double, W3C.CSS.Space>.Ellipse) {
             self.ellipse = ellipse
         }
     }

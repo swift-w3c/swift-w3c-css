@@ -48,9 +48,9 @@ public enum ListStyleType: Property {
 
     case thai
 
-    case string(CSSString)
+    case string(W3C.CSSOM.String)
 
-    case custom(CustomIdent)
+    case custom(W3C.CSSOM.CustomIdent)
 
     case global(Global)
 }

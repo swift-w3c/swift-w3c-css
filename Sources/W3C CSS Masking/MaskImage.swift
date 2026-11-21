@@ -53,7 +53,7 @@ extension MaskImage {
 
     public static let `default` = MaskImage.none
 
-    public static func url(_ url: Url) -> MaskImage {
+    public static func url(_ url: W3C.CSSOM.Url) -> MaskImage {
         MaskImage.single(.url(url))
     }
 

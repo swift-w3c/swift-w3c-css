@@ -5,9 +5,9 @@ import Testing
 enum `Compositing Tests` {}
 
 extension `Compositing Tests` {
-    typealias Color = Compositing.Color<Double>
-    typealias Straight = Compositing.Straight<Double>
-    typealias Premultiplied = Compositing.Premultiplied<Double>
+    typealias Color = W3C.Compositing.Color<Double>
+    typealias Straight = W3C.Compositing.Straight<Double>
+    typealias Premultiplied = W3C.Compositing.Premultiplied<Double>
 
     static let levels: [Double] = [0, 0.125, 0.25, 0.5, 0.75, 1]
 
@@ -22,7 +22,7 @@ extension `Compositing Tests` {
         .init(color: color, alpha: levels[(index * 5 + 2) % levels.count])
     }
 
-    static let separable: [BlendMode] = BlendMode.allModes.filter(\.isSeparable)
+    static let separable: [W3C.Compositing.BlendMode] = W3C.Compositing.BlendMode.allModes.filter(\.isSeparable)
 
     static func close(_ a: Double, _ b: Double, within tolerance: Double = 1e-12) -> Bool {
         abs(a - b) <= tolerance
@@ -38,8 +38,8 @@ extension `Compositing Tests` {
     }
 }
 
-extension BlendMode {
-    fileprivate static let allModes: [BlendMode] = [
+extension W3C.Compositing.BlendMode {
+    fileprivate static let allModes: [W3C.Compositing.BlendMode] = [
         .normal, .multiply, .screen, .overlay, .darken, .lighten, .colorDodge, .colorBurn, .hardLight, .softLight,
         .difference, .exclusion, .hue, .saturation, .color, .luminosity,
     ]
@@ -104,7 +104,7 @@ extension `Compositing Tests` {
         @Test
         func `The keywords are the specification's`() {
             #expect(
-                Compositing.Operator.allCases.map(\.description) == [
+                W3C.Compositing.Operator.allCases.map(\.description) == [
                     "clear", "copy", "destination", "source-over", "destination-over", "source-in", "destination-in",
                     "source-out", "destination-out", "source-atop", "destination-atop", "xor", "lighter",
                 ]
@@ -113,7 +113,7 @@ extension `Compositing Tests` {
 
         @Test(arguments: Tests.levels, Tests.levels)
         func `Every operator has the specification's coefficients and alpha`(source: Double, backdrop: Double) {
-            let expected: [(Compositing.Operator, Double, Double)] = [
+            let expected: [(W3C.Compositing.Operator, Double, Double)] = [
                 (.clear, 0, 0), (.copy, 1, 0), (.destination, 0, 1),
                 (.sourceOver, 1, 1 - source), (.destinationOver, 1 - backdrop, 1),
                 (.sourceIn, backdrop, 0), (.destinationIn, 0, source),
@@ -121,7 +121,7 @@ extension `Compositing Tests` {
                 (.sourceAtop, backdrop, 1 - source), (.destinationAtop, 1 - backdrop, source),
                 (.xor, 1 - backdrop, 1 - source), (.lighter, 1, 1),
             ]
-            #expect(expected.count == Compositing.Operator.allCases.count)
+            #expect(expected.count == W3C.Compositing.Operator.allCases.count)
             for (mode, fa, fb) in expected {
                 let factor = mode.coefficients(source: source, backdrop: backdrop)
                 #expect(factor == .init(source: fa, backdrop: fb))
@@ -129,9 +129,9 @@ extension `Compositing Tests` {
             }
         }
 
-        @Test(arguments: Compositing.Operator.allCases)
+        @Test(arguments: W3C.Compositing.Operator.allCases)
         func `The premultiplied result is the coefficients applied to both premultiplied values`(
-            mode: Compositing.Operator
+            mode: W3C.Compositing.Operator
         ) {
             for source in Tests.pixels.map(Premultiplied.init) {
                 for backdrop in Tests.pixels.map(Premultiplied.init) {
@@ -158,13 +158,13 @@ extension `Compositing Tests` {
         }
 
         @Test(arguments: [
-            (Compositing.Operator.sourceOver, Compositing.Operator.destinationOver),
+            (W3C.Compositing.Operator.sourceOver, W3C.Compositing.Operator.destinationOver),
             (.sourceIn, .destinationIn), (.sourceOut, .destinationOut), (.sourceAtop, .destinationAtop),
             (.copy, .destination), (.xor, .xor), (.lighter, .lighter), (.clear, .clear),
         ])
         func `A destination operator is its source operator with the operands exchanged`(
-            source: Compositing.Operator,
-            destination: Compositing.Operator
+            source: W3C.Compositing.Operator,
+            destination: W3C.Compositing.Operator
         ) {
             for a in Tests.pixels.map(Premultiplied.init) {
                 for b in Tests.pixels.map(Premultiplied.init) {
@@ -212,9 +212,9 @@ extension `Compositing Tests` {
         func `Opaque operands reduce the operators to source, backdrop or nothing`() {
             let source = Premultiplied(color: .init(red: 0.25, green: 0.5, blue: 0.75), alpha: 1)
             let backdrop = Premultiplied(color: .init(red: 0.9, green: 0.1, blue: 0.4), alpha: 1)
-            let sources: [Compositing.Operator] = [.copy, .sourceOver, .sourceIn, .sourceAtop]
-            let backdrops: [Compositing.Operator] = [.destination, .destinationOver, .destinationIn, .destinationAtop]
-            let nothing: [Compositing.Operator] = [.clear, .sourceOut, .destinationOut, .xor]
+            let sources: [W3C.Compositing.Operator] = [.copy, .sourceOver, .sourceIn, .sourceAtop]
+            let backdrops: [W3C.Compositing.Operator] = [.destination, .destinationOver, .destinationIn, .destinationAtop]
+            let nothing: [W3C.Compositing.Operator] = [.clear, .sourceOut, .destinationOut, .xor]
             for mode in sources { #expect(source.composited(over: backdrop, operator: mode) == source) }
             for mode in backdrops { #expect(source.composited(over: backdrop, operator: mode) == backdrop) }
             for mode in nothing { #expect(source.composited(over: backdrop, operator: mode) == .transparent) }
@@ -227,9 +227,9 @@ extension `Compositing Tests` {
     struct `General formula` {
         typealias Tests = `Compositing Tests`
 
-        @Test(arguments: Compositing.Operator.allCases)
-        func `Straight and premultiplied values give the same composite`(mode: Compositing.Operator) {
-            for blend in BlendMode.allModes {
+        @Test(arguments: W3C.Compositing.Operator.allCases)
+        func `Straight and premultiplied values give the same composite`(mode: W3C.Compositing.Operator) {
+            for blend in W3C.Compositing.BlendMode.allModes {
                 for source in Tests.pixels {
                     for backdrop in Tests.pixels {
                         let straight = source.composited(over: backdrop, operator: mode, blend: blend, coverage: 0.5)
@@ -241,8 +241,8 @@ extension `Compositing Tests` {
             }
         }
 
-        @Test(arguments: BlendMode.allModes)
-        func `The composite is the specification's expansion of blend and source over`(blend: BlendMode) {
+        @Test(arguments: W3C.Compositing.BlendMode.allModes)
+        func `The composite is the specification's expansion of blend and source over`(blend: W3C.Compositing.BlendMode) {
             for source in Tests.pixels {
                 for backdrop in Tests.pixels {
                     let mixed = blend.blend(backdrop: backdrop.color, source: source.color)
@@ -270,8 +270,8 @@ extension `Compositing Tests` {
             a * (1 - b) * cs + a * b * mixed + (1 - a) * b * cb
         }
 
-        @Test(arguments: BlendMode.allModes)
-        func `A transparent backdrop leaves the source unblended and an opaque one blends it fully`(blend: BlendMode) {
+        @Test(arguments: W3C.Compositing.BlendMode.allModes)
+        func `A transparent backdrop leaves the source unblended and an opaque one blends it fully`(blend: W3C.Compositing.BlendMode) {
             for source in Tests.pixels {
                 #expect(source.composited(over: .transparent, blend: blend) == Straight(Premultiplied(source)))
                 for color in Tests.colors {
@@ -283,9 +283,9 @@ extension `Compositing Tests` {
             }
         }
 
-        @Test(arguments: Compositing.Operator.allCases)
-        func `Coverage multiplies the source alpha`(mode: Compositing.Operator) {
-            for blend in [BlendMode.normal, .multiply, .hue] {
+        @Test(arguments: W3C.Compositing.Operator.allCases)
+        func `Coverage multiplies the source alpha`(mode: W3C.Compositing.Operator) {
+            for blend in [W3C.Compositing.BlendMode.normal, .multiply, .hue] {
                 for source in Tests.pixels {
                     for backdrop in Tests.pixels {
                         let full = source.composited(over: backdrop, operator: mode, blend: blend)
@@ -320,7 +320,7 @@ extension `Compositing Tests` {
         @Test
         func `Twelve modes are separable and four are not`() {
             #expect(Tests.separable.count == 12)
-            for mode in BlendMode.allModes {
+            for mode in W3C.Compositing.BlendMode.allModes {
                 let value: Double? = mode.blend(backdrop: 0.25, source: 0.75)
                 #expect((value != nil) == mode.isSeparable)
             }
@@ -328,7 +328,7 @@ extension `Compositing Tests` {
 
         @Test
         func `Known values`() {
-            let expected: [(BlendMode, Double)] = [
+            let expected: [(W3C.Compositing.BlendMode, Double)] = [
                 (.normal, 0.75), (.multiply, 0.1875), (.screen, 0.8125), (.overlay, 0.375), (.darken, 0.25),
                 (.lighten, 0.75), (.colorDodge, 1), (.colorBurn, 0), (.hardLight, 0.625), (.softLight, 0.375),
                 (.difference, 0.5), (.exclusion, 0.625),
@@ -336,24 +336,24 @@ extension `Compositing Tests` {
             for (mode, value) in expected {
                 #expect(mode.blend(backdrop: 0.25, source: 0.75) == value)
             }
-            #expect(BlendMode.colorDodge.blend(backdrop: 0.25, source: 0.5) == 0.5)
-            #expect(BlendMode.colorBurn.blend(backdrop: 0.75, source: 0.5) == 0.5)
-            #expect(BlendMode.softLight.blend(backdrop: 0.25, source: 0.25) == 0.15625)
-            #expect(BlendMode.softLight.blend(backdrop: 0.64, source: 1.0) == 0.8)
-            #expect(BlendMode.softLight.blend(backdrop: 0.125, source: 1.0) == 0.34375)
+            #expect(W3C.Compositing.BlendMode.colorDodge.blend(backdrop: 0.25, source: 0.5) == 0.5)
+            #expect(W3C.Compositing.BlendMode.colorBurn.blend(backdrop: 0.75, source: 0.5) == 0.5)
+            #expect(W3C.Compositing.BlendMode.softLight.blend(backdrop: 0.25, source: 0.25) == 0.15625)
+            #expect(W3C.Compositing.BlendMode.softLight.blend(backdrop: 0.64, source: 1.0) == 0.8)
+            #expect(W3C.Compositing.BlendMode.softLight.blend(backdrop: 0.125, source: 1.0) == 0.34375)
         }
 
         @Test
         func `Normal selects the source`() {
             for backdrop in Tests.levels {
                 for source in Tests.levels {
-                    #expect(BlendMode.normal.blend(backdrop: backdrop, source: source) == source)
+                    #expect(W3C.Compositing.BlendMode.normal.blend(backdrop: backdrop, source: source) == source)
                 }
             }
         }
 
-        @Test(arguments: [BlendMode.multiply, .screen, .darken, .lighten, .difference, .exclusion])
-        func `Multiply, screen, darken, lighten, difference and exclusion commute`(mode: BlendMode) {
+        @Test(arguments: [W3C.Compositing.BlendMode.multiply, .screen, .darken, .lighten, .difference, .exclusion])
+        func `Multiply, screen, darken, lighten, difference and exclusion commute`(mode: W3C.Compositing.BlendMode) {
             for a in Tests.levels {
                 for b in Tests.levels {
                     let forward: Double? = mode.blend(backdrop: a, source: b)
@@ -365,40 +365,40 @@ extension `Compositing Tests` {
         @Test
         func `White and black are the identities and annihilators the specification names`() {
             for value in Tests.levels {
-                #expect(BlendMode.multiply.blend(backdrop: value, source: 1.0) == value)
-                #expect(BlendMode.multiply.blend(backdrop: value, source: 0.0) == 0)
-                #expect(BlendMode.screen.blend(backdrop: value, source: 0.0) == value)
-                #expect(BlendMode.screen.blend(backdrop: value, source: 1.0) == 1)
-                #expect(BlendMode.darken.blend(backdrop: value, source: 1.0) == value)
-                #expect(BlendMode.lighten.blend(backdrop: value, source: 0.0) == value)
-                #expect(BlendMode.colorDodge.blend(backdrop: value, source: 0.0) == value)
-                #expect(BlendMode.colorBurn.blend(backdrop: value, source: 1.0) == value)
-                #expect(BlendMode.difference.blend(backdrop: value, source: 0.0) == value)
-                #expect(BlendMode.difference.blend(backdrop: value, source: 1.0) == 1 - value)
-                #expect(BlendMode.exclusion.blend(backdrop: value, source: 0.0) == value)
-                #expect(BlendMode.exclusion.blend(backdrop: value, source: 1.0) == 1 - value)
-                #expect(BlendMode.hardLight.blend(backdrop: value, source: 0.0) == 0)
-                #expect(BlendMode.hardLight.blend(backdrop: value, source: 1.0) == 1)
-                #expect(BlendMode.softLight.blend(backdrop: value, source: 0.5) == value)
+                #expect(W3C.Compositing.BlendMode.multiply.blend(backdrop: value, source: 1.0) == value)
+                #expect(W3C.Compositing.BlendMode.multiply.blend(backdrop: value, source: 0.0) == 0)
+                #expect(W3C.Compositing.BlendMode.screen.blend(backdrop: value, source: 0.0) == value)
+                #expect(W3C.Compositing.BlendMode.screen.blend(backdrop: value, source: 1.0) == 1)
+                #expect(W3C.Compositing.BlendMode.darken.blend(backdrop: value, source: 1.0) == value)
+                #expect(W3C.Compositing.BlendMode.lighten.blend(backdrop: value, source: 0.0) == value)
+                #expect(W3C.Compositing.BlendMode.colorDodge.blend(backdrop: value, source: 0.0) == value)
+                #expect(W3C.Compositing.BlendMode.colorBurn.blend(backdrop: value, source: 1.0) == value)
+                #expect(W3C.Compositing.BlendMode.difference.blend(backdrop: value, source: 0.0) == value)
+                #expect(W3C.Compositing.BlendMode.difference.blend(backdrop: value, source: 1.0) == 1 - value)
+                #expect(W3C.Compositing.BlendMode.exclusion.blend(backdrop: value, source: 0.0) == value)
+                #expect(W3C.Compositing.BlendMode.exclusion.blend(backdrop: value, source: 1.0) == 1 - value)
+                #expect(W3C.Compositing.BlendMode.hardLight.blend(backdrop: value, source: 0.0) == 0)
+                #expect(W3C.Compositing.BlendMode.hardLight.blend(backdrop: value, source: 1.0) == 1)
+                #expect(W3C.Compositing.BlendMode.softLight.blend(backdrop: value, source: 0.5) == value)
             }
         }
 
         @Test
         func `Color dodge and color burn follow their three cases`() {
-            #expect(BlendMode.colorDodge.blend(backdrop: 0.0, source: 1.0) == 0)
-            #expect(BlendMode.colorDodge.blend(backdrop: 0.5, source: 1.0) == 1)
-            #expect(BlendMode.colorDodge.blend(backdrop: 0.75, source: 0.5) == 1)
-            #expect(BlendMode.colorBurn.blend(backdrop: 1.0, source: 0.0) == 1)
-            #expect(BlendMode.colorBurn.blend(backdrop: 0.5, source: 0.0) == 0)
-            #expect(BlendMode.colorBurn.blend(backdrop: 0.25, source: 0.5) == 0)
+            #expect(W3C.Compositing.BlendMode.colorDodge.blend(backdrop: 0.0, source: 1.0) == 0)
+            #expect(W3C.Compositing.BlendMode.colorDodge.blend(backdrop: 0.5, source: 1.0) == 1)
+            #expect(W3C.Compositing.BlendMode.colorDodge.blend(backdrop: 0.75, source: 0.5) == 1)
+            #expect(W3C.Compositing.BlendMode.colorBurn.blend(backdrop: 1.0, source: 0.0) == 1)
+            #expect(W3C.Compositing.BlendMode.colorBurn.blend(backdrop: 0.5, source: 0.0) == 0)
+            #expect(W3C.Compositing.BlendMode.colorBurn.blend(backdrop: 0.25, source: 0.5) == 0)
         }
 
         @Test
         func `Overlay is hard light with the operands exchanged`() {
             for a in Tests.levels {
                 for b in Tests.levels {
-                    let overlay: Double? = BlendMode.overlay.blend(backdrop: a, source: b)
-                    #expect(overlay == BlendMode.hardLight.blend(backdrop: b, source: a))
+                    let overlay: Double? = W3C.Compositing.BlendMode.overlay.blend(backdrop: a, source: b)
+                    #expect(overlay == W3C.Compositing.BlendMode.hardLight.blend(backdrop: b, source: a))
                 }
             }
         }
@@ -407,22 +407,22 @@ extension `Compositing Tests` {
         func `Hard light and soft light are continuous where their formulas change`() {
             let step = 1e-9
             for backdrop in Tests.levels {
-                let hardBelow = BlendMode.hardLight.blend(backdrop: backdrop, source: 0.5) ?? .nan
-                let hardAbove = BlendMode.hardLight.blend(backdrop: backdrop, source: 0.5 + step) ?? .nan
+                let hardBelow = W3C.Compositing.BlendMode.hardLight.blend(backdrop: backdrop, source: 0.5) ?? .nan
+                let hardAbove = W3C.Compositing.BlendMode.hardLight.blend(backdrop: backdrop, source: 0.5 + step) ?? .nan
                 #expect(Tests.close(hardBelow, hardAbove, within: 1e-8))
-                let softBelow = BlendMode.softLight.blend(backdrop: backdrop, source: 0.5) ?? .nan
-                let softAbove = BlendMode.softLight.blend(backdrop: backdrop, source: 0.5 + step) ?? .nan
+                let softBelow = W3C.Compositing.BlendMode.softLight.blend(backdrop: backdrop, source: 0.5) ?? .nan
+                let softAbove = W3C.Compositing.BlendMode.softLight.blend(backdrop: backdrop, source: 0.5 + step) ?? .nan
                 #expect(Tests.close(softBelow, softAbove, within: 1e-8))
             }
             for source in Tests.levels {
-                let below = BlendMode.softLight.blend(backdrop: 0.25, source: source) ?? .nan
-                let above = BlendMode.softLight.blend(backdrop: 0.25 + step, source: source) ?? .nan
+                let below = W3C.Compositing.BlendMode.softLight.blend(backdrop: 0.25, source: source) ?? .nan
+                let above = W3C.Compositing.BlendMode.softLight.blend(backdrop: 0.25 + step, source: source) ?? .nan
                 #expect(Tests.close(below, above, within: 1e-8))
             }
         }
 
         @Test(arguments: Tests.separable)
-        func `Every result is inside zero to one, also for operands outside it`(mode: BlendMode) {
+        func `Every result is inside zero to one, also for operands outside it`(mode: W3C.Compositing.BlendMode) {
             let operands = Tests.levels + [-0.5, 1.5]
             for backdrop in operands {
                 for source in operands {
@@ -433,7 +433,7 @@ extension `Compositing Tests` {
         }
 
         @Test(arguments: Tests.separable)
-        func `On a color a separable mode blends each component alone`(mode: BlendMode) {
+        func `On a color a separable mode blends each component alone`(mode: W3C.Compositing.BlendMode) {
             for backdrop in Tests.colors {
                 for source in Tests.colors {
                     let result = mode.blend(backdrop: backdrop, source: source)
@@ -446,8 +446,8 @@ extension `Compositing Tests` {
 
         @Test
         func `Single precision gives the same known values`() {
-            #expect(BlendMode.multiply.blend(backdrop: Float(0.25), source: Float(0.75)) == Float(0.1875))
-            #expect(BlendMode.softLight.blend(backdrop: Float(0.25), source: Float(0.25)) == Float(0.15625))
+            #expect(W3C.Compositing.BlendMode.multiply.blend(backdrop: Float(0.25), source: Float(0.75)) == Float(0.1875))
+            #expect(W3C.Compositing.BlendMode.softLight.blend(backdrop: Float(0.25), source: Float(0.25)) == Float(0.15625))
         }
     }
 }
@@ -470,13 +470,13 @@ extension `Compositing Tests` {
         func `Known values`() {
             let backdrop = Color(red: 0.25, green: 0.5, blue: 0.75)
             let source = Color(red: 1, green: 0, blue: 0)
-            let hue = BlendMode.hue.blend(backdrop: backdrop, source: source)
+            let hue = W3C.Compositing.BlendMode.hue.blend(backdrop: backdrop, source: source)
             #expect(Tests.close(hue, .init(red: 0.8025, green: 0.3025, blue: 0.3025)))
-            let saturation = BlendMode.saturation.blend(backdrop: backdrop, source: source)
+            let saturation = W3C.Compositing.BlendMode.saturation.blend(backdrop: backdrop, source: source)
             #expect(Tests.close(saturation, .init(red: 0.079831932773, green: 0.539915966387, blue: 1), within: 1e-9))
-            let color = BlendMode.color.blend(backdrop: backdrop, source: source)
+            let color = W3C.Compositing.BlendMode.color.blend(backdrop: backdrop, source: source)
             #expect(Tests.close(color, .init(red: 1, green: 0.217857142857, blue: 0.217857142857), within: 1e-9))
-            let luminosity = BlendMode.luminosity.blend(backdrop: backdrop, source: source)
+            let luminosity = W3C.Compositing.BlendMode.luminosity.blend(backdrop: backdrop, source: source)
             #expect(Tests.close(luminosity, .init(red: 0.0975, green: 0.3475, blue: 0.5975)))
         }
 
@@ -484,13 +484,13 @@ extension `Compositing Tests` {
         func `Color keeps the backdrop's luminosity and luminosity takes the source's`() {
             for backdrop in Tests.colors {
                 for source in Tests.colors {
-                    let color = BlendMode.color.blend(backdrop: backdrop, source: source)
+                    let color = W3C.Compositing.BlendMode.color.blend(backdrop: backdrop, source: source)
                     #expect(Tests.close(color.luminosity, backdrop.luminosity))
-                    let hue = BlendMode.hue.blend(backdrop: backdrop, source: source)
+                    let hue = W3C.Compositing.BlendMode.hue.blend(backdrop: backdrop, source: source)
                     #expect(Tests.close(hue.luminosity, backdrop.luminosity))
-                    let saturation = BlendMode.saturation.blend(backdrop: backdrop, source: source)
+                    let saturation = W3C.Compositing.BlendMode.saturation.blend(backdrop: backdrop, source: source)
                     #expect(Tests.close(saturation.luminosity, backdrop.luminosity))
-                    let luminosity = BlendMode.luminosity.blend(backdrop: backdrop, source: source)
+                    let luminosity = W3C.Compositing.BlendMode.luminosity.blend(backdrop: backdrop, source: source)
                     #expect(Tests.close(luminosity.luminosity, source.luminosity))
                 }
             }
@@ -500,8 +500,8 @@ extension `Compositing Tests` {
         func `Luminosity is color with the operands exchanged`() {
             for backdrop in Tests.colors {
                 for source in Tests.colors {
-                    let luminosity = BlendMode.luminosity.blend(backdrop: backdrop, source: source)
-                    #expect(luminosity == BlendMode.color.blend(backdrop: source, source: backdrop))
+                    let luminosity = W3C.Compositing.BlendMode.luminosity.blend(backdrop: backdrop, source: source)
+                    #expect(luminosity == W3C.Compositing.BlendMode.color.blend(backdrop: source, source: backdrop))
                 }
             }
         }
@@ -509,7 +509,7 @@ extension `Compositing Tests` {
         @Test
         func `A color blended with itself is itself`() {
             for color in Tests.colors {
-                for mode in [BlendMode.hue, .saturation, .color, .luminosity] {
+                for mode in [W3C.Compositing.BlendMode.hue, .saturation, .color, .luminosity] {
                     #expect(Tests.close(mode.blend(backdrop: color, source: color), color))
                 }
             }
@@ -519,7 +519,7 @@ extension `Compositing Tests` {
         func `Saturation on a gray backdrop changes nothing`() {
             for source in Tests.colors {
                 let gray = Color(gray: 0.5)
-                #expect(Tests.close(BlendMode.saturation.blend(backdrop: gray, source: source), gray))
+                #expect(Tests.close(W3C.Compositing.BlendMode.saturation.blend(backdrop: gray, source: source), gray))
             }
         }
 
@@ -541,8 +541,8 @@ extension `Compositing Tests` {
             #expect(Tests.close(min(dark.red, dark.green, dark.blue), 0))
         }
 
-        @Test(arguments: [BlendMode.hue, .saturation, .color, .luminosity])
-        func `Every result is inside zero to one`(mode: BlendMode) {
+        @Test(arguments: [W3C.Compositing.BlendMode.hue, .saturation, .color, .luminosity])
+        func `Every result is inside zero to one`(mode: W3C.Compositing.BlendMode) {
             for backdrop in Tests.colors {
                 for source in Tests.colors {
                     let result = mode.blend(backdrop: backdrop, source: source)

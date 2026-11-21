@@ -60,11 +60,11 @@ extension Marker {
     public static let none = Marker.all(.none)
 
     public static func reference(id: String) -> Self {
-        .all(.url(Url("#\(id)")))
+        .all(.url(W3C.CSSOM.Url("#\(id)")))
     }
 
-    public static func externalReference(file: Url, id: String) -> Self {
-        .all(.url(Url("\(file.value)#\(id)")))
+    public static func externalReference(file: W3C.CSSOM.Url, id: String) -> Self {
+        .all(.url(W3C.CSSOM.Url("\(file.value)#\(id)")))
     }
 
     public static func positions(

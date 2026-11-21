@@ -33,11 +33,11 @@ extension ScrollTimeline {
     }
 
     public static func named(_ name: String) -> Self {
-        .name(CustomIdent(rawValue: name))
+        .name(ScrollTimeline.CustomIdent(rawValue: name))
     }
 
     public static func named(_ name: String, axis: ScrollTimelineAxis.Axis) -> Self {
-        .nameAndAxis(CustomIdent(rawValue: name), axis)
+        .nameAndAxis(ScrollTimeline.CustomIdent(rawValue: name), axis)
     }
 }
 

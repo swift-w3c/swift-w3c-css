@@ -4,7 +4,7 @@ public enum FontLanguageOverride: Property {
 
     case normal
 
-    case language(CSSString)
+    case language(W3C.CSSOM.String)
 
     case global(Global)
 }

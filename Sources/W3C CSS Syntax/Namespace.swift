@@ -19,7 +19,7 @@ extension Namespace {
     }
 
     // swift-linter:disable:next raw concept
-    // REASON: A CSS namespace name, written into the rule as a quoted string and compared as text, never fetched; looked at the url() form, which NamespaceURI already takes, CSSOM's Url, which serializes as url(), and RFC_3986.URI, which would bring swift-rfc-3986 into all of CSS.
+    // REASON: A CSS namespace name, written into the rule as a quoted string and compared as text, never fetched; looked at the url() form, which NamespaceURI already takes, CSSOM's W3C.CSSOM.Url, which serializes as url(), and RFC_3986.URI, which would bring swift-rfc-3986 into all of CSS.
     public static func `default`(_ uri: String) -> Namespace {
         Namespace(rawValue: "@namespace \"\(uri)\";")
     }
@@ -29,7 +29,7 @@ extension Namespace {
     }
 
     // swift-linter:disable:next raw concept
-    // REASON: A CSS namespace name, written into the rule as a quoted string and compared as text, never fetched; looked at the url() form, which NamespaceURI already takes, CSSOM's Url, which serializes as url(), and RFC_3986.URI, which would bring swift-rfc-3986 into all of CSS.
+    // REASON: A CSS namespace name, written into the rule as a quoted string and compared as text, never fetched; looked at the url() form, which NamespaceURI already takes, CSSOM's W3C.CSSOM.Url, which serializes as url(), and RFC_3986.URI, which would bring swift-rfc-3986 into all of CSS.
     public static func prefixed(_ prefix: String, _ uri: String) -> Namespace {
         Namespace(rawValue: "@namespace \(prefix) \"\(uri)\";")
     }

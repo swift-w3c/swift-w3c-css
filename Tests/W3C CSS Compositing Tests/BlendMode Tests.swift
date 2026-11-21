@@ -2,21 +2,21 @@ import Testing
 
 @testable import W3C_CSS_Compositing
 
-enum `BlendMode Tests` {}
+enum `W3C.Compositing.BlendMode Tests` {}
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Basic Values` {
+    struct `W3C.Compositing.BlendMode - Basic Values` {
         @Test(arguments: [
-            (BlendMode.normal, "normal"),
-            (BlendMode.multiply, "multiply"),
-            (BlendMode.screen, "screen"),
-            (BlendMode.overlay, "overlay"),
-            (BlendMode.darken, "darken"),
-            (BlendMode.lighten, "lighten"),
+            (W3C.Compositing.BlendMode.normal, "normal"),
+            (W3C.Compositing.BlendMode.multiply, "multiply"),
+            (W3C.Compositing.BlendMode.screen, "screen"),
+            (W3C.Compositing.BlendMode.overlay, "overlay"),
+            (W3C.Compositing.BlendMode.darken, "darken"),
+            (W3C.Compositing.BlendMode.lighten, "lighten"),
         ])
         func `basic blend mode values render correctly`(
-            mode: BlendMode,
+            mode: W3C.Compositing.BlendMode,
             expected: String
         ) {
             #expect(mode.description == expected)
@@ -24,17 +24,17 @@ extension `BlendMode Tests` {
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Compound Values` {
+    struct `W3C.Compositing.BlendMode - Compound Values` {
         @Test(arguments: [
-            (BlendMode.colorDodge, "color-dodge"),
-            (BlendMode.colorBurn, "color-burn"),
-            (BlendMode.hardLight, "hard-light"),
-            (BlendMode.softLight, "soft-light"),
+            (W3C.Compositing.BlendMode.colorDodge, "color-dodge"),
+            (W3C.Compositing.BlendMode.colorBurn, "color-burn"),
+            (W3C.Compositing.BlendMode.hardLight, "hard-light"),
+            (W3C.Compositing.BlendMode.softLight, "soft-light"),
         ])
         func `compound blend mode values render correctly`(
-            mode: BlendMode,
+            mode: W3C.Compositing.BlendMode,
             expected: String
         ) {
             #expect(mode.description == expected)
@@ -42,19 +42,19 @@ extension `BlendMode Tests` {
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Special Values` {
+    struct `W3C.Compositing.BlendMode - Special Values` {
         @Test(arguments: [
-            (BlendMode.difference, "difference"),
-            (BlendMode.exclusion, "exclusion"),
-            (BlendMode.hue, "hue"),
-            (BlendMode.saturation, "saturation"),
-            (BlendMode.color, "color"),
-            (BlendMode.luminosity, "luminosity"),
+            (W3C.Compositing.BlendMode.difference, "difference"),
+            (W3C.Compositing.BlendMode.exclusion, "exclusion"),
+            (W3C.Compositing.BlendMode.hue, "hue"),
+            (W3C.Compositing.BlendMode.saturation, "saturation"),
+            (W3C.Compositing.BlendMode.color, "color"),
+            (W3C.Compositing.BlendMode.luminosity, "luminosity"),
         ])
         func `special blend mode values render correctly`(
-            mode: BlendMode,
+            mode: W3C.Compositing.BlendMode,
             expected: String
         ) {
             #expect(mode.description == expected)
@@ -62,81 +62,81 @@ extension `BlendMode Tests` {
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Raw Value` {
+    struct `W3C.Compositing.BlendMode - Raw Value` {
         @Test(arguments: [
-            ("normal", BlendMode.normal),
-            ("multiply", BlendMode.multiply),
-            ("screen", BlendMode.screen),
-            ("color-dodge", BlendMode.colorDodge),
-            ("hard-light", BlendMode.hardLight),
+            ("normal", W3C.Compositing.BlendMode.normal),
+            ("multiply", W3C.Compositing.BlendMode.multiply),
+            ("screen", W3C.Compositing.BlendMode.screen),
+            ("color-dodge", W3C.Compositing.BlendMode.colorDodge),
+            ("hard-light", W3C.Compositing.BlendMode.hardLight),
         ])
         func `raw values are correct`(
             rawValue: String,
-            mode: BlendMode
+            mode: W3C.Compositing.BlendMode
         ) {
             #expect(mode.rawValue == rawValue)
         }
 
         @Test func `initialization from valid raw value`() {
-            let normal = BlendMode(rawValue: "normal")
-            #expect(normal == BlendMode.normal)
+            let normal = W3C.Compositing.BlendMode(rawValue: "normal")
+            #expect(normal == W3C.Compositing.BlendMode.normal)
 
-            let colorDodge = BlendMode(rawValue: "color-dodge")
-            #expect(colorDodge == BlendMode.colorDodge)
+            let colorDodge = W3C.Compositing.BlendMode(rawValue: "color-dodge")
+            #expect(colorDodge == W3C.Compositing.BlendMode.colorDodge)
 
-            let hardLight = BlendMode(rawValue: "hard-light")
-            #expect(hardLight == BlendMode.hardLight)
+            let hardLight = W3C.Compositing.BlendMode(rawValue: "hard-light")
+            #expect(hardLight == W3C.Compositing.BlendMode.hardLight)
         }
 
         @Test func `initialization from invalid raw value returns nil`() {
-            let invalid = BlendMode(rawValue: "invalid")
+            let invalid = W3C.Compositing.BlendMode(rawValue: "invalid")
             #expect(invalid == nil)
 
-            let invalid2 = BlendMode(rawValue: "not-a-mode")
+            let invalid2 = W3C.Compositing.BlendMode(rawValue: "not-a-mode")
             #expect(invalid2 == nil)
         }
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Hashable Conformance` {
+    struct `W3C.Compositing.BlendMode - Hashable Conformance` {
         @Test func `equal blend modes are equal`() {
-            let normal1 = BlendMode.normal
-            let normal2 = BlendMode.normal
+            let normal1 = W3C.Compositing.BlendMode.normal
+            let normal2 = W3C.Compositing.BlendMode.normal
             #expect(normal1 == normal2)
         }
 
         @Test func `different blend modes are not equal`() {
-            let normal = BlendMode.normal
-            let multiply = BlendMode.multiply
+            let normal = W3C.Compositing.BlendMode.normal
+            let multiply = W3C.Compositing.BlendMode.multiply
             #expect(normal != multiply)
         }
 
         @Test(arguments: [
-            (BlendMode.hue, BlendMode.saturation),
-            (BlendMode.colorDodge, BlendMode.colorBurn),
-            (BlendMode.hardLight, BlendMode.softLight),
-            (BlendMode.difference, BlendMode.exclusion),
+            (W3C.Compositing.BlendMode.hue, W3C.Compositing.BlendMode.saturation),
+            (W3C.Compositing.BlendMode.colorDodge, W3C.Compositing.BlendMode.colorBurn),
+            (W3C.Compositing.BlendMode.hardLight, W3C.Compositing.BlendMode.softLight),
+            (W3C.Compositing.BlendMode.difference, W3C.Compositing.BlendMode.exclusion),
         ])
         func `different specific blend modes are not equal`(
-            mode1: BlendMode,
-            mode2: BlendMode
+            mode1: W3C.Compositing.BlendMode,
+            mode2: W3C.Compositing.BlendMode
         ) {
             #expect(mode1 != mode2)
         }
 
         @Test func `blend modes can be used in sets`() {
-            let modes: Set<BlendMode> = [.normal, .multiply, .screen, .overlay]
+            let modes: Set<W3C.Compositing.BlendMode> = [.normal, .multiply, .screen, .overlay]
             #expect(modes.count == 4)
             #expect(modes.contains(.normal))
             #expect(modes.contains(.multiply))
         }
 
         @Test func `blend modes can be used in dictionaries`() {
-            let dict: [BlendMode: String] = [
+            let dict: [W3C.Compositing.BlendMode: String] = [
                 .normal: "Normal blending",
                 .multiply: "Multiply blending",
                 .screen: "Screen blending",
@@ -147,26 +147,26 @@ extension `BlendMode Tests` {
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - CSS Property Usage` {
+    struct `W3C.Compositing.BlendMode - CSS Property Usage` {
         @Test func `blend mode in mix-blend-mode property`() {
-            let mixBlendMode = "mix-blend-mode: \(BlendMode.multiply)"
+            let mixBlendMode = "mix-blend-mode: \(W3C.Compositing.BlendMode.multiply)"
             #expect(mixBlendMode == "mix-blend-mode: multiply")
         }
 
         @Test func `blend mode in background-blend-mode property`() {
-            let backgroundBlendMode = "background-blend-mode: \(BlendMode.screen)"
+            let backgroundBlendMode = "background-blend-mode: \(W3C.Compositing.BlendMode.screen)"
             #expect(backgroundBlendMode == "background-blend-mode: screen")
         }
 
         @Test(arguments: [
-            (BlendMode.overlay, "mix-blend-mode: overlay"),
-            (BlendMode.colorDodge, "mix-blend-mode: color-dodge"),
-            (BlendMode.hue, "mix-blend-mode: hue"),
+            (W3C.Compositing.BlendMode.overlay, "mix-blend-mode: overlay"),
+            (W3C.Compositing.BlendMode.colorDodge, "mix-blend-mode: color-dodge"),
+            (W3C.Compositing.BlendMode.hue, "mix-blend-mode: hue"),
         ])
         func `various blend modes in CSS properties`(
-            mode: BlendMode,
+            mode: W3C.Compositing.BlendMode,
             expected: String
         ) {
             let property = "mix-blend-mode: \(mode)"
@@ -175,11 +175,11 @@ extension `BlendMode Tests` {
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Complete List` {
+    struct `W3C.Compositing.BlendMode - Complete List` {
         @Test func `all basic blend modes exist`() {
-            let basicModes: [BlendMode] = [
+            let basicModes: [W3C.Compositing.BlendMode] = [
                 .normal,
                 .multiply,
                 .screen,
@@ -194,7 +194,7 @@ extension `BlendMode Tests` {
         }
 
         @Test func `all compound blend modes exist`() {
-            let compoundModes: [BlendMode] = [
+            let compoundModes: [W3C.Compositing.BlendMode] = [
                 .colorDodge,
                 .colorBurn,
                 .hardLight,
@@ -207,7 +207,7 @@ extension `BlendMode Tests` {
         }
 
         @Test func `all special blend modes exist`() {
-            let specialModes: [BlendMode] = [
+            let specialModes: [W3C.Compositing.BlendMode] = [
                 .difference,
                 .exclusion,
                 .hue,
@@ -223,41 +223,41 @@ extension `BlendMode Tests` {
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Edge Cases` {
+    struct `W3C.Compositing.BlendMode - Edge Cases` {
         @Test func `normal blend mode is default`() {
-            let normal = BlendMode.normal
+            let normal = W3C.Compositing.BlendMode.normal
             #expect(normal.description == "normal")
         }
 
         @Test func `compound names use hyphens`() {
-            #expect(BlendMode.colorDodge.rawValue == "color-dodge")
-            #expect(BlendMode.colorBurn.rawValue == "color-burn")
-            #expect(BlendMode.hardLight.rawValue == "hard-light")
-            #expect(BlendMode.softLight.rawValue == "soft-light")
+            #expect(W3C.Compositing.BlendMode.colorDodge.rawValue == "color-dodge")
+            #expect(W3C.Compositing.BlendMode.colorBurn.rawValue == "color-burn")
+            #expect(W3C.Compositing.BlendMode.hardLight.rawValue == "hard-light")
+            #expect(W3C.Compositing.BlendMode.softLight.rawValue == "soft-light")
         }
 
         @Test func `raw value initialization is case sensitive`() {
-            #expect(BlendMode(rawValue: "Normal") == nil)
-            #expect(BlendMode(rawValue: "MULTIPLY") == nil)
-            #expect(BlendMode(rawValue: "normal") == .normal)
+            #expect(W3C.Compositing.BlendMode(rawValue: "Normal") == nil)
+            #expect(W3C.Compositing.BlendMode(rawValue: "MULTIPLY") == nil)
+            #expect(W3C.Compositing.BlendMode(rawValue: "normal") == .normal)
         }
 
         @Test func `raw value with spaces is invalid`() {
-            #expect(BlendMode(rawValue: "color dodge") == nil)
-            #expect(BlendMode(rawValue: " multiply") == nil)
-            #expect(BlendMode(rawValue: "screen ") == nil)
+            #expect(W3C.Compositing.BlendMode(rawValue: "color dodge") == nil)
+            #expect(W3C.Compositing.BlendMode(rawValue: " multiply") == nil)
+            #expect(W3C.Compositing.BlendMode(rawValue: "screen ") == nil)
         }
     }
 }
 
-extension `BlendMode Tests` {
+extension `W3C.Compositing.BlendMode Tests` {
     @Suite
-    struct `BlendMode - Categorization` {
+    struct `W3C.Compositing.BlendMode - Categorization` {
         @Test func `separable blend modes`() {
 
-            let separableModes: [BlendMode] = [
+            let separableModes: [W3C.Compositing.BlendMode] = [
                 .normal, .multiply, .screen, .overlay,
                 .darken, .lighten, .colorDodge, .colorBurn,
                 .hardLight, .softLight, .difference, .exclusion,
@@ -268,7 +268,7 @@ extension `BlendMode Tests` {
 
         @Test func `non-separable blend modes`() {
 
-            let nonSeparableModes: [BlendMode] = [
+            let nonSeparableModes: [W3C.Compositing.BlendMode] = [
                 .hue, .saturation, .color, .luminosity,
             ]
 
@@ -279,19 +279,19 @@ extension `BlendMode Tests` {
 
 extension `Performance Tests` {
     @Suite
-    struct `BlendMode - Performance` {
+    struct `W3C.Compositing.BlendMode - Performance` {
         @Test(.timeLimit(.minutes(1)))
         func `blend mode access 100K times`() {
             (0..<100_000).forEach { i in
-                let _ = (i % 2 == 0) ? BlendMode.normal : BlendMode.multiply
+                let _ = (i % 2 == 0) ? W3C.Compositing.BlendMode.normal : W3C.Compositing.BlendMode.multiply
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `blend mode comparison 100K times`() {
-            let mode1 = BlendMode.multiply
+            let mode1 = W3C.Compositing.BlendMode.multiply
             (0..<100_000).forEach { i in
-                let mode2 = (i % 2 == 0) ? BlendMode.multiply : BlendMode.screen
+                let mode2 = (i % 2 == 0) ? W3C.Compositing.BlendMode.multiply : W3C.Compositing.BlendMode.screen
                 _ = mode1 == mode2
             }
         }
@@ -300,13 +300,13 @@ extension `Performance Tests` {
         func `raw value initialization 100K times`() {
             (0..<100_000).forEach { i in
                 let rawValue = (i % 2 == 0) ? "multiply" : "screen"
-                _ = BlendMode(rawValue: rawValue)
+                _ = W3C.Compositing.BlendMode(rawValue: rawValue)
             }
         }
 
         @Test(.timeLimit(.minutes(1)))
         func `blend mode description 100K times`() {
-            let mode = BlendMode.multiply
+            let mode = W3C.Compositing.BlendMode.multiply
             for _ in 0..<100_000 {
                 _ = mode.description
             }
@@ -315,7 +315,7 @@ extension `Performance Tests` {
         @Test(.timeLimit(.minutes(1)))
         func `blend mode set operations 10K times`() {
             for _ in 0..<10_000 {
-                var modes: Set<BlendMode> = []
+                var modes: Set<W3C.Compositing.BlendMode> = []
                 modes.insert(.normal)
                 modes.insert(.multiply)
                 modes.insert(.screen)

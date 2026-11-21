@@ -7,5 +7,5 @@ public enum ColorSchemeValue: Sendable, Hashable, CustomStringConvertible {
 
     case dark
 
-    case custom(CSSString)
+    case custom(W3C.CSSOM.String)
 }

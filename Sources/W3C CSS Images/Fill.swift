@@ -12,9 +12,9 @@ public indirect enum Fill: Property, ColorConvertible {
 
     case color(W3C_CSS_Values::Color)
 
-    case url(Url)
+    case url(W3C.CSSOM.Url)
 
-    case urlWithFallback(url: Url, fallback: Fill = .none)
+    case urlWithFallback(url: W3C.CSSOM.Url, fallback: Fill = .none)
 
     case global(Global)
 }
