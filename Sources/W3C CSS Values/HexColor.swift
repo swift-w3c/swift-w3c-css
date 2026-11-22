@@ -23,7 +23,7 @@ extension HexColor {
             Byte(UInt8(min(max(0, green), 255))),
             Byte(UInt8(min(max(0, blue), 255))),
         ]
-        let hexBytes: [ASCII.Code] = RFC_4648.Base16.encode(bytes, uppercase: true)
+        let hexBytes: [ASCII.Code] = IETF.RFC.`4648`.Base16.encode(bytes, uppercase: true)
         let hexString = "#" + String(decoding: hexBytes.map({ $0.underlying }), as: UTF8.self)
         return HexColor(hexString)
     }
@@ -40,7 +40,7 @@ extension HexColor {
             Byte(UInt8(min(max(0, blue), 255))),
             Byte(UInt8(alphaInt)),
         ]
-        let hexBytes: [ASCII.Code] = RFC_4648.Base16.encode(bytes, uppercase: true)
+        let hexBytes: [ASCII.Code] = IETF.RFC.`4648`.Base16.encode(bytes, uppercase: true)
         let hexString = "#" + String(decoding: hexBytes.map({ $0.underlying }), as: UTF8.self)
         return HexColor(hexString)
     }
