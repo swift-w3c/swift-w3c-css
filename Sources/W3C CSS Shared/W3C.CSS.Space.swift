@@ -1,5 +1,5 @@
-public import W3C
 public import Geometry
+public import W3C
 
 public typealias GeometryTypeAlias = Geometry
 
