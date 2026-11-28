@@ -17,6 +17,9 @@ public enum Outline: Property {
 extension Outline: CustomStringConvertible {
     public static let property: String = "outline"
 
+    /// No outline.
+    public static let none: Outline = .style(.none)
+
     public var description: String {
         switch self {
         case .style(let style):

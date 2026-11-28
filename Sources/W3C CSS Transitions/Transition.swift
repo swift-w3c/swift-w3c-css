@@ -93,15 +93,14 @@ extension Transition {
         )
     }
 
-    public static func none() -> Transition {
-        .config(
-            Configuration(
-                property: .none,
-                duration: .zero,
-                timingFunction: .ease
-            )
+    /// No property transitions.
+    public static let none: Transition = .config(
+        Configuration(
+            property: .none,
+            duration: .zero,
+            timingFunction: .ease
         )
-    }
+    )
 
     public static func custom(
         _ propertyName: String,
