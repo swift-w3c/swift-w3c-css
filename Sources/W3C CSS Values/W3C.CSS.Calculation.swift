@@ -10,6 +10,8 @@ extension W3C.CSS {
         case number(Double)
         case environment(Environment, fallback: Calculation?)
         case variable(String)
+        /// A custom property with the value to use where it is not set: `var(--name, fallback)`.
+        case reference(String, fallback: Calculation)
         case sum(Calculation, Calculation)
         case difference(Calculation, Calculation)
         case product(Calculation, Calculation)
@@ -52,6 +54,7 @@ extension W3C.CSS.Calculation {
         case .environment(let variable, let fallback):
             fallback.map { "env(\(variable.rawValue), \($0.argument))" } ?? "env(\(variable.rawValue))"
         case .variable(let name): "var(--\(name))"
+        case .reference(let name, let fallback): "var(--\(name), \(fallback.argument))"
         case .sum(let left, let right): "\(left.argument) + \(right.argument)"
         case .difference(let left, let right): "\(left.argument) - \(right.term)"
         case .product(let left, let right): "\(left.term) * \(right.term)"
@@ -78,5 +81,12 @@ extension W3C.CSS.Calculation: CustomStringConvertible {
         case .sum, .difference, .product, .quotient: "calc(\(argument))"
         default: argument
         }
+    }
+}
+
+extension W3C.CSS.Calculation {
+    /// A typed custom property with the value to use where it is not set.
+    public static func variable<Value>(_ variable: W3C.CSS.Variable<Value>, fallback: Self) -> Self {
+        .reference(variable.name, fallback: fallback)
     }
 }

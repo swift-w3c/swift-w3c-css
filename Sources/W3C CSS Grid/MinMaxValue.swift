@@ -14,4 +14,7 @@ public enum MinMaxValue: Sendable, Hashable, CustomStringConvertible {
     case minContent
 
     case maxContent
+
+    /// A length, a percentage, a calculation such as `min(280px, 100%)`, or a variable.
+    case lengthPercentage(LengthPercentage)
 }

@@ -1,3 +1,4 @@
+public import W3C_CSS_Variables
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
@@ -16,6 +17,9 @@ public indirect enum Image: Sendable, Hashable {
     case paint(name: String, arguments: [String] = [])
 
     case none
+
+    /// An image held in a custom property.
+    case variable(W3C.CSS.Variable<Image>)
 }
 
 extension Image: CustomStringConvertible {
@@ -43,6 +47,9 @@ extension Image: CustomStringConvertible {
                 return "paint(\(name), \(arguments.joined(separator: ", ")))"
             }
             return "paint(\(name))"
+
+        case .variable(let variable):
+            return variable.description
 
         case .none:
             return "none"

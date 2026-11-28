@@ -1,9 +1,11 @@
 public import W3C_CSS_Shared
-import W3C_CSS_Values
+public import W3C_CSS_Values
 
 public enum Opacity: Property {
 
     case value(Double)
+
+    case calculation(W3C.CSS.Calculation)
 
     case global(Global)
 
@@ -31,6 +33,9 @@ extension Opacity: CustomStringConvertible {
                 return String(rounded)
             }
             return String(Int(rounded))
+
+        case .calculation(let calculation):
+            return calculation.description
 
         case .global(let global):
             return global.description

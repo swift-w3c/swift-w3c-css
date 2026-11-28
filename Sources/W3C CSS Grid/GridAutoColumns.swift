@@ -21,6 +21,9 @@ public enum GridAutoColumns: Property {
 
     case multiple([GridAutoColumns])
 
+    /// A length, a percentage, a calculation such as `min(640px, 86%)`, or a variable.
+    case lengthPercentage(LengthPercentage)
+
     case global(Global)
 }
 
@@ -56,6 +59,9 @@ extension GridAutoColumns {
         case .multiple(let tracks):
             return tracks.map { $0.description }.joined(separator: " ")
 
+        case .lengthPercentage(let value):
+            return value.description
+
         case .global(let value):
             return value.description
         }
@@ -82,6 +88,9 @@ extension MinMaxValue {
 
         case .maxContent:
             return "max-content"
+
+        case .lengthPercentage(let value):
+            return value.description
         }
     }
 }

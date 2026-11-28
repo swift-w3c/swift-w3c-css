@@ -13,6 +13,9 @@ public enum BoxShadow: Property {
 
     case variable(W3C.CSS.Variable<BoxShadow>)
 
+    /// Several shadow values in one list, a variable among them: `var(--pop), 0 0 0 2px red`.
+    indirect case list([BoxShadow])
+
     case global(Global)
 
     public init(_ shadow: Shadow) {
@@ -79,6 +82,9 @@ extension BoxShadow: CustomStringConvertible {
 
         case .multiple(let shadows):
             return shadows.map { $0.description }.joined(separator: ", ")
+
+        case .list(let shadows):
+            return shadows.map(\.description).joined(separator: ", ")
 
         case .variable(let variable):
             return variable.description

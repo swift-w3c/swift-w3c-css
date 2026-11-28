@@ -1,8 +1,12 @@
+public import W3C_CSS_Shared
+
 public enum NumberPercentage: Sendable, Hashable, NumberConvertible, PercentageConvertible {
 
     case number(Number)
 
     case percentage(Percentage)
+
+    case calculation(W3C.CSS.Calculation)
 }
 
 extension NumberPercentage: CustomStringConvertible {
@@ -14,6 +18,9 @@ extension NumberPercentage: CustomStringConvertible {
 
         case .percentage(let percentage):
             return percentage.description
+
+        case .calculation(let calculation):
+            return calculation.description
         }
     }
 }

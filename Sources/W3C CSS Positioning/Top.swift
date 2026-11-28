@@ -6,6 +6,9 @@ public enum Top: Sendable, Hashable, LengthPercentageConvertible, Property {
 
     case auto
 
+    /// The edge of an anchor element: `anchor(--bar bottom)`.
+    case anchor(W3C.CSS.Anchor)
+
     case global(Global)
 }
 
@@ -22,6 +25,9 @@ extension Top: CustomStringConvertible {
 
         case .auto:
             return "auto"
+
+        case .anchor(let anchor):
+            return anchor.description
 
         case .global(let global):
             return global.description

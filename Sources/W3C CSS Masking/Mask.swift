@@ -1,3 +1,4 @@
+public import W3C_CSS_Images
 import W3C_CSS_Positioning
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
@@ -60,6 +61,9 @@ extension Mask {
         case none
 
         case url(W3C.CSSOM.Url)
+
+        /// Any image: a gradient, or an image held in a custom property.
+        case image(Image)
 
         case linearGradient(W3C.CSSOM.String)
 
@@ -371,6 +375,9 @@ extension Mask.MaskReference {
             }
 
             return "url(\"\(url)\")"
+
+        case .image(let image):
+            return image.description
 
         case .linearGradient(let value):
             return "linear-gradient(\(value))"

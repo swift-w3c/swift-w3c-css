@@ -95,6 +95,12 @@ extension GridTrackSize {
 
         case .fitContent(let value):
             "fit-content(\(value))"
+
+        case .lengthPercentage(let value):
+            value.description
+
+        case .repeat(let count, let tracks):
+            "repeat(\(count), \(tracks.map(\.description).joined(separator: " ")))"
         }
     }
 }
