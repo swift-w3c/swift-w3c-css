@@ -9,7 +9,7 @@ public enum BoxDecorationBreak: Property {
 }
 
 extension BoxDecorationBreak {
-    public static let property: String = "border-decoration-break"
+    public static let property: String = "box-decoration-break"
 
     public var description: String {
         switch self {

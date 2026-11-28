@@ -19,7 +19,7 @@ public enum MaxHeight: Property, LengthPercentageConvertible {
 }
 
 extension MaxHeight {
-    public static let property: String = "size"
+    public static let property: String = "max-height"
 
     public static let fitContent: Self = .fitContent(nil)
 }

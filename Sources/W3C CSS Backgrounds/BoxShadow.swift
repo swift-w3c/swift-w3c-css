@@ -36,7 +36,7 @@ public enum BoxShadow: Property {
 }
 
 extension BoxShadow {
-    public static let property: String = "border-shadow"
+    public static let property: String = "box-shadow"
 
 }
 
