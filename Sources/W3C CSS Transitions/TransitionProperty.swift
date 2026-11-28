@@ -7,7 +7,8 @@ public enum TransitionProperty: Property {
 
     case none
 
-    case custom(W3C.CSSOM.String)
+    /// One property, by name: an identifier, written without quotes.
+    case custom(String)
 
     case list([String])
 

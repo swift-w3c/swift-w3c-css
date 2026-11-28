@@ -1,4 +1,5 @@
 import Testing
+import W3C_CSS_Shared
 
 @testable import W3C_CSS_Values
 
@@ -47,17 +48,11 @@ extension `LengthPercentage Tests` {
 extension `LengthPercentage Tests` {
     @Suite
     struct `LengthPercentage - Calc Expressions` {
-        @Test(arguments: [
-            ("100% - 20px", "calc(100% - 20px)"),
-            ("50vh + 2em", "calc(50vh + 2em)"),
-            ("100% + 10px", "calc(100% + 10px)"),
-        ])
-        func `calc expression renders correctly`(
-            expression: String,
-            expected: String
-        ) {
-            let calc = LengthPercentage.calc(expression)
-            #expect(calc.description == expected)
+        @Test func `a calculation renders as calc()`() {
+            let full = W3C.CSS.Calculation.percentage(100)
+            #expect(LengthPercentage.calculation(.difference(full, .length(20, .px))).description == "calc(100% - 20px)")
+            #expect(LengthPercentage.calculation(.sum(.length(50, .vh), .length(2, .em))).description == "calc(50vh + 2em)")
+            #expect(LengthPercentage.calculation(.maximum([.length(8, .px), .environment(.safeAreaInsetBottom, fallback: .length(0, .px))])).description == "max(8px, env(safe-area-inset-bottom, 0px))")
         }
     }
 }
@@ -132,7 +127,7 @@ extension `LengthPercentage Tests` {
         @Test func `equal values are equal`() {
             #expect(LengthPercentage.px(10) == LengthPercentage.px(10))
             #expect(LengthPercentage.percentage(50) == LengthPercentage.percentage(50))
-            #expect(LengthPercentage.calc("100% - 20px") == LengthPercentage.calc("100% - 20px"))
+            #expect(LengthPercentage.calculation(.difference(.percentage(100), .length(20, .px))) == LengthPercentage.calculation(.difference(.percentage(100), .length(20, .px))))
         }
 
         @Test func `different values are not equal`() {
@@ -142,7 +137,7 @@ extension `LengthPercentage Tests` {
 
         @Test func `different types are not equal`() {
             #expect(LengthPercentage.px(10) != LengthPercentage.percentage(10))
-            #expect(LengthPercentage.calc("50%") != LengthPercentage.percentage(50))
+            #expect(LengthPercentage.calculation(.percentage(50)) != LengthPercentage.percentage(50))
         }
     }
 }
@@ -161,7 +156,7 @@ extension `LengthPercentage Tests` {
         }
 
         @Test func `calc renders correctly in margin property`() {
-            let margin = "margin: \(LengthPercentage.calc("100% - 20px"))"
+            let margin = "margin: \(LengthPercentage.calculation(.difference(.percentage(100), .length(20, .px))))"
             #expect(margin == "margin: calc(100% - 20px)")
         }
 

@@ -1,10 +1,12 @@
+public import W3C_CSS_Shared
+
 public enum LengthPercentage: Sendable, Hashable, LengthConvertible, PercentageConvertible {
 
     case length(Length)
 
     case percentage(Percentage)
 
-    case calc(String)
+    case calculation(W3C.CSS.Calculation)
 }
 
 extension LengthPercentage {
@@ -50,8 +52,8 @@ extension LengthPercentage: CustomStringConvertible {
         case .percentage(let percentage):
             return percentage.description
 
-        case .calc(let expression):
-            return "calc(\(expression))"
+        case .calculation(let calculation):
+            return calculation.description
         }
     }
 }

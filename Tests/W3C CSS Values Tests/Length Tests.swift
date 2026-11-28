@@ -103,11 +103,11 @@ extension `Length Tests` {
     @Suite
     struct `Length - Calc` {
         @Test func `calc with percentage and length`() {
-            #expect(Length.calc("100% - 20px").description == "calc(100% - 20px)")
+            #expect((Length.percent(100) - Length.px(20)).description == "calc(100% - 20px)")
         }
 
         @Test func `calc with viewport and font units`() {
-            #expect(Length.calc("50vh + 10em").description == "calc(50vh + 10em)")
+            #expect((Length.vh(50) + Length.em(10)).description == "calc(50vh + 10em)")
         }
     }
 }
@@ -303,7 +303,7 @@ extension `Length Tests` {
         }
 
         @Test func `calc renders correctly in padding property`() {
-            let padding = "padding: \(Length.calc("10% + 20px"))"
+            let padding = "padding: \(Length.percent(10) + Length.px(20))"
             #expect(padding == "padding: calc(10% + 20px)")
         }
     }

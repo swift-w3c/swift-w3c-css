@@ -4,12 +4,12 @@ import W3C_CSS_Shared
 import W3C_CSS_Syntax
 
 @Suite struct `Stylesheet Tests` {
-    static let hidden = Declaration(description: "display:none")
-    static let red = Declaration(description: "color:red")
+    static let hidden = Declaration(property: "display", value: "none")
+    static let red = Declaration(property: "color", value: "red")
 
     @Test func `a style rule writes its declarations in the order given, repeats included`() {
-        let top = Declaration(description: "top:72px")
-        let anchored = Declaration(description: "top:anchor(bottom)")
+        let top = Declaration(property: "top", value: "72px")
+        let anchored = Declaration(property: "top", value: "anchor(bottom)")
         let rule = W3C.CSS.Rule.style(.class("sheet"), [top, anchored])
         #expect(rule.description == ".sheet{top:72px;top:anchor(bottom)}")
     }
@@ -25,12 +25,12 @@ import W3C_CSS_Syntax
 
     @Test func `an at-rule without a block ends in a semicolon, and one with declarations holds them`() {
         #expect(W3C.CSS.Rule.At("layer", "base").description == "@layer base;")
-        let transition = W3C.CSS.Rule.At("view-transition", "", .declarations([Declaration(description: "navigation:auto")]))
+        let transition = W3C.CSS.Rule.At("view-transition", "", .declarations([Declaration(property: "navigation", value: "auto")]))
         #expect(transition.description == "@view-transition{navigation:auto}")
     }
 
     @Test func `a keyframe is a qualified rule inside its at-rule`() {
-        let frames = W3C.CSS.Rule.At("keyframes", "arrive", .rules([.qualified(.init("from", [Declaration(description: "opacity:0")]))]))
+        let frames = W3C.CSS.Rule.At("keyframes", "arrive", .rules([.qualified(.init("from", [Declaration(property: "opacity", value: "0")]))]))
         #expect(frames.description == "@keyframes arrive{from{opacity:0}}")
     }
 

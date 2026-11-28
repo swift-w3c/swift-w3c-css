@@ -5,6 +5,9 @@ public enum Transition: Property {
 
     case config(Configuration)
 
+    /// Several transitions in one declaration, separated by commas.
+    case list([Configuration])
+
     case global(Global)
 
     public init(
@@ -62,6 +65,9 @@ extension Transition: CustomStringConvertible {
         case .config(let config):
             return config.description
 
+        case .list(let configurations):
+            return configurations.map(\.description).joined(separator: ",")
+
         case .global(let global):
             return global.description
         }
@@ -112,6 +118,22 @@ extension Transition {
                 delay: delay,
                 behavior: behavior
             )
+        )
+    }
+}
+
+extension Transition {
+
+    /// Several transitions in one declaration; a global value among them is left out.
+    public static func list(_ transitions: Transition...) -> Transition {
+        .list(
+            transitions.flatMap { transition -> [Configuration] in
+                switch transition {
+                case .config(let configuration): [configuration]
+                case .list(let configurations): configurations
+                case .global: []
+                }
+            }
         )
     }
 }

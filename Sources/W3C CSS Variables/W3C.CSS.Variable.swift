@@ -28,6 +28,6 @@ extension W3C.CSS.Variable: CustomStringConvertible {
 extension W3C.CSS.Variable where Value: CustomStringConvertible {
     /// The declaration that sets this custom property.
     public func callAsFunction(_ value: Value) -> Declaration {
-        Declaration(description: "--" + name + ":" + value.description)
+        Declaration(property: "--" + name, value: value.description)
     }
 }

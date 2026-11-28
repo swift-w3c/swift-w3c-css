@@ -13,6 +13,6 @@ extension Property {
 
 extension Declaration {
     public init<Propery: Property>(_ property: Propery) {
-        self.description = "\(Propery.property):\(property.description)"
+        self.init(property: Propery.property, value: property.description)
     }
 }

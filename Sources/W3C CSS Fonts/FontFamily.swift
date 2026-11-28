@@ -1,3 +1,4 @@
+import W3C_CSS_Variables
 public import W3C_CSS_Shared
 
 public enum FontFamily: Property {
@@ -69,6 +70,9 @@ extension FontFamily.Family {
 
         case .multiple(let families):
             return families.map { $0.description }.joined(separator: ", ")
+
+        case .variable(let variable):
+            return variable.description
         }
     }
 }

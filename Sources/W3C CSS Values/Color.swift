@@ -1,4 +1,5 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Variables
+public import W3C_CSS_Shared
 
 public indirect enum Color: Sendable, Hashable {
 
@@ -32,6 +33,7 @@ public indirect enum Color: Sendable, Hashable {
 
     case transparent
 
+    case variable(W3C.CSS.Variable<Color>)
 }
 
 extension Color: CustomStringConvertible {
@@ -87,6 +89,9 @@ extension Color: CustomStringConvertible {
 
         case .transparent:
             return "transparent"
+
+        case .variable(let variable):
+            return variable.description
         }
     }
 }

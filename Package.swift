@@ -111,6 +111,7 @@ let package = Package(
             name: "W3C CSS Values",
             dependencies: [
                 .target(name: "W3C CSS Shared"),
+                .target(name: "W3C CSS Variables"),
                 .product(name: "IEEE 754", package: "swift-ieee-754"),
                 .product(name: "IEC 61966", package: "swift-iec-61966"),
                 .product(name: "RFC 4648", package: "swift-rfc-4648"),
@@ -119,7 +120,7 @@ let package = Package(
 
         .target(
             name: "W3C CSS Color",
-            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax")]
+            dependencies: [.target(name: "W3C CSS Variables"), .target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax")]
         ),
 
         .target(
@@ -179,7 +180,7 @@ let package = Package(
 
         .target(
             name: "W3C CSS Fonts",
-            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax"), .target(name: "W3C CSS Text")]
+            dependencies: [.target(name: "W3C CSS Variables"), .target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Syntax"), .target(name: "W3C CSS Text")]
         ),
 
         .target(
@@ -194,7 +195,7 @@ let package = Package(
 
         .target(
             name: "W3C CSS Backgrounds",
-            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Images")]
+            dependencies: [.target(name: "W3C CSS Variables"), .target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Color"), .target(name: "W3C CSS Images")]
         ),
 
         .target(
@@ -240,7 +241,7 @@ let package = Package(
 
         .target(
             name: "W3C CSS Easing",
-            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
+            dependencies: [.target(name: "W3C CSS Variables"), .target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
         ),
 
         .target(

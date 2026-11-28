@@ -1,4 +1,5 @@
 public import W3C_CSS_Shared
+public import W3C_CSS_Variables
 
 public enum Length: Sendable, ExpressibleByIntegerLiteral, ExpressibleByFloatLiteral,
     GlobalConvertible
@@ -8,7 +9,9 @@ public enum Length: Sendable, ExpressibleByIntegerLiteral, ExpressibleByFloatLit
 
     case keyword(Keyword)
 
-    case calc(String)
+    case calculation(W3C.CSS.Calculation)
+
+    case variable(W3C.CSS.Variable<Length>)
 
     case global(Global)
 
@@ -34,8 +37,11 @@ extension Length: Hashable {
         case (.keyword(let keyword1), .keyword(let keyword2)):
             return keyword1 == keyword2
 
-        case (.calc(let calc1), .calc(let calc2)):
+        case (.calculation(let calc1), .calculation(let calc2)):
             return calc1 == calc2
+
+        case (.variable(let variable1), .variable(let variable2)):
+            return variable1 == variable2
 
         case (.global(let global1), .global(let global2)):
             return global1 == global2
@@ -55,7 +61,7 @@ extension Length: Numeric {
         case .length(let value, _):
             return abs(value)
 
-        case .calc, .keyword, .global:
+        case .calculation, .variable, .keyword, .global:
             return 0
         }
     }
@@ -71,7 +77,7 @@ extension Length: Numeric {
             return .length(v1 * v2, u1)
 
         default:
-            return .calc("\(lhs) * \(rhs)")
+            return .calculation(.product(.operand(lhs), .operand(rhs)))
         }
     }
 
@@ -87,7 +93,7 @@ extension Length: Numeric {
             return .length(v1 + v2, u1)
 
         default:
-            return .calc("\(lhs) + \(rhs)")
+            return .calculation(.sum(.operand(lhs), .operand(rhs)))
         }
     }
 
@@ -103,7 +109,7 @@ extension Length: Numeric {
             return .length(v1 - v2, u1)
 
         default:
-            return .calc("\(lhs) - \(rhs)")
+            return .calculation(.difference(.operand(lhs), .operand(rhs)))
         }
     }
 
@@ -119,8 +125,11 @@ extension Length: Numeric {
         case .length(let value, let unit):
             return .length(value / rhs, unit)
 
-        case .calc(let expression):
-            return .calc("(\(expression)) / \(rhs)")
+        case .calculation(let calculation):
+            return .calculation(.quotient(calculation, .number(rhs)))
+
+        case .variable(let variable):
+            return .calculation(.quotient(.variable(variable.name), .number(rhs)))
 
         case .keyword, .global:
             return lhs
@@ -169,8 +178,11 @@ extension Length: CustomStringConvertible {
         case .keyword(let keyword):
             return keyword.rawValue
 
-        case .calc(let expression):
-            return "calc(\(expression))"
+        case .calculation(let calculation):
+            return calculation.description
+
+        case .variable(let variable):
+            return variable.description
 
         case .global(let global):
             return global.rawValue

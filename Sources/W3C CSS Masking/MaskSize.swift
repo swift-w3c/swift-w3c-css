@@ -59,9 +59,8 @@ extension MaskSize: LengthPercentageConvertible {
         case .percentage(let percentage):
             return .width(.percentage(percentage))
 
-        case .calc(let expression):
-
-            return .width(.calc(expression))
+        case .calculation(let calculation):
+            return .width(.calculation(calculation))
         }
     }
 }

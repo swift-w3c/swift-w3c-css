@@ -1,3 +1,4 @@
+public import W3C_CSS_Variables
 import W3C_CSS_Color
 public import W3C_CSS_Shared
 public import W3C_CSS_Values
@@ -9,6 +10,8 @@ public enum BoxShadow: Property {
     case shadow(Shadow)
 
     case multiple([Shadow])
+
+    case variable(W3C.CSS.Variable<BoxShadow>)
 
     case global(Global)
 
@@ -76,6 +79,9 @@ extension BoxShadow: CustomStringConvertible {
 
         case .multiple(let shadows):
             return shadows.map { $0.description }.joined(separator: ", ")
+
+        case .variable(let variable):
+            return variable.description
 
         case .global(let global):
             return global.description

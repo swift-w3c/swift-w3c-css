@@ -1,4 +1,5 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Variables
+public import W3C_CSS_Shared
 public import W3C_CSS_Values
 
 public enum EasingFunction: Sendable, Hashable {
@@ -22,6 +23,8 @@ public enum EasingFunction: Sendable, Hashable {
     case stepEnd
 
     case steps(Int, StepPosition?)
+
+    case variable(W3C.CSS.Variable<EasingFunction>)
 }
 
 extension StepPosition {
@@ -73,6 +76,9 @@ extension EasingFunction: CustomStringConvertible {
                 return "steps(\(steps))"
             }
             return "steps(\(steps), \(position))"
+
+        case .variable(let variable):
+            return variable.description
         }
     }
 }
