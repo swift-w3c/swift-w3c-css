@@ -124,7 +124,7 @@ let package = Package(
 
         .target(
             name: "W3C CSS Syntax",
-            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values")]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Values"), .target(name: "W3C CSS Selectors")]
         ),
 
         .target(
@@ -260,12 +260,12 @@ let package = Package(
 
         .target(
             name: "W3C CSS PseudoElements",
-            dependencies: [.target(name: "W3C CSS Shared")]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Selectors")]
         ),
 
         .target(
             name: "W3C CSS PseudoClasses",
-            dependencies: [.target(name: "W3C CSS Shared")]
+            dependencies: [.target(name: "W3C CSS Shared"), .target(name: "W3C CSS Selectors")]
         ),
 
         .target(
@@ -594,6 +594,7 @@ let package = Package(
             name: "W3C CSS Syntax Tests",
             dependencies: [
                 .target(name: "W3C CSS Syntax"),
+                .target(name: "W3C CSS Selectors"),
                 .target(name: "W3C CSS Shared"),
             ]
         ),
