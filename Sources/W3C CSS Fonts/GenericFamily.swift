@@ -12,6 +12,9 @@ public enum GenericFamily: String, Sendable, Hashable {
 
     case systemUi = "system-ui"
 
+    /// The system font by the name WebKit knew it by before `system-ui`.
+    case appleSystem = "-apple-system"
+
     case uiSerif = "ui-serif"
 
     case uiSansSerif = "ui-sans-serif"

@@ -42,5 +42,11 @@ extension Length {
         case ic
 
         case rlh
+        case dvw
+        case dvh
+        case svw
+        case svh
+        case lvw
+        case lvh
     }
 }

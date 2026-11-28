@@ -10,6 +10,13 @@ extension W3C.CSS.Selector.Pseudo.Element {
     public static let placeholder = Self("placeholder")
     public static let selection = Self("selection")
     public static let backdrop = Self("backdrop")
+
+    /// The scrollbar of a scroll container, in WebKit and Blink.
+    public static let webkitScrollbar = Self("-webkit-scrollbar")
+    /// The disclosure triangle of a `summary`, in WebKit.
+    public static let webkitDetailsMarker = Self("-webkit-details-marker")
+    /// The clear button of a search field, in WebKit and Blink.
+    public static let webkitSearchCancelButton = Self("-webkit-search-cancel-button")
     public static let fileSelectorButton = Self("file-selector-button")
     public static let detailsContent = Self("details-content")
 

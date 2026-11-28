@@ -156,6 +156,14 @@ extension Media {
         feature("prefers-contrast", value.rawValue)
     }
 
+    public static func prefersReducedTransparency(_ value: ReducedTransparency = .reduce) -> Media {
+        feature("prefers-reduced-transparency", value.rawValue)
+    }
+
+    public static func forcedColors(_ value: ForcedColors = .active) -> Media {
+        feature("forced-colors", value.rawValue)
+    }
+
     public static func prefersReducedData(_ value: ReducedData = .reduce) -> Media {
         feature("prefers-reduced-data", value.rawValue)
     }
@@ -216,6 +224,16 @@ extension Media {
     public enum ReducedMotion: String, Hashable, Sendable {
         case reduce
         case noPreference = "no-preference"
+    }
+
+    public enum ReducedTransparency: String, Hashable, Sendable {
+        case reduce
+        case noPreference = "no-preference"
+    }
+
+    public enum ForcedColors: String, Hashable, Sendable {
+        case active
+        case none
     }
 
     public enum Contrast: String, Hashable, Sendable {

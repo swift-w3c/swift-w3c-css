@@ -56,6 +56,9 @@ public enum Display: Property {
 
     case rubyTextContainer
 
+    /// The legacy flexible box under WebKit's prefix, which line clamping still needs.
+    case webkitBox
+
     case global(Global)
 }
 
@@ -64,6 +67,9 @@ extension Display {
 
     public var description: String {
         switch self {
+        case .webkitBox:
+            return "-webkit-box"
+
         case .block:
             return "block"
 
