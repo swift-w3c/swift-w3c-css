@@ -1,4 +1,4 @@
-import W3C_CSS_Shared
+public import W3C_CSS_Shared
 public import W3C_CSS_Syntax
 
 public struct Supports: AtRule {
@@ -16,6 +16,11 @@ extension Supports {
         Supports(rawValue: "@supports (\(property): \(value)) {}")
     }
 
+    /// The condition that the browser supports a typed declaration.
+    public static func declares<Declared: W3C_CSS_Shared.Property>(_ value: Declared) -> Supports {
+        property(Declared.property, value.description)
+    }
+
     public static func selector(_ selector: String) -> Supports {
         Supports(rawValue: "@supports selector(\(selector)) {}")
     }
@@ -28,13 +33,11 @@ extension Supports {
         Supports(rawValue: "@supports font-format(\(format.rawValue)) {}")
     }
 
+    /// The negation of a condition. A condition joined with `and` or `or` is put in parentheses first.
     public static func not(_ condition: Supports) -> Supports {
-
-        let start = condition.rawValue.index(condition.rawValue.startIndex, offsetBy: 10)
-        let end = condition.rawValue.index(condition.rawValue.endIndex, offsetBy: -4)
-        let conditionString = condition.rawValue[start..<end]
-
-        return Supports(rawValue: "@supports not \(conditionString) {}")
+        let inner = condition.extractCondition(from: condition)
+        let joined = inner.contains(") and (") || inner.contains(") or (")
+        return Supports(rawValue: "@supports not \(joined ? "(" + inner + ")" : inner) {}")
     }
 
     public func and(_ other: Supports) -> Supports {
@@ -54,7 +57,7 @@ extension Supports {
     private func extractCondition(from support: Supports) -> String {
 
         let start = support.rawValue.index(support.rawValue.startIndex, offsetBy: 10)
-        let end = support.rawValue.index(support.rawValue.endIndex, offsetBy: -4)
+        let end = support.rawValue.index(support.rawValue.endIndex, offsetBy: -3)
         return String(support.rawValue[start..<end])
     }
 

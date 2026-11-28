@@ -47,6 +47,12 @@ extension Ratio {
         return width / height
     }
 
+    /// A ratio of two whole numbers above zero, which cannot be invalid.
+    public init(width: UInt, height: UInt) {
+        precondition(width > 0 && height > 0, "A ratio has no zero side")
+        self.init(unchecked: Double(width), height: Double(height))
+    }
+
     public static let square = Ratio(unchecked: 1, height: 1)
 
     public static let tv = Ratio(unchecked: 4, height: 3)

@@ -1,4 +1,6 @@
 import Formatter
+public import W3C_CSS_Shared
+public import W3C_CSS_Variables
 
 public struct Time: Sendable, Hashable {
 
@@ -6,9 +8,24 @@ public struct Time: Sendable, Hashable {
 
     public let unit: Unit
 
+    /// The custom property this time is read from, where it is not a literal.
+    public let variable: W3C.CSS.Variable<Time>?
+
     public init(_ value: Double, unit: Unit) {
         self.value = value
         self.unit = unit
+        self.variable = nil
+    }
+
+    private init(variable: W3C.CSS.Variable<Time>) {
+        self.value = 0
+        self.unit = .second
+        self.variable = variable
+    }
+
+    /// The time a custom property holds: `var(--name)`.
+    public static func variable(_ variable: W3C.CSS.Variable<Time>) -> Time {
+        .init(variable: variable)
     }
 }
 
@@ -74,6 +91,7 @@ extension Time {
 extension Time: CustomStringConvertible {
 
     public var description: String {
+        if let variable { return variable.description }
         return "\(value.formatted(Formatter.Number()))\(unit.rawValue)"
     }
 }
@@ -113,7 +131,7 @@ extension Time: Comparable {
     }
 
     public static func == (lhs: Time, rhs: Time) -> Bool {
-        return lhs.inSeconds == rhs.inSeconds
+        return lhs.variable == rhs.variable && lhs.inSeconds == rhs.inSeconds
     }
 }
 
