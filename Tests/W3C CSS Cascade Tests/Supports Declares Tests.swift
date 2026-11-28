@@ -1,5 +1,6 @@
 import Testing
 import W3C_CSS_Shared
+import W3C_CSS_Syntax
 
 @testable import W3C_CSS_Cascade
 
@@ -17,5 +18,11 @@ struct `Supports Declares Tests` {
         #expect(either.rawValue == "@supports (all: unset) or (all: initial) {}")
         #expect(Supports.not(either).rawValue == "@supports not ((all: unset) or (all: initial)) {}")
         #expect(Supports.declares(All.unset).and(.declares(All.initial)).rawValue == "@supports (all: unset) and (all: initial) {}")
+    }
+
+    @Test
+    func `a supports rule holds its rules in one block`() {
+        let rule = W3C.CSS.Rule.at(.init(Supports.not(.declares(All.unset)), [.qualified(.init("to", []))]))
+        #expect(rule.description == "@supports not (all: unset){to{}}")
     }
 }

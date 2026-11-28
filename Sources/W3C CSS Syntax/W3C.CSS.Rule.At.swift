@@ -18,8 +18,11 @@ extension W3C.CSS.Rule {
 extension W3C.CSS.Rule.At {
     /// An at-rule whose prelude is a typed at-rule value, holding rules.
     public init<Prelude: AtRule>(_ prelude: Prelude, _ rules: [W3C.CSS.Rule]) where Prelude.RawValue == String {
-        let text = prelude.rawValue.dropFirst(Prelude.identifier.count + 1).drop(while: { $0 == " " })
-        self.init(Prelude.identifier, String(text), .rules(rules))
+        var text = String(prelude.rawValue.dropFirst(Prelude.identifier.count + 1).drop(while: { $0 == " " }))
+        // Some at-rule values carry an empty block of their own; the rules given here are the block.
+        if text.hasSuffix("{}") { text = String(text.dropLast(2)) }
+        while text.hasSuffix(" ") { text.removeLast() }
+        self.init(Prelude.identifier, text, .rules(rules))
     }
 }
 
